@@ -80,17 +80,7 @@
 				if ($numIpFailed <= $limitIp) {
 				  Yii::$app->session->set('rememberMe', $model->rememberMe);
 				  if ($model->login()) {
-//				  if (true) {
-					// login success
-//					$user_cp = CsmCp::getByUserName($model->username);
-//					Yii::$app->session->set('user_cp', $user_cp);
-//					if ($user_cp) {
-//					  /* @var CsmCp $user_cp */
-//					  $clients = $user_cp->getClients()->all();
-//					if ($clients && count($clients)) {
-//					  Yii::$app->session->set('client_list', $clients);
-//					}
-//					}
+//
 					UserLocked::unlockIp($ip);
 					UserLocked::unlockUsername($username);
 					UserLoginFailed::clearUsername($username);
@@ -220,4 +210,3 @@
 	  }
 
 	}
-	
