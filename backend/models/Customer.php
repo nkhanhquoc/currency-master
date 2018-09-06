@@ -13,7 +13,8 @@ class Customer extends CustomerBase{
   public function attributeLabels() {
       return [
           'name' => 'Tên',
-          'code' => 'Mã Khách hàng'
+          'code' => 'Mã Khách hàng',
+          'note'=>'Ghi chú'
       ];
   }
 }

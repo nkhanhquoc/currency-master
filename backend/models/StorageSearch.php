@@ -18,7 +18,7 @@ class StorageSearch extends Storage
     public function rules()
     {
         return [
-            [['id', 'quantity'], 'integer'],
+            [['id', 'quantity', 'currency_id'], 'integer'],
             [['name'], 'safe'],
         ];
     }
@@ -59,6 +59,7 @@ class StorageSearch extends Storage
         $query->andFilterWhere([
             'id' => $this->id,
             'quantity' => $this->quantity,
+            'currency_id' => $this->currency_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);

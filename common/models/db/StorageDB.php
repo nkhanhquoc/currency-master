@@ -10,6 +10,9 @@ use Yii;
  * @property string $id
  * @property string $name
  * @property integer $quantity
+ * @property string $currency_id
+ *
+ * @property CurrencyDB $currency
  */
 class StorageDB extends \yii\db\ActiveRecord
 {
@@ -27,7 +30,7 @@ class StorageDB extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['quantity'], 'integer'],
+            [['quantity', 'currency_id'], 'integer'],
             [['name'], 'string', 'max' => 255]
         ];
     }
@@ -41,6 +44,15 @@ class StorageDB extends \yii\db\ActiveRecord
             'id' => Yii::t('backend', 'ID'),
             'name' => Yii::t('backend', 'Name'),
             'quantity' => Yii::t('backend', 'Quantity'),
+            'currency_id' => Yii::t('backend', 'Currency ID'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCurrency()
+    {
+        return $this->hasOne(CurrencyDB::className(), ['id' => 'currency_id']);
     }
 }

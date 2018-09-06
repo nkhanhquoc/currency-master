@@ -29,7 +29,16 @@ use awesome\backend\form\AwsActiveForm;
         </div>
         <div class="portlet-body">
             <div class="form-body">
-                    <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+              <?php if($model->isNewRecord):?>
+                <?= $form->field($model, 'currency_id')->dropDownList(
+                    $model->getCurrencyId()
+                  ) ?>
+              <?php else: ?>
+                <?= $form->field($model, 'currency_id')->dropDownList(
+                    $model->getCurrencyId(),['disabled'=>'disabled']
+                  ) ?>
+              <?php endif;?>
+              <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'quantity')->textInput() ?>
 

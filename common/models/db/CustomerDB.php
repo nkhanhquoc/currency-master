@@ -10,6 +10,7 @@ use Yii;
  * @property string $id
  * @property string $name
  * @property string $code
+ * @property string $note
  */
 class CustomerDB extends \yii\db\ActiveRecord
 {
@@ -27,7 +28,8 @@ class CustomerDB extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'code'], 'string', 'max' => 255]
+            [['name', 'code'], 'string', 'max' => 255],
+            [['note'], 'string', 'max' => 1000]
         ];
     }
 
@@ -40,6 +42,7 @@ class CustomerDB extends \yii\db\ActiveRecord
             'id' => Yii::t('backend', 'ID'),
             'name' => Yii::t('backend', 'Name'),
             'code' => Yii::t('backend', 'Code'),
+            'note' => Yii::t('backend', 'Note'),
         ];
     }
 }

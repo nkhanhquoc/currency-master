@@ -1,0 +1,116 @@
+<?php
+use kartik\datetime\DateTimePicker;
+use awesome\backend\widgets\AwsBaseHtml;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Bill */
+/* @var $title string */
+/* @var $form AwsActiveForm */
+?>
+
+<?php  $form = ActiveForm::begin(); ?>
+
+    <div class="portlet light portlet-fit portlet-form bordered bill-form">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-paper-plane font-green"></i>
+                <span class="caption-subject font-green sbold uppercase">
+                <?=  $title ?>
+                </span>
+            </div>
+            <div class="actions">
+                <?=  AwsBaseHtml::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
+                <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
+                        onclick="history.back(-1)">
+                    <i class="fa fa-angle-left"></i> Back
+                </button>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="form-body">
+              <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
+              <div class="row">
+                <div class="col-md-6">
+                  <?= $form->field($model, 'created_date')->widget(DateTimePicker::classname(), [
+                      'language' => 'vi',
+                      'readonly' => true,
+                      'pluginOptions' => [
+                          'autoclose'=>true,
+                      ]
+
+                  ])
+                  ?>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <?= $form->field($model, 'customer_id')->dropDownList(
+                    $model->getAllCustomer()
+                    )?>
+                </div>
+                <div class="col-md-4">
+                  <?= $form->field($model, 'receiver')->textInput()?>
+                </div>
+                <div class="col-md-4">
+                  <?= $form->field($model, 'code')->textInput(['maxlength' => 255]) ?>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <?= $form->field($model, 'note')->textArea(['maxlength' => 255]) ?>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <h3 style="text-align:center">HÓA ĐƠN CHUYỂN TIỀN</h3>
+              </div>
+            <table class="table table-striped table-condensed">
+              <tr>
+                <th>      TT    </th>
+                <th>      Giao dịch    </th>
+                <th>      Loại    </th>
+                <th>      Số Lượng    </th>
+                <th>      Phí    </th>
+                <th></th>
+              </tr>
+              <tr id="tr-sum" style="display:none">
+                <td colspan="5" style="font-weight:bold">
+                  Tổng
+                </td>
+                <td id="sum-value">
+
+                </td>
+              </tr>
+
+            </table>
+            <table class="table">
+              <tr>
+                <td>
+                  <button class="btn btn-primary" onclick="addTransaction();return false;" style="text-align:right"><i class="glyphicon glyphicon-add"></i>Thêm</button>
+                </td>
+              </tr>
+            </table>
+
+
+    <?= $form->field($model, 'value')->textInput() ?>
+
+    <?= $form->field($model, 'customer_type')->textInput() ?>
+
+
+
+    <?= $form->field($model, 'receiver')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'deposit')->textInput() ?>
+
+    <?= $form->field($model, 'fee')->textInput() ?>
+
+
+
+            </div>
+        </div>
+    </div>
+
+<?php ActiveForm::end(); ?>

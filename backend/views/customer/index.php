@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\CustomerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Customers');
+$this->title = Yii::t('backend', 'Khách hàng');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row customer-index">
@@ -25,8 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     </span>
                 </div>
                 <div class="actions">
-                    <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Customer',
+                    <?= Html::a(Yii::t('backend', 'Tạo {modelClass}', [
+    'modelClass' => 'Khách hàng',
 ]),
                         ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
                 </div>
@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="portlet-body">
                 <div class="table-container">
-                    <?php 
+                    <?php
                     Pjax::begin(['formSelector' => 'form', 'enablePushState' => false, 'id' => 'mainGridPjax']);
                     ?>
 
@@ -44,15 +44,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
-                                    'id',
             'name',
             'code',
+            'note',
 
                         ['class' => 'yii\grid\ActionColumn'],
                         ],
                         ]); ?>
-                    
-                    <?php 
+
+                    <?php
                     Pjax::end();
                     ?>
                 </div>

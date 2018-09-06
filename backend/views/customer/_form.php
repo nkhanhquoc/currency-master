@@ -33,6 +33,8 @@ use awesome\backend\form\AwsActiveForm;
 
     <?= $form->field($model, 'code')->textInput(['maxlength' => 255]) ?>
 
+    <?= $form->field($model, 'note')->textArea(['maxlength' => 255]) ?>
+
             </div>
         </div>
     </div>

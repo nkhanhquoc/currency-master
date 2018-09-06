@@ -53,7 +53,6 @@ $this->params['breadcrumbs'][] = $this->title;
                               return number_format($dataProvider->quantity,2);
                             }
                         ],
-
                         ['class' => 'yii\grid\ActionColumn'],
                         ],
                         ]); ?>
