@@ -45414,3 +45414,1865 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1536244148.227
     'REQUEST_TIME' => 1536244148
 ]
+2018-09-06 21:48:02 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 21:48:02 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536252482
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/update?id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '55877'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536245282.703
+    'REQUEST_TIME' => 1536245282
+]
+2018-09-06 21:48:04 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 21:48:03 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536252484
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/update?id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '55866'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536245283.927
+    'REQUEST_TIME' => 1536245283
+]
+2018-09-06 21:59:09 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 21:59:09 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253149
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '57926'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536245949.302
+    'REQUEST_TIME' => 1536245949
+]
+2018-09-06 21:59:14 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 21:59:14 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253154
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '57925'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536245954.692
+    'REQUEST_TIME' => 1536245954
+]
+2018-09-06 21:59:16 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 21:59:16 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253156
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '57925'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536245956.03
+    'REQUEST_TIME' => 1536245956
+]
+2018-09-06 21:59:20 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 21:59:20 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253160
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '57959'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536245960.137
+    'REQUEST_TIME' => 1536245960
+]
+2018-09-06 21:59:50 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 21:59:50 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253190
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '58050'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536245990.214
+    'REQUEST_TIME' => 1536245990
+]
+2018-09-06 21:59:52 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 21:59:52 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253192
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '58048'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536245992.032
+    'REQUEST_TIME' => 1536245992
+]
+2018-09-06 22:00:54 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:00:54 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253254
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '58222'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246054.399
+    'REQUEST_TIME' => 1536246054
+]
+2018-09-06 22:00:55 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:00:55 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253255
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '58221'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246055.436
+    'REQUEST_TIME' => 1536246055
+]
+2018-09-06 22:01:54 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:01:54 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253314
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '58397'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246114.026
+    'REQUEST_TIME' => 1536246114
+]
+2018-09-06 22:01:56 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:01:55 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253316
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '58394'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246115.702
+    'REQUEST_TIME' => 1536246115
+]
+2018-09-06 22:08:45 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'Date' not found' in E:\Duan\QuyetS1\currency-master\backend\views\transfer-currency\_form.php:38
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2018-09-06 22:08:45 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253725
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '59876'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/transfer-currency/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246525.477
+    'REQUEST_TIME' => 1536246525
+]
+2018-09-06 22:09:05 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:09:05 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253745
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '59930'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246545.071
+    'REQUEST_TIME' => 1536246545
+]
+2018-09-06 22:09:25 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:09:25 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253765
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '59995'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246565.602
+    'REQUEST_TIME' => 1536246565
+]
+2018-09-06 22:09:26 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:09:26 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253766
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '59996'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246566.654
+    'REQUEST_TIME' => 1536246566
+]
+2018-09-06 22:09:47 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:09:46 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253787
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '60060'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246586.836
+    'REQUEST_TIME' => 1536246586
+]
+2018-09-06 22:09:48 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:09:48 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253788
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '60061'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246588.4
+    'REQUEST_TIME' => 1536246588
+]
+2018-09-06 22:11:50 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:11:50 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253910
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '60436'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246710.195
+    'REQUEST_TIME' => 1536246710
+]
+2018-09-06 22:11:51 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:11:51 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253911
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '60438'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246711.428
+    'REQUEST_TIME' => 1536246711
+]
+2018-09-06 22:12:17 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:12:17 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253937
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '60512'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246737.18
+    'REQUEST_TIME' => 1536246737
+]
+2018-09-06 22:12:18 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "plugins/ckeditor/ckeditor/ckeditor.js".' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('plugins/ckedito...', Array)
+#1 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'KhÃ´ng tÃ¬m tháº¥y trang.' in E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 E:\Duan\QuyetS1\currency-master\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\Duan\QuyetS1\currency-master\backend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2018-09-06 22:12:18 [127.0.0.1][1][gjlgmotv39q6a0i6gmm0jj3v21][info][application] $_COOKIE = [
+    '_csrf' => '69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\">»’úLm^Å%¶ pjÆš¾µªÍëÑ$,LHt Î\";}'
+    '_ga' => 'GA1.4.1018007527.1536070168'
+    '_gid' => 'GA1.4.1537419527.1536242013'
+    '_cmsIdentity' => '412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a:2:{i:0;s:12:\"_cmsIdentity\";i:1;s:43:\"[1,\"GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf\",1800]\";}'
+    'PHPSESSID' => 'gjlgmotv39q6a0i6gmm0jj3v21'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mcrrb'
+    '__captcha/site/captchacount' => 1
+    'rememberMe' => true
+    'frontend' => ''
+    'category_search' => ''
+    'q' => ''
+    '_csrf' => '3e07957c616c93f37acf4564e9a2d32ad0226297'
+    '__id' => 1
+    '__expire' => 1536253938
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '127.0.0.1:8011'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_REFERER' => 'http://127.0.0.1:8011/transfer-currency/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,vi;q=0.8'
+    'HTTP_COOKIE' => '_csrf=69a5b88a451af804df487f684fc0cd49d00cb6681fe89b81d41bce2f9ebc536fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%3E%05%BB%92%FALm%5E%C5%07%25%B6%A0pj%C6%9A%BE%90%B5%AA%CD%EB%D1%24%11%2CLHt%A0%CE%22%3B%7D; _ga=GA1.4.1018007527.1536070168; _gid=GA1.4.1537419527.1536242013; _cmsIdentity=412c377748389da1b04b51c91bfb4da2f084b17a5f93d7733e30b84124478148a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_cmsIdentity%22%3Bi%3A1%3Bs%3A43%3A%22%5B1%2C%22GVlxMbXE3GiOGQv7E1dWOMNO0pYzgiMf%22%2C1800%5D%22%3B%7D; PHPSESSID=gjlgmotv39q6a0i6gmm0jj3v21'
+    'PATH' => 'G:\\ProgramData\\Oracle\\Java\\javapath;G:\\Windows\\system32;G:\\Windows;G:\\Windows\\System32\\Wbem;G:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;G:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Program Files\\Git\\cmd;G:\\Program Files\\TortoiseSVN\\bin;G:\\Program Files\\nodejs\\;E:\\Duan\\reactnative\\platform-tools;G:\\Program Files\\TortoiseGit\\bin;C:\\xampp\\php;G:\\Program Files\\dotnet\\;G:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;G:\\Program Files\\Intel\\WiFi\\bin\\;G:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\atom\\bin;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Roaming\\npm;G:\\Users\\Nguyen Quoc Khanh\\AppData\\Local\\GitHubDesktop\\bin'
+    'SystemRoot' => 'G:\\Windows'
+    'COMSPEC' => 'G:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'G:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19 Server at 127.0.0.1 Port 8011</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8011'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'E:/Duan/QuyetS1/currency-master/backend/web'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'E:/Duan/QuyetS1/currency-master/backend/web/index.php'
+    'REMOTE_PORT' => '60511'
+    'REDIRECT_URL' => 'http://127.0.0.1:8011/plugins/ckeditor/ckeditor/ckeditor.js'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/plugins/ckeditor/ckeditor/ckeditor.js'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1536246738.039
+    'REQUEST_TIME' => 1536246738
+]

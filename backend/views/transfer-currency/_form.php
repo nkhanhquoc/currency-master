@@ -35,6 +35,9 @@ use yii\widgets\ActiveForm;
                   <?= $form->field($model, 'created_date')->widget(DateTimePicker::classname(), [
                       'language' => 'vi',
                       'readonly' => true,
+                      'options'=>[
+                        'value' => date("Y-m-d H:i:s"), 
+                      ],
                       'pluginOptions' => [
                           'autoclose'=>true,
                       ]
@@ -93,22 +96,6 @@ use yii\widgets\ActiveForm;
                 </td>
               </tr>
             </table>
-
-
-    <?= $form->field($model, 'value')->textInput() ?>
-
-    <?= $form->field($model, 'customer_type')->textInput() ?>
-
-
-
-    <?= $form->field($model, 'receiver')->textInput(['maxlength' => 255]) ?>
-
-    <?= $form->field($model, 'deposit')->textInput() ?>
-
-    <?= $form->field($model, 'fee')->textInput() ?>
-
-
-
             </div>
         </div>
     </div>

@@ -58,6 +58,6 @@ function remakeNumber(){
 }
 
 function removeTrans(object){
-object.parentNode.parentNode.remove();
-remakeNumber();
+		object.parentNode.parentNode.remove();
+		remakeNumber();
 }

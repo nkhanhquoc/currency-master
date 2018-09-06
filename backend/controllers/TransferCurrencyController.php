@@ -63,8 +63,11 @@ class TransferCurrencyController extends Controller
         $model = new Bill();
         $model->type = 4;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())){
+        //   && $model->save()) {
+        // }
+        var_dump(Yii::$app->request->post());die;
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
