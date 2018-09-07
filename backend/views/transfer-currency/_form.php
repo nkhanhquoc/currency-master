@@ -36,7 +36,7 @@ use yii\widgets\ActiveForm;
                       'language' => 'vi',
                       'readonly' => true,
                       'options'=>[
-                        'value' => date("Y-m-d H:i:s"), 
+                        'value' => date("Y-m-d H:i:s"),
                       ],
                       'pluginOptions' => [
                           'autoclose'=>true,
@@ -50,14 +50,17 @@ use yii\widgets\ActiveForm;
               <div class="row">
                 <div class="col-md-4">
                   <?= $form->field($model, 'customer_id')->dropDownList(
-                    $model->getAllCustomer()
+                    $model->getAllCustomer(),
+                    ['prompt'=>'---Chọn Nhà Vàng----',
+                      'onchange'=> new \yii\web\JsExpression('changeBillCode()')                      
+                      ]
                     )?>
                 </div>
                 <div class="col-md-4">
                   <?= $form->field($model, 'receiver')->textInput()?>
                 </div>
                 <div class="col-md-4">
-                  <?= $form->field($model, 'code')->textInput(['maxlength' => 255]) ?>
+                  <?= $form->field($model, 'code')->textInput(['maxlength' => 255,'readonly'=>'readonly','id'=>'bill_code']) ?>
                 </div>
               </div>
               <div class="row">

@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Bill;
+use backend\models\Transaction;
 use backend\models\BillSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -62,11 +63,23 @@ class TransferCurrencyController extends Controller
     {
         $model = new Bill();
         $model->type = 4;
+        $count = Bill::find()->where(['LIKE','code','TC%',false])->count();
+        $model->code = "TC-".date("Ymd")."-xxx-".$count;
 
-        if ($model->load(Yii::$app->request->post())){
-        //   && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
         // }
-        var_dump(Yii::$app->request->post());die;
+            // var_dump(Yii::$app->request->post());die;
+            $params = Yii::$app->request->post();
+            for($i = 0;$i< count($params["trans"]['type']); $i++){
+              $trans = new Transaction();
+              $trans->bill_id = $model->id;
+              $trans->type = $params["trans"]['type'][$i];
+              $trans->currency_id = $params["trans"]['currency_id'][$i];
+              $trans->value =  $params["trans"]['quantity'][$i];
+              $trans->fee =  $params["trans"]['fee'][$i];
+              // $model->fee += 
+              $trans->save();
+            }
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [

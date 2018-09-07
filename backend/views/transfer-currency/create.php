@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <script type="text/javascript">
+var billcode = '<?php echo $model->code ?>';
 var index =0;
 var optionCurrency = "";
 <?php foreach($model->getAllCurrency() as $k => $currency):?>
@@ -47,4 +48,9 @@ trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;">
 trr+= '</td>';
 trr+= '</tr>';
 
+function changeBillCode(){
+  var value = $('#bill-customer_id :selected').text();
+  var newCode = billcode.replace('xxx',value);
+  $('#bill_code').val(newCode);
+}
 </script>
