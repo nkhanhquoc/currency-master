@@ -52,7 +52,7 @@ use yii\widgets\ActiveForm;
                   <?= $form->field($model, 'customer_id')->dropDownList(
                     $model->getAllCustomer(),
                     ['prompt'=>'---Chọn Nhà Vàng----',
-                      'onchange'=> new \yii\web\JsExpression('changeBillCode()')                      
+                      'onchange'=> new \yii\web\JsExpression('changeBillCode()')
                       ]
                     )?>
                 </div>
@@ -75,12 +75,12 @@ use yii\widgets\ActiveForm;
               </div>
             <table class="table table-striped table-condensed">
               <tr>
-                <th>      TT    </th>
-                <th>      Giao dịch    </th>
-                <th>      Loại    </th>
-                <th>      Số Lượng    </th>
-                <th>      Phí    </th>
-                <th></th>
+                <th class="text-center">      TT    </th>
+                <th class="text-center">      Giao dịch    </th>
+                <th class="text-center">      Loại    </th>
+                <th class="text-center">      Số Lượng    </th>
+                <th class="text-center">      Phí    </th>
+                <th class="text-center"></th>
               </tr>
               <tr id="tr-sum" style="display:none">
                 <td colspan="5" style="font-weight:bold">

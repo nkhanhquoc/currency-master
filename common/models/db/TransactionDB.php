@@ -16,6 +16,9 @@ use Yii;
  * @property string $created_time
  * @property string $receiver
  * @property double $fee
+ * @property double $deposit
+ * @property double $exchange_rate
+ * @property string $note
  *
  * @property CurrencyDB $currency
  */
@@ -37,8 +40,8 @@ class TransactionDB extends \yii\db\ActiveRecord
         return [
             [['bill_id', 'type', 'currency_id'], 'integer'],
             [['created_time'], 'safe'],
-            [['quantity', 'receiver'], 'string', 'max' => 255],
-            [['value', 'fee'], 'string', 'max' => 10]
+            [['quantity', 'receiver', 'note'], 'string', 'max' => 255],
+            [['value', 'fee', 'deposit', 'exchange_rate'], 'string', 'max' => 10]
         ];
     }
 
@@ -57,6 +60,9 @@ class TransactionDB extends \yii\db\ActiveRecord
             'created_time' => Yii::t('backend', 'Created Time'),
             'receiver' => Yii::t('backend', 'Receiver'),
             'fee' => Yii::t('backend', 'Fee'),
+            'deposit' => Yii::t('backend', 'Deposit'),
+            'exchange_rate' => Yii::t('backend', 'Exchange Rate'),
+            'note' => Yii::t('backend', 'Note'),
         ];
     }
 

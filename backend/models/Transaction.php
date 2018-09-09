@@ -6,10 +6,22 @@ use common\models\TransactionBase;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
 use yii\helpers\FileHelper;
-use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 class Transaction extends TransactionBase{
-  public function afterSave($insert,$changedAttributes){
+
+  public function behaviors() {
+      return [
+        [
+            'class' => TimestampBehavior::className(),
+            'createdAtAttribute' => 'created_time',
+            'updatedAtAttribute' => false,
+            'value' => new Expression('NOW()'),
+        ],
+      ];
+  }
+
+  public function customAfterSave($insert){
     parent::afterSave($insert, $changedAttributes);
     if($insert){
       $storage = Storage::findOne(['currency_id'=>$this->currency_id]);
@@ -27,7 +39,7 @@ class Transaction extends TransactionBase{
       $storage->save();
     } else {//update
       if($this->type == 3){
-        
+
       } else {
 
       }

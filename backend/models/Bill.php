@@ -55,5 +55,12 @@ class Bill extends BillBase{
     return $list;
   }
 
+  public static function countTypeBillInDay($type){
+    $query = Bill::find()->where(['type'=>$type])
+    ->andWhere(['>=','created_date',date("Y-m-d")])
+    ->count();
+    return $query;
+  }
+
 
 }

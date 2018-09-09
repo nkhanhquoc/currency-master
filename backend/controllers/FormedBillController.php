@@ -4,7 +4,8 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Bill;
-use backend\models\BillSearch;
+use backend\models\Transaction;
+use backend\models\FormedBillSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -32,7 +33,7 @@ class FormedBillController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new BillSearch();
+        $searchModel = new FormedBillSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -61,8 +62,22 @@ class FormedBillController extends Controller
     public function actionCreate()
     {
         $model = new Bill();
+        $model->type = 2;
+        $count = Bill::countTypeBillInDay(2);
+        $model->code = "HDC-".date("Ymd")."-xxx-".$count;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+          $params = Yii::$app->request->post();
+          for($i = 0;$i< count($params["trans"]['type']); $i++){
+            $trans = new Transaction();
+            $trans->bill_id = $model->id;
+            $trans->type = $params["trans"]['type'][$i];
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
+            $trans->value =  $params["trans"]['quantity'][$i];
+            $trans->exchange_rate =  $params["trans"]['exchange_rate'][$i];
+            // $model->fee +=
+            $trans->save();
+          }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

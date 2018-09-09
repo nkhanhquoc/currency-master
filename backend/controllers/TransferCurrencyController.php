@@ -63,7 +63,7 @@ class TransferCurrencyController extends Controller
     {
         $model = new Bill();
         $model->type = 4;
-        $count = Bill::find()->where(['LIKE','code','TC%',false])->count();
+        $count = Bill::countTypeBillInDay(4);
         $model->code = "TC-".date("Ymd")."-xxx-".$count;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -75,10 +75,11 @@ class TransferCurrencyController extends Controller
               $trans->bill_id = $model->id;
               $trans->type = $params["trans"]['type'][$i];
               $trans->currency_id = $params["trans"]['currency_id'][$i];
-              $trans->value =  $params["trans"]['quantity'][$i];
+              $trans->quantity =  $params["trans"]['quantity'][$i];
               $trans->fee =  $params["trans"]['fee'][$i];
-              // $model->fee += 
+              // $model->fee +=
               $trans->save();
+              $trans->customAfterSave(true);//cap nhat lai kho
             }
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
@@ -97,6 +98,9 @@ class TransferCurrencyController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        return $this->render('update', [
+            'model' => $model,
+        ]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
