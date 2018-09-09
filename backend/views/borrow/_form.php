@@ -75,7 +75,7 @@ use yii\widgets\ActiveForm;
                         <th class="text-center">      Giao dịch    </th>
                         <th class="text-center">      Loại Tiền   </th>
                         <th class="text-center">      Số Lượng    </th>
-                        <th class="text-center">      Đơn giá    </th>
+                        <th class="text-center">      Đặt cọc    </th>
                         <th class="text-center"></th>
                       </tr>
                       <tr id="tr-sum" style="display:none">

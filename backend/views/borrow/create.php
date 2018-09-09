@@ -42,7 +42,7 @@ trr+= '<td>';
 trr+= '<input name="trans[quantity][]" type="number" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[deposit[]" type="number" min="0" class="form-control"/>';
+trr+= '<input name="trans[deposit][]" type="number" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';
