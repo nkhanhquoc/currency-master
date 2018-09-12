@@ -5,7 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Bill;
 use backend\models\Transaction;
-use backend\models\BillSearch;
+use backend\models\TransferSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -33,7 +33,7 @@ class TransferCurrencyController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new BillSearch();
+        $searchModel = new TransferSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

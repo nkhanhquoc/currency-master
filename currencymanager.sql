@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-09-09 16:41:17
+Date: 2018-09-12 16:58:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -527,18 +527,22 @@ CREATE TABLE `bill` (
   `deposit` double(10,2) DEFAULT NULL COMMENT 'tien dat coc',
   `fee` double(10,2) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
+  `is_export` int(1) DEFAULT '0' COMMENT '1. da xuat hoa don, 0. chua xuat',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of bill
 -- ----------------------------
-INSERT INTO `bill` VALUES ('4', '4', 'TC-20180908-NV1-0', '1', null, null, '', 'Cường', null, null, '2018-09-08 01:03:47');
-INSERT INTO `bill` VALUES ('7', '5', 'VM-20180909-NV1-0', '1', null, null, '', null, null, null, '2018-09-09 15:28:56');
-INSERT INTO `bill` VALUES ('9', '2', 'HDC-20180909-NV1-0', '1', null, null, '1213', null, null, null, '2018-09-09 16:25:00');
-INSERT INTO `bill` VALUES ('10', '2', 'HDC-20180909-NV1-1', '1', null, null, '2323', null, null, null, '2018-09-09 16:25:33');
-INSERT INTO `bill` VALUES ('11', '2', 'HDC-20180909-NV2-2', '2', null, null, 'sdfdfsd', null, null, null, '2018-09-09 16:30:24');
-INSERT INTO `bill` VALUES ('12', '2', 'HDC-20180909-NV2-2', '2', null, null, 'sdfdfsd', null, null, null, '2018-09-09 16:30:44');
+INSERT INTO `bill` VALUES ('4', '4', 'TC-20180908-NV1-0', '1', null, null, '', 'Cường', null, null, '2018-09-08 01:03:47', '0');
+INSERT INTO `bill` VALUES ('7', '5', 'VM-20180909-NV1-0', '1', null, null, '', null, null, null, '2018-09-09 15:28:56', '0');
+INSERT INTO `bill` VALUES ('9', '2', 'HDC-20180909-NV1-0', '1', null, null, '1213', null, null, null, '2018-09-09 16:25:00', '0');
+INSERT INTO `bill` VALUES ('10', '2', 'HDC-20180909-NV1-1', '1', null, null, '2323', null, null, null, '2018-09-09 16:25:33', '0');
+INSERT INTO `bill` VALUES ('11', '2', 'HDC-20180909-NV2-2', '2', null, null, 'sdfdfsd', null, null, null, '2018-09-09 16:30:24', '0');
+INSERT INTO `bill` VALUES ('12', '2', 'HDC-20180909-NV2-2', '2', null, null, 'sdfdfsd', null, null, null, '2018-09-09 16:30:44', '0');
+INSERT INTO `bill` VALUES ('13', '4', 'TC-20180911-xxx-0', null, null, null, '', '', null, null, '2018-09-11 12:20:23', '0');
+INSERT INTO `bill` VALUES ('14', '4', 'TC-20180912-NV1-0', '1', null, null, 'abc', 'Huy', null, null, '2018-09-12 14:34:44', '0');
+INSERT INTO `bill` VALUES ('15', '4', 'TC-20180912-NV2-1', '2', null, null, 'adfsdfdddd', 'abcss', null, null, '2018-09-12 16:51:24', '1');
 
 -- ----------------------------
 -- Table structure for contact
@@ -706,7 +710,7 @@ DROP TABLE IF EXISTS `transaction`;
 CREATE TABLE `transaction` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `bill_id` bigint(20) DEFAULT NULL,
-  `type` int(1) DEFAULT NULL COMMENT '1. Mua 2. Ban 3. Nhan tien chuyen, 4. Tra tien chuyen, 5. Vay, 6. Cho vay',
+  `type` int(1) DEFAULT NULL COMMENT '1. Mua 2. Ban 3. Nhan tien chuyen, 4. Tra tien chuyen, 5. Vay, 6. Cho vay, 7. Tra ngoai te, 8. Lay ngoai te, 9.Tra VND, 10. Lay VND',
   `currency_id` bigint(20) DEFAULT NULL,
   `quantity` varchar(255) DEFAULT NULL,
   `value` double(10,2) DEFAULT NULL,
@@ -718,19 +722,16 @@ CREATE TABLE `transaction` (
   `note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `transaction_currency_idx` (`currency_id`),
-  CONSTRAINT `transaction_currency_idx` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+  KEY `transaction_bill` (`bill_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of transaction
 -- ----------------------------
-INSERT INTO `transaction` VALUES ('1', '3', '3', '2', '100', null, null, null, '1.00', null, null, null);
-INSERT INTO `transaction` VALUES ('2', '3', '3', '3', '200', null, null, null, '1.00', null, null, null);
-INSERT INTO `transaction` VALUES ('3', '4', '3', '2', null, '150.00', null, null, '10.00', null, null, null);
-INSERT INTO `transaction` VALUES ('4', '7', '6', '1', null, '10000000.00', null, null, null, null, null, null);
-INSERT INTO `transaction` VALUES ('5', '9', '2', '2', null, '100.00', null, null, '0.00', null, '23500.00', null);
-INSERT INTO `transaction` VALUES ('6', '10', '2', '3', null, '1000.00', null, null, '0.00', null, '15500.00', null);
-INSERT INTO `transaction` VALUES ('7', '12', '2', '3', null, '500000.00', '2018-09-09 16:30:45', null, '0.00', null, '25000.00', null);
+INSERT INTO `transaction` VALUES ('9', '15', '3', '3', '10000', null, '2018-09-12 14:59:14', null, '200.00', null, null, '123');
+INSERT INTO `transaction` VALUES ('10', '0', '3', '3', '1', null, '2018-09-12 15:26:25', null, '20.00', null, null, '123');
+INSERT INTO `transaction` VALUES ('11', '0', '3', '3', '1', null, '2018-09-12 15:28:27', null, '20.00', null, null, '0');
+INSERT INTO `transaction` VALUES ('12', '0', '3', '3', '1', null, '2018-09-12 15:28:44', null, '20.00', null, null, '123');
 
 -- ----------------------------
 -- Table structure for user
