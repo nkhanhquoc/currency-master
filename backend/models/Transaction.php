@@ -46,4 +46,11 @@ class Transaction extends TransactionBase{
     }
 
   }
+
+  public function getAllTransferType(){
+    return [
+      '3' => 'Nhận tiền chuyển',
+      '4' => 'Trả tiền chuyển'
+    ];
+  }
 }

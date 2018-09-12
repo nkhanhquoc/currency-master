@@ -27,7 +27,12 @@ var optionCurrency = "";
 <?php foreach($model->getAllCurrency() as $k => $currency):?>
   optionCurrency += '<option value="<?php echo $k?>"><?php echo $currency?></option>';
 <?php endforeach;?>
-var trr = '<tr class="form-group"><td name="trr-index"></td>';
+var trr = '<tr class="form-group">';
+trr+= '<td style="display:none"><input type="hidden" name="trans[id][]"/></td>';
+trr+= '<td name="trr-index"></td>';
+trr+= '<td>';
+trr+= '<input name="trans[note][]" type="text" class="form-control"/>';
+trr+= '</td>';
 trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="3">Nhận tiền chuyển</option>';

@@ -62,5 +62,16 @@ class Bill extends BillBase{
     return $query;
   }
 
+  public function clearTrans(){
+    $trans = Transaction::find()->where(['bill_id'=>$this->id])->all();
+    foreach($trans as $k=>$tran){
+      try{
+        $tran->bill_id = '0';
+        $tran->save(false);
+      }catch(Exception $e){
+      }
+    }
+  }
+
 
 }

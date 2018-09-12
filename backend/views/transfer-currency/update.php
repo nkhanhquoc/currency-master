@@ -17,7 +17,8 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
 
     <?= $this->render('_form', [
         'model' => $model,
-        'title' => $this->title
+        'title' => $this->title,
+        'trans'=>$trans
     ]) ?>
 
     </div>
@@ -28,21 +29,26 @@ var optionCurrency = "";
 <?php foreach($model->getAllCurrency() as $k => $currency):?>
   optionCurrency += '<option value="<?php echo $k?>"><?php echo $currency?></option>';
 <?php endforeach;?>
-var trr = '<tr class="form-group"><td name="trr-index"></td>';
+var trr = '<tr class="form-group">';
+trr+= '<td style="display:none"><input type="hidden" name="trans[id][]"/></td>';
+trr+= '<td name="trr-index"></td>';
 trr+= '<td>';
-trr+=   '<select name="trans[type]" class="form-control"> ';
+trr+= '<input name="trans[note][]" type="text" class="form-control"/>';
+trr+= '</td>';
+trr+= '<td>';
+trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="3">Nhận tiền chuyển</option>';
 trr+=     '<option value="4">Trả tiền chuyển</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';
-trr+= '<select name="trans[currency_id]" class="form-control">'+optionCurrency+'</select>';
+trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency+'</select>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[quantity]" type="number" min="0" class="form-control"/>';
+trr+= '<input name="trans[quantity][]" type="number" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[fee]" type="number" min="0" class="form-control"/>';
+trr+= '<input name="trans[fee][]" type="number" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';
