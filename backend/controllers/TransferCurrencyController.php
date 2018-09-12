@@ -99,11 +99,12 @@ class TransferCurrencyController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if($model->is_export == 1){
-          Yii::$app->session->setFlash("error","Hóa đơn đã xuất không thể sửa được");
-          return $this->redirect(['index']);
-        }
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+          if($model->is_export == 1){
+            Yii::$app->session->setFlash("error","Hóa đơn đã xuất không thể sửa được");
+            return $this->redirect(['index']);
+          }
             $model->clearTrans();
             $params = Yii::$app->request->post();
             for($i = 0;$i< count($params["trans"]['type']); $i++){

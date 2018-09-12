@@ -137,6 +137,16 @@ use yii\widgets\ActiveForm;
             </table>
             </div>
         </div>
+        <div class="actions">
+            <?=  AwsBaseHtml::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
+            <?php if(!$model->isNewRecord):?>
+            <?=  AwsBaseHtml::submitButton(Yii::t('backend', 'Xuất hóa đơn'), ['class' => 'btn btn-outline btn-circle btn-sm btn-primary']) ?>
+          <?php endif;?>
+            <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
+                    onclick="history.back(-1)">
+                <i class="fa fa-angle-left"></i> Back
+            </button>
+        </div>
     </div>
 
 <?php ActiveForm::end(); ?>
