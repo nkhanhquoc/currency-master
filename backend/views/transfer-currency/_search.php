@@ -17,7 +17,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer()) ?>
+    <?= $form->field($model, 'customer_id')->dropDownList(
+      $model->getAllCustomer(),
+      [
+        'prompt' => "---Nhà vàng---"
+      ]
+      ) ?>
 
 
     <?php // echo $form->field($model, 'customer_type') ?>
@@ -28,7 +33,12 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'deposit') ?>
 
-    <?php // echo $form->field($model, 'fee') ?>
+    <?php echo $form->field($model, 'is_export')->dropDownList(
+      $model->filterIsExport(),
+      [
+        'prompt' => "---Trạng thái hóa đơn---"
+      ]
+      ) ?>
 
     <?php // echo $form->field($model, 'created_date') ?>
 

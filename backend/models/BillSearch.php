@@ -18,7 +18,7 @@ class BillSearch extends Bill
     public function rules()
     {
         return [
-            [['id', 'type', 'customer_id', 'customer_type'], 'integer'],
+            [['id', 'type', 'customer_id', 'customer_type','is_export'], 'integer'],
             [['code', 'value', 'note', 'receiver', 'deposit', 'fee', 'created_date'], 'safe'],
         ];
     }
@@ -60,6 +60,7 @@ class BillSearch extends Bill
             'id' => $this->id,
             'type' => $this->type,
             'customer_id' => $this->customer_id,
+            'is_export' => $this->is_export,
             'customer_type' => $this->customer_type,
             'created_date' => $this->created_date,
         ]);
@@ -72,5 +73,12 @@ class BillSearch extends Bill
             ->andFilterWhere(['like', 'fee', $this->fee]);
 
         return $dataProvider;
+    }
+
+    public function filterIsExport(){
+      return [
+        0 => "Chưa xuất",
+        1 => "Đã xuất"
+      ];
     }
 }
