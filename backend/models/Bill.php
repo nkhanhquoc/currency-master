@@ -29,7 +29,8 @@ class Bill extends BillBase{
           'value' => 'Giá trị',
           'note'=> 'Ghi chú',
           'receiver' => 'Người nhận',
-          'created_date' => 'Thời gian lập'
+          'created_date' => 'Thời gian lập',
+          'is_export' => 'Trạng thái'
       ];
   }
 

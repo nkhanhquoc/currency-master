@@ -18,6 +18,7 @@ use Yii;
  * @property double $deposit
  * @property double $fee
  * @property string $created_date
+ * @property integer $is_export
  */
 class BillDB extends \yii\db\ActiveRecord
 {
@@ -35,7 +36,7 @@ class BillDB extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type', 'customer_id', 'customer_type'], 'integer'],
+            [['type', 'customer_id', 'customer_type', 'is_export'], 'integer'],
             [['created_date'], 'safe'],
             [['code', 'note', 'receiver'], 'string', 'max' => 255],
             [['value', 'deposit', 'fee'], 'string', 'max' => 10]
@@ -59,6 +60,7 @@ class BillDB extends \yii\db\ActiveRecord
             'deposit' => Yii::t('backend', 'Deposit'),
             'fee' => Yii::t('backend', 'Fee'),
             'created_date' => Yii::t('backend', 'Created Date'),
+            'is_export' => Yii::t('backend', 'Is Export'),
         ];
     }
 }

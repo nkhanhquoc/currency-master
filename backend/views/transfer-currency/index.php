@@ -52,6 +52,19 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'receiver',
             // 'deposit',
             'fee',
+            [
+              'attribute' => 'is_export',
+              'format' => 'raw', //raw, html
+              'content' => function($dataProvider) {
+                $text = "";
+                switch($dataProvider['is_export']){
+                  case 0: $text = "Chưa xuất";break;
+                  case 1: $text = "Đã xuất";break;
+                  default: break;
+                };
+                return $text;
+              }
+            ],
             'created_date',
 
                         ['class' => 'yii\grid\ActionColumn','template' => '{view} {update}'],

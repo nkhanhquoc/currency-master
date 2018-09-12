@@ -99,11 +99,12 @@ class TransferCurrencyController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-
+        if($model->is_export == 1){
+          Yii::$app->session->setFlash("error","Hóa đơn đã xuất không thể sửa được");
+          return $this->redirect(['index']);
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->clearTrans();
-
             $params = Yii::$app->request->post();
             for($i = 0;$i< count($params["trans"]['type']); $i++){
               if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
@@ -128,6 +129,17 @@ class TransferCurrencyController extends Controller
             'model' => $model,
             'trans' => $trans
         ]);
+    }
+
+    public function executeExport($id){
+      $model = $this->findModel($id);
+      $model->is_export = 1;
+      try{
+        $model->save();
+      }catch(Exception $e){
+        Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+      }
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
     }
 
     /**
