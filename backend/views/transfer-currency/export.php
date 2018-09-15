@@ -40,34 +40,34 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
               <div class="form-body">
                 <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
                 <div class="row">
-                  <div class="col-md-6 ">
-                    <div class="input-group">
+                  <div class="col-md-12">
+                    <div class="input-group" >
                       <span class="input-group-addon">Ngày lập Hóa đơn:</span>
                       <input value="<?= $model->created_date ?>" disabled="disabled" type="text" class="form-control">
-                    </div>
+                    <!-- </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="input-group">
+                  <div class="col-md-6" style="width:50%">
+                    <div class="input-group"> -->
                       <span class="input-group-addon">Mã hóa đơn:</span>
                       <input value="<?= $model->code ?>" disabled="disabled" type="text" class="form-control">
                     </div>
                   </div>
                 </div>
                 <div class="row" style="padding-top:15px">
-                  <div class="col-sm-6 col-md-6">
+                  <div class="col-md-12">
                     <div class="input-group">
                       <span class="input-group-addon">Khách hàng:</span>
                       <input value="<?= $model->getCustomer() ?>" disabled="disabled" type="text" class="form-control">
-                    </div>
+                    <!-- </div>
                   </div>
                   <div class="col-sm-6 col-md-6">
-                    <div class="input-group">
+                    <div class="input-group"> -->
                       <span class="input-group-addon">Người nhận:</span>
                       <input value="<?= $model->receiver ?>" disabled="disabled" type="text" class="form-control">
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row"  style="padding-top:15px">
                   <div class="col-md-12">
                     <div class="input-group">
                       <span class="input-group-addon">Ghi chú:</span>
@@ -145,7 +145,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
           </div>
           <div class="actions">
 
-              <span onclick="printBill('bill-content')" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</span>
+              <span onclick="printBill('bill-content')" class="btn btn-outline btn-circle btn-sm btn-primary">In hóa đơn</span>
               <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
                       onclick="history.back(-1)">
                   <i class="fa fa-angle-left"></i> Back

@@ -63,12 +63,10 @@ function removeTrans(object){
 }
 
 function printBill(id){
-	$('[name^="hide-on-print"]').hide();
-	$('[name^="show-on-print"]').show();
 	$('#'+id).printThis({
 		importCSS: true,
 		importStyle: true,
-		loadCSS: '../../plugins/bootstrap/css/bootstrap.min.css',
+		loadCSS: 'http://127.0.0.1:8000/plugins/bootstrap/css/bootstrap.min.css',
 		printContainer: true,
 		removeInline: false,
 		formValues: true
