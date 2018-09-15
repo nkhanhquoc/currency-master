@@ -39,43 +39,67 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
           <div class="portlet-body" id="bill-content">
               <div class="form-body">
                 <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="input-group" >
-                      <span class="input-group-addon">Ngày lập Hóa đơn:</span>
-                      <input value="<?= $model->created_date ?>" disabled="disabled" type="text" class="form-control">
-                    <!-- </div>
-                  </div>
-                  <div class="col-md-6" style="width:50%">
-                    <div class="input-group"> -->
-                      <span class="input-group-addon">Mã hóa đơn:</span>
-                      <input value="<?= $model->code ?>" disabled="disabled" type="text" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                <div class="row" style="padding-top:15px">
-                  <div class="col-md-12">
-                    <div class="input-group">
-                      <span class="input-group-addon">Khách hàng:</span>
-                      <input value="<?= $model->getCustomer() ?>" disabled="disabled" type="text" class="form-control">
-                    <!-- </div>
-                  </div>
-                  <div class="col-sm-6 col-md-6">
-                    <div class="input-group"> -->
-                      <span class="input-group-addon">Người nhận:</span>
-                      <input value="<?= $model->receiver ?>" disabled="disabled" type="text" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                <div class="row"  style="padding-top:15px">
-                  <div class="col-md-12">
-                    <div class="input-group">
-                      <span class="input-group-addon">Ghi chú:</span>
-                      <input value="<?= $model->note ?>" disabled="disabled" type="text" class="form-control">
-                    </div>
-                  </div>
-                </div>
+                <table class="table" style="margin-bottom:0px">
+                  <tr class="no-border">
+                    <td style="width:50%">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group" >
+                              <span class="input-group-addon">Ngày lập Hóa đơn:</span>
+                              <input value="<?= $model->created_date ?>" disabled="disabled" type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group" >
+                            <span class="input-group-addon">Mã hóa đơn:</span>
+                            <input value="<?= $model->code ?>" disabled="disabled" type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="no-border">
+                    <td>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group">
+                            <span class="input-group-addon">Khách hàng:</span>
+                            <input value="<?= $model->getCustomer() ?>" disabled="disabled" type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group">
+                            <span class="input-group-addon">Người nhận:</span>
+                            <input value="<?= $model->receiver ?>" disabled="disabled" type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
 
+                </table>
+                <table class="table">
+                  <tr class="no-border">
+                    <td>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group">
+                            <span class="input-group-addon">Ghi chú:</span>
+                            <input value="<?= $model->note ?>" disabled="disabled" type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
 
                 <div class="row">
                   <h3 style="text-align:center">HÓA ĐƠN CHUYỂN TIỀN</h3>
