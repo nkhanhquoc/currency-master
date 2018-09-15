@@ -61,3 +61,18 @@ function removeTrans(object){
 		object.parentNode.parentNode.remove();
 		remakeNumber();
 }
+
+function printBill(id){
+	$('[name^="hide-on-print"]').hide();
+	$('[name^="show-on-print"]').show();
+	$('#'+id).printThis({
+		importCSS: false,
+		importStyle: false,
+		loadCSS: './../plugins/bootstrap/css/bootstrap.min.css',
+		printContainer: false,
+		removeInline: false,
+		pageTitle: "Hóa Đơn",
+		formValues: false
+	});
+	// $('[name^="show-on-print"]').hide();
+}

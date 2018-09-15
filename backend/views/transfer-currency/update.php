@@ -50,7 +50,7 @@ trr+= '</td>';
 trr+= '<td>';
 trr+= '<input name="trans[fee][]" type="number" min="0" class="form-control"/>';
 trr+= '</td>';
-trr+= '<td>';
+trr+= '<td name="hide-on-print">';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';
 trr+= '</td>';
 trr+= '</tr>';

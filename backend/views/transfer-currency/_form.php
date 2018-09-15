@@ -20,14 +20,16 @@ use yii\widgets\ActiveForm;
                 </span>
             </div>
             <div class="actions">
+              <?php if(!$model->is_export):?>
                 <?=  AwsBaseHtml::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
+              <?php endif; ?>
                 <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
                         onclick="history.back(-1)">
                     <i class="fa fa-angle-left"></i> Back
                 </button>
             </div>
         </div>
-        <div class="portlet-body">
+        <div class="portlet-body" id="bill-content">
             <div class="form-body">
               <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
               <div class="row">
@@ -41,7 +43,6 @@ use yii\widgets\ActiveForm;
                       'pluginOptions' => [
                           'autoclose'=>true,
                       ]
-
                   ])
                   ?>
                 </div>
@@ -113,9 +114,11 @@ use yii\widgets\ActiveForm;
                   <td>
                     <input name="trans[fee][]" value="<?= $tran->fee ?>" type="number" min="0" class="form-control"/>
                   </td>
-                  <td>
+                  <?php if(!$model->is_export):?>
+                  <td name="hide-on-print">
                     <button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>
                   </td>
+                <?php endif;?>
                 </tr>
               <?php endforeach;?>
               <tr id="tr-sum" style="display:none">
@@ -128,19 +131,35 @@ use yii\widgets\ActiveForm;
               </tr>
 
             </table>
-            <table class="table">
+            <?php if(!$model->is_export):?>
+            <table class="table" name="hide-on-print">
               <tr>
                 <td>
                   <button class="btn btn-primary" onclick="addTransaction();return false;" style="text-align:right"><i class="glyphicon glyphicon-add"></i>Thêm</button>
                 </td>
               </tr>
             </table>
+          <?php endif;?>
+            <table name="show-on-print" class="table" style="display:none">
+              <tr>
+                <td class="text-center font-weight-bold">
+                  Người chi
+                </td>
+                <td class="text-center font-weight-bold">
+                  Người lập
+                </td>
+              </tr>
+            </table>
             </div>
+
         </div>
         <div class="actions">
+          <?php if(!$model->is_export):?>
             <?=  AwsBaseHtml::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
+          <?php endif;?>
+
             <?php if(!$model->isNewRecord):?>
-            <?=  AwsBaseHtml::submitButton(Yii::t('backend', 'Xuất hóa đơn'), ['class' => 'btn btn-outline btn-circle btn-sm btn-primary']) ?>
+            <a href="/transfer-currency/export?id=<?= $model->id ?>" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
           <?php endif;?>
             <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
                     onclick="history.back(-1)">

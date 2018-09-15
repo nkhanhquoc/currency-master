@@ -109,7 +109,6 @@ class TransferCurrencyController extends Controller
             $params = Yii::$app->request->post();
             for($i = 0;$i< count($params["trans"]['type']); $i++){
               if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
-
                 $transaction = Transaction::findOne($params["trans"]['id'][$i]);
               } else {
                 $transaction = new Transaction();
@@ -141,6 +140,10 @@ class TransferCurrencyController extends Controller
         Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
       }
       $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+      return $this->render('export', [
+          'model' => $model,
+          'trans' => $trans
+      ]);
     }
 
     /**
