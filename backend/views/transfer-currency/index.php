@@ -67,13 +67,24 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'created_date',
 
-                        ['class' => 'yii\grid\ActionColumn','template' => '{view} {update}'],
+                        [
+                          'class' => 'yii\grid\ActionColumn',
+                          'template' => '{update} {export}',
+                          'buttons' => [
+                            'update' => function($url, $model){
+                              return $model->is_export === 0 ? Html::a('<span class="glyphicon glyphicon-pencil"></span>',$url) :'';
+                            },
+                            'export' => function($url,$model){
+                              return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/transfer-currency/export?id='.$model->id) :'';
+                            }
+                          ]
                         ],
-                        ]); ?>
+              ],
+            ]); ?>
 
-                    <?php
-                    Pjax::end();
-                    ?>
+              <?php
+              Pjax::end();
+              ?>
                 </div>
             </div>
         </div>
