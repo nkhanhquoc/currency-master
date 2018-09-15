@@ -131,7 +131,7 @@ class TransferCurrencyController extends Controller
         ]);
     }
 
-    public function executeExport($id){
+    public function actionExport($id){
       $model = $this->findModel($id);
       $model->is_export = 1;
       try{

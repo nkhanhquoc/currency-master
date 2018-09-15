@@ -66,13 +66,12 @@ function printBill(id){
 	$('[name^="hide-on-print"]').hide();
 	$('[name^="show-on-print"]').show();
 	$('#'+id).printThis({
-		importCSS: false,
-		importStyle: false,
-		loadCSS: './../plugins/bootstrap/css/bootstrap.min.css',
-		printContainer: false,
+		importCSS: true,
+		importStyle: true,
+		loadCSS: '../../plugins/bootstrap/css/bootstrap.min.css',
+		printContainer: true,
 		removeInline: false,
-		pageTitle: "Hóa Đơn",
-		formValues: false
+		formValues: true
 	});
 	// $('[name^="show-on-print"]').hide();
 }

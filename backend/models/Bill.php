@@ -74,5 +74,11 @@ class Bill extends BillBase{
     }
   }
 
+  public function getCustomer(){
+    $cus = Customer::findOne($this->customer_id);
+
+    return $cus != null ? $cus->name:'';
+  }
+
 
 }
