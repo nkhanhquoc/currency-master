@@ -85,3 +85,8 @@ function preview(){
 	var html = $('#bill-content').html();
 	$('#preview-content').html(html);
 }
+
+function changeTransValue(object){
+	console.log("abc");
+	console.log(object);
+}
