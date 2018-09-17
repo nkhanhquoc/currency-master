@@ -41,6 +41,13 @@ $(document).ready(function () {
 
 });
 
+
+function changeBillCode(){
+  var value = $('#bill-customer_id :selected').text();
+  billcode[2] = value;
+  $('#bill_code').val(billcode.join('-'));
+}
+
 function addTransaction(){
 	// index += 1;
 	// var tr = trr.replace('<td name="trr-index"></td>','<td name="trr-index">'+index+'</td>')
@@ -72,4 +79,9 @@ function printBill(id){
 		formValues: true
 	});
 	// $('[name^="show-on-print"]').hide();
+}
+
+function preview(){
+	var html = $('#bill-content').html();
+	$('#preview-content').html(html);
 }

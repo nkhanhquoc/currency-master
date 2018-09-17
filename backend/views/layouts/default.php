@@ -30,6 +30,7 @@ DefaultAsset::register($this);
     </head>
 
     <body class="">
+      
         <div id="page-loading">
             <img src="/img/ajax-loading2.gif" />
         </div>
@@ -46,6 +47,7 @@ DefaultAsset::register($this);
             <div class="lock-body">
                 <?= $content ?>
             </div>
+
             <div class="lock-bottom">
                 <?=
                 AwsAlertToast::widget([

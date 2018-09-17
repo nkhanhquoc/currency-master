@@ -28,6 +28,9 @@ var optionCurrency = "";
 <?php endforeach;?>
 var trr = '<tr class="form-group"><td name="trr-index"></td>';
 trr+= '<td>';
+trr+= '<input name="trans[note][]" type="text" class="form-control"/>';
+trr+= '</td>';
+trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="1">Mua</option>';
 trr+=     '<option value="2">Bán</option>';

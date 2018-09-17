@@ -75,6 +75,7 @@ class FormedBillController extends Controller
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->value =  $params["trans"]['quantity'][$i];
             $trans->exchange_rate =  $params["trans"]['exchange_rate'][$i];
+            $trans->note = $params["trans"]['note'][$i];
             // $model->fee +=
             $trans->save();
           }

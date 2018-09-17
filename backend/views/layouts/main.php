@@ -55,7 +55,7 @@ AppAsset::register($this);
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
                         <a class="text-logo logo-default" href="/">
-                            PETSHOP <span>CMS</span>
+                            CURRENCY <span>CMS</span>
                         </a>
                         <div class="menu-toggler sidebar-toggler">
                             <span></span>
@@ -185,8 +185,6 @@ AppAsset::register($this);
                             }
                             ?>
                         </ul>
-                        <!-- END SIDEBAR MENU -->
-                        <!-- END SIDEBAR MENU -->
                     </div>
                     <!-- END SIDEBAR -->
                 </div>
@@ -195,6 +193,13 @@ AppAsset::register($this);
                 <div class="page-content-wrapper">
                     <!-- BEGIN CONTENT BODY -->
                     <div class="page-content">
+                      <div  class="modal fade" aria-labelledby="popuppreview" role="dialog" id="popup-preview" aria-hidden="true" tabindex="-1">
+                        <div class="modal-dialog ">
+                          <div class="modal-content" style="margin: 2px 2px 2px 2px" id="preview-content">
+
+                          </div>
+                        </div>
+                      </div>
                         <div id="page-loading">
                             <img src="/img/ajax-loader3.gif" />
                         </div>

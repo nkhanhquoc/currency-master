@@ -160,6 +160,7 @@ use yii\widgets\ActiveForm;
 
             <?php if(!$model->isNewRecord):?>
             <a href="/transfer-currency/export?id=<?= $model->id ?>" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
+            <span data-toggle="modal" data-target="#popup-preview" onclick="preview()" class="btn btn-outline btn-circle btn-sm btn-success">Xem bản in</span>
           <?php endif;?>
             <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
                     onclick="history.back(-1)">
@@ -169,3 +170,39 @@ use yii\widgets\ActiveForm;
     </div>
 
 <?php ActiveForm::end(); ?>
+
+<script type="text/javascript">
+var billcode = '<?php echo $model->code ?>';
+billcode = billcode.split('-');
+var index =0;
+var optionCurrency = "";
+<?php foreach($model->getAllCurrency() as $k => $currency):?>
+  optionCurrency += '<option value="<?php echo $k?>"><?php echo $currency?></option>';
+<?php endforeach;?>
+var trr = '<tr class="form-group">';
+trr+= '<td style="display:none"><input type="hidden" name="trans[id][]"/></td>';
+trr+= '<td name="trr-index"></td>';
+trr+= '<td>';
+trr+= '<input name="trans[note][]" type="text" class="form-control"/>';
+trr+= '</td>';
+trr+= '<td>';
+trr+=   '<select name="trans[type][]" class="form-control"> ';
+trr+=     '<option value="3">Nhận tiền chuyển</option>';
+trr+=     '<option value="4">Trả tiền chuyển</option>';
+trr+=   '</select>';
+trr+=   '</td>';
+trr+= '<td>';
+trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency+'</select>';
+trr+= '</td>';
+trr+= '<td>';
+trr+= '<input name="trans[quantity][]" type="number" min="0" class="form-control"/>';
+trr+= '</td>';
+trr+= '<td>';
+trr+= '<input name="trans[fee][]" type="number" min="0" class="form-control"/>';
+trr+= '</td>';
+trr+= '<td>';
+trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';
+trr+= '</td>';
+trr+= '</tr>';
+
+</script>
