@@ -96,14 +96,38 @@ class FormedBillController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if($model->is_export == 1){
+          Yii::$app->session->setFlash("error","Hóa đơn đã xuất không thể sửa được");
+          return $this->redirect(['index']);
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+          $model->clearTrans();
+          $params = Yii::$app->request->post();
+          for($i = 0;$i< count($params["trans"]['type']); $i++){
+            if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
+              $trans = Transaction::findOne($params["trans"]['id'][$i]);
+            } else {
+              $trans = new Transaction();
+            }
+
+            $trans->bill_id = $model->id;
+            $trans->note = $params["trans"]['note'][$i];
+            $trans->type = $params["trans"]['type'][$i];
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
+            $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->exchange_rate =  $params["trans"]['exchange_rate'][$i];
+            $trans->value = $params["trans"]['value'][$i];
+            // $model->fee +=
+            $trans->save();
+          }
         }
+
+        $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+        return $this->render('update', [
+            'model' => $model,
+            'trans' => $trans
+        ]);
     }
 
     /**
