@@ -53,4 +53,11 @@ class Transaction extends TransactionBase{
       '4' => 'Trả tiền chuyển'
     ];
   }
+
+  public function getAllTradeType(){
+    return [
+      '1' => 'Mua',
+      '2' => 'Bán'
+    ];
+  }
 }

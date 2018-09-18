@@ -93,7 +93,7 @@ use yii\widgets\ActiveForm;
                     </td>
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTransferType(),
+                        $tran->getAllTradeType(),
                         ['name'=>'trans[type][]']
                         )->label(false)?>
                     </td>
