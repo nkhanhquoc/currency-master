@@ -104,13 +104,13 @@ use yii\widgets\ActiveForm;
                         )->label(false)?>
                     </td>
                     <td>
-                      <input name="trans[quantity][]" onchange="changeTransValue(this)" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[exchange_rate][]" onchange="changeTransValue(this)" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[exchange_rate][]" onblur="changeTransValue(this)" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[value][]" value="<?= $tran->value ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[value][]" value="<?= $tran->value ?>" disabled="disabled" type="number" min="0" class="form-control"/>
                     </td>
                     <?php if(!$model->is_export):?>
                     <td name="hide-on-print">
@@ -179,13 +179,13 @@ trr+= '<td>';
 trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency+'</select>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[quantity][]" type="number" onchange="changeTransValue(this)" min="0" class="form-control"/>';
+trr+= '<input name="trans[quantity][]" type="number" onblur="changeTransValue(this)" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[exchange_rate][]" type="number" onchange="changeTransValue(this)" min="0" class="form-control"/>';
+trr+= '<input name="trans[exchange_rate][]" type="number" onblur="changeTransValue(this)" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[value][]" type="number" min="0" class="form-control"/>';
+trr+= '<input name="trans[value][]" disabled="disabled" type="number" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';

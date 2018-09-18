@@ -87,6 +87,11 @@ function preview(){
 }
 
 function changeTransValue(object){
-	console.log("abc");
-	console.log(object);
+	var selectTr = object.parentNode.parentNode;
+	var quan = $(selectTr).find("input[name^='trans[quantity]']");
+	var price = $(selectTr).find("input[name^='trans[exchange_rate]']");
+	var ret = $(selectTr).find("input[name^='trans[value]']");
+	// console.log(ret);
+	// console.log();
+	ret.val(price.val()*quan.val());
 }
