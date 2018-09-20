@@ -50,14 +50,18 @@ class Transaction extends TransactionBase{
   public function getAllTransferType(){
     return [
       '3' => 'Nhận tiền chuyển',
-      '4' => 'Trả tiền chuyển'
+      '4' => 'Trả tiền chuyển',
+      '9' => 'Trả VND',
+      '10' => 'Nhận VND',
     ];
   }
 
   public function getAllTradeType(){
     return [
       '1' => 'Mua',
-      '2' => 'Bán'
+      '2' => 'Bán',
+      '9' => 'Trả VND',
+      '10' => 'Nhận VND',
     ];
   }
 }

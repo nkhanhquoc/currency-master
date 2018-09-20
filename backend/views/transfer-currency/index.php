@@ -53,12 +53,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 return $dataProvider->getCustomer();
               }
             ],
-            'value',
+            // 'value',
             // 'customer_type',
             // 'note',
             // 'receiver',
             // 'deposit',
-            'fee',
+            // 'fee',
             [
               'attribute' => 'is_export',
               'format' => 'raw', //raw, html

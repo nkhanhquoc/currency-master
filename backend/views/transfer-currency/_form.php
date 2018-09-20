@@ -82,7 +82,6 @@ use yii\widgets\ActiveForm;
                 <th class="text-center">      Giao dịch    </th>
                 <th class="text-center">      Loại    </th>
                 <th class="text-center">      Số Lượng    </th>
-                <th class="text-center">      Phí    </th>
                 <th class="text-center"></th>
               </tr>
               <?php foreach($trans as $k => $tran):?>
@@ -111,9 +110,7 @@ use yii\widgets\ActiveForm;
                   <td>
                     <input name="trans[quantity][]" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
                   </td>
-                  <td>
-                    <input name="trans[fee][]" value="<?= $tran->fee ?>" type="number" min="0" class="form-control"/>
-                  </td>
+
                   <?php if(!$model->is_export):?>
                   <td name="hide-on-print">
                     <button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>
@@ -122,12 +119,7 @@ use yii\widgets\ActiveForm;
                 </tr>
               <?php endforeach;?>
               <tr id="tr-sum" style="display:none">
-                <td colspan="5" style="font-weight:bold">
-                  Tổng
-                </td>
-                <td id="sum-value">
 
-                </td>
               </tr>
 
             </table>
@@ -140,16 +132,6 @@ use yii\widgets\ActiveForm;
               </tr>
             </table>
           <?php endif;?>
-            <table name="show-on-print" class="table" style="display:none">
-              <tr>
-                <td class="text-center font-weight-bold">
-                  Người chi
-                </td>
-                <td class="text-center font-weight-bold">
-                  Người lập
-                </td>
-              </tr>
-            </table>
             </div>
 
         </div>
@@ -160,7 +142,7 @@ use yii\widgets\ActiveForm;
 
             <?php if(!$model->isNewRecord):?>
             <a href="/transfer-currency/export?id=<?= $model->id ?>" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
-            <span data-toggle="modal" data-target="#popup-preview" onclick="preview()" class="btn btn-outline btn-circle btn-sm btn-success">Xem bản in</span>
+            <span onclick="window.print();return false;" class="btn btn-outline btn-circle btn-sm btn-success">Xem bản in</span>
           <?php endif;?>
             <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
                     onclick="history.back(-1)">
@@ -189,6 +171,8 @@ trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="3">Nhận tiền chuyển</option>';
 trr+=     '<option value="4">Trả tiền chuyển</option>';
+trr+=     '<option value="9">Trả VND</option>';
+trr+=     '<option value="10">Nhận VND</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';
@@ -196,9 +180,6 @@ trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<input name="trans[quantity][]" type="number" min="0" class="form-control"/>';
-trr+= '</td>';
-trr+= '<td>';
-trr+= '<input name="trans[fee][]" type="number" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';
