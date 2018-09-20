@@ -110,7 +110,7 @@ use yii\widgets\ActiveForm;
                       <input name="trans[exchange_rate][]" onblur="changeTransValue(this)" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[value][]" value="<?= $tran->value ?>" disabled="disabled" type="number" min="0" class="form-control"/>
+                      <input name="trans[value][]" value="<?= $tran->value ?>" readonly type="number" min="0" class="form-control"/>
                     </td>
                     <?php if(!$model->is_export):?>
                     <td name="hide-on-print">
@@ -187,7 +187,7 @@ trr+= '<td>';
 trr+= '<input name="trans[exchange_rate][]" type="number" onblur="changeTransValue(this)" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[value][]" disabled="disabled" type="number" min="0" class="form-control"/>';
+trr+= '<input name="trans[value][]" readonly type="number" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';
