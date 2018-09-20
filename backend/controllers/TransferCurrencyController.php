@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Bill;
 use backend\models\Transaction;
+use backend\models\Storage;
 use backend\models\TransferSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -140,6 +141,9 @@ class TransferCurrencyController extends Controller
         Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
       }
       $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+      foreach($trans as $tran){
+        Storage::updateByCurrId($tran->currency_id,$tran->quantity);
+      }
       return $this->render('export', [
           'model' => $model,
           'trans' => $trans

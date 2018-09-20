@@ -74,14 +74,14 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                       </div>
                     </td>
                     <td>
-                      <div class="row">
+                      <!-- <div class="row">
                         <div class="col-md-12">
                           <div class="input-group">
                             <span class="input-group-addon">Người nhận:</span>
                             <input value="<?= $model->receiver ?>" disabled="disabled" type="text" class="form-control">
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </td>
                   </tr>
 

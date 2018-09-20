@@ -29,4 +29,16 @@ class Storage extends StorageBase{
           'currency_id' => 'Loại Hàng'
       ];
   }
+
+  public static function updateByCurrId($currId, $value){
+    try{
+      Yii::$app->db->createCommand("update storage set quantity = quantity + :value where currency_id = :currency")
+      ->bindValue(":value",$value)
+      ->bindValue(":currency",$currId)
+      ->execute();
+    }catch(Exception $e){
+      Yii::$app->session->setFlash("error","Không cập nhật được dữ liệu: ".$e->getMessage());
+    }
+
+  }
 }
