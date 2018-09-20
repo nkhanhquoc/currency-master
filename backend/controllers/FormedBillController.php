@@ -64,10 +64,11 @@ class FormedBillController extends Controller
         $model = new Bill();
         $model->type = 2;
         $count = Bill::countTypeBillInDay(2);
-        $model->code = "HDC-".date("Ymd")."-xxx-".$count;
+        $model->code = "HDC-".date("Ymd")."-xxx-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           $params = Yii::$app->request->post();
+          $billVal = 0;
           for($i = 0;$i< count($params["trans"]['type']); $i++){
             $trans = new Transaction();
             $trans->bill_id = $model->id;
@@ -77,10 +78,13 @@ class FormedBillController extends Controller
             $trans->exchange_rate =  $params["trans"]['exchange_rate'][$i];
             $trans->note = $params["trans"]['note'][$i];
             $trans->value = $params["trans"]['value'][$i];
+            $billVal += $trans->value;
             // $model->fee +=
             $trans->save();
           }
-            return $this->redirect(['view', 'id' => $model->id]);
+          $model->value = $billVal;
+          $model->save();
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -137,6 +141,21 @@ class FormedBillController extends Controller
         ]);
     }
 
+    public function actionExport($id){
+      $model = $this->findModel($id);
+      $model->is_export = 1;
+      try{
+        $model->save();
+      }catch(Exception $e){
+        Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+      }
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+      return $this->render('export', [
+          'model' => $model,
+          'trans' => $trans
+      ]);
+    }
+
     /**
      * Deletes an existing Bill model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -145,7 +164,7 @@ class FormedBillController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        // $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }

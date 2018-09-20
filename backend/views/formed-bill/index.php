@@ -10,15 +10,15 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\BillSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Bills');
+$this->title = Yii::t('backend', 'Hóa Đơn Trả Chậm');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row bill-index">
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
-                                        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
-                                <div class="caption">
+                <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+                <div class="caption">
                     <i class="icon-layers font-green"></i>
                     <span class="caption-subject font-green sbold uppercase">
                         <?=  AwsBaseHtml::encode($this->title) ?>
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="actions">
                     <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Bill',
+    'modelClass' => 'Hóa đơn Trả chậm',
 ]),
                         ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
                 </div>
@@ -52,20 +52,49 @@ $this->params['breadcrumbs'][] = $this->title;
                   return $m->name;
                 }
             ],
-            'value',
+            [
+              'attribute' => 'value',
+              'format' => 'raw', //raw, html
+              'content' => function($dataProvider) {
+                return number_format($dataProvider['value'],2)." VND";
+              }
+            ],
             // 'customer_type',
             // 'note',
             // 'receiver',
             // 'deposit',
-            // 'created_date',
+            'created_date',
+            [
+              'attribute' => 'is_export',
+              'format' => 'raw', //raw, html
+              'content' => function($dataProvider) {
+                $text = "";
+                switch($dataProvider['is_export']){
+                  case 0: $text = "Chưa xuất";break;
+                  case 1: $text = "Đã xuất";break;
+                  default: break;
+                };
+                return $text;
+              }
+            ],
+            [
+              'class' => 'yii\grid\ActionColumn',
+              'template' => '{update} {export}',
+              'buttons' => [
+                'update' => function($url, $model){
+                  return $model->is_export === 0 ? Html::a('<span class="glyphicon glyphicon-pencil"></span>',$url) :'';
+                },
+                'export' => function($url,$model){
+                  return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/transfer-currency/export?id='.$model->id) :'';
+                }
+              ]
+            ],
+                ],
+                ]); ?>
 
-                        ['class' => 'yii\grid\ActionColumn'],
-                        ],
-                        ]); ?>
-
-                    <?php
-                    Pjax::end();
-                    ?>
+            <?php
+            Pjax::end();
+            ?>
                 </div>
             </div>
         </div>

@@ -37,7 +37,7 @@ class AppAsset extends AssetBundle {
         'js/metronic/quick-sidebar.min.js',
         'js/admin.js?v1.1',
         'js/printThis.js?v1.0',
-        'plugins/ckeditor/ckeditor/ckeditor.js',
+        // 'plugins/ckeditor/ckeditor/ckeditor.js',
         'js/styles.js'
 
     ];

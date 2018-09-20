@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Bill */
 
-$this->title = "Hóa đơn chuyển tiền";
+$this->title = "Hóa đơn Trả chậm";
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Bills'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
@@ -102,24 +102,21 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                 </table>
 
                 <div class="row">
-                  <h3 style="text-align:center">HÓA ĐƠN CHUYỂN TIỀN</h3>
+                  <h3 style="text-align:center">HÓA ĐƠN TRẢ CHẬM</h3>
                 </div>
               <table class="table table-striped table-condensed">
                 <tr>
                   <th class="text-center">      TT    </th>
-                  <th class="text-center" style="display:none">    </th>
                   <th class="text-center">      Ghi chú    </th>
                   <th class="text-center">      Giao dịch    </th>
                   <th class="text-center">      Loại    </th>
                   <th class="text-center">      Số Lượng    </th>
-                  <th class="text-center">      Phí    </th>
-                  <th class="text-center"></th>
+                  <th class="text-center">      Tỉ giá    </th>
+                  <th class="text-center">      Thành tiền    </th>
                 </tr>
                 <?php foreach($trans as $k => $tran):?>
                   <tr class="form-group">
-                    <td style="display:none">
-                      <input type="hidden" name="trans[id][]" value="<?=$tran->id ?>" />
-                    </td>
+
                     <td name="trr-index">
                       <?= $k+1 ?>
                     </td>
@@ -128,7 +125,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                     </td>
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTransferType(),
+                        $tran->getAllTradeType(),
                         ['name'=>'trans[type][]','disabled'=>'disabled']
                         )->label(false)?>
                     </td>
@@ -143,20 +140,29 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                       <input name="trans[quantity][]" disabled="disabled" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[fee][]" disabled="disabled" value="<?= $tran->fee ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[exchange_rate][]" disabled="disabled" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
+                    </td>
+                    <td>
+                      <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value,2) ?>" class="form-control"/>
                     </td>
                   </tr>
                 <?php endforeach;?>
-                <tr id="tr-sum" style="display:none">
-                  <td colspan="5" style="font-weight:bold">
+                <tr id="tr-sum" style="">
+                  <td colspan="5">
+
+                  </td>
+                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
                     Tổng
                   </td>
                   <td id="sum-value">
-
+                    <input disabled="disabled" value="<?= number_format($model->value,2) ?>" class="form-control"/>
+                  </td>
+                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
+                    VND
                   </td>
                 </tr>
                 <tr>
-                  <td class="text-center" colspan="3">
+                  <td class="text-center" colspan="4">
                     <span class="font-weight-bold"><b>Người chi</b></span>
                   </td>
                   <td class="text-center" colspan="3">

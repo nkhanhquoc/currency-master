@@ -151,8 +151,8 @@ use yii\widgets\ActiveForm;
               <?php endif;?>
 
                 <?php if(!$model->isNewRecord):?>
-                <a href="/transfer-currency/export?id=<?= $model->id ?>" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
-                <span data-toggle="modal" data-target="#popup-preview" onclick="preview()" class="btn btn-outline btn-circle btn-sm btn-success">Xem bản in</span>
+                <a href="/formed-bill/export?id=<?= $model->id ?>" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
+                <span onclick="window.print();return false;" class="btn btn-outline btn-circle btn-sm btn-success">Xem bản in</span>
               <?php endif;?>
                 <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
                         onclick="history.back(-1)">

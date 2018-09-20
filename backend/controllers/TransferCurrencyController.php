@@ -64,7 +64,7 @@ class TransferCurrencyController extends Controller
         $model = new Bill();
         $model->type = 4;
         $count = Bill::countTypeBillInDay(4);
-        $model->code = "TC-".date("Ymd")."-xxx-".$count;
+        $model->code = "TC-".date("Ymd")."-xxx-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
         // }
