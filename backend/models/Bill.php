@@ -20,6 +20,17 @@ class Bill extends BillBase{
       ];
   }
 
+  public function rules()
+  {
+      return [
+          [['type', 'customer_id', 'customer_type', 'is_export'], 'integer'],
+          [['created_date'], 'safe'],
+          [['value'],'double'],
+          [['code', 'note', 'receiver'], 'string', 'max' => 255],
+          [['deposit', 'fee'], 'string', 'max' => 10]
+      ];
+  }
+
   public function attributeLabels() {
       return [
           'type' => 'Loại Hóa đơn',

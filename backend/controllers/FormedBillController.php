@@ -105,6 +105,7 @@ class FormedBillController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           $model->clearTrans();
           $params = Yii::$app->request->post();
+          $billVal = 0;
 
           for($i = 0;$i< count($params["trans"]['type']); $i++){
             if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
@@ -120,9 +121,12 @@ class FormedBillController extends Controller
             $trans->quantity =  $params["trans"]['quantity'][$i];
             $trans->exchange_rate =  $params["trans"]['exchange_rate'][$i];
             $trans->value = $params["trans"]['value'][$i];
+            $billVal += $trans->value;
             // $model->fee +=
             $trans->save(false);
           }
+          $model->value = $billVal;
+          $model->save();
         }
 
         $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
