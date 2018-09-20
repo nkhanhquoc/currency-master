@@ -110,7 +110,7 @@ use yii\widgets\ActiveForm;
                       <input name="trans[exchange_rate][]" onblur="changeTransValue(this)" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[value][]" value="<?= $tran->value ?>" readonly type="number" min="0" class="form-control"/>
+                      <input name="trans[value][]" value="<?= $tran->value ?>" readonly type="number" class="form-control"/>
                     </td>
                     <?php if(!$model->is_export):?>
                     <td name="hide-on-print">
@@ -119,12 +119,18 @@ use yii\widgets\ActiveForm;
                   <?php endif;?>
                   </tr>
                 <?php endforeach;?>
-                <tr id="tr-sum" style="display:none">
-                  <td colspan="5" style="font-weight:bold">
+                <tr id="tr-sum" style="">
+                  <td colspan="5">
+
+                  </td>
+                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
                     Tổng
                   </td>
                   <td id="sum-value">
-
+                    <?= $form->field($model, 'value')->textInput(['readonly'=>'readonly','id'=>'bill-value'])->label(false) ?>
+                  </td>
+                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
+                    VND
                   </td>
                 </tr>
 
@@ -187,7 +193,7 @@ trr+= '<td>';
 trr+= '<input name="trans[exchange_rate][]" type="number" onblur="changeTransValue(this)" min="0" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[value][]" readonly type="number" min="0" class="form-control"/>';
+trr+= '<input name="trans[value][]" readonly type="number" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';

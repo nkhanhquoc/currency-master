@@ -91,7 +91,19 @@ function changeTransValue(object){
 	var quan = $(selectTr).find("input[name^='trans[quantity]']");
 	var price = $(selectTr).find("input[name^='trans[exchange_rate]']");
 	var ret = $(selectTr).find("input[name^='trans[value]']");
-	// console.log(ret);
-	// console.log();
-	ret.val(price.val()*quan.val());
+	var typeTrans = $(selectTr).find("select[name^='trans[type]'] :selected").val();
+	if([1,9].includes(parseInt(typeTrans))){
+		ret.val(0 - price.val()*quan.val());
+	} else {
+		ret.val(price.val()*quan.val());
+	}
+	updateBillValue();
+}
+
+function updateBillValue(){
+	var currVal = 0;
+	$.each($('input[name^="trans[value]"]'),function(index,object){
+		currVal += parseInt($(object).val());
+		 $('#bill-value').val(currVal);
+	})
 }
