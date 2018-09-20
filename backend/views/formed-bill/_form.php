@@ -36,7 +36,6 @@ use yii\widgets\ActiveForm;
                       'language' => 'vi',
                       'readonly' => true,
                       'options'=>[
-                        'value' => date("Y-m-d H:i:s"),
                       ],
                       'pluginOptions' => [
                           'autoclose'=>true,
