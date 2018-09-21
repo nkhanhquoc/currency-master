@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer()) ?>
+    <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer(),['prompt'=>'---Chọn khách hàng---']) ?>
 
 
     <?php // echo $form->field($model, 'customer_type') ?>
