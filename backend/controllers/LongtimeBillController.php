@@ -4,7 +4,8 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Bill;
-use backend\models\BillSearch;
+use backend\models\Transaction;
+use backend\models\LongtimeBillSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -32,7 +33,7 @@ class LongtimeBillController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new BillSearch();
+        $searchModel = new LongtimeBillSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -61,9 +62,29 @@ class LongtimeBillController extends Controller
     public function actionCreate()
     {
         $model = new Bill();
+        $model->type = 3;
+        $count = Bill::countTypeBillInDay($model->type);
+        $model->code = "HDH-".date("Ymd")."-xxx-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $params = Yii::$app->request->post();
+            $billVal = 0;
+            for($i = 0;$i< count($params["trans"]['type']); $i++){
+              $trans = new Transaction();
+              $trans->bill_id = $model->id;
+              $trans->type = $params["trans"]['type'][$i];
+              $trans->currency_id = $params["trans"]['currency_id'][$i];
+              $trans->quantity =  $params["trans"]['quantity'][$i];
+              $trans->exchange_rate =  $params["trans"]['exchange_rate'][$i];
+              $trans->note = $params["trans"]['note'][$i];
+              $trans->value = $params["trans"]['value'][$i];
+              $billVal += $trans->value;
+              // $model->fee +=
+              $trans->save();
+            }
+            $model->value = $billVal+$model->deposit;
+            $model->save();
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -91,6 +112,22 @@ class LongtimeBillController extends Controller
     }
 
     /**
+    **/
+    public function actionExport($id){
+      $model = $this->findModel($id);
+      $model->is_export = 1;
+      try{
+        $model->save();
+      }catch(Exception $e){
+        Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+      }
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+      return $this->render('export', [
+          'model' => $model,
+          'trans' => $trans
+      ]);
+    }
+    /**
      * Deletes an existing Bill model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
@@ -98,9 +135,9 @@ class LongtimeBillController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        // $this->findModel($id)->delete();
+        //
+        // return $this->redirect(['index']);
     }
 
     /**

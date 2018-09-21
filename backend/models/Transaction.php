@@ -64,4 +64,14 @@ class Transaction extends TransactionBase{
       '10' => 'Nhận VND',
     ];
   }
+
+  public function getAllLongTradeType(){
+    return [
+      '1' => 'Mua',
+      '2' => 'Bán',
+      '9' => 'Trả VND',
+      '10' => 'Nhận VND',
+      '11' => 'Đặt cọc'
+    ];
+  }
 }

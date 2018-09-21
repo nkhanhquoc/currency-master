@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Pettype;
+use backend\models\Bill;
 
 /**
- * PettypeSearch represents the model behind the search form about `backend\models\Pettype`.
+ * BillSearch represents the model behind the search form about `backend\models\Bill`.
  */
-class PettypeSearch extends Pettype
+class LongtimeBillSearch extends Bill
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PettypeSearch extends Pettype
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name'], 'safe'],
+            [['id', 'type', 'customer_id', 'customer_type','is_export'], 'integer'],
+            [['code', 'value', 'note', 'receiver', 'deposit', 'fee', 'created_date'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PettypeSearch extends Pettype
      */
     public function search($params)
     {
-        $query = Pettype::find();
+        $query = Bill::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -58,10 +58,27 @@ class PettypeSearch extends Pettype
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'type' => 3,
+            'customer_id' => $this->customer_id,
+            'is_export' => $this->is_export,
+            'customer_type' => $this->customer_type,
+            'created_date' => $this->created_date,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'code', $this->code])
+            ->andFilterWhere(['like', 'value', $this->value])
+            ->andFilterWhere(['like', 'note', $this->note])
+            ->andFilterWhere(['like', 'receiver', $this->receiver])
+            ->andFilterWhere(['like', 'deposit', $this->deposit])
+            ->andFilterWhere(['like', 'fee', $this->fee]);
 
         return $dataProvider;
+    }
+
+    public function filterIsExport(){
+      return [
+        0 => "Chưa xuất",
+        1 => "Đã xuất"
+      ];
     }
 }
