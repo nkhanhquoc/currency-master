@@ -103,7 +103,13 @@ function changeTransValue(object){
 function updateBillValue(){
 	var currVal = 0;
 	$.each($('input[name^="trans[value]"]'),function(index,object){
-		currVal += parseInt($(object).val());
+		 currVal += parseFloat($(object).val());
 		 $('#bill-value').val(currVal);
-	})
+	});
+	var deposit = $("#bill-deposit").val();
+	if(deposit !== undefined && deposit !== "" && deposit !== null){
+			currVal+=parseFloat(deposit);
+			$('#bill-value').val(currVal);
+	}
+	$("#bill-value-view").val(currVal.toLocaleString());//hien thi de xem
 }
