@@ -64,7 +64,7 @@ class BorrowController extends Controller
         $model = new Bill();
         $model->type = 5;
         $count = Bill::countTypeBillInDay(5);
-        $model->code = "VM-".date("Ymd")."-xxx-".$count;
+        $model->code = "VM-".date("Ymd")."-xxx-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           $params = Yii::$app->request->post();
@@ -78,7 +78,7 @@ class BorrowController extends Controller
             // $model->fee +=
             $trans->save();
           }
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['updated', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -95,17 +95,38 @@ class BorrowController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        if($model->is_export == 1){
+          Yii::$app->session->setFlash("error","Hóa đơn đã xuất không thể sửa được");
+          return $this->redirect(['index']);
+        }
+        // return $this->render('update', [
+        //     'model' => $model,
+        // ]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+          $model->clearTrans();
+          $params = Yii::$app->request->post();
+          for($i = 0;$i< count($params["trans"]['type']); $i++){
+            if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
+              $transaction = Transaction::findOne($params["trans"]['id'][$i]);
+            } else {
+              $transaction = new Transaction();
+            }
+
+            $trans->bill_id = $model->id;
+            $trans->type = $params["trans"]['type'][$i];
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
+            $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->deposit =  $params["trans"]['deposit'][$i];
+            // $model->fee +=
+            $transaction->save(false);
+          }
         }
+        $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+        return $this->render('update', [
+            'model' => $model,
+            'trans' => $trans
+        ]);
     }
 
     /**

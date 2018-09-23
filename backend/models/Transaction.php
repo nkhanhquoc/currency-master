@@ -74,4 +74,11 @@ class Transaction extends TransactionBase{
       '11' => 'Đặt cọc'
     ];
   }
+
+  public function getAllBorrowType(){
+    return [
+      '5' => 'Vay',
+      '6' => 'Cho vay',
+    ];
+  }
 }

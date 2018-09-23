@@ -17,6 +17,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'trans' => $trans,
         'title' => $this->title
     ]) ?>
 

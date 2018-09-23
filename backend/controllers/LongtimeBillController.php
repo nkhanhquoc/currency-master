@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Bill;
 use backend\models\Transaction;
+use backend\models\Storage;
 use backend\models\LongtimeBillSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -101,26 +102,57 @@ class LongtimeBillController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if($model->is_export == 1){
+          Yii::$app->session->setFlash("error","Hóa đơn đã xuất không thể sửa được");
+          return $this->redirect(['index']);
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+          $model->clearTrans();
+          $params = Yii::$app->request->post();
+          $billVal = 0;
+          for($i = 0;$i< count($params["trans"]['type']); $i++){
+            if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
+              $trans = Transaction::findOne($params["trans"]['id'][$i]);
+            } else {
+              $trans = new Transaction();
+            }
+
+            $trans->bill_id = $model->id;
+            $trans->type = $params["trans"]['type'][$i];
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
+            $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->exchange_rate =  $params["trans"]['exchange_rate'][$i];
+            $trans->note = $params["trans"]['note'][$i];
+            $trans->value = $params["trans"]['value'][$i];
+            $billVal += $trans->value;
+            // $model->fee +=
+            $trans->save(false);
+          }
+          $model->value = $billVal + $model->deposit;
+          $model->save();
         }
+        $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+        return $this->render('update', [
+            'model' => $model,
+            'trans' => $trans
+        ]);
     }
 
     /**
     **/
     public function actionExport($id){
       $model = $this->findModel($id);
-      $model->is_export = 1;
-      try{
-        $model->save();
-      }catch(Exception $e){
-        Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+      if($model->is_export != 1){
+        $model->is_export = 1;
+        try{
+          $model->save(false);
+          Storage::updateByCurrId(VND_CURRENCY_ID,$model->deposit);
+        }catch(Exception $e){
+          Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+        }
       }
+
       $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       return $this->render('export', [
           'model' => $model,

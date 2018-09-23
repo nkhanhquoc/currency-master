@@ -102,7 +102,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                 </table>
 
                 <div class="row">
-                  <h3 style="text-align:center">HÓA ĐƠN DÀI HẠN</h3>
+                  <h3 style="text-align:center">HÓA ĐƠN TRẢ CHẬM</h3>
                 </div>
               <table class="table table-striped table-condensed">
                 <tr>
@@ -147,20 +147,9 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                     </td>
                   </tr>
                 <?php endforeach;?>
-                <tr>
+                <tr id="tr-sum" style="">
                   <td colspan="5">
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    Cọc
-                  </td>
-                  <td>
-                    <input class="form-control" value="<?= $model->deposit ?>" readonly/>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="5">
+
                   </td>
                   <td style="font-weight:bold;text-align:right;vertical-align: middle">
                     Tổng

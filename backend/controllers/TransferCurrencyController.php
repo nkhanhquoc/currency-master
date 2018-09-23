@@ -134,16 +134,20 @@ class TransferCurrencyController extends Controller
 
     public function actionExport($id){
       $model = $this->findModel($id);
-      $model->is_export = 1;
-      try{
-        $model->save();
-      }catch(Exception $e){
-        Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
-      }
       $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
-      foreach($trans as $tran){
-        Storage::updateByCurrId($tran->currency_id,$tran->quantity);
+      if($model->is_export != 1){
+        $model->is_export = 1;
+        try{
+          $model->save();
+          foreach($trans as $tran){
+            Storage::updateByCurrId($tran->currency_id,$tran->quantity);
+            Storage::updateByCurrId(VND_CURRENCY_ID,$tran->fee);
+          }
+        }catch(Exception $e){
+          Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+        }
       }
+
       return $this->render('export', [
           'model' => $model,
           'trans' => $trans
