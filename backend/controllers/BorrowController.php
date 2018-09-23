@@ -138,7 +138,7 @@ class BorrowController extends Controller
         try{
           $model->save();
           $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
-          for($trans as $tran){
+          foreach($trans as $tran){
             Storage::updateByCurrId(VND_CURRENCY_ID,$tran->deposit);
           }
         }catch(Exception $e){
