@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Storage;
 use backend\models\Transaction;
 use backend\models\Bill;
 use backend\models\BorrowSearch;
@@ -108,18 +109,19 @@ class BorrowController extends Controller
           $params = Yii::$app->request->post();
           for($i = 0;$i< count($params["trans"]['type']); $i++){
             if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
-              $transaction = Transaction::findOne($params["trans"]['id'][$i]);
+              $trans = Transaction::findOne($params["trans"]['id'][$i]);
             } else {
-              $transaction = new Transaction();
+              $trans = new Transaction();
             }
 
             $trans->bill_id = $model->id;
+            $trans->note = $params["trans"]['note'][$i];
             $trans->type = $params["trans"]['type'][$i];
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity =  $params["trans"]['quantity'][$i];
             $trans->deposit =  $params["trans"]['deposit'][$i];
             // $model->fee +=
-            $transaction->save(false);
+            $trans->save(false);
           }
         }
         $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
@@ -128,6 +130,29 @@ class BorrowController extends Controller
             'trans' => $trans
         ]);
     }
+
+    public function actionExport($id){
+      $model = $this->findModel($id);
+      if($model->is_export != 1){
+        $model->is_export = 1;
+        try{
+          $model->save();
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+          for($trans as $tran){
+            Storage::updateByCurrId(VND_CURRENCY_ID,$tran->deposit);
+          }
+        }catch(Exception $e){
+          Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+        }
+      }
+
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+      return $this->render('export', [
+          'model' => $model,
+          'trans' => $trans
+      ]);
+    }
+
 
     /**
      * Deletes an existing Bill model.

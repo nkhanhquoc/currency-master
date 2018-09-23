@@ -1,4 +1,4 @@
-<?php
+  <?php
 use kartik\datetime\DateTimePicker;
 use awesome\backend\widgets\AwsBaseHtml;
 use yii\widgets\ActiveForm;
@@ -36,7 +36,7 @@ use yii\widgets\ActiveForm;
                             'language' => 'vi',
                             'readonly' => true,
                             'options'=>[
-                              'value' => date("Y-m-d H:i:s"),
+                              // 'value' => date("Y-m-d H:i:s"),
                             ],
                             'pluginOptions' => [
                                 'autoclose'=>true,
@@ -67,7 +67,7 @@ use yii\widgets\ActiveForm;
                       </div>
                     </div>
                     <div class="row">
-                      <h3 style="text-align:center">HÓA ĐƠN CHỐT</h3>
+                      <h3 style="text-align:center">HÓA ĐƠN VAY MƯỢN</h3>
                     </div>
                     <table class="table table-striped table-condensed">
                       <tr>
@@ -92,7 +92,7 @@ use yii\widgets\ActiveForm;
                           </td>
                           <td>
                             <?= $form->field($tran, 'type')->dropDownList(
-                              $tran->getAllTradeType(),
+                              $tran->getAllBorrowType(),
                               ['name'=>'trans[type][]']
                               )->label(false)?>
                           </td>
@@ -106,7 +106,7 @@ use yii\widgets\ActiveForm;
                             <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
                           </td>
                           <td>
-                            <input name="trans[deposit][]" value="<?= $tran->deposite ?>" readonly type="number" class="form-control"/>
+                            <input name="trans[deposit][]" value="<?= $tran->deposit ?>" type="number" class="form-control"/>
                           </td>
                           <?php if(!$model->is_export):?>
                           <td name="hide-on-print">
@@ -133,6 +133,20 @@ use yii\widgets\ActiveForm;
                       </tr>
                     </table>
             </div>
+            <div class="actions">
+              <?php if(!$model->is_export):?>
+                <?=  AwsBaseHtml::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
+              <?php endif;?>
+
+                <?php if(!$model->isNewRecord):?>
+                <a href="/borrow/export?id=<?= $model->id ?>" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
+                <span onclick="window.print();return false;" class="btn btn-outline btn-circle btn-sm btn-success">Xem bản in</span>
+              <?php endif;?>
+                <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
+                        onclick="history.back(-1)">
+                    <i class="fa fa-angle-left"></i> Back
+                </button>
+            </div>
         </div>
     </div>
 
@@ -147,6 +161,9 @@ var optionCurrency = "";
   optionCurrency += '<option value="<?php echo $k?>"><?php echo $currency?></option>';
 <?php endforeach;?>
 var trr = '<tr class="form-group"><td name="trr-index"></td>';
+trr+= '<td>';
+trr+= '<input name="trans[note][]" class="form-control"/>';
+trr+= '</td>';
 trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="5">Vay</option>';

@@ -15,13 +15,11 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-    
+
     <?= $form->field($model, 'code') ?>
 
     <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer()) ?>
 
-    <?= $form->field($model, 'value') ?>
 
     <?php // echo $form->field($model, 'customer_type') ?>
 
