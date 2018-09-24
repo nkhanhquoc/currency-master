@@ -15,13 +15,14 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <!-- <?= $form->field($model, 'id') ?> -->
 
-    <?= $form->field($model, 'currency_id') ?>
+    <?= $form->field($model, 'currency_id')->dropDownList(
+      $model->getCurrencyId(),
+      ['prompt'=>'---Loại tiền---']
+      ) ?>
 
-    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'quantity') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>

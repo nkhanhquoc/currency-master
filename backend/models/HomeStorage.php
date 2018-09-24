@@ -30,9 +30,14 @@ class HomeStorage extends HomeStorageBase{
       ];
   }
 
+  public function getCurrencyName(){
+    $currency = Currency::findOne($this->currency_id);
+    return $currency->name;
+  }
+
   public static function updateByCurrId($currId, $value){
     try{
-      Yii::$app->db->createCommand("update storage set quantity = quantity + :value where currency_id = :currency")
+      Yii::$app->db->createCommand("update home_storage set quantity = quantity + :value where currency_id = :currency")
       ->bindValue(":value",$value)
       ->bindValue(":currency",$currId)
       ->execute();
