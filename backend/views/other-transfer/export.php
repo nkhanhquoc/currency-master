@@ -112,6 +112,8 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                   <th class="text-center">      Giao dịch    </th>
                   <th class="text-center">      Loại    </th>
                   <th class="text-center">      Số Lượng    </th>
+                  <th class="text-center">      Tỉ lệ giảm(%)    </th>
+                  <th class="text-center">      Số Lượng Thực Tế    </th>
                   <th class="text-center"></th>
                 </tr>
                 <?php foreach($trans as $k => $tran):?>
@@ -140,7 +142,13 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                     </td>
                     <td>
                       <input name="trans[quantity][]" disabled="disabled" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
-                    </td>                  
+                    </td>
+                    <td>
+                      <input name="trans[fee][]" disabled="disabled" value="<?= $tran->fee ?>" type="number" min="0" class="form-control"/>
+                    </td>
+                    <td>
+                      <input name="trans[real_value][]" disabled="disabled" value="<?= $tran->real_value ?>" type="number" min="0" class="form-control"/>
+                    </td>
                   </tr>
                 <?php endforeach;?>
                 <tr id="tr-sum" style="display:none">

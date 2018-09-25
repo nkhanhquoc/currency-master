@@ -114,6 +114,24 @@ class OtherTransferController extends Controller
       ]);
   }
 
+  public function actionExport($id){
+    $model = $this->findModel($id);
+    $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+    if($model->is_export != 1){
+      $model->is_export = 1;
+      try{
+        $model->save();      
+      }catch(Exception $e){
+        Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+      }
+    }
+
+    return $this->render('export', [
+        'model' => $model,
+        'trans' => $trans
+    ]);
+  }
+
   protected function findModel($id)
   {
       if (($model = Bill::findOne($id)) !== null) {
