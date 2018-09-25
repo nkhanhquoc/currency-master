@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php echo $this->render('_search', ['model' => $searchModel]); ?>
               </div>
               <div class="col-md-6">
-                <table class="table">
+                <table class="table" style="background-color:#364150;color:white">
                   <tr>
                     <th>
                       Loại tiền
@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= $st->getCurrencyName(); ?>
                       </td>
                       <td>
-                        <?= $st->quantity ?>
+                        <?= number_format($st->quantity,2) ?>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -52,19 +52,41 @@ $this->params['breadcrumbs'][] = $this->title;
                     Pjax::begin(['formSelector' => 'form', 'enablePushState' => false, 'id' => 'mainGridPjax']);
                     ?>
 
-                                            <?= AwsGridView::widget([
-                        'dataProvider' => $dataProvider,
-                        // 'filterModel' => $searchModel,
-        'columns' => [
-                        ['class' => 'yii\grid\SerialColumn'],
-
-            'currency_id',
-            'quantity',
-            'created_time',
-
-                        ['class' => 'yii\grid\ActionColumn'],
-                        ],
-                        ]); ?>
+                    <table class="table">
+                      <tr class="list-group-item-success">
+                        <th>
+                          Loại Tiền
+                        </th>
+                        <th>
+                          Số Lượng
+                        </th>
+                        <th>
+                          Ngày
+                        </th>
+                      </tr>
+                      <?php $dateArr = [];?>
+                      <?php foreach($dataProvider->getModels() as $data):?>
+                        <?php if(!in_array($data->created_time,$dateArr)):?>
+                          <?php $dateArr[] = $data->created_time;?>
+                          <tr class="list-group-item-info" style="font-weight:bold">
+                            <td colspan="3">
+                              <?= $data->created_time ?>
+                            </td>
+                          </tr>
+                        <?php endif;?>
+                        <tr>
+                          <td>
+                            <?= $data->getCurrencyName() ?>
+                          </td>
+                          <td>
+                            <?= number_format($data->quantity,2) ?>
+                          </td>
+                          <td>
+                            <?= $data->created_time ?>
+                          </td>
+                        </tr>
+                      <?php endforeach;?>
+                    </table>
 
                     <?php
                     Pjax::end();

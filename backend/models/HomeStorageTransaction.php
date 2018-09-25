@@ -39,6 +39,11 @@ class HomeStorageTransaction extends HomeStorageTransactionBase{
     return $list;
   }
 
+  public function getCurrencyName(){
+    $curr = Currency::findOne($this->currency_id);
+    return $curr->name;
+  }
+
   public function attributeLabels() {
       return [
           'name' => 'Loại Tiền',

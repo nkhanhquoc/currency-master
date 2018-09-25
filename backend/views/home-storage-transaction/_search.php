@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="home-storage-transaction-search">
+<div class="home-storage-transaction-search ">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
 
     <div class="form-group">
-      <div class="col-md-6">
+      <div class="col-md-6 ">
         <lablel class="control-label">Từ ngày</lablel>
     <?= yii\jui\DatePicker::widget([
                             'name' => 'HomeStorageTransSearch[created_time_from]',
@@ -27,7 +27,8 @@ use yii\widgets\ActiveForm;
                             'value' => \yii\helpers\Html::encode($fromTime),
                             'options' => [
                                 'readonly' => 'readonly',
-                                'class' =>'form-control'
+                                'class' =>'form-control',
+                                'z-index'=>1000
                             ],
                         ]) ?>
       </div>

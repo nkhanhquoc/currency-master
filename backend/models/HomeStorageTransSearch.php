@@ -41,22 +41,30 @@ class HomeStorageTransSearch extends HomeStorageTransaction
      */
     public function search($params)
     {
-        $query = HomeStorageTransaction::find();
+        $query ="select currency_id,sum(quantity) as quantity, DATE_FORMAT(created_time,'%Y-%m-%d') as created_time
+        from home_storage_transaction  where 1 = 1 ";
+        // ->bindValue(":value",$value)
+        // ->bindValue(":currency",$currId)
         $endfrom = $params['HomeStorageTransSearch']['created_time_from'];
         $endto = $params['HomeStorageTransSearch']['created_time_to'];
         if ($endfrom != null) {
-            $query->andWhere('CREATED_TIME >= :from ', ['from' => date('Y-m-d', strtotime($endfrom))]);
+            $query .= ' and CREATED_TIME >= "'.date('Y-m-d', strtotime($endfrom)).'"';
         }
         if ($endto != null) {
-            $query->andWhere('CREATED_TIME <= :to ', ['to' => date('Y-m-d', strtotime($endto))]);
+            $query .= ' and CREATED_TIME <= "'.date('Y-m-d 23:59:59', strtotime($endto)).'"';
         }
+
+        if($this->currency_id){
+          $query .= ' and currency_id = '.$this->currency_id;
+        }
+        $query .= " group by currency_id,DATE_FORMAT(created_time,'%Y-%m-%d') order by created_time desc,currency_id";
+        $query  =  HomeStorageTransaction::findBySql($query);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['id' => SORT_DESC]]
+            'sort' => ['defaultOrder' => ['created_time' => SORT_DESC]]
         ]);
 
-        $this->load($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to any records when validation fails
@@ -64,12 +72,12 @@ class HomeStorageTransSearch extends HomeStorageTransaction
             return $dataProvider;
         }
 
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'currency_id' => $this->currency_id,
-            'quantity' => $this->quantity,
-            'created_time' => $this->created_time,
-        ]);
+        // $query->andFilterWhere([
+        //     'id' => $this->id,
+        //     'currency_id' => $this->currency_id,
+        //     'quantity' => $this->quantity,
+        //     'created_time' => $this->created_time,
+        // ]);
 
         return $dataProvider;
     }
