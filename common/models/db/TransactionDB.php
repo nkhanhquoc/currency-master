@@ -19,6 +19,7 @@ use Yii;
  * @property double $deposit
  * @property double $exchange_rate
  * @property string $note
+ * @property double $real_value
  *
  * @property CurrencyDB $currency
  */
@@ -41,7 +42,7 @@ class TransactionDB extends \yii\db\ActiveRecord
             [['bill_id', 'type', 'currency_id'], 'integer'],
             [['created_time'], 'safe'],
             [['quantity', 'receiver', 'note'], 'string', 'max' => 255],
-            [['value', 'fee', 'deposit', 'exchange_rate'], 'string', 'max' => 10]
+            [['value', 'fee', 'deposit', 'exchange_rate','real_value'], 'string', 'max' => 10]
         ];
     }
 
@@ -63,6 +64,7 @@ class TransactionDB extends \yii\db\ActiveRecord
             'deposit' => Yii::t('backend', 'Deposit'),
             'exchange_rate' => Yii::t('backend', 'Exchange Rate'),
             'note' => Yii::t('backend', 'Note'),
+            'real_value' => Yii::t('backend', 'Real Value'),
         ];
     }
 

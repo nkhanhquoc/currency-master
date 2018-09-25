@@ -113,3 +113,16 @@ function updateBillValue(){
 	}
 	$("#bill-value-view").val(currVal.toLocaleString());//hien thi de xem
 }
+
+function otherTransferValue(object){
+	var selectTr = object.parentNode.parentNode;
+	var quan = $(selectTr).find("input[name^='trans[quantity]']");
+	var fee = $(selectTr).find("input[name^='trans[fee]']");
+	var ret = $(selectTr).find("input[name^='trans[real_value]']");
+	var typeTrans = $(selectTr).find("select[name^='trans[type]'] :selected").val();
+	if([1,9].includes(parseInt(typeTrans))){
+		ret.val(0 - (quan.val() - fee.val()*quan.val()/100));
+	} else {
+		ret.val(quan.val() - fee.val()*quan.val()/100);
+	}
+}

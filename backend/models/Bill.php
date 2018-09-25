@@ -25,6 +25,7 @@ class Bill extends BillBase{
       return [
           [['type', 'customer_id', 'customer_type', 'is_export'], 'integer'],
           [['created_date'], 'safe'],
+          [['customer_id'],'required'],
           [['value'],'double'],
           [['code', 'note', 'receiver'], 'string', 'max' => 255],
           [['deposit', 'fee'], 'string', 'max' => 10]
