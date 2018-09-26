@@ -7,10 +7,10 @@ use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\HomeTransferSearch */
+/* @var $searchModel backend\models\HomeTradingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Tiền Chuyển Quê');
+$this->title = Yii::t('backend', 'Mua bán Quê');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row bill-index">
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="actions">
                     <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Bill',
+    'modelClass' => 'Hóa Đơn',
 ]),
                         ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
                 </div>
@@ -40,16 +40,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                             <?= AwsGridView::widget([
                         'dataProvider' => $dataProvider,
+                        // 'filterModel' => $searchModel,
         'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
             'code',
             // 'customer_type',
             'note',
-            'receiver',
+            // 'receiver',
             // 'deposit',
             // 'fee',
-            'created_date',
+            // 'created_date',
             [
               'attribute' => 'is_export',
               'format' => 'raw', //raw, html
@@ -64,6 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
               }
             ],
 
+
             [
               'class' => 'yii\grid\ActionColumn',
               'template' => '{update} {export}',
@@ -72,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   return $model->is_export === 0 ? Html::a('<span class="glyphicon glyphicon-pencil"></span>',$url) :'';
                 },
                 'export' => function($url,$model){
-                  return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/home-transfer/export?id='.$model->id) :'';
+                  return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/home-trading/export?id='.$model->id) :'';
                 }
               ]
             ],

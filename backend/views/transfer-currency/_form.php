@@ -109,6 +109,9 @@ use yii\widgets\ActiveForm;
                   <td>
                     <input name="trans[quantity][]" value="<?= $tran->quantity ?>" type="number" class="form-control"/>
                   </td>
+                  <td>
+                    <input name="trans[fee][]" value="<?= $tran->fee ?>" type="number" class="form-control"/>
+                  </td>
 
                   <?php if(!$model->is_export):?>
                   <td name="hide-on-print">
@@ -179,6 +182,9 @@ trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<input name="trans[quantity][]" type="number" class="form-control"/>';
+trr+= '</td>';
+trr+= '<td>';
+trr+= '<input name="trans[fee][]" type="number" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';

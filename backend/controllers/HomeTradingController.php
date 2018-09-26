@@ -5,15 +5,16 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Bill;
 use backend\models\Transaction;
-use backend\models\FormedBillSearch;
+use backend\models\Storage;
+use backend\models\HomeTradingSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FormedBillController implements the CRUD actions for Bill model.
+ * HomeTradingController implements the CRUD actions for Bill model.
  */
-class FormedBillController extends Controller
+class HomeTradingController extends Controller
 {
     public function behaviors()
     {
@@ -33,7 +34,7 @@ class FormedBillController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new FormedBillSearch();
+        $searchModel = new HomeTradingSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -61,10 +62,11 @@ class FormedBillController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Bill();
-        $model->type = 2;
-        $count = Bill::countTypeBillInDay(2);
-        $model->code = "HDC-".date("Ymd")."-xxx-".($count+1);
+      $model = new Bill();
+      $model->type =8;
+      $model->customer_id =0;
+      $count = Bill::countTypeBillInDay(8);
+      $model->code = "MBLV-".date("Ymd")."-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           $params = Yii::$app->request->post();
@@ -110,7 +112,6 @@ class FormedBillController extends Controller
           $model->clearTrans();
           $params = Yii::$app->request->post();
           $billVal = 0;
-
           for($i = 0;$i< count($params["trans"]['type']); $i++){
             if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
               $trans = Transaction::findOne($params["trans"]['id'][$i]);
@@ -132,27 +133,28 @@ class FormedBillController extends Controller
           $model->value = $billVal;
           $model->save();
         }
-
-        $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
-
-        return $this->render('update', [
-            'model' => $model,
-            'trans' => $trans
-        ]);
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+            return $this->render('update', [
+                'model' => $model,
+                'trans'=>$trans
+            ]);
     }
+
 
     public function actionExport($id){
       $model = $this->findModel($id);
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       if($model->is_export != 1){
         $model->is_export = 1;
         try{
           $model->save();
+          foreach($trans as $tran){
+            Storage::updateByCurrId($tran->currency_id,$tran->quantity);
+          }
         }catch(Exception $e){
           Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
         }
       }
-
-      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       return $this->render('export', [
           'model' => $model,
           'trans' => $trans
@@ -167,7 +169,7 @@ class FormedBillController extends Controller
      */
     public function actionDelete($id)
     {
-        // $this->findModel($id)->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }

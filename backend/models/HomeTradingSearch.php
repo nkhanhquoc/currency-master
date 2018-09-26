@@ -8,9 +8,9 @@ use yii\data\ActiveDataProvider;
 use backend\models\Bill;
 
 /**
- * HomeTransferSearch represents the model behind the search form about `\backend\models\Bill`.
+ * HomeTradingSearch represents the model behind the search form about `\backend\models\Bill`.
  */
-class HomeTransferSearch extends Bill
+class HomeTradingSearch extends Bill
 {
     /**
      * @inheritdoc
@@ -58,7 +58,7 @@ class HomeTransferSearch extends Bill
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'type' => 7,
+            'type' => 8,
             'customer_id' => $this->customer_id,
             'customer_type' => $this->customer_type,
             'created_date' => $this->created_date,
