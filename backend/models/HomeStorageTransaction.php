@@ -46,9 +46,9 @@ class HomeStorageTransaction extends HomeStorageTransactionBase{
 
   public function attributeLabels() {
       return [
-          'name' => 'Loại Tiền',
+          'type' => 'Loại Tiền',
           'quantity' => 'Giá trị',
-          'currency_id' => 'Loại Hàng'
+          'currency_id' => 'Loại Tiền'
       ];
   }
 

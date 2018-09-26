@@ -8,18 +8,20 @@ use yii\data\ActiveDataProvider;
 use backend\models\HomeStorageTransaction;
 
 /**
- * HomeStorageTransSearch represents the model behind the search form about `backend\models\HomeStorageTransaction`.
+ * HomeSendSearch represents the model behind the search form about `\backend\models\HomeStorageTransaction`.
  */
-class HomeStorageTransSearch extends HomeStorageTransaction
+class HomeSendSearch extends HomeStorageTransaction
 {
     /**
      * @inheritdoc
      */
+     var $fromTime;
+     var $toTime;
     public function rules()
     {
         return [
             [['id', 'currency_id', 'quantity'], 'integer'],
-            [['created_time'], 'safe'],
+            [['created_time','fromTime','toTime'], 'safe'],
         ];
     }
 
@@ -42,16 +44,16 @@ class HomeStorageTransSearch extends HomeStorageTransaction
     public function search($params)
     {
         $query ="select currency_id,sum(quantity) as quantity, DATE_FORMAT(created_time,'%Y-%m-%d') as created_time
-        from home_storage_transaction  where type = 1 ";
+        from home_storage_transaction  where type = 2 ";
         // ->bindValue(":value",$value)
         // ->bindValue(":currency",$currId)
-        $endfrom = $params['HomeStorageTransSearch']['created_time_from'];
-        $endto = $params['HomeStorageTransSearch']['created_time_to'];
-        if ($endfrom != null) {
-            $query .= ' and CREATED_TIME >= "'.date('Y-m-d', strtotime($endfrom)).'"';
+        $this->fromTime = $params['HomeStorageTransSearch']['created_time_from'];
+        $this->toTime = $params['HomeStorageTransSearch']['created_time_to'];
+        if ($this->fromTime != null) {
+            $query .= ' and CREATED_TIME >= "'.date('Y-m-d', strtotime($this->fromTime)).'"';
         }
-        if ($endto != null) {
-            $query .= ' and CREATED_TIME <= "'.date('Y-m-d 23:59:59', strtotime($endto)).'"';
+        if ($this->toTime != null) {
+            $query .= ' and CREATED_TIME <= "'.date('Y-m-d 23:59:59', strtotime($this->toTime)).'"';
         }
 
         if($this->currency_id){

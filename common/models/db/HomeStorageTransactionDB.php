@@ -11,6 +11,7 @@ use Yii;
  * @property string $currency_id
  * @property integer $quantity
  * @property string $created_time
+ * @property integer $type
  */
 class HomeStorageTransactionDB extends \yii\db\ActiveRecord
 {
@@ -28,8 +29,7 @@ class HomeStorageTransactionDB extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id', 'currency_id', 'quantity'], 'integer'],
+            [['currency_id', 'quantity', 'type'], 'integer'],
             [['created_time'], 'safe']
         ];
     }
@@ -44,6 +44,7 @@ class HomeStorageTransactionDB extends \yii\db\ActiveRecord
             'currency_id' => Yii::t('backend', 'Currency ID'),
             'quantity' => Yii::t('backend', 'Quantity'),
             'created_time' => Yii::t('backend', 'Created Time'),
+            'type' => Yii::t('backend', 'Type'),
         ];
     }
 }

@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\HomeStorage;
 use backend\models\HomeStorageTransaction;
-use backend\models\HomeStorageTransSearch;
+use backend\models\HomeSendSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * HomeStorageTransactionController implements the CRUD actions for HomeStorageTransaction model.
+ * HomeSendController implements the CRUD actions for HomeStorageTransaction model.
  */
-class HomeStorageTransactionController extends Controller
+class HomeSendController extends Controller
 {
     public function behaviors()
     {
@@ -33,14 +32,12 @@ class HomeStorageTransactionController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new HomeStorageTransSearch();
+        $searchModel = new HomeSendSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $homeStorages = HomeStorage::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'homeStorages' => $homeStorages
         ]);
     }
 
@@ -64,18 +61,9 @@ class HomeStorageTransactionController extends Controller
     public function actionCreate()
     {
         $model = new HomeStorageTransaction();
-        $model->type = 1;
+        $model->type = 2;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $storage = HomeStorage::find()->where(['currency_id'=>$model->currency_id])->one();
-            if($storage){
-              $storage->quantity += $model->quantity;
-            } else {
-              $storage = new HomeStorage();
-              $storage->currency_id = $model->currency_id;
-              $storage->quantity = $model->quantity;
-            }
-            $storage->save();
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [

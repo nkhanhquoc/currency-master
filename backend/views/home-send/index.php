@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\HomeStorageTransSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Kho Quê');
+$this->title = Yii::t('backend', 'Gửi Quê');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row home-storage-transaction-index">
@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
                 <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+              </div>
             </div>
 
             <div class="portlet-body">

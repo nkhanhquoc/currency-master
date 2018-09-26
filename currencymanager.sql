@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-09-12 16:58:15
+Date: 2018-09-26 00:13:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -174,6 +174,25 @@ INSERT INTO `auth_item` VALUES ('/gii/default/diff', '2', null, null, null, '146
 INSERT INTO `auth_item` VALUES ('/gii/default/index', '2', null, null, null, '1468341113', '1468341113');
 INSERT INTO `auth_item` VALUES ('/gii/default/preview', '2', null, null, null, '1468341134', '1468341134');
 INSERT INTO `auth_item` VALUES ('/gii/default/view', '2', null, null, null, '1468341133', '1468341133');
+INSERT INTO `auth_item` VALUES ('/home-storage-transaction/*', '2', null, null, null, '1537800606', '1537800606');
+INSERT INTO `auth_item` VALUES ('/home-storage-transaction/create', '2', null, null, null, '1537800605', '1537800605');
+INSERT INTO `auth_item` VALUES ('/home-storage-transaction/delete', '2', null, null, null, '1537800606', '1537800606');
+INSERT INTO `auth_item` VALUES ('/home-storage-transaction/index', '2', null, null, null, '1537800605', '1537800605');
+INSERT INTO `auth_item` VALUES ('/home-storage-transaction/update', '2', null, null, null, '1537800606', '1537800606');
+INSERT INTO `auth_item` VALUES ('/home-storage-transaction/view', '2', null, null, null, '1537800605', '1537800605');
+INSERT INTO `auth_item` VALUES ('/home-storage/*', '2', null, null, null, '1537717035', '1537717035');
+INSERT INTO `auth_item` VALUES ('/home-storage/create', '2', null, null, null, '1537717035', '1537717035');
+INSERT INTO `auth_item` VALUES ('/home-storage/delete', '2', null, null, null, '1537717035', '1537717035');
+INSERT INTO `auth_item` VALUES ('/home-storage/index', '2', null, null, null, '1537717035', '1537717035');
+INSERT INTO `auth_item` VALUES ('/home-storage/update', '2', null, null, null, '1537717035', '1537717035');
+INSERT INTO `auth_item` VALUES ('/home-storage/view', '2', null, null, null, '1537717035', '1537717035');
+INSERT INTO `auth_item` VALUES ('/longtime-bill/*', '2', null, null, null, '1537600615', '1537600615');
+INSERT INTO `auth_item` VALUES ('/longtime-bill/create', '2', null, null, null, '1537600614', '1537600614');
+INSERT INTO `auth_item` VALUES ('/longtime-bill/delete', '2', null, null, null, '1537600614', '1537600614');
+INSERT INTO `auth_item` VALUES ('/longtime-bill/export', '2', null, null, null, '1537600614', '1537600614');
+INSERT INTO `auth_item` VALUES ('/longtime-bill/index', '2', null, null, null, '1537600614', '1537600614');
+INSERT INTO `auth_item` VALUES ('/longtime-bill/update', '2', null, null, null, '1537600614', '1537600614');
+INSERT INTO `auth_item` VALUES ('/longtime-bill/view', '2', null, null, null, '1537600614', '1537600614');
 INSERT INTO `auth_item` VALUES ('/menu/*', '2', null, null, null, '1468421684', '1468421684');
 INSERT INTO `auth_item` VALUES ('/menu/create', '2', null, null, null, '1468421684', '1468421684');
 INSERT INTO `auth_item` VALUES ('/menu/delete', '2', null, null, null, '1468421684', '1468421684');
@@ -209,6 +228,10 @@ INSERT INTO `auth_item` VALUES ('/news/create', '2', null, null, null, '15132635
 INSERT INTO `auth_item` VALUES ('/news/index', '2', null, null, null, '1513263574', '1513263574');
 INSERT INTO `auth_item` VALUES ('/news/update', '2', null, null, null, '1513263574', '1513263574');
 INSERT INTO `auth_item` VALUES ('/news/view', '2', null, null, null, '1513263574', '1513263574');
+INSERT INTO `auth_item` VALUES ('/other-transfer/*', '2', null, null, null, '1537886665', '1537886665');
+INSERT INTO `auth_item` VALUES ('/other-transfer/create', '2', null, null, null, '1537886664', '1537886664');
+INSERT INTO `auth_item` VALUES ('/other-transfer/index', '2', null, null, null, '1537886664', '1537886664');
+INSERT INTO `auth_item` VALUES ('/other-transfer/update', '2', null, null, null, '1537886664', '1537886664');
 INSERT INTO `auth_item` VALUES ('/output-mode/*', '2', null, null, null, '1468421688', '1468421688');
 INSERT INTO `auth_item` VALUES ('/output-mode/create', '2', null, null, null, '1468421687', '1468421687');
 INSERT INTO `auth_item` VALUES ('/output-mode/delete', '2', null, null, null, '1468421687', '1468421687');
@@ -529,20 +552,23 @@ CREATE TABLE `bill` (
   `created_date` datetime DEFAULT NULL,
   `is_export` int(1) DEFAULT '0' COMMENT '1. da xuat hoa don, 0. chua xuat',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of bill
 -- ----------------------------
 INSERT INTO `bill` VALUES ('4', '4', 'TC-20180908-NV1-0', '1', null, null, '', 'Cường', null, null, '2018-09-08 01:03:47', '0');
-INSERT INTO `bill` VALUES ('7', '5', 'VM-20180909-NV1-0', '1', null, null, '', null, null, null, '2018-09-09 15:28:56', '0');
+INSERT INTO `bill` VALUES ('7', '5', 'VM-20180909-NV1-0', '1', null, null, '', null, null, null, '2018-09-23 15:10:43', '0');
 INSERT INTO `bill` VALUES ('9', '2', 'HDC-20180909-NV1-0', '1', null, null, '1213', null, null, null, '2018-09-09 16:25:00', '0');
 INSERT INTO `bill` VALUES ('10', '2', 'HDC-20180909-NV1-1', '1', null, null, '2323', null, null, null, '2018-09-09 16:25:33', '0');
-INSERT INTO `bill` VALUES ('11', '2', 'HDC-20180909-NV2-2', '2', null, null, 'sdfdfsd', null, null, null, '2018-09-09 16:30:24', '0');
-INSERT INTO `bill` VALUES ('12', '2', 'HDC-20180909-NV2-2', '2', null, null, 'sdfdfsd', null, null, null, '2018-09-09 16:30:44', '0');
-INSERT INTO `bill` VALUES ('13', '4', 'TC-20180911-xxx-0', null, null, null, '', '', null, null, '2018-09-11 12:20:23', '0');
-INSERT INTO `bill` VALUES ('14', '4', 'TC-20180912-NV1-0', '1', null, null, 'abc', 'Huy', null, null, '2018-09-12 14:34:44', '0');
+INSERT INTO `bill` VALUES ('11', '2', 'HDC-20180909-NV2-2', '2', '9650600.00', null, 'sdfdfsd', null, null, null, '2018-09-20 20:56:00', '1');
+INSERT INTO `bill` VALUES ('13', '4', 'TC-20180911-xxx-0', null, null, null, '', '', null, null, '2018-09-11 12:20:00', '1');
+INSERT INTO `bill` VALUES ('14', '4', 'TC-20180912-NV2-0', '2', null, null, 'abc', 'Huy', null, null, '2018-09-20 21:52:04', '0');
 INSERT INTO `bill` VALUES ('15', '4', 'TC-20180912-NV2-1', '2', null, null, 'adfsdfdddd', 'abcss', null, null, '2018-09-12 16:51:24', '1');
+INSERT INTO `bill` VALUES ('16', '4', 'TC-20180920-NV2-2', '2', null, null, 'abc', 'ABC', null, null, '2018-09-20 22:05:47', '0');
+INSERT INTO `bill` VALUES ('17', '3', 'HDH-20180922-NV2-1', '2', '5150000.00', null, 'ab', null, '150000.00', null, '2018-09-22 14:21:00', '0');
+INSERT INTO `bill` VALUES ('18', '3', 'HDH-20180922-NV2-2', '2', '25600000.00', null, 'ab', null, '600000.00', null, '2018-09-22 15:36:32', '1');
+INSERT INTO `bill` VALUES ('19', '6', 'TCK-20180925-NV1-1', '1', null, null, '', 'abc', null, null, '2018-09-25 21:52:56', '1');
 
 -- ----------------------------
 -- Table structure for contact
@@ -605,6 +631,46 @@ INSERT INTO `customer` VALUES ('1', 'NV1', 'NV1', null);
 INSERT INTO `customer` VALUES ('2', 'NV2', 'NV2', 'abc');
 
 -- ----------------------------
+-- Table structure for home_storage
+-- ----------------------------
+DROP TABLE IF EXISTS `home_storage`;
+CREATE TABLE `home_storage` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `currency_id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `quantity` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `home_st_currency` (`currency_id`),
+  CONSTRAINT `home_st_currency` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of home_storage
+-- ----------------------------
+INSERT INTO `home_storage` VALUES ('1', '2', null, '102500');
+INSERT INTO `home_storage` VALUES ('2', '1', null, '1000000');
+
+-- ----------------------------
+-- Table structure for home_storage_transaction
+-- ----------------------------
+DROP TABLE IF EXISTS `home_storage_transaction`;
+CREATE TABLE `home_storage_transaction` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `currency_id` bigint(20) DEFAULT NULL,
+  `quantity` int(10) DEFAULT NULL,
+  `created_time` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of home_storage_transaction
+-- ----------------------------
+INSERT INTO `home_storage_transaction` VALUES ('1', '2', '1000', '2018-09-24 23:04:55.000000');
+INSERT INTO `home_storage_transaction` VALUES ('2', '2', '1500', '2018-09-24 23:05:36.000000');
+INSERT INTO `home_storage_transaction` VALUES ('3', '1', '1000000', '2018-09-25 23:05:56.000000');
+INSERT INTO `home_storage_transaction` VALUES ('4', '2', '100000', '2018-09-25 23:12:25.000000');
+
+-- ----------------------------
 -- Table structure for menu
 -- ----------------------------
 DROP TABLE IF EXISTS `menu`;
@@ -620,7 +686,7 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`),
   KEY `parent` (`parent`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `menu` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of menu
@@ -640,6 +706,10 @@ INSERT INTO `menu` VALUES ('33', 'Tiền chuyển Khác', '31', null, null, null
 INSERT INTO `menu` VALUES ('34', 'Quản lý Vay Mượn', null, '/borrow/index', null, null, '', null);
 INSERT INTO `menu` VALUES ('35', 'Quản lý Mua Bán', null, null, null, null, '', null);
 INSERT INTO `menu` VALUES ('36', 'Mua bán chốt hợp đồng', '35', '/formed-bill/index', null, null, '', null);
+INSERT INTO `menu` VALUES ('37', 'Mua bán Dài hạn', '35', '/longtime-bill/index', null, null, 'icon-user-unfollow', null);
+INSERT INTO `menu` VALUES ('38', 'Quản lý Quê', null, null, null, null, 'icon-screen-smartphone', null);
+INSERT INTO `menu` VALUES ('39', 'Nhập kho Quê', '38', '/home-storage-transaction/index', '1', null, 'icon-user-unfollow', null);
+INSERT INTO `menu` VALUES ('40', 'Tiền chuyển khác', '31', '/other-transfer/index', null, null, 'icon-user-follow', null);
 
 -- ----------------------------
 -- Table structure for pets
@@ -699,8 +769,8 @@ CREATE TABLE `storage` (
 -- ----------------------------
 -- Records of storage
 -- ----------------------------
-INSERT INTO `storage` VALUES ('1', 'USD', '1000150', '2');
-INSERT INTO `storage` VALUES ('2', 'VND', '100000000', '1');
+INSERT INTO `storage` VALUES ('1', 'USD', '998900', '2');
+INSERT INTO `storage` VALUES ('2', 'VND', '101830125', '1');
 INSERT INTO `storage` VALUES ('3', 'CAD', '1000000', '3');
 
 -- ----------------------------
@@ -720,18 +790,33 @@ CREATE TABLE `transaction` (
   `deposit` double(10,2) DEFAULT NULL,
   `exchange_rate` double(10,2) DEFAULT NULL,
   `note` varchar(255) DEFAULT NULL,
+  `real_value` double(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `transaction_currency_idx` (`currency_id`),
   KEY `transaction_bill` (`bill_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of transaction
 -- ----------------------------
-INSERT INTO `transaction` VALUES ('9', '15', '3', '3', '10000', null, '2018-09-12 14:59:14', null, '200.00', null, null, '123');
-INSERT INTO `transaction` VALUES ('10', '0', '3', '3', '1', null, '2018-09-12 15:26:25', null, '20.00', null, null, '123');
-INSERT INTO `transaction` VALUES ('11', '0', '3', '3', '1', null, '2018-09-12 15:28:27', null, '20.00', null, null, '0');
-INSERT INTO `transaction` VALUES ('12', '0', '3', '3', '1', null, '2018-09-12 15:28:44', null, '20.00', null, null, '123');
+INSERT INTO `transaction` VALUES ('9', '15', '3', '3', '10000', null, '2018-09-12 14:59:14', null, '200.00', null, null, '123', null);
+INSERT INTO `transaction` VALUES ('10', '0', '3', '3', '1', null, '2018-09-12 15:26:25', null, '20.00', null, null, '123', null);
+INSERT INTO `transaction` VALUES ('11', '0', '3', '3', '1', null, '2018-09-12 15:28:27', null, '20.00', null, null, '0', null);
+INSERT INTO `transaction` VALUES ('12', '0', '3', '3', '1', null, '2018-09-12 15:28:44', null, '20.00', null, null, '123', null);
+INSERT INTO `transaction` VALUES ('13', '14', '4', '2', '100', null, '2018-09-17 16:14:47', null, null, null, null, 'thêm test', null);
+INSERT INTO `transaction` VALUES ('14', '14', '3', '1', '1000000', null, '2018-09-17 20:41:03', null, null, null, null, 'them test 2', null);
+INSERT INTO `transaction` VALUES ('15', '11', '1', '1', '100', '-2350000.00', '2018-09-20 20:45:15', null, '0.00', null, '23500.00', 'abc', null);
+INSERT INTO `transaction` VALUES ('16', '11', '2', '3', '600', '12000600.00', '2018-09-20 20:45:15', null, '0.00', null, '20001.00', 'them test 2', null);
+INSERT INTO `transaction` VALUES ('17', '14', '9', '1', '100000', null, '2018-09-20 22:00:00', null, null, null, null, 'them test 2', null);
+INSERT INTO `transaction` VALUES ('18', '16', '4', '3', '100', null, '2018-09-20 22:05:47', null, null, null, null, 'them test 2', null);
+INSERT INTO `transaction` VALUES ('19', '13', '4', '2', '-1250', null, '2018-09-20 22:35:09', null, null, null, null, '', null);
+INSERT INTO `transaction` VALUES ('20', '13', '9', '1', '-1320000', null, '2018-09-20 22:35:09', null, null, null, null, '', null);
+INSERT INTO `transaction` VALUES ('21', '17', '1', '2', '1000', '-25000000.00', '2018-09-22 14:21:16', null, '0.00', null, '25000.00', 'them test 2', null);
+INSERT INTO `transaction` VALUES ('22', '17', '2', '3', '2000', '30000000.00', '2018-09-22 14:49:53', null, '0.00', null, '15000.00', 'n', null);
+INSERT INTO `transaction` VALUES ('23', '18', '2', '2', '1000', '25000000.00', '2018-09-22 15:36:33', null, '0.00', null, '25000.00', '', null);
+INSERT INTO `transaction` VALUES ('24', '7', '6', '2', '1000', null, '2018-09-23 15:07:34', null, '0.00', '500000.00', null, '123', null);
+INSERT INTO `transaction` VALUES ('25', '7', '5', '1', '2000', null, '2018-09-23 15:13:25', null, '0.00', '1000000.00', null, '456', null);
+INSERT INTO `transaction` VALUES ('26', '19', '3', '1', '100', null, '2018-09-25 21:52:56', null, '25.00', null, null, 'a', '75.00');
 
 -- ----------------------------
 -- Table structure for user
