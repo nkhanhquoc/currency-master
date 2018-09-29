@@ -21,6 +21,25 @@ class Transaction extends TransactionBase{
       ];
   }
 
+  public function attributeLabels()
+  {
+      return [
+          'id' => Yii::t('backend', 'ID'),
+          'bill_id' => Yii::t('backend', 'Bill ID'),
+          'type' => Yii::t('backend', 'Type'),
+          'currency_id' => Yii::t('backend', 'Currency ID'),
+          'quantity' => Yii::t('backend', 'Quantity'),
+          'value' => Yii::t('backend', 'Value'),
+          'created_time' => Yii::t('backend', 'Thời gian'),
+          'receiver' => Yii::t('backend', 'Receiver'),
+          'fee' => Yii::t('backend', 'Fee'),
+          'deposit' => Yii::t('backend', 'Deposit'),
+          'exchange_rate' => Yii::t('backend', 'Exchange Rate'),
+          'note' => Yii::t('backend', 'Note'),
+          'real_value' => Yii::t('backend', 'Real Value'),
+      ];
+  }
+
   public function customAfterSave($insert){
     parent::afterSave($insert, $changedAttributes);
     if($insert){
@@ -81,4 +100,20 @@ class Transaction extends TransactionBase{
       '6' => 'Cho vay',
     ];
   }
+
+  public function getBill(){
+    return Bill::findOne([$this->bill_id]);
+  }
+
+  public function getTypeName(){
+    return Yii::$app->params['transaction_type'][$this->type];
+  }
+
+  public function getCurrencyName(){
+    $currency = Currency::findOne([$this->currency_id]);
+    return $currency->name;
+  }
+
+
+
 }

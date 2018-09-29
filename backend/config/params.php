@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',  
+    'adminEmail' => 'admin@example.com',
     'page_sizes' => 20,
     'delimiter' => '#',
     'upload_dir' =>[
@@ -62,4 +62,16 @@ return [
         "icon-plus", "icon-pointer", "icon-power", "icon-refresh", "icon-reload", "icon-settings", "icon-star",
         "icon-symbol-female", "icon-symbol-male", "icon-target", "icon-volume-1", "icon-volume-2", "icon-volume-off",
         "icon-users"],
+      'transaction_type'=> [
+        '1' => 'Mua',
+        '2' => 'Bán',
+        '3' => 'Nhận tiền chuyển',
+        '4' => 'Trả tiền chuyển',
+        '5' => 'Vay',
+        '6' => 'Cho vay',
+        '7' => 'Trả ngoại tệ',
+        '8' => 'Lấy ngoại tệ',
+        '9' => 'Trả VND',
+        '10' => 'Lấy VND'
+      ]
 ];

@@ -4,13 +4,13 @@ use awesome\backend\widgets\AwsBaseHtml;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Bill */
+/* @var $model backend\models\Transaction */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Bills'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Transactions'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="row bill-view">
+<div class="row transaction-view">
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
@@ -39,17 +39,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'model' => $model,
                 'attributes' => [
                             'id',
+            'bill_id',
             'type',
-            'code',
-            'customer_id',
+            'currency_id',
+            'quantity',
             'value',
-            'customer_type',
-            'note',
+            'created_time',
             'receiver',
-            'deposit',
             'fee',
-            'created_date',
-            'is_export',
+            'deposit',
+            'exchange_rate',
+            'note',
+            'real_value',
                 ],
                 ]) ?>
             </div>

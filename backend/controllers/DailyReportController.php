@@ -3,14 +3,14 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Bill;
+use backend\models\Transaction;
 use backend\models\DailyReportSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DailyReportController implements the CRUD actions for Bill model.
+ * DailyReportController implements the CRUD actions for Transaction model.
  */
 class DailyReportController extends Controller
 {
@@ -27,7 +27,7 @@ class DailyReportController extends Controller
     }
 
     /**
-     * Lists all Bill models.
+     * Lists all Transaction models.
      * @return mixed
      */
     public function actionIndex()
@@ -42,7 +42,7 @@ class DailyReportController extends Controller
     }
 
     /**
-     * Displays a single Bill model.
+     * Displays a single Transaction model.
      * @param string $id
      * @return mixed
      */
@@ -54,13 +54,13 @@ class DailyReportController extends Controller
     }
 
     /**
-     * Creates a new Bill model.
+     * Creates a new Transaction model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Bill();
+        $model = new Transaction();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +72,7 @@ class DailyReportController extends Controller
     }
 
     /**
-     * Updates an existing Bill model.
+     * Updates an existing Transaction model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -91,7 +91,7 @@ class DailyReportController extends Controller
     }
 
     /**
-     * Deletes an existing Bill model.
+     * Deletes an existing Transaction model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -104,15 +104,15 @@ class DailyReportController extends Controller
     }
 
     /**
-     * Finds the Bill model based on its primary key value.
+     * Finds the Transaction model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Bill the loaded model
+     * @return Transaction the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Bill::findOne($id)) !== null) {
+        if (($model = Transaction::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -10,58 +10,80 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\DailyReportSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Bills');
+$this->title = Yii::t('backend', 'Transactions');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="row bill-index">
+<div class="row transaction-index">
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
-                                        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                                        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
                                 <div class="caption">
                     <i class="icon-layers font-green"></i>
                     <span class="caption-subject font-green sbold uppercase">
                         <?=  AwsBaseHtml::encode($this->title) ?>
                     </span>
                 </div>
-                <div class="actions">
-                    <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Bill',
-]),
-                        ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
-                </div>
+
             </div>
 
             <div class="portlet-body">
                 <div class="table-container">
-                    <?php 
+                    <?php
                     Pjax::begin(['formSelector' => 'form', 'enablePushState' => false, 'id' => 'mainGridPjax']);
                     ?>
 
-                                            <?= AwsGridView::widget([
-                        'dataProvider' => $dataProvider,
-                        'filterModel' => $searchModel,
-        'columns' => [
-                        ['class' => 'yii\grid\SerialColumn'],
+                    <table class="table table-bordered">
+                      <tr class="list-group-item-success">
+                        <th>Khách hàng </th>
+                        <th>Loại GD </th>
+                        <th>Loại Tiền  </th>
+                        <th>Số Lượng</th>
+                        <th>Tỉ giá</th>
+                        <th>Thành tiền</th>
+                        <th>Phí</th>
+                        <th>Ngày</th>
+                      </tr>
+                      <?php $billArr = []; ?>
+                      <?php foreach($dataProvider->getModels() as $data):?>
+                        <?php if(!in_array($data->bill_id,$billArr)):?>
+                          <?php $billArr[] = $data->bill_id; $bill = $data->getBill();?>
+                          <tr class="list-group-item-info" style="font-weight:bold">
+                            <td colspan="8">
+                              <?= $bill->code ?>
+                            </td>
+                          </tr>
+                        <?php endif;?>
+                        <tr>
+                          <td>
+                            <?= $bill->getCustomer() ?>
+                          </td>
+                          <td>
+                            <?= $data->getTypeName() ?>
+                          </td>
+                          <td>
+                            <?= $data->getCurrencyName() ?>
+                          </td>
+                          <td>
+                            <?= number_format($data->quantity) ?>
+                          </td>
+                          <td>
+                            <?= $data->exchange_rate ?>
+                          </td>
+                          <td>
+                            <?= number_format($data->value) ?>
+                          </td>
+                          <td>
+                            <?= number_format($data->fee) ?>
+                          </td>
+                          <td>
+                            <?= $data->created_time ?>
+                          </td>
+                        </tr>
+                      <?php endforeach;?>
+                    </table>
 
-                                    'id',
-            'type',
-            'code',
-            'customer_id',
-            'value',
-            // 'customer_type',
-            // 'note',
-            // 'receiver',
-            // 'deposit',
-            // 'fee',
-            // 'created_date',
-            // 'is_export',
-
-                        ['class' => 'yii\grid\ActionColumn'],
-                        ],
-                        ]); ?>
-                    
-                    <?php 
+                    <?php
                     Pjax::end();
                     ?>
                 </div>

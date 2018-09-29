@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Bill;
+use backend\models\Transaction;
 
 /**
- * DailyReportSearch represents the model behind the search form about `\backend\models\Bill`.
+ * DailyReportSearch represents the model behind the search form about `\backend\models\Transaction`.
  */
-class DailyReportSearch extends Bill
+class DailyReportSearch extends Transaction
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class DailyReportSearch extends Bill
     public function rules()
     {
         return [
-            [['id', 'type', 'customer_id', 'customer_type', 'is_export'], 'integer'],
-            [['code', 'value', 'note', 'receiver', 'deposit', 'fee', 'created_date'], 'safe'],
+            [['id', 'bill_id', 'type', 'currency_id'], 'integer'],
+            [['quantity', 'value', 'created_time', 'receiver', 'fee', 'deposit', 'exchange_rate', 'note', 'real_value'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class DailyReportSearch extends Bill
      */
     public function search($params)
     {
-        $query = Bill::find();
+        $query = Transaction::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -55,22 +55,25 @@ class DailyReportSearch extends Bill
             // $query->where('0=1');
             return $dataProvider;
         }
+        if($this->created_time)
+        $query->where(['between','created_time',$this->created_time,$this->created_time.' 23:59:59']);
 
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'type' => $this->type,
-            'customer_id' => $this->customer_id,
-            'customer_type' => $this->customer_type,
-            'created_date' => $this->created_date,
-            'is_export' => $this->is_export,
-        ]);
-
-        $query->andFilterWhere(['like', 'code', $this->code])
-            ->andFilterWhere(['like', 'value', $this->value])
-            ->andFilterWhere(['like', 'note', $this->note])
-            ->andFilterWhere(['like', 'receiver', $this->receiver])
-            ->andFilterWhere(['like', 'deposit', $this->deposit])
-            ->andFilterWhere(['like', 'fee', $this->fee]);
+        // $query->andFilterWhere([
+        //     'id' => $this->id,
+        //     'bill_id' => $this->bill_id,
+        //     'type' => $this->type,
+        //     'currency_id' => $this->currency_id,
+        //     // 'created_time' => $this->created_time,
+        // ]);
+        //
+        // $query->andFilterWhere(['like', 'quantity', $this->quantity])
+        //     ->andFilterWhere(['like', 'value', $this->value])
+        //     ->andFilterWhere(['like', 'receiver', $this->receiver])
+        //     ->andFilterWhere(['like', 'fee', $this->fee])
+        //     ->andFilterWhere(['like', 'deposit', $this->deposit])
+        //     ->andFilterWhere(['like', 'exchange_rate', $this->exchange_rate])
+        //     ->andFilterWhere(['like', 'note', $this->note])
+        //     ->andFilterWhere(['like', 'real_value', $this->real_value]);
 
         return $dataProvider;
     }

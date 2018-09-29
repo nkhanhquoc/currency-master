@@ -4,14 +4,14 @@ use awesome\backend\widgets\AwsBaseHtml;
 use awesome\backend\form\AwsActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Bill */
+/* @var $model backend\models\Transaction */
 /* @var $title string */
 /* @var $form AwsActiveForm */
 ?>
 
 <?php  $form = AwsActiveForm::begin(); ?>
 
-    <div class="portlet light portlet-fit portlet-form bordered bill-form">
+    <div class="portlet light portlet-fit portlet-form bordered transaction-form">
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-paper-plane font-green"></i>
@@ -29,27 +29,29 @@ use awesome\backend\form\AwsActiveForm;
         </div>
         <div class="portlet-body">
             <div class="form-body">
-                    <?= $form->field($model, 'type')->textInput() ?>
+                    <?= $form->field($model, 'bill_id')->textInput(['maxlength' => 20]) ?>
 
-    <?= $form->field($model, 'code')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'type')->textInput() ?>
 
-    <?= $form->field($model, 'customer_id')->textInput(['maxlength' => 20]) ?>
+    <?= $form->field($model, 'currency_id')->textInput(['maxlength' => 20]) ?>
+
+    <?= $form->field($model, 'quantity')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'value')->textInput() ?>
 
-    <?= $form->field($model, 'customer_type')->textInput() ?>
-
-    <?= $form->field($model, 'note')->textInput(['maxlength' => 255]) ?>
+    <?= $form->field($model, 'created_time')->textInput() ?>
 
     <?= $form->field($model, 'receiver')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'deposit')->textInput() ?>
-
     <?= $form->field($model, 'fee')->textInput() ?>
 
-    <?= $form->field($model, 'created_date')->textInput() ?>
+    <?= $form->field($model, 'deposit')->textInput() ?>
 
-    <?= $form->field($model, 'is_export')->textInput() ?>
+    <?= $form->field($model, 'exchange_rate')->textInput() ?>
+
+    <?= $form->field($model, 'note')->textInput(['maxlength' => 255]) ?>
+
+    <?= $form->field($model, 'real_value')->textInput() ?>
 
             </div>
         </div>
