@@ -5,6 +5,8 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Customer;
 use backend\models\CustomerSearch;
+use backend\models\Currency;
+use backend\models\Debt;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -63,6 +65,14 @@ class CustomerController extends Controller
         $model = new Customer();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+          $currencies = Currency::find()->all();
+          foreach($currencies as $crr){
+            $debt = new Debt();
+            $debt->currency_id =$crr->id;
+            $debt->customer_id = $model->id;
+            $debt->value = 0;
+            $debt->save(false);
+          }
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [

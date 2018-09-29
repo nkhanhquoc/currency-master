@@ -3,18 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Currency;
-use backend\models\Debt;
-use backend\models\Customer;
-use backend\models\CurrencySearch;
+use backend\models\Bill;
+use backend\models\DailyReportSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CurrencyController implements the CRUD actions for Currency model.
+ * DailyReportController implements the CRUD actions for Bill model.
  */
-class CurrencyController extends Controller
+class DailyReportController extends Controller
 {
     public function behaviors()
     {
@@ -29,12 +27,12 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Lists all Currency models.
+     * Lists all Bill models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CurrencySearch();
+        $searchModel = new DailyReportSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -44,7 +42,7 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Displays a single Currency model.
+     * Displays a single Bill model.
      * @param string $id
      * @return mixed
      */
@@ -56,24 +54,16 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Creates a new Currency model.
+     * Creates a new Bill model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Currency();
+        $model = new Bill();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-          $customers = Customer::find()->all();
-          foreach($customers as $cus){
-            $debt = new Debt();
-            $debt->customer_id = $cus->id;
-            $debt->currency_id = $model->id;
-            $debt->value = 0;
-            $debt->save(false);
-          }
-            return $this->redirect(['update', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -82,7 +72,7 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Updates an existing Currency model.
+     * Updates an existing Bill model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -92,10 +82,8 @@ class CurrencyController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-          Yii::$app->session->setFlash("success","Cập nhật thành công");
-            return $this->redirect(['update', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
-          Yii::$app->session->setFlash("error","Cập nhật thất bại");
             return $this->render('update', [
                 'model' => $model,
             ]);
@@ -103,7 +91,7 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Deletes an existing Currency model.
+     * Deletes an existing Bill model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -116,15 +104,15 @@ class CurrencyController extends Controller
     }
 
     /**
-     * Finds the Currency model based on its primary key value.
+     * Finds the Bill model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Currency the loaded model
+     * @return Bill the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Currency::findOne($id)) !== null) {
+        if (($model = Bill::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

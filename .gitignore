@@ -4,3 +4,5 @@ logs
 *.log
 backend/web/assets/feb8ab8e/js/select2.full.js
 /backend/web/assets
+*.log
+*.log

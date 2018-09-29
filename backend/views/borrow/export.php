@@ -102,7 +102,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                 </table>
 
                 <div class="row">
-                  <h3 style="text-align:center">HÓA ĐƠN TRẢ CHẬM</h3>
+                  <h3 style="text-align:center">HÓA ĐƠN VAY MƯỢN</h3>
                 </div>
               <table class="table table-striped table-condensed">
                 <tr>
@@ -125,7 +125,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                     </td>
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTradeType(),
+                        $tran->getAllBorrowType(),
                         ['name'=>'trans[type][]','disabled'=>'disabled']
                         )->label(false)?>
                     </td>
