@@ -6,10 +6,21 @@ use common\models\StorageBase;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
 use yii\helpers\FileHelper;
-use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 
 class Storage extends StorageBase{
+
+  public function behaviors() {
+      return [
+        [
+            'class' => TimestampBehavior::className(),
+            'createdAtAttribute' => 'date',
+            'updatedAtAttribute' => false,
+            'value' => new Expression('NOW()'),
+        ],
+      ];
+  }
 
   public function getCurrencyId(){
     $query = Currency::find()->all();
@@ -30,15 +41,40 @@ class Storage extends StorageBase{
       ];
   }
 
-  public static function updateByCurrId($currId, $value){
+  // public static function updateByCurrId($currId, $value){
+  //   try{
+  //     Yii::$app->db->createCommand("update storage set quantity = quantity + :value where currency_id = :currency")
+  //     ->bindValue(":value",$value)
+  //     ->bindValue(":currency",$currId)
+  //     ->execute();
+  //   }catch(Exception $e){
+  //     Yii::$app->session->setFlash("error","Không cập nhật được dữ liệu: ".$e->getMessage());
+  //   }
+  // }
+
+  public static function updateByCurrId($currency,$value){
+    $currentSt = Storage::find()
+    ->where(['currency_id'=>$currency])
+    ->andWhere(['>=','date',date("Y-m-d")])
+    ->one();
     try{
-      Yii::$app->db->createCommand("update storage set quantity = quantity + :value where currency_id = :currency")
-      ->bindValue(":value",$value)
-      ->bindValue(":currency",$currId)
-      ->execute();
-    }catch(Exception $e){
+      if(!is_null($currentSt->id)){
+        $query = Yii::$app->db->createCommand("update storage set quantity = quantity + :value where id = :id")
+        ->bindValue(":value",$value)
+        ->bindValue(":id",$currentSt->id)
+        ->execute();
+      } else {
+        $currentSt = Storage::find()
+        ->where(['currency_id'=>$currency])
+        ->orderBy(['date' => SORT_DESC])
+        ->one();
+        $st = new Storage();
+        $st->currency_id = $currency;
+        $st->quantity = $currentSt->quantity + $value;
+        $st->save(false);
+      }
+    } catch(Exception $e){
       Yii::$app->session->setFlash("error","Không cập nhật được dữ liệu: ".$e->getMessage());
     }
-
   }
 }

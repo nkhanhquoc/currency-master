@@ -16,4 +16,13 @@ class Currency extends CurrencyBase{
           'code' => 'Mã Hàng'
       ];
   }
+
+  public static function getAllExRate(){
+    $allC = Currency::find()->all();
+    $arrC = [];
+    foreach($allC as $c){
+      $arrC[$c->id] = $c->exchange_rate;
+    }
+    return $arrC;
+  }
 }

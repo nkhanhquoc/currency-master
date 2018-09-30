@@ -23,10 +23,6 @@ class Debt extends DebtBase{
   }
 
   public static function updateByCustomerNCurrency($customer,$currency,$value){
-    // var_dump($customer);
-    // var_dump($currency);
-    // var_dump($value);
-    // die;
     $currentDebt = Debt::find()
     ->where(['customer_id'=>$customer,'currency_id'=>$currency])
     ->andWhere(['>=','date',date("Y-m-d")])
@@ -49,7 +45,7 @@ class Debt extends DebtBase{
         $debt->save(false);
       }
     } catch(Exception $e){
-
+      Yii::$app->session->setFlash("error","Không cập nhật được dữ liệu: ".$e->getMessage());
     }
 
   }

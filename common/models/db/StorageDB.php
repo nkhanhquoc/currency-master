@@ -11,6 +11,7 @@ use Yii;
  * @property string $name
  * @property integer $quantity
  * @property string $currency_id
+ * @property string $date
  *
  * @property CurrencyDB $currency
  */
@@ -31,6 +32,7 @@ class StorageDB extends \yii\db\ActiveRecord
     {
         return [
             [['quantity', 'currency_id'], 'integer'],
+            [['date'], 'safe'],
             [['name'], 'string', 'max' => 255]
         ];
     }
@@ -45,6 +47,7 @@ class StorageDB extends \yii\db\ActiveRecord
             'name' => Yii::t('backend', 'Name'),
             'quantity' => Yii::t('backend', 'Quantity'),
             'currency_id' => Yii::t('backend', 'Currency ID'),
+            'date' => Yii::t('backend', 'Date'),
         ];
     }
 

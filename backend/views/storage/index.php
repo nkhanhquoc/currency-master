@@ -46,6 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                     // 'id',
                         'name',
+
                         [
                             'attribute' => 'quantity',
                             'format' => 'raw', //raw, html
@@ -53,6 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                               return number_format($dataProvider->quantity,2);
                             }
                         ],
+                        'date',
                         ['class' => 'yii\grid\ActionColumn'],
                         ],
                         ]); ?>

@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Currency;
 use backend\models\Debt;
+use backend\models\Storage;
 use backend\models\Customer;
 use backend\models\CurrencySearch;
 use yii\web\Controller;
@@ -73,6 +74,11 @@ class CurrencyController extends Controller
             $debt->value = 0;
             $debt->save(false);
           }
+          $st = new Storage();
+          $st->currency_id = $model->id;
+          $st->quantity = 0;
+          $st->name = $model->code;
+          $st->save();
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -95,7 +101,6 @@ class CurrencyController extends Controller
           Yii::$app->session->setFlash("success","Cập nhật thành công");
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
-          Yii::$app->session->setFlash("error","Cập nhật thất bại");
             return $this->render('update', [
                 'model' => $model,
             ]);

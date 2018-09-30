@@ -33,11 +33,15 @@ class DailyReportController extends Controller
     public function actionIndex()
     {
         $searchModel = new DailyReportSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $params = Yii::$app->request->queryParams;
+        if(empty($params)){
+          $params = ['DailyReportSearch'=>['created_time'=>date("Y-m-d")]];
+        }
+        $dataProvider = $searchModel->search($params);
         return $this->render('index', [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider
+
         ]);
     }
 
@@ -60,15 +64,15 @@ class DailyReportController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Transaction();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
+        // $model = new Transaction();
+        //
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->id]);
+        // } else {
+        //     return $this->render('create', [
+        //         'model' => $model,
+        //     ]);
+        // }
     }
 
     /**
@@ -79,15 +83,15 @@ class DailyReportController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
+        // $model = $this->findModel($id);
+        //
+        // if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //     return $this->redirect(['view', 'id' => $model->id]);
+        // } else {
+        //     return $this->render('update', [
+        //         'model' => $model,
+        //     ]);
+        // }
     }
 
     /**
@@ -98,9 +102,9 @@ class DailyReportController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        // $this->findModel($id)->delete();
+        //
+        // return $this->redirect(['index']);
     }
 
     /**

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-09-26 23:02:12
+Date: 2018-09-29 12:49:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -149,6 +149,8 @@ INSERT INTO `auth_item` VALUES ('/customer/delete', '2', null, null, null, '1535
 INSERT INTO `auth_item` VALUES ('/customer/index', '2', null, null, null, '1535879739', '1535879739');
 INSERT INTO `auth_item` VALUES ('/customer/update', '2', null, null, null, '1535882766', '1535882766');
 INSERT INTO `auth_item` VALUES ('/customer/view', '2', null, null, null, '1535882766', '1535882766');
+INSERT INTO `auth_item` VALUES ('/daily-report', '2', null, null, null, null, null);
+INSERT INTO `auth_item` VALUES ('/daily-report/index', '2', null, null, null, null, null);
 INSERT INTO `auth_item` VALUES ('/debug/*', '2', null, null, null, '1468341111', '1468341111');
 INSERT INTO `auth_item` VALUES ('/debug/default/*', '2', null, null, null, '1468341110', '1468341110');
 INSERT INTO `auth_item` VALUES ('/debug/default/download-mail', '2', null, null, null, '1468341101', '1468341101');
@@ -584,7 +586,7 @@ CREATE TABLE `bill` (
 -- Records of bill
 -- ----------------------------
 INSERT INTO `bill` VALUES ('4', '4', 'TC-20180908-NV1-0', '1', null, null, '', 'Cường', null, null, '2018-09-08 01:03:47', '0');
-INSERT INTO `bill` VALUES ('7', '5', 'VM-20180909-NV1-0', '1', null, null, '', null, null, null, '2018-09-23 15:10:43', '0');
+INSERT INTO `bill` VALUES ('7', '5', 'VM-20180909-NV1-0', '1', null, null, '', null, null, null, '2018-09-23 15:10:43', '1');
 INSERT INTO `bill` VALUES ('9', '2', 'HDC-20180909-NV1-0', '1', null, null, '1213', null, null, null, '2018-09-09 16:25:00', '0');
 INSERT INTO `bill` VALUES ('10', '2', 'HDC-20180909-NV1-1', '1', null, null, '2323', null, null, null, '2018-09-09 16:25:33', '0');
 INSERT INTO `bill` VALUES ('11', '2', 'HDC-20180909-NV2-2', '2', '9650600.00', null, 'sdfdfsd', null, null, null, '2018-09-20 20:56:00', '1');
@@ -634,7 +636,7 @@ CREATE TABLE `currency` (
   `exchange_rate` double(10,2) DEFAULT NULL,
   `is_active` int(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of currency
@@ -642,6 +644,7 @@ CREATE TABLE `currency` (
 INSERT INTO `currency` VALUES ('1', 'Tiền Việt Nam', 'VND', '1.00', '1');
 INSERT INTO `currency` VALUES ('2', 'Đô la Mỹ', 'USD', '23500.55', '1');
 INSERT INTO `currency` VALUES ('3', 'Đô Canada', 'CAD', '17823.50', '1');
+INSERT INTO `currency` VALUES ('4', 'Nhan dan te', 'NDT', '2000.00', '1');
 
 -- ----------------------------
 -- Table structure for customer
@@ -653,13 +656,41 @@ CREATE TABLE `customer` (
   `code` varchar(255) DEFAULT NULL,
   `note` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
 INSERT INTO `customer` VALUES ('1', 'NV1', 'NV1', null);
 INSERT INTO `customer` VALUES ('2', 'NV2', 'NV2', 'abc');
+INSERT INTO `customer` VALUES ('3', 'Nha vang 3', 'NV3', 'abc');
+INSERT INTO `customer` VALUES ('4', 'nha vang4', 'NV4', 'abc');
+INSERT INTO `customer` VALUES ('5', 'NV5', 'NV5', 'adfdfs');
+INSERT INTO `customer` VALUES ('6', 'NV5', 'NV5', 'adfdfs');
+INSERT INTO `customer` VALUES ('7', 'NV5', 'NV5', 'adfdfs');
+
+-- ----------------------------
+-- Table structure for debt
+-- ----------------------------
+DROP TABLE IF EXISTS `debt`;
+CREATE TABLE `debt` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `currency_id` bigint(20) DEFAULT NULL,
+  `customer_id` bigint(20) DEFAULT NULL,
+  `value` float(10,2) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of debt
+-- ----------------------------
+INSERT INTO `debt` VALUES ('1', '1', '7', '0.00', '2018-09-29 10:19:28');
+INSERT INTO `debt` VALUES ('2', '2', '7', '0.00', '2018-09-29 10:19:28');
+INSERT INTO `debt` VALUES ('3', '3', '7', '0.00', '2018-09-29 10:19:28');
+INSERT INTO `debt` VALUES ('4', '4', '7', '0.00', '2018-09-29 10:19:28');
+INSERT INTO `debt` VALUES ('5', '2', '1', '1001.00', '2018-09-29 10:59:42');
+INSERT INTO `debt` VALUES ('6', '1', '1', '-6000.00', '2018-09-29 10:59:42');
 
 -- ----------------------------
 -- Table structure for home_storage
@@ -720,7 +751,7 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`),
   KEY `parent` (`parent`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `menu` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of menu
@@ -748,6 +779,23 @@ INSERT INTO `menu` VALUES ('41', 'Gửi quê', '38', '/home-send/index', null, n
 INSERT INTO `menu` VALUES ('42', 'Tiền chuyển Quê', '38', '/home-transfer/index', null, null, 'icon-user-following', null);
 INSERT INTO `menu` VALUES ('43', 'Mua bán Quê', '38', '/home-trading/index', null, null, 'icon-chemistry', null);
 INSERT INTO `menu` VALUES ('44', 'Chuyển khoản Quê', '38', '/home-bank/index', null, null, 'icon-crop', null);
+INSERT INTO `menu` VALUES ('45', 'Báo cáo cửa hàng', null, null, null, null, 'icon-user-unfollow', null);
+INSERT INTO `menu` VALUES ('46', 'Báo cáo hàng ngày', '45', '/daily-report/index', null, null, 'icon-user-unfollow', null);
+
+-- ----------------------------
+-- Table structure for original_storage
+-- ----------------------------
+DROP TABLE IF EXISTS `original_storage`;
+CREATE TABLE `original_storage` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `currency_id` bigint(20) DEFAULT NULL,
+  `value` float(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of original_storage
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for pets
@@ -807,8 +855,8 @@ CREATE TABLE `storage` (
 -- ----------------------------
 -- Records of storage
 -- ----------------------------
-INSERT INTO `storage` VALUES ('1', 'USD', '1000900', '2');
-INSERT INTO `storage` VALUES ('2', 'VND', '116930326', '1');
+INSERT INTO `storage` VALUES ('1', 'USD', '992900', '2');
+INSERT INTO `storage` VALUES ('2', 'VND', '115940326', '1');
 INSERT INTO `storage` VALUES ('3', 'CAD', '1001600', '3');
 
 -- ----------------------------
