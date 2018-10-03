@@ -5,6 +5,7 @@ use awesome\backend\grid\AwsGridView;
 use awesome\backend\widgets\AwsBaseHtml;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
+use backend\models\Customer;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\FastBillSearch */
@@ -44,18 +45,35 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
-                                    'id',
-            'type',
             'code',
-            'customer_id',
+            [
+                'attribute' => 'customer_id',
+                'format' => 'raw', //raw, html
+                'content' => function($dataProvider) {
+                  $m = Customer::findOne($dataProvider['customer_id']);
+                  return $m->name;
+                }
+            ],
             'value',
             // 'customer_type',
-            // 'note',
+            'note',
             // 'receiver',
             // 'deposit',
             // 'fee',
-            // 'created_date',
-            // 'is_export',
+            'created_date',
+            [
+              'attribute' => 'is_export',
+              'format' => 'raw', //raw, html
+              'content' => function($dataProvider) {
+                $text = "";
+                switch($dataProvider['is_export']){
+                  case 0: $text = "Chưa xuất";break;
+                  case 1: $text = "Đã xuất";break;
+                  default: break;
+                };
+                return $text;
+              }
+            ],
 
                         ['class' => 'yii\grid\ActionColumn'],
                         ],

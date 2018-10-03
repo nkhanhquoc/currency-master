@@ -33,17 +33,7 @@ use yii\widgets\ActiveForm;
 
                     <div class="row">
                       <div class="col-md-6">
-                        <?= $form->field($model, 'created_date')->widget(DateTimePicker::classname(), [
-                            'language' => 'vi',
-                            'readonly' => true,
-                            'options'=>[
-                            ],
-                            'pluginOptions' => [
-                                'autoclose'=>true,
-                            ]
-
-                        ])
-                        ?>
+                        <?= $form->field($model, 'created_date')->textInput(['readonly'=>'readonly']) ?>
                       </div>
 
                     </div>
@@ -139,6 +129,7 @@ use yii\widgets\ActiveForm;
                       <tr>
                         <td>
                           <button class="btn btn-primary" onclick="addTransaction();return false;" style="text-align:right"><i class="glyphicon glyphicon-add"></i>Thêm</button>
+                          <span data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" style="text-align:right"><i class="glyphicon glyphicon-add"></i>Thêm Hóa đơn khác</span>
                         </td>
                       </tr>
                     </table>

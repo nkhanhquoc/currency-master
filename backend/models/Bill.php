@@ -3,6 +3,7 @@ namespace backend\models;
 
 use Yii;
 use common\models\BillBase;
+use common\models\ReferenceBillBase;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
 use yii\helpers\FileHelper;
@@ -92,5 +93,23 @@ class Bill extends BillBase{
     return $cus != null ? $cus->name:'Quê';
   }
 
+  public static function findRefBill($code,$cus){
+    $query = Bill::find()
+    ->where(['is_export'=>1])
+    ->andWhere(['not in','type',[1]]);
+    if($code){
+      $query->andWhere(['like','code','%'.$code.'%']);
+    }
+    if($cus){
+      $query->andWhere(['customer_id'=>$cus]);
+    }
+
+    return $query->all();
+  }
+
+  public function getRefBill(){
+    $refbills = ReferenceBillBase::find()->where(['main_bill'=>$this->id])->all();
+    return $refbills;
+  }
 
 }

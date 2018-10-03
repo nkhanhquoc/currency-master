@@ -19,6 +19,14 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
         'model' => $model,
         'title' => $this->title
     ]) ?>
+    <?= $this->render('_modal', [
+        'model' => $model,
+    ]) ?>
 
     </div>
 </div>
+<script>
+var listRefId = '<?= implode(",",$listRefId) ?>';
+listRefId = listRefId.split(",");
+console.log("listRefId",listRefId);
+</script>

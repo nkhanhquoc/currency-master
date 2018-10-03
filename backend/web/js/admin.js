@@ -126,3 +126,49 @@ function otherTransferValue(object){
 		ret.val(quan.val() - fee.val()*quan.val()/100);
 	}
 }
+
+
+function findBill(){
+	var billCode = $('#add-bill-code').val();
+	var billCus = $('#add-bill-customer').val();
+	if(billCode === undefined && billCus === undefined) alert("Phải thêm dữ liệu tìm kiếm!");
+	$.post('/fast-bill/getbill',{
+		code: billCode,
+		cus: billCus
+	},function(data){
+		// var datajso = JSON.parse(data);
+		console.log(data.errorCode);
+		if(data.errorCode === 0){
+			$('#add-bill-result').show();
+			var list = data.data;
+			list.forEach(function(bill){
+				var rstr = '<tr>';
+				rstr +='<td><input type="checkbox" onclick="checkDetail(this)" id="check_'+bill.id+'" value="'+bill.id+'"/></td>';
+				rstr +='<td class="form-group">'+bill.code+'</td>';
+				rstr +='<td class="form-group">'+bill.type+'</td>';
+				$('#result-head').after(rstr);
+			});
+		}
+	});
+}
+
+function checkDetail(object){
+	var isAllcheck = true;
+	$('input[id^="check_"]').each(function(){
+		if(!$(this).is(':checked')){
+			isAllcheck = false;
+		}
+	});
+	$('#add-bill-checkall').prop('checked',isAllcheck);
+}
+
+function checkAll(){
+	var ischeck = $('#add-bill-checkall').prop('checked');
+	$('input[id^="check_"]').each(function(){
+		$(this).prop('checked',ischeck);
+	});
+}
+
+function checkInRef(){
+
+}

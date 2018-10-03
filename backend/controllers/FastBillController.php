@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Transaction;
 use backend\models\Bill;
 use backend\models\FastBillSearch;
 use yii\web\Controller;
@@ -21,6 +22,7 @@ class FastBillController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                    'getbill' => ['post']
                 ],
             ],
         ];
@@ -62,6 +64,7 @@ class FastBillController extends Controller
     {
         $model = new Bill();
         $model->type = 10;
+        $model->created_date = date("Y-m-d h:i");
         $count = Bill::countTypeBillInDay(10);
         $model->code = "GN-".date("Ymd")."-xxx-".($count+1);
 
@@ -130,10 +133,16 @@ class FastBillController extends Controller
           $model->value = $billVal;
           $model->save();
         }
+        $listRefId = [];
+        $refbills = $model->getRefBill();
+        foreach($refbills as $bill){
+          $listRefId[] = $bill->reference_bill;
+        }
         $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
         return $this->render('update', [
             'model' => $model,
-            'trans' => $trans
+            'trans' => $trans,
+            'listRefId' =>$listRefId
         ]);
     }
 
@@ -164,5 +173,32 @@ class FastBillController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionGetbill(){
+      $params = Yii::$app->request->post();
+      $code = $params['code'];
+      $cus = $params['cus'];
+      $ret = [];
+      $data = [];
+      try{
+        $bills = Bill::findRefBill($code,$cus);
+        foreach($bills as $b){
+          $data[] = [
+            'id'=>$b->id,
+            'code'=>$b->code,
+            'type'=>Yii::$app->params['bill_type'][$b->type]
+          ];
+        }
+        $ret['errorCode'] = 0;
+        $ret['data'] = $data;
+      }catch(Exception $e){
+        $ret['errorCode'] = 1;
+      }
+
+    \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+    return $ret;
+
     }
 }

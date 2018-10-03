@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-09-29 12:49:00
+Date: 2018-09-30 19:39:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -347,6 +347,12 @@ INSERT INTO `auth_item` VALUES ('/user/galleryApi', '2', null, null, null, '1468
 INSERT INTO `auth_item` VALUES ('/user/index', '2', null, null, null, '1468421689', '1468421689');
 INSERT INTO `auth_item` VALUES ('/user/update', '2', null, null, null, '1468421689', '1468421689');
 INSERT INTO `auth_item` VALUES ('/user/view', '2', null, null, null, '1468421689', '1468421689');
+INSERT INTO `auth_item` VALUES ('/view-debt/*', '2', null, null, null, '1538297288', '1538297288');
+INSERT INTO `auth_item` VALUES ('/view-debt/create', '2', null, null, null, '1538297288', '1538297288');
+INSERT INTO `auth_item` VALUES ('/view-debt/delete', '2', null, null, null, '1538297288', '1538297288');
+INSERT INTO `auth_item` VALUES ('/view-debt/index', '2', null, null, null, '1538297288', '1538297288');
+INSERT INTO `auth_item` VALUES ('/view-debt/update', '2', null, null, null, '1538297288', '1538297288');
+INSERT INTO `auth_item` VALUES ('/view-debt/view', '2', null, null, null, '1538297288', '1538297288');
 INSERT INTO `auth_item` VALUES ('admin', '1', 'Administrator', null, null, '1468421733', '1533656982');
 INSERT INTO `auth_item` VALUES ('User', '1', null, null, null, '1513907402', '1533656895');
 
@@ -636,7 +642,7 @@ CREATE TABLE `currency` (
   `exchange_rate` double(10,2) DEFAULT NULL,
   `is_active` int(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of currency
@@ -645,6 +651,7 @@ INSERT INTO `currency` VALUES ('1', 'Tiền Việt Nam', 'VND', '1.00', '1');
 INSERT INTO `currency` VALUES ('2', 'Đô la Mỹ', 'USD', '23500.55', '1');
 INSERT INTO `currency` VALUES ('3', 'Đô Canada', 'CAD', '17823.50', '1');
 INSERT INTO `currency` VALUES ('4', 'Nhan dan te', 'NDT', '2000.00', '1');
+INSERT INTO `currency` VALUES ('6', 'Dola Singapore', 'SNG', '30000.00', '1');
 
 -- ----------------------------
 -- Table structure for customer
@@ -680,7 +687,7 @@ CREATE TABLE `debt` (
   `value` float(10,2) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of debt
@@ -691,6 +698,23 @@ INSERT INTO `debt` VALUES ('3', '3', '7', '0.00', '2018-09-29 10:19:28');
 INSERT INTO `debt` VALUES ('4', '4', '7', '0.00', '2018-09-29 10:19:28');
 INSERT INTO `debt` VALUES ('5', '2', '1', '1001.00', '2018-09-29 10:59:42');
 INSERT INTO `debt` VALUES ('6', '1', '1', '-6000.00', '2018-09-29 10:59:42');
+INSERT INTO `debt` VALUES ('7', '1', '7', '400.00', '2018-09-27 09:54:50');
+INSERT INTO `debt` VALUES ('8', '2', '7', '100.00', '2018-09-26 09:55:06');
+INSERT INTO `debt` VALUES ('9', '2', '2', '200.00', '2018-09-26 09:56:05');
+INSERT INTO `debt` VALUES ('10', '5', '1', '0.00', '2018-09-30 18:05:54');
+INSERT INTO `debt` VALUES ('11', '5', '2', '0.00', '2018-09-30 18:05:55');
+INSERT INTO `debt` VALUES ('12', '5', '3', '0.00', '2018-09-30 18:05:55');
+INSERT INTO `debt` VALUES ('13', '5', '4', '0.00', '2018-09-30 18:05:55');
+INSERT INTO `debt` VALUES ('14', '5', '5', '0.00', '2018-09-30 18:05:55');
+INSERT INTO `debt` VALUES ('15', '5', '6', '0.00', '2018-09-30 18:05:55');
+INSERT INTO `debt` VALUES ('16', '5', '7', '0.00', '2018-09-30 18:05:55');
+INSERT INTO `debt` VALUES ('17', '6', '1', '0.00', '2018-09-30 18:06:55');
+INSERT INTO `debt` VALUES ('18', '6', '2', '0.00', '2018-09-30 18:06:55');
+INSERT INTO `debt` VALUES ('19', '6', '3', '0.00', '2018-09-30 18:06:55');
+INSERT INTO `debt` VALUES ('20', '6', '4', '0.00', '2018-09-30 18:06:55');
+INSERT INTO `debt` VALUES ('21', '6', '5', '0.00', '2018-09-30 18:06:55');
+INSERT INTO `debt` VALUES ('22', '6', '6', '0.00', '2018-09-30 18:06:55');
+INSERT INTO `debt` VALUES ('23', '6', '7', '0.00', '2018-09-30 18:06:55');
 
 -- ----------------------------
 -- Table structure for home_storage
@@ -751,7 +775,7 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`),
   KEY `parent` (`parent`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `menu` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of menu
@@ -781,6 +805,7 @@ INSERT INTO `menu` VALUES ('43', 'Mua bán Quê', '38', '/home-trading/index', n
 INSERT INTO `menu` VALUES ('44', 'Chuyển khoản Quê', '38', '/home-bank/index', null, null, 'icon-crop', null);
 INSERT INTO `menu` VALUES ('45', 'Báo cáo cửa hàng', null, null, null, null, 'icon-user-unfollow', null);
 INSERT INTO `menu` VALUES ('46', 'Báo cáo hàng ngày', '45', '/daily-report/index', null, null, 'icon-user-unfollow', null);
+INSERT INTO `menu` VALUES ('47', 'Báo cáo Lời lãi', '45', '/view-debt/index', null, null, '', null);
 
 -- ----------------------------
 -- Table structure for original_storage
@@ -847,17 +872,22 @@ CREATE TABLE `storage` (
   `name` varchar(255) DEFAULT NULL,
   `quantity` int(255) DEFAULT NULL,
   `currency_id` bigint(20) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `storage_currency_idx` (`currency_id`),
   CONSTRAINT `storage_currency_idx` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of storage
 -- ----------------------------
-INSERT INTO `storage` VALUES ('1', 'USD', '992900', '2');
-INSERT INTO `storage` VALUES ('2', 'VND', '115940326', '1');
-INSERT INTO `storage` VALUES ('3', 'CAD', '1001600', '3');
+INSERT INTO `storage` VALUES ('1', 'USD', '992900', '2', '2018-09-30 17:47:58');
+INSERT INTO `storage` VALUES ('2', 'VND', '115940326', '1', '2018-09-30 17:48:01');
+INSERT INTO `storage` VALUES ('3', 'CAD', '1001600', '3', '2018-09-30 17:48:04');
+INSERT INTO `storage` VALUES ('4', 'NDT', '10000', '4', '2018-09-28 17:48:25');
+INSERT INTO `storage` VALUES ('5', 'USD', '100', '2', '2018-09-28 17:51:03');
+INSERT INTO `storage` VALUES ('6', 'VND', '100000', '1', '2018-09-28 17:51:28');
+INSERT INTO `storage` VALUES ('7', 'SNG', '0', '6', '2018-09-30 18:06:55');
 
 -- ----------------------------
 -- Table structure for transaction
@@ -968,3 +998,35 @@ CREATE TABLE `user_login_failed` (
 -- ----------------------------
 -- Records of user_login_failed
 -- ----------------------------
+
+-- ----------------------------
+-- View structure for view_debt
+-- ----------------------------
+DROP VIEW IF EXISTS `view_debt`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `view_debt` AS select currency_id, customer_id, value, DATE_FORMAT(date,'%Y-%m-%d') as date
+ from debt 
+order by date desc ;
+
+-- ----------------------------
+-- View structure for view_tonkho
+-- ----------------------------
+DROP VIEW IF EXISTS `view_tonkho`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER  VIEW `view_tonkho` AS select currency_id, quantity, DATE_FORMAT(date,'%Y-%m-%d') as date
+ from storage 
+order by date desc ;
+
+-- ----------------------------
+-- Procedure structure for proc_debt
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `proc_debt`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_debt`(IN `datetime` date)
+BEGIN
+		select currency_id, customer_id, value,DATE_FORMAT(date,'%Y-%m-%d') as date from (
+		select * from debt order by date desc
+		) abc 
+		where DATE_FORMAT(date,'%y-%m-%d') <= datetime
+		group by currency_id, customer_id;
+END
+;;
+DELIMITER ;

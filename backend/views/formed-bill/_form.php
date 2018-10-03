@@ -30,21 +30,10 @@ use yii\widgets\ActiveForm;
         <div class="portlet-body">
             <div class="form-body">
               <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
-              
+
               <div class="row">
                 <div class="col-md-6">
-                  <?= $form->field($model, 'created_date')->widget(DateTimePicker::classname(), [
-                      'language' => 'vi',
-                      'readonly' => true,
-                      'options'=>[
-                      ],
-                      'pluginOptions' => [
-                          'autoclose'=>true,
-                      ]
-
-                  ])
-                  ?>
-                </div>
+                  <?= $form->field($model, 'created_date')->textInput(['readonly'=>'readonly']) ?>
 
               </div>
               <div class="row">

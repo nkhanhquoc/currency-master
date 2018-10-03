@@ -73,5 +73,16 @@ return [
         '8' => 'Lấy ngoại tệ',
         '9' => 'Trả VND',
         '10' => 'Lấy VND'
+      ],
+      'bill_type' => [
+        '1'=>'Hóa đơn giao ngay',
+        '2'=>'Hóa đơn chốt',
+        '3'=>'Hóa đơn dài hạn',
+        '4'=>'Chuyển tiền',
+        '5'=>'Hóa đơn vay mượn',
+        '6'=>'Tiền chuyển khác',
+        '7'=>'Tiền chuyển quê',
+        '8'=>'Mua bán quê',
+        '9'=>'Chuyển khoản quê'
       ]
 ];

@@ -17,5 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'model' => $model,
             'title' => $this->title
         ]) ?>
+        <?= $this->render('_modal', [
+            'model' => $model,
+        ]) ?>
     </div>
 </div>
+
+<script>
+var listRefId = [];
+</script>

@@ -97,13 +97,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         </th>
                       </tr>
                       <tr>
-                        <td>
+                        <td style="font-weight:bold">
                           <?= number_format($totalDebt,2)?>
                         </td>
-                        <td>
+                        <td style="font-weight:bold">
                           <?= number_format($totalSt,2)?>
                         </td>
-                        <td>
+                        <td style="font-weight:bold">
                           <?= number_format($totalSt+$totalDebt,2)?> VND
                         </td>
                       </tr>
