@@ -93,17 +93,15 @@ class Bill extends BillBase{
     return $cus != null ? $cus->name:'Quê';
   }
 
-  public static function findRefBill($code,$cus){
+  public static function findRefBill($type,$cus){
     $query = Bill::find()
-    ->where(['is_export'=>1])
-    ->andWhere(['not in','type',[1]]);
-    if($code){
-      $query->andWhere(['like','code','%'.$code.'%']);
+    ->where(['is_export'=>1]);
+    if($type){
+      $query->andWhere(['type'=>$type]);
     }
     if($cus){
       $query->andWhere(['customer_id'=>$cus]);
     }
-
     return $query->all();
   }
 
@@ -118,6 +116,16 @@ class Bill extends BillBase{
   public static function findAddBill($listId){
     $addbills = Bill::find()->where(['in','id',$listId])->all();
     return $addbills;
+  }
+
+  public function getTypeRefBill(){
+    return [
+      '2'=>'Hóa đơn chốt',
+      '3'=>'Hóa đơn dài hạn',
+      '4'=>'Chuyển tiền',
+      '5'=>'Hóa đơn vay mượn',
+      '6'=>'Tiền chuyển khác',
+    ];
   }
 
 }

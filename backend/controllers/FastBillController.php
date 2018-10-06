@@ -177,17 +177,27 @@ class FastBillController extends Controller
 
     public function actionGetbill(){
       $params = Yii::$app->request->post();
-      $code = $params['code'];
+      $type = $params['type'];
       $cus = $params['cus'];
       $ret = [];
       $data = [];
+      $expUrl = '';
+      switch($type){
+        case 2: $expUrl = '/formed-bill/export?id=';break;
+        case 3: $expUrl = '/longtime-bill/export?id=';break;
+        case 4: $expUrl = '/transfer-currency/export?id=';break;
+        case 5: $expUrl = '/borrow/export?id=';break;
+        case 6: $expUrl = '/other-transfer/export?id=';break;
+        default: break;
+      }
       try{
-        $bills = Bill::findRefBill($code,$cus);
+        $bills = Bill::findRefBill($type,$cus);
         foreach($bills as $b){
           $data[] = [
             'id'=>$b->id,
             'code'=>$b->code,
-            'type'=>Yii::$app->params['bill_type'][$b->type]
+            'type'=>Yii::$app->params['bill_type'][$b->type],
+            'url'=>$expUrl.$b->id
           ];
         }
         $ret['errorCode'] = 0;

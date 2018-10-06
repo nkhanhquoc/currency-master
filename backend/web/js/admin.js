@@ -20,11 +20,6 @@ $(document).ready(function () {
 		$('#loginform-captcha').focus();
 		return true;
 	});
-
-	// End fix ui/ux
-
-
-
 	$('#frm-btn-submit').click(function () {
 		$("#list-assigned option").prop("selected", "selected");
 		$("form:first").submit();
@@ -129,24 +124,30 @@ function otherTransferValue(object){
 
 
 function findBill(){
-	var billCode = $('#add-bill-code').val();
+	$('#result-content').html('');
+	var billType = $('#add-bill-type').val();
 	var billCus = $('#add-bill-customer').val();
-	if(billCode === undefined && billCus === undefined) alert("Phải thêm dữ liệu tìm kiếm!");
+	if(billType === undefined && billCus === undefined) alert("Phải thêm dữ liệu tìm kiếm!");
 	$.post('/fast-bill/getbill',{
-		code: billCode,
+		type: billType,
 		cus: billCus
 	},function(data){
 		// var datajso = JSON.parse(data);
 		if(data.errorCode === 0){
-			$('#add-bill-result').show();
 			var list = data.data;
-			list.forEach(function(bill){
-				var rstr = '<tr>';
-				rstr +='<td><input type="checkbox"'+(checkInRef(bill.id) ? 'checked="checked"':'') +'" onclick="checkDetail(this)" id="check_'+bill.id+'" value="'+bill.id+'"/></td>';
-				rstr +='<td class="form-group">'+bill.code+'</td>';
-				rstr +='<td class="form-group">'+bill.type+'</td>';
-				$('#result-head').after(rstr);
-			});
+			$('#add-bill-result').show();
+			if(list.length > 0){
+				list.forEach(function(bill){
+					var rstr = '<tr>';
+					rstr +='<td><input type="checkbox"'+(checkInRef(bill.id) ? 'checked="checked"':'') +'" onclick="checkDetail(this)" id="check_'+bill.id+'" value="'+bill.id+'"/></td>';
+					rstr +='<td class="form-group"><a target="_blank" href="'+bill.url+'">'+bill.code+'</a></td>';
+					rstr +='<td class="form-group">'+bill.type+'</td>';
+					$('#result-content').append(rstr);
+				});
+			} else {
+				$('#result-content').html("Không tìm thấy hóa đơn!");
+			}
+
 		}
 	});
 }
@@ -215,4 +216,6 @@ function addHtmlBill(){
 			}
 		}
 	});
+	$('#add-bill-result').hide();
+	$('#result-content').html('');
 }

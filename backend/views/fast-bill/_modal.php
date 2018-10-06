@@ -14,7 +14,11 @@ use yii\widgets\ActiveForm;
         <table class="table">
           <tr>
             <td class="form-group">
-              <input id="add-bill-code" class="form-control" type="text" placeholder="Mã hóa đơn"/>
+              <select id="add-bill-type" class="form-control" placeholder="Mã hóa đơn">
+                <?php foreach($model->getTypeRefBill() as $kk => $type):?>
+                  <option value="<?= $kk ?>"><?= $type ?></option>
+                <?php endforeach; ?>
+              </select>
             </td>
             <td class="form-group">
               <select class="form-control" id="add-bill-customer">
@@ -30,12 +34,15 @@ use yii\widgets\ActiveForm;
             </td>
           </tr>
         </table>
+
         <table class="table table-striped" id="add-bill-result" style="display:none">
           <tr id="result-head">
             <th><input type="checkbox" id="add-bill-checkall" onclick="checkAll()"/></th>
             <th>Mã Hóa Đơn</td>
             <th>Loại Hóa Đơn</td>
-          </tr>
+          </tr>          
+          <tbody id="result-content">
+          </tbody>
         </table>
       </div>
       <div class="modal-footer">
