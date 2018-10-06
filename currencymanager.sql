@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-09-30 19:39:21
+Date: 2018-10-06 15:23:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -163,6 +163,12 @@ INSERT INTO `auth_item` VALUES ('/distric/delete', '2', null, null, null, '14683
 INSERT INTO `auth_item` VALUES ('/distric/index', '2', null, null, null, '1468341176', '1468341176');
 INSERT INTO `auth_item` VALUES ('/distric/update', '2', null, null, null, '1468341182', '1468341182');
 INSERT INTO `auth_item` VALUES ('/distric/view', '2', null, null, null, '1468341179', '1468341179');
+INSERT INTO `auth_item` VALUES ('/fast-bill/*', '2', null, null, null, '1538443210', '1538443210');
+INSERT INTO `auth_item` VALUES ('/fast-bill/create', '2', null, null, null, '1538443209', '1538443209');
+INSERT INTO `auth_item` VALUES ('/fast-bill/delete', '2', null, null, null, '1538443210', '1538443210');
+INSERT INTO `auth_item` VALUES ('/fast-bill/index', '2', null, null, null, '1538443209', '1538443209');
+INSERT INTO `auth_item` VALUES ('/fast-bill/update', '2', null, null, null, '1538443209', '1538443209');
+INSERT INTO `auth_item` VALUES ('/fast-bill/view', '2', null, null, null, '1538443209', '1538443209');
 INSERT INTO `auth_item` VALUES ('/formed-bill/*', '2', null, null, null, '1536483069', '1536483069');
 INSERT INTO `auth_item` VALUES ('/formed-bill/create', '2', null, null, null, '1536483069', '1536483069');
 INSERT INTO `auth_item` VALUES ('/formed-bill/delete', '2', null, null, null, '1536483069', '1536483069');
@@ -586,7 +592,7 @@ CREATE TABLE `bill` (
   `created_date` datetime DEFAULT NULL,
   `is_export` int(1) DEFAULT '0' COMMENT '1. da xuat hoa don, 0. chua xuat',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of bill
@@ -608,6 +614,8 @@ INSERT INTO `bill` VALUES ('21', '7', 'TCLV-20180926-1', '0', null, null, '', ''
 INSERT INTO `bill` VALUES ('22', '8', 'MBLV-20180926-1', '0', '33750000.00', null, '', null, null, null, '2018-09-26 21:19:51', '0');
 INSERT INTO `bill` VALUES ('23', '8', 'MBLV-20180926-1', '0', '22000000.00', null, '', null, null, null, '2018-09-26 21:23:18', '1');
 INSERT INTO `bill` VALUES ('24', '9', 'CKLV-20180926-1', '0', null, null, '', null, null, null, '2018-09-26 22:48:00', '1');
+INSERT INTO `bill` VALUES ('25', '10', 'GN-20181002-NV2-1', '2', null, null, '', null, null, null, '2018-10-02 12:04:10', '0');
+INSERT INTO `bill` VALUES ('26', '10', 'GN-20181002-NV1-2', '1', '0.00', null, '', null, null, null, '2018-10-02 12:07:08', '0');
 
 -- ----------------------------
 -- Table structure for contact
@@ -775,7 +783,7 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`),
   KEY `parent` (`parent`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `menu` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of menu
@@ -806,6 +814,7 @@ INSERT INTO `menu` VALUES ('44', 'Chuyển khoản Quê', '38', '/home-bank/inde
 INSERT INTO `menu` VALUES ('45', 'Báo cáo cửa hàng', null, null, null, null, 'icon-user-unfollow', null);
 INSERT INTO `menu` VALUES ('46', 'Báo cáo hàng ngày', '45', '/daily-report/index', null, null, 'icon-user-unfollow', null);
 INSERT INTO `menu` VALUES ('47', 'Báo cáo Lời lãi', '45', '/view-debt/index', null, null, '', null);
+INSERT INTO `menu` VALUES ('48', 'Mua bán Giao ngay', '35', '/fast-bill/index', null, null, '', null);
 
 -- ----------------------------
 -- Table structure for original_storage
@@ -823,45 +832,18 @@ CREATE TABLE `original_storage` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for pets
+-- Table structure for reference_bill
 -- ----------------------------
-DROP TABLE IF EXISTS `pets`;
-CREATE TABLE `pets` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `type` bigint(20) DEFAULT NULL,
-  `weight` double(5,2) DEFAULT NULL,
-  `age` int(2) DEFAULT NULL,
-  `haircolor` varchar(255) DEFAULT NULL,
-  `note` varchar(1000) DEFAULT NULL,
-  `created_by` bigint(20) DEFAULT NULL,
-  `updated_by` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `reference_bill`;
+CREATE TABLE `reference_bill` (
+  `main_bill` bigint(20) NOT NULL,
+  `reference_bill` bigint(20) NOT NULL,
+  PRIMARY KEY (`main_bill`,`reference_bill`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of pets
+-- Records of reference_bill
 -- ----------------------------
-INSERT INTO `pets` VALUES ('2', 'Miu', '2', '1.00', '2', 'trắng', 'dsdsd', '1', '1');
-INSERT INTO `pets` VALUES ('3', 'bin', '3', '2.00', '2', 'trắng', 'dd', '1', '1');
-INSERT INTO `pets` VALUES ('4', 'May_miuuuuu', '2', '4.00', '4', 'đen', 'ddd', '3', '3');
-INSERT INTO `pets` VALUES ('5', 'Gau Gau', '3', '10.00', '5', 'nâu, xoăn', 'hay sủa', '2', '2');
-
--- ----------------------------
--- Table structure for pettype
--- ----------------------------
-DROP TABLE IF EXISTS `pettype`;
-CREATE TABLE `pettype` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of pettype
--- ----------------------------
-INSERT INTO `pettype` VALUES ('2', 'Mèo');
-INSERT INTO `pettype` VALUES ('3', 'Chó');
 
 -- ----------------------------
 -- Table structure for storage

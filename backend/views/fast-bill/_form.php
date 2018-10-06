@@ -133,6 +133,17 @@ use yii\widgets\ActiveForm;
                         </td>
                       </tr>
                     </table>
+                    <table class="table table-bordered">
+                      <tr id="list-ref-th">
+                        <th>Khách hàng </th>
+                        <th>Loại GD </th>
+                        <th>Loại Tiền  </th>
+                        <th>Số Lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Phí</th>
+                        <th></th>
+                      </tr>
+                    </table>
             </div>
             <div class="actions">
               <?php if(!$model->is_export):?>

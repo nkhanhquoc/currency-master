@@ -40,7 +40,7 @@ use yii\widgets\ActiveForm;
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary">Thêm</button>
+        <button type="button" onclick="addHtmlBill()" class="btn btn-primary" data-dismiss="modal">Thêm</button>
       </div>
     </div>
   </div>

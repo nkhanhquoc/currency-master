@@ -25,8 +25,12 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
 
     </div>
 </div>
+
 <script>
 var listRefId = '<?= implode(",",$listRefId) ?>';
-listRefId = listRefId.split(",");
-console.log("listRefId",listRefId);
+if(listRefId !== undefined && listRefId !== ''){
+  listRefId = listRefId.split(",");
+} else {
+  listRefId = [];
+}
 </script>

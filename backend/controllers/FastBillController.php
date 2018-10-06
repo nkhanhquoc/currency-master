@@ -201,4 +201,35 @@ class FastBillController extends Controller
     return $ret;
 
     }
+
+    public function actionAddbill(){
+      $params = Yii::$app->request->post();
+      $billids = $params['billids'];
+      $ret = [];
+      $data = [];
+      try{
+        $bills = Bill::findAddBill($billids);
+        foreach($bills as $k => $b){
+          $data[$k]['type'] = $b->type;
+          $data[$k]['code'] = $b->code;
+          foreach($b->getAllTrans() as $tran){
+            $data[$k]['trans'][] = [
+              'customer'=>$b->getCustomer(),
+              'type' => $tran->getTypeName(),
+              'currency_name'=>$tran->getCurrencyName(),
+              'quantity' => number_format($tran->quantity),
+              'fee' => number_format($data->fee),
+              'value' => number_format($data->value)
+            ];
+          }
+        }
+        $ret['errorCode'] = 0;
+        $ret['data'] = $data;
+      }catch(Exception $e){
+        $ret['errorCode'] = 1;
+      }
+      \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+      return $ret;
+    }
 }

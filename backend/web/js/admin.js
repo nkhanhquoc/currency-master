@@ -137,13 +137,12 @@ function findBill(){
 		cus: billCus
 	},function(data){
 		// var datajso = JSON.parse(data);
-		console.log(data.errorCode);
 		if(data.errorCode === 0){
 			$('#add-bill-result').show();
 			var list = data.data;
 			list.forEach(function(bill){
 				var rstr = '<tr>';
-				rstr +='<td><input type="checkbox" onclick="checkDetail(this)" id="check_'+bill.id+'" value="'+bill.id+'"/></td>';
+				rstr +='<td><input type="checkbox"'+(checkInRef(bill.id) ? 'checked="checked"':'') +'" onclick="checkDetail(this)" id="check_'+bill.id+'" value="'+bill.id+'"/></td>';
 				rstr +='<td class="form-group">'+bill.code+'</td>';
 				rstr +='<td class="form-group">'+bill.type+'</td>';
 				$('#result-head').after(rstr);
@@ -154,6 +153,15 @@ function findBill(){
 
 function checkDetail(object){
 	var isAllcheck = true;
+	var id = $(object).val();
+	if($(object).is(':checked')){
+		listRefId.push(id);
+	} else {
+		if(listRefId.includes(id)){
+			listRefId.splice(listRefId.indexOf(id),1);
+		}
+	}
+
 	$('input[id^="check_"]').each(function(){
 		if(!$(this).is(':checked')){
 			isAllcheck = false;
@@ -166,9 +174,45 @@ function checkAll(){
 	var ischeck = $('#add-bill-checkall').prop('checked');
 	$('input[id^="check_"]').each(function(){
 		$(this).prop('checked',ischeck);
+		if(!ischeck){
+			if(listRefId.includes($(this).val())){
+				listRefId.splice(listRefId.indexOf($(this).val()),1);
+			}
+		} else {
+			listRefId.push($(this).val());
+		}
 	});
 }
 
-function checkInRef(){
+function checkInRef(id){
+	return listRefId.includes(id);
+}
 
+function addHtmlBill(){
+	$.post('/fast-bill/addbill',{
+		billids: listRefId
+	},function(data){
+		if(data.errorCode === 0){
+			var list = data.data;
+			console.log("list",list);
+			for(var i = 0;i< list.length; i++){
+				var itemtr = '<tr class="list-group-item-info">';
+				itemtr += '<td colspan="6">'+list[i].code+'</td>';
+				itemtr += '<td><button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button></td>';
+				itemtr += '</tr>';
+				for(var j = 0;j< list[i].trans.length;j++){
+					itemtr += '<tr>';
+					itemtr += '<td>'+list[i].trans[j].customer +'</td>';
+					itemtr += '<td>'+list[i].trans[j].type +'</td>';
+					itemtr += '<td>'+list[i].trans[j].currency_name +'</td>';
+					itemtr += '<td>'+list[i].trans[j].quantity +'</td>';
+					itemtr += '<td>'+list[i].trans[j].fee +'</td>';
+					itemtr += '<td>'+list[i].trans[j].value +'</td>';
+					itemtr += '<td><button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button></td>';
+					itemtr += '</tr>'
+				}
+				$('#list-ref-th').after(itemtr);
+			}
+		}
+	});
 }

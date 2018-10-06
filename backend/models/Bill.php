@@ -107,9 +107,17 @@ class Bill extends BillBase{
     return $query->all();
   }
 
+  public function getAllTrans(){
+    return Transaction::find()->where(['bill_id'=>$this->id])->all();
+  }
+
   public function getRefBill(){
     $refbills = ReferenceBillBase::find()->where(['main_bill'=>$this->id])->all();
     return $refbills;
+  }
+  public static function findAddBill($listId){
+    $addbills = Bill::find()->where(['in','id',$listId])->all();
+    return $addbills;
   }
 
 }
