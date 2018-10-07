@@ -124,7 +124,7 @@ function otherTransferValue(object){
 
 
 function findBill(){
-	$('#result-content').html('');
+	clearDataContent();
 	var billType = $('#add-bill-type').val();
 	var billCus = $('#add-bill-customer').val();
 	if(billType === undefined && billCus === undefined) alert("Phải thêm dữ liệu tìm kiếm!");
@@ -135,7 +135,6 @@ function findBill(){
 		// var datajso = JSON.parse(data);
 		if(data.errorCode === 0){
 			var list = data.data;
-			$('#add-bill-result').show();
 			if(list.length > 0){
 				list.forEach(function(bill){
 					var rstr = '<tr>';
@@ -216,6 +215,9 @@ function addHtmlBill(){
 			}
 		}
 	});
-	$('#add-bill-result').hide();
+	clearDataContent();
+}
+
+function clearDataContent(){
 	$('#result-content').html('');
 }
