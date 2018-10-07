@@ -128,4 +128,23 @@ class Bill extends BillBase{
     ];
   }
 
+  public function clearRef(){
+    $refs = ReferenceBillBase::find()->where(['main_bill'=>$this->id])->all();
+    foreach($refs as $ref){
+      try{
+        $ref->delete();
+      }catch(Exception $e){
+      }
+    }
+  }
+
+  public function insertRef($refids){
+    foreach($refids as $id){
+      $ref = new ReferenceBillBase();
+      $ref->main_bill = $this->id;
+      $ref->reference_bill = $id;
+      $ref->save();
+    }
+  }
+
 }

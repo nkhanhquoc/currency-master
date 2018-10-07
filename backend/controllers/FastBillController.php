@@ -81,12 +81,29 @@ class FastBillController extends Controller
             $trans->note = $params["trans"]['note'][$i];
             $trans->value = $params["trans"]['value'][$i];
             $billVal += $trans->value;
-            // $model->fee +=
             $trans->save();
           }
           $model->value = $billVal;
           $model->save();
-            return $this->redirect(['update', 'id' => $model->id]);
+          $listInRef = $params['ref-bill-id'];
+          $listInRef = explode(",",$listInRef);
+          $model->insertRef($listInRef);
+
+          $listRefId = [];
+          $refbills = $model->getRefBill();
+          foreach($refbills as $bill){
+            $listRefId[] = $bill->reference_bill;
+          }
+
+          $listRefBill = Bill::findAddBill($listRefId);
+          $data = $this->groupTrans($listRefBill);
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+          return $this->redirect(['update',
+          'id' => $model->id,
+          'trans' => $trans,
+          'listRefId' =>$listRefId,
+          'listRefBill' => $data
+        ]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -110,6 +127,7 @@ class FastBillController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           $model->clearTrans();
+          $model->clearRef();
           $params = Yii::$app->request->post();
           $billVal = 0;
           for($i = 0;$i< count($params["trans"]['type']); $i++){
@@ -132,17 +150,27 @@ class FastBillController extends Controller
           }
           $model->value = $billVal;
           $model->save();
+          $listInRef = $params['ref-bill-id'];
+          $listInRef = explode(",",$listInRef);
+          $model->insertRef($listInRef);
         }
+
+
+
         $listRefId = [];
         $refbills = $model->getRefBill();
         foreach($refbills as $bill){
           $listRefId[] = $bill->reference_bill;
         }
+
+        $listRefBill = Bill::findAddBill($listRefId);
+        $data = $this->groupTrans($listRefBill);
         $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
         return $this->render('update', [
             'model' => $model,
             'trans' => $trans,
-            'listRefId' =>$listRefId
+            'listRefId' =>$listRefId,
+            'listRefBill' => $data
         ]);
     }
 
@@ -219,20 +247,7 @@ class FastBillController extends Controller
       $data = [];
       try{
         $bills = Bill::findAddBill($billids);
-        foreach($bills as $k => $b){
-          $data[$k]['type'] = $b->type;
-          $data[$k]['code'] = $b->code;
-          foreach($b->getAllTrans() as $tran){
-            $data[$k]['trans'][] = [
-              'customer'=>$b->getCustomer(),
-              'type' => $tran->getTypeName(),
-              'currency_name'=>$tran->getCurrencyName(),
-              'quantity' => number_format($tran->quantity),
-              'fee' => number_format($data->fee),
-              'value' => number_format($data->value)
-            ];
-          }
-        }
+        $data = $this->groupTrans($bills);
         $ret['errorCode'] = 0;
         $ret['data'] = $data;
       }catch(Exception $e){
@@ -242,4 +257,24 @@ class FastBillController extends Controller
 
       return $ret;
     }
+
+public function groupTrans($bills){
+  $data = [];
+  foreach($bills as $k => $b){
+    $data[$k]['type'] = $b->type;
+    $data[$k]['code'] = $b->code;
+    foreach($b->getAllTrans() as $tran){
+      $data[$k]['trans'][] = [
+        'customer'=>$b->getCustomer(),
+        'type' => $tran->getTypeName(),
+        'currency_name'=>$tran->getCurrencyName(),
+        'quantity' => number_format($tran->quantity),
+        'fee' => number_format($data->fee),
+        'value' => number_format($data->value)
+      ];
+    }
+  }
+  return $data;
+}
+
 }

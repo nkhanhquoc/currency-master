@@ -35,18 +35,18 @@ use yii\widgets\ActiveForm;
           </tr>
         </table>
 
-        <table class="table table-striped" id="add-bill-result" style="display:none">
+        <table class="table table-striped" id="add-bill-result">
           <tr id="result-head">
             <th><input type="checkbox" id="add-bill-checkall" onclick="checkAll()"/></th>
             <th>Mã Hóa Đơn</td>
             <th>Loại Hóa Đơn</td>
-          </tr>          
+          </tr>
           <tbody id="result-content">
           </tbody>
         </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" onclick="clearDataContent()" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
         <button type="button" onclick="addHtmlBill()" class="btn btn-primary" data-dismiss="modal">Thêm</button>
       </div>
     </div>

@@ -30,12 +30,11 @@ use yii\widgets\ActiveForm;
         <div class="portlet-body">
             <div class="form-body">
                     <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
-
+                    <input type="hidden" value="" id="ref-bill-id" name="ref-bill-id"/>
                     <div class="row">
                       <div class="col-md-6">
                         <?= $form->field($model, 'created_date')->textInput(['readonly'=>'readonly']) ?>
                       </div>
-
                     </div>
                     <div class="row">
                       <div class="col-md-4">
@@ -83,7 +82,7 @@ use yii\widgets\ActiveForm;
                           </td>
                           <td>
                             <?= $form->field($tran, 'type')->dropDownList(
-                              $tran->getAllTradeType(),
+                              $tran->getAllFastTradeType(),
                               ['name'=>'trans[type][]']
                               )->label(false)?>
                           </td>
@@ -143,6 +142,27 @@ use yii\widgets\ActiveForm;
                         <th>Phí</th>
                         <th></th>
                       </tr>
+                      <tbody id="list-ref-content">
+                        <?php foreach($listRefBill as $ref):?>
+                          <tr class="list-group-item-info">
+                            <td colspan="6">
+                              <?= $ref['code'] ?>
+                            </td>
+                            <td><button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button></td>
+                          </tr>
+                          <?php foreach($ref['trans'] as $refTran):?>
+                            <tr>
+                              <td><?= $refTran['customer']?></td>
+                              <td><?= $refTran['type']?></td>
+                              <td><?= $refTran['currency_name']?></td>
+                              <td><?= $refTran['quantity']?></td>
+                              <td><?= $refTran['fee']?></td>
+                              <td><?= $refTran['value']?></td>
+                              <td><button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button></td>
+                            </tr>
+                          <?php endforeach;?>
+                        <?php endforeach; ?>
+                      </tbody>
                     </table>
             </div>
             <div class="actions">
@@ -181,6 +201,13 @@ trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="1">Mua</option>';
 trr+=     '<option value="2">Bán</option>';
+trr+=     '<option value="3">Nhận tiền chuyển</option>';
+trr+=     '<option value="4">Trả tiền chuyển</option>';
+trr+=     '<option value="5">Vay</option>';
+trr+=     '<option value="6">Cho vay</option>';
+trr+=     '<option value="9">Trả</option>';
+trr+=     '<option value="10">Nhận</option>';
+trr+=     '<option value="11">Đặt cọc</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';

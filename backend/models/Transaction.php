@@ -70,8 +70,8 @@ class Transaction extends TransactionBase{
     return [
       '3' => 'Nhận tiền chuyển',
       '4' => 'Trả tiền chuyển',
-      '9' => 'Trả VND',
-      '10' => 'Nhận VND',
+      '9' => 'Trả',
+      '10' => 'Nhận',
     ];
   }
 
@@ -79,8 +79,8 @@ class Transaction extends TransactionBase{
     return [
       '1' => 'Mua',
       '2' => 'Bán',
-      '9' => 'Trả VND',
-      '10' => 'Nhận VND',
+      '9' => 'Trả',
+      '10' => 'Nhận',
     ];
   }
 
@@ -88,8 +88,8 @@ class Transaction extends TransactionBase{
     return [
       '1' => 'Mua',
       '2' => 'Bán',
-      '9' => 'Trả VND',
-      '10' => 'Nhận VND',
+      '9' => 'Trả',
+      '10' => 'Nhận',
       '11' => 'Đặt cọc'
     ];
   }
@@ -114,6 +114,17 @@ class Transaction extends TransactionBase{
     return $currency->name;
   }
 
-
-
+  public function getAllFastTradeType(){
+    return [
+      '1' => 'Mua',
+      '2' => 'Bán',
+      '3' => 'Nhận tiền chuyển',
+      '4' => 'Trả tiền chuyển',
+      '5' => 'Vay',
+      '6' => 'Cho vay',
+      '9' => 'Trả',
+      '10' => 'Nhận',
+      '11' => 'Đặt cọc'
+    ];
+  }
 }
