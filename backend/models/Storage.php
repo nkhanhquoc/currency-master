@@ -23,7 +23,17 @@ class Storage extends StorageBase{
   }
 
   public function getCurrencyId(){
-    $query = Currency::find()->all();
+    $query = Currency::find()->where(['type'=>0])->all();
+    $list = [];
+    if ($query) {
+        foreach ($query as $type) {
+            $list[$type->id] = $type->name;
+        }
+    }
+    return $list;
+  }
+  public function getBankAccount(){
+    $query = Currency::find()->where(['type'=>1])->all();
     $list = [];
     if ($query) {
         foreach ($query as $type) {
@@ -38,6 +48,7 @@ class Storage extends StorageBase{
           'quantity' => 'Giá trị',
           'exchange_rate' => 'Tỉ giá',
           'currency_id' => 'Loại Hàng'
+
       ];
   }
 

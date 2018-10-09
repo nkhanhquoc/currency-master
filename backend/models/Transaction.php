@@ -26,16 +26,16 @@ class Transaction extends TransactionBase{
       return [
           'id' => Yii::t('backend', 'ID'),
           'bill_id' => Yii::t('backend', 'Bill ID'),
-          'type' => Yii::t('backend', 'Type'),
-          'currency_id' => Yii::t('backend', 'Currency ID'),
+          'type' => Yii::t('backend', 'Loại Giao dịch'),
+          'currency_id' => Yii::t('backend', 'Tài Khoản'),
           'quantity' => Yii::t('backend', 'Quantity'),
-          'value' => Yii::t('backend', 'Value'),
+          'value' => Yii::t('backend', 'Giá Trị'),
           'created_time' => Yii::t('backend', 'Thời gian'),
           'receiver' => Yii::t('backend', 'Receiver'),
           'fee' => Yii::t('backend', 'Fee'),
           'deposit' => Yii::t('backend', 'Deposit'),
           'exchange_rate' => Yii::t('backend', 'Exchange Rate'),
-          'note' => Yii::t('backend', 'Note'),
+          'note' => Yii::t('backend', 'Ghi Chú'),
           'real_value' => Yii::t('backend', 'Real Value'),
       ];
   }
@@ -118,13 +118,27 @@ class Transaction extends TransactionBase{
     return [
       '1' => 'Mua',
       '2' => 'Bán',
-      '3' => 'Nhận tiền chuyển',
-      '4' => 'Trả tiền chuyển',
-      '5' => 'Vay',
-      '6' => 'Cho vay',
-      '9' => 'Trả',
-      '10' => 'Nhận',
-      '11' => 'Đặt cọc'
+      // '3' => 'Nhận tiền chuyển',
+      // '4' => 'Trả tiền chuyển',
+      // '5' => 'Vay',
+      // '6' => 'Cho vay',
+      '9' => 'Trả Tiền',
+      '10' => 'Nhận Tiền',
+      '12' => 'Khách CK',
+      '13' => 'Lộc Vân CK',
+      '14' => 'Trả Feedback',
+      '15' => 'Nhận Feedback',
     ];
+  }
+
+  public function getBankAccount(){
+    $query = Currency::find()->where(['type'=>1])->all();
+    $list = [];
+    if ($query) {
+        foreach ($query as $type) {
+            $list[$type->id] = $type->name;
+        }
+    }
+    return $list;
   }
 }

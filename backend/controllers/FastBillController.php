@@ -277,4 +277,39 @@ public function groupTrans($bills){
   return $data;
 }
 
+public function actionExport($id){
+  $model = $this->findModel($id);
+  if($model->is_export != 1){
+    $model->is_export = 1;
+    try{
+      $model->save();
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+      foreach($trans as $tran){
+        switch($tran->type){
+          case MUA:
+          case BAN:
+        }
+
+        // if($tran->type == MUA){
+        //   Storage::updateByCurrId(VND_CURRENCY_ID, (0 - $tran->deposit));
+        //   Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+        //   Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0 - $tran->quantity));
+        // } else {
+        //   Storage::updateByCurrId(VND_CURRENCY_ID, $tran->deposit);
+        //   Storage::updateByCurrId($tran->currency_id, (0 - $tran->quantity));
+        //   Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id, $tran->quantity);
+        // }
+      }
+    }catch(Exception $e){
+      Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+    }
+  }
+
+  $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+  return $this->render('export', [
+      'model' => $model,
+      'trans' => $trans
+  ]);
+}
+
 }

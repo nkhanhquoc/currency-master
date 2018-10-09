@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Pettype;
-use backend\models\PettypeSearch;
+use backend\models\Transaction;
+use backend\models\BankTransSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PettypeController implements the CRUD actions for Pettype model.
+ * BankTransController implements the CRUD actions for Transaction model.
  */
-class PettypeController extends Controller
+class BankTransController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class PettypeController extends Controller
     }
 
     /**
-     * Lists all Pettype models.
+     * Lists all Transaction models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PettypeSearch();
+        $searchModel = new BankTransSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class PettypeController extends Controller
     }
 
     /**
-     * Displays a single Pettype model.
+     * Displays a single Transaction model.
      * @param string $id
      * @return mixed
      */
@@ -54,13 +54,15 @@ class PettypeController extends Controller
     }
 
     /**
-     * Creates a new Pettype model.
+     * Creates a new Transaction model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Pettype();
+        $model = new Transaction();
+        $model->type = 13;
+        $model->bill_id = 0;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +74,7 @@ class PettypeController extends Controller
     }
 
     /**
-     * Updates an existing Pettype model.
+     * Updates an existing Transaction model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -91,28 +93,28 @@ class PettypeController extends Controller
     }
 
     /**
-     * Deletes an existing Pettype model.
+     * Deletes an existing Transaction model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        // $this->findModel($id)->delete();
+        //
+        // return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Pettype model based on its primary key value.
+     * Finds the Transaction model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Pettype the loaded model
+     * @return Transaction the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Pettype::findOne($id)) !== null) {
+        if (($model = Transaction::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

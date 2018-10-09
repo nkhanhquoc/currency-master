@@ -71,8 +71,13 @@ return [
         '6' => 'Cho vay',
         '7' => 'Trả ngoại tệ',
         '8' => 'Lấy ngoại tệ',
-        '9' => 'Trả VND',
-        '10' => 'Lấy VND'
+        '9' => 'Trả Tiền',
+        '10' => 'Nhận Tiền',
+        '11' => 'Đặt cọc',
+        '12' => 'Khách CK',
+        '13' => 'Lộc Vân CK',
+        '14' => 'Trả Feedback',
+        '15' => 'Nhận Feedback',
       ],
       'bill_type' => [
         '1'=>'Hóa đơn giao ngay',

@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Currency;
+use backend\models\BankAccount;
 
 /**
- * CurrencySearch represents the model behind the search form about `backend\models\Currency`.
+ * BankAccountSearch represents the model behind the search form about `\backend\models\Currency`.
  */
-class CurrencySearch extends Currency
+class BankAccountSearch extends BankAccount
 {
     /**
      * @inheritdoc
@@ -18,10 +18,11 @@ class CurrencySearch extends Currency
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'is_active', 'type'], 'integer'],
             [['name', 'code', 'exchange_rate'], 'safe'],
         ];
     }
+
 
     /**
      * @inheritdoc
@@ -41,7 +42,7 @@ class CurrencySearch extends Currency
      */
     public function search($params)
     {
-        $query = Currency::find();
+        $query = BankAccount::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -58,7 +59,8 @@ class CurrencySearch extends Currency
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'type' => 0,
+            'is_active' => $this->is_active,
+            'type' => 1,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

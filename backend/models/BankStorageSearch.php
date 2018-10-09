@@ -5,21 +5,29 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Currency;
+use backend\models\Storage;
 
 /**
- * CurrencySearch represents the model behind the search form about `backend\models\Currency`.
+ * BankStorageSearch represents the model behind the search form about `\backend\models\Storage`.
  */
-class CurrencySearch extends Currency
+class BankStorageSearch extends Storage
 {
+
+  public function attributeLabels() {
+      return [
+          'name' => 'Tên Tài Khoản',
+          'quantity' => 'Giá trị',
+          'currency_id' => 'Loại Tài Khoản'
+      ];
+  }
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'code', 'exchange_rate'], 'safe'],
+            [['id', 'quantity', 'currency_id', 'type'], 'integer'],
+            [['name', 'date'], 'safe'],
         ];
     }
 
@@ -41,7 +49,7 @@ class CurrencySearch extends Currency
      */
     public function search($params)
     {
-        $query = Currency::find();
+        $query = Storage::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -58,12 +66,13 @@ class CurrencySearch extends Currency
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'type' => 0,
+            'quantity' => $this->quantity,
+            'currency_id' => $this->currency_id,
+            'date' => $this->date,
+            'type' => 1,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'code', $this->code])
-            ->andFilterWhere(['like', 'exchange_rate', $this->exchange_rate]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

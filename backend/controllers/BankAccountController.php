@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Pets;
-use backend\models\PetSearch;
+use backend\models\BankAccount;
+use backend\models\BankAccountSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PetsController implements the CRUD actions for Pets model.
+ * BankAccountController implements the CRUD actions for Currency model.
  */
-class PetsController extends Controller
+class BankAccountController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class PetsController extends Controller
     }
 
     /**
-     * Lists all Pets models.
+     * Lists all Currency models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PetSearch();
+        $searchModel = new BankAccountSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class PetsController extends Controller
     }
 
     /**
-     * Displays a single Pets model.
+     * Displays a single Currency model.
      * @param string $id
      * @return mixed
      */
@@ -54,16 +54,16 @@ class PetsController extends Controller
     }
 
     /**
-     * Creates a new Pets model.
+     * Creates a new Currency model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Pets();
+        $model = new BankAccount();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -72,7 +72,7 @@ class PetsController extends Controller
     }
 
     /**
-     * Updates an existing Pets model.
+     * Updates an existing Currency model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -80,9 +80,6 @@ class PetsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if($model->created_by != Yii::$app->user->id){
-          return $this->redirect(['view', 'id' => $model->id]);
-        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -94,7 +91,7 @@ class PetsController extends Controller
     }
 
     /**
-     * Deletes an existing Pets model.
+     * Deletes an existing Currency model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -107,15 +104,15 @@ class PetsController extends Controller
     }
 
     /**
-     * Finds the Pets model based on its primary key value.
+     * Finds the Currency model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Pets the loaded model
+     * @return Currency the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Pets::findOne($id)) !== null) {
+        if (($model = BankAccount::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
