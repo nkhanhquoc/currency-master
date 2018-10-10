@@ -79,7 +79,7 @@ class BankTransController extends Controller
             $trans->quantity =  $params["trans"]['quantity'][$i];
             $trans->save();
           }
-            return $this->redirect(['updated', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,

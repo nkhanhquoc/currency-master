@@ -6,11 +6,11 @@ use yii\helpers\Html;
 /* @var $model backend\models\Transaction */
 
 $this->title = Yii::t('backend', 'Update {modelClass}: ', [
-    'modelClass' => 'Transaction',
+    'modelClass' => 'Giao dịch Ngân hàng',
 ]) . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Transactions'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Giao dịch Ngân hàng'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
+$this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->code;
 ?>
 <div class="row transaction-update">
     <div class="col-md-12">
