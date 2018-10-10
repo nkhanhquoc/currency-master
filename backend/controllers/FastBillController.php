@@ -63,9 +63,9 @@ class FastBillController extends Controller
     public function actionCreate()
     {
         $model = new Bill();
-        $model->type = 10;
+        $model->type = 1;
         $model->created_date = date("Y-m-d h:i");
-        $count = Bill::countTypeBillInDay(10);
+        $count = Bill::countTypeBillInDay(1);
         $model->code = "GN-".date("Ymd")."-xxx-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

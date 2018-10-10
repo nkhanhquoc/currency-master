@@ -33,12 +33,6 @@ use awesome\backend\form\AwsActiveForm;
 
     <?= $form->field($model, 'quantity')->textInput() ?>
 
-    <?= $form->field($model, 'currency_id')->textInput(['maxlength' => 20]) ?>
-
-    <?= $form->field($model, 'date')->textInput() ?>
-
-    <?= $form->field($model, 'type')->textInput() ?>
-
             </div>
         </div>
     </div>

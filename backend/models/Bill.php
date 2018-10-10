@@ -59,7 +59,17 @@ class Bill extends BillBase{
   }
 
   public function getAllCurrency(){
-    $query = Currency::find()->all();
+    $query = Currency::find()->where(['type'=>0])->all();
+    $list = [];
+    if ($query) {
+        foreach ($query as $type) {
+            $list[$type->id] = $type->code;
+        }
+    }
+    return $list;
+  }
+  public function getBankAccount(){
+    $query = Currency::find()->where(['type'=>1])->all();
     $list = [];
     if ($query) {
         foreach ($query as $type) {

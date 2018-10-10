@@ -58,7 +58,7 @@ class FastBillSearch extends Bill
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'type' => 10,
+            'type' => 1,
             'customer_id' => $this->customer_id,
             'customer_type' => $this->customer_type,
             'created_date' => $this->created_date,

@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Bill;
+use backend\models\Storage;
 use backend\models\Transaction;
 use backend\models\BankTransSearch;
 use yii\web\Controller;
@@ -60,12 +62,24 @@ class BankTransController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Transaction();
-        $model->type = 13;
-        $model->bill_id = 0;
+        $model = new Bill();
+        $count = Bill::countTypeBillInDay(10);
+        $model->code = "GD-".date("Ymd")."-CH-".($count+1);
+        $model->created_date = date('Y-m-d h:i:s');
+        $model->type = 10;
+        $model->customer_id = -1;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+          $params = Yii::$app->request->post();
+          for($i = 0;$i< count($params["trans"]['type']); $i++){
+            $trans = new Transaction();
+            $trans->bill_id = $model->id;
+            $trans->type = 13;
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
+            $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->save();
+          }
+            return $this->redirect(['updated', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -84,12 +98,53 @@ class BankTransController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+          $model->clearTrans();
+          $params = Yii::$app->request->post();
+          for($i = 0;$i< count($params["trans"]['type']); $i++){
+            if($params["trans"]['id'][$i] != "" || $params["trans"]['id'][$i] != null){
+              $trans = Transaction::findOne($params["trans"]['id'][$i]);
+            } else {
+              $trans = new Transaction();
+            }
+
+            $trans->bill_id = $model->id;
+            $trans->note = $params["trans"]['note'][$i];
+            $trans->type = 13;
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
+            $trans->quantity =  $params["trans"]['quantity'][$i];
+            // $model->fee +=
+            $trans->save(false);
+        }
+        }
+        $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
             return $this->render('update', [
                 'model' => $model,
+                'trans' => $trans
             ]);
+
+    }
+
+
+    public function actionExport($id){
+      $model = $this->findModel($id);
+      if($model->is_export != 1){
+        $model->is_export = 1;
+        try{
+          $model->save();
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+          foreach($trans as $tran){
+              Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+          }
+        }catch(Exception $e){
+          Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
         }
+      }
+
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+      return $this->render('export', [
+          'model' => $model,
+          'trans' => $trans
+      ]);
     }
 
     /**
@@ -114,7 +169,7 @@ class BankTransController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Transaction::findOne($id)) !== null) {
+        if (($model = Bill::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

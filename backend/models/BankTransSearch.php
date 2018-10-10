@@ -10,37 +10,20 @@ use backend\models\Transaction;
 /**
  * BankTransSearch represents the model behind the search form about `\backend\models\Transaction`.
  */
-class BankTransSearch extends Transaction
+class BankTransSearch extends Bill
 {
 
-  public function attributeLabels()
-  {
-      return [
-          'id' => Yii::t('backend', 'ID'),
-          'bill_id' => Yii::t('backend', 'Bill ID'),
-          'type' => Yii::t('backend', 'Type'),
-          'currency_id' => Yii::t('backend', 'Tài Khoản'),
-          'quantity' => Yii::t('backend', 'Quantity'),
-          'value' => Yii::t('backend', 'Giá Trị'),
-          'created_time' => Yii::t('backend', 'Thời gian'),
-          'receiver' => Yii::t('backend', 'Receiver'),
-          'fee' => Yii::t('backend', 'Fee'),
-          'deposit' => Yii::t('backend', 'Deposit'),
-          'exchange_rate' => Yii::t('backend', 'Exchange Rate'),
-          'note' => Yii::t('backend', 'Ghi Chú'),
-          'real_value' => Yii::t('backend', 'Real Value'),
-      ];
-  }
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
-        return [
-            [['id', 'bill_id', 'type', 'currency_id'], 'integer'],
-            [['quantity', 'value', 'created_time', 'receiver', 'fee', 'deposit', 'exchange_rate', 'note', 'real_value'], 'safe'],
-        ];
-    }
+     public function rules()
+     {
+         return [
+             [['type', 'customer_id', 'customer_type'], 'integer'],
+             [['code', 'value', 'note', 'receiver', 'deposit', 'fee', 'created_date'], 'safe'],
+         ];
+     }
 
     /**
      * @inheritdoc
@@ -58,40 +41,39 @@ class BankTransSearch extends Transaction
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
-        $query = Transaction::find();
+     public function search($params)
+     {
+         $query = Bill::find();
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-            'sort' => ['defaultOrder' => ['id' => SORT_DESC]]
-        ]);
+         $dataProvider = new ActiveDataProvider([
+             'query' => $query,
+             'sort' => ['defaultOrder' => ['id' => SORT_DESC]]
+         ]);
 
-        $this->load($params);
+         $this->load($params);
 
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to any records when validation fails
-            // $query->where('0=1');
-            return $dataProvider;
-        }
+         if (!$this->validate()) {
+             // uncomment the following line if you do not want to any records when validation fails
+             // $query->where('0=1');
+             return $dataProvider;
+         }
+         // var_dump($this->customer_id);die;
 
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'bill_id' => 0,
-            'type' => [12,13],
-            'currency_id' => $this->currency_id,
-            'created_time' => $this->created_time,
-        ]);
+         $query->andFilterWhere([
+             'id' => $this->id,
+             'type' => 10,
+             'customer_id' => $this->customer_id,
+             'customer_type' => $this->customer_type,
+             'created_date' => $this->created_date,
+         ]);
 
-        $query->andFilterWhere(['like', 'quantity', $this->quantity])
-            ->andFilterWhere(['like', 'value', $this->value])
-            ->andFilterWhere(['like', 'receiver', $this->receiver])
-            ->andFilterWhere(['like', 'fee', $this->fee])
-            ->andFilterWhere(['like', 'deposit', $this->deposit])
-            ->andFilterWhere(['like', 'exchange_rate', $this->exchange_rate])
-            ->andFilterWhere(['like', 'note', $this->note])
-            ->andFilterWhere(['like', 'real_value', $this->real_value]);
+         $query->andFilterWhere(['like', 'code', $this->code])
+             ->andFilterWhere(['like', 'value', $this->value])
+             ->andFilterWhere(['like', 'note', $this->note])
+             ->andFilterWhere(['like', 'receiver', $this->receiver])
+             ->andFilterWhere(['like', 'deposit', $this->deposit])
+             ->andFilterWhere(['like', 'fee', $this->fee]);
 
-        return $dataProvider;
-    }
+         return $dataProvider;
+     }
 }

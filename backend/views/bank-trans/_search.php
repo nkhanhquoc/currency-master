@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\BankTransSearch */
+/* @var $model backend\models\BillSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="transaction-search">
+<div class="bill-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -16,24 +16,22 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
 
-    <?= $form->field($model, 'currency_id')->dropDownList($model->getBankAccount(),['prompt'=>'---Chọn Tài khoản---']) ?>
+    <?= $form->field($model, 'code') ?>
+
+    <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer()) ?>
 
 
-    <?php // echo $form->field($model, 'value') ?>
-
-    <?php // echo $form->field($model, 'created_time') ?>
-
-    <?php // echo $form->field($model, 'receiver') ?>
-
-    <?php // echo $form->field($model, 'fee') ?>
-
-    <?php // echo $form->field($model, 'deposit') ?>
-
-    <?php // echo $form->field($model, 'exchange_rate') ?>
+    <?php // echo $form->field($model, 'customer_type') ?>
 
     <?php // echo $form->field($model, 'note') ?>
 
-    <?php // echo $form->field($model, 'real_value') ?>
+    <?php // echo $form->field($model, 'receiver') ?>
+
+    <?php // echo $form->field($model, 'deposit') ?>
+
+    <?php // echo $form->field($model, 'fee') ?>
+
+    <?php // echo $form->field($model, 'created_date') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>

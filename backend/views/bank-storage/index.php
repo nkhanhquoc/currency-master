@@ -24,12 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?=  AwsBaseHtml::encode($this->title) ?>
                     </span>
                 </div>
-                <div class="actions">
-                    <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Storage',
-]),
-                        ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
-                </div>
             </div>
 
             <div class="portlet-body">
@@ -48,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'currency_id',
                         'date',
 
-                        ['class' => 'yii\grid\ActionColumn'],
+                        ['class' => 'yii\grid\ActionColumn','template' => '{update}'],
                         ],
                         ]); ?>
 

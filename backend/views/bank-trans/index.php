@@ -50,17 +50,10 @@ $this->params['breadcrumbs'][] = $this->title;
                               return Yii::$app->params['transaction_type'][$dataProvider['type']];
                             }
                         ],
-            [
-                'attribute' => 'currency_id',
-                'format' => 'raw', //raw, html
-                'content' => function($dataProvider) {
-                  $m = Currency::findOne($dataProvider['currency_id']);
-                  return $m->name;
-                }
-            ],
+            'code',
             // 'quantity',
             'value',
-            'created_time',
+            'created_date',
             // 'receiver',
             // 'fee',
             // 'deposit',
@@ -68,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'note',
             // 'real_value',
 
-                        ['class' => 'yii\grid\ActionColumn','template'=>'{create}'],
+                        ['class' => 'yii\grid\ActionColumn'],
                         ],
                         ]); ?>
 

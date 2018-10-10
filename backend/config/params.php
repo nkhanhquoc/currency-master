@@ -75,7 +75,7 @@ return [
         '10' => 'Nhận Tiền',
         '11' => 'Đặt cọc',
         '12' => 'Khách CK',
-        '13' => 'Lộc Vân CK',
+        '13' => 'Cửa hàng CK',
         '14' => 'Trả Feedback',
         '15' => 'Nhận Feedback',
       ],
@@ -88,6 +88,7 @@ return [
         '6'=>'Tiền chuyển khác',
         '7'=>'Tiền chuyển quê',
         '8'=>'Mua bán quê',
-        '9'=>'Chuyển khoản quê'
+        '9'=>'Chuyển khoản quê',
+        '10' => 'Cửa hàng CK'
       ]
 ];
