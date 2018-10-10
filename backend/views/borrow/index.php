@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   return $model->is_export === 0 ? Html::a('<span class="glyphicon glyphicon-pencil"></span>',$url) :'';
                 },
                 'export' => function($url,$model){
-                  return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/formed-bill/export?id='.$model->id) :'';
+                  return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/borrow/export?id='.$model->id) :'';
                 }
               ]
             ],

@@ -39,9 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         'name',
                         'quantity',
-                        'currency_id',
                         'date',
-
                         ['class' => 'yii\grid\ActionColumn','template' => '{update}'],
                         ],
                         ]); ?>
