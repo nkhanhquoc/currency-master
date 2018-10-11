@@ -131,7 +131,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                     </td>
                     <td>
                       <?= $form->field($tran, 'currency_id')->dropDownList(
-                        $model->getAllCurrency(),
+                        $model->getStorageCurrency(),
                         ['name'=>'trans[currency_id][]',
                          'disabled'=>'disabled']
                         )->label(false)?>

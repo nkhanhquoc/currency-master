@@ -83,6 +83,7 @@ class Storage extends StorageBase{
         $st->currency_id = $currency;
         $st->quantity = $currentSt->quantity + $value;
         $st->type = $currentSt->type;
+        $st->name = $currentSt->name;
         $st->save(false);
       }
     } catch(Exception $e){

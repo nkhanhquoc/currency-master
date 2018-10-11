@@ -78,6 +78,8 @@ return [
         '13' => 'Cửa hàng CK',
         '14' => 'Trả Feedback',
         '15' => 'Nhận Feedback',
+        '16' => 'Rút tiền',
+        '17' => 'Nạp tiền'
       ],
       'bill_type' => [
         '1'=>'Hóa đơn giao ngay',
@@ -89,6 +91,6 @@ return [
         '7'=>'Tiền chuyển quê',
         '8'=>'Mua bán quê',
         '9'=>'Chuyển khoản quê',
-        '10' => 'Cửa hàng CK'
+        '10' => 'Giao dịch Ngân hàng'
       ]
 ];

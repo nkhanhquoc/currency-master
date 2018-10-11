@@ -52,7 +52,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
             'code',
             // 'quantity',
-            'value',
+            [
+                'attribute' => 'value',
+                'format' => 'raw', //raw, html
+                'content' => function($dataProvider) {
+                  return number_format($dataProvider['type']);
+                }
+            ],
             'created_date',
             // 'receiver',
             // 'fee',

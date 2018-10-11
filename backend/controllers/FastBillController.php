@@ -3,6 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Debt;
+use backend\models\Storage;
 use backend\models\Transaction;
 use backend\models\Bill;
 use backend\models\FastBillSearch;
@@ -22,7 +24,7 @@ class FastBillController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
-                    'getbill' => ['post']
+                    'getbill' => ['post'],
                 ],
             ],
         ];
@@ -155,8 +157,6 @@ class FastBillController extends Controller
           $model->insertRef($listInRef);
         }
 
-
-
         $listRefId = [];
         $refbills = $model->getRefBill();
         foreach($refbills as $bill){
@@ -182,9 +182,9 @@ class FastBillController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        // $this->findModel($id)->delete();
+        //
+        // return $this->redirect(['index']);
     }
 
     /**
@@ -278,8 +278,9 @@ public function groupTrans($bills){
 }
 
 public function actionExport($id){
+  $request = Yii::$app->request;
   $model = $this->findModel($id);
-  if($model->is_export != 1){
+  if($model->is_export != 1 && $request->isPost){
     $model->is_export = 1;
     try{
       $model->save();
@@ -287,28 +288,57 @@ public function actionExport($id){
       foreach($trans as $tran){
         switch($tran->type){
           case MUA:
+            Storage::updateByCurrId(VND_CURRENCY_ID, (0 - $tran->value));
+            Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+            break;
           case BAN:
-        }
+            Storage::updateByCurrId($tran->currency_id, (0 - $tran->quantity));
+            Storage::updateByCurrId(VND_CURRENCY_ID, $tran->value);
+            break;
+          case TRA_TIEN:
+              Storage::updateByCurrId($tran->currency_id, (0 - $tran->quantity));
+              Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->quantity);
+              break;
+          case NHAN_TIEN:
+              Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+              Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
+              break;
+          case KHACH_CK:
+              Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+              Storage::updateByCurrId(VND_CURRENCY_ID, (0-$tran->quantity));
+              break;
+          case CUAHANG_CK:
+              Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+              break;
+          case TRA_FEEDBACK:
+              Storage::updateByCurrId(VND_CURRENCY_ID, (0-$tran->quantity));
+              break;
+          case NHAN_FEEDBACK:
+              Storage::updateByCurrId(VND_CURRENCY_ID, $tran->quantity);
+              break;
+          default:break;
 
-        // if($tran->type == MUA){
-        //   Storage::updateByCurrId(VND_CURRENCY_ID, (0 - $tran->deposit));
-        //   Storage::updateByCurrId($tran->currency_id, $tran->quantity);
-        //   Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0 - $tran->quantity));
-        // } else {
-        //   Storage::updateByCurrId(VND_CURRENCY_ID, $tran->deposit);
-        //   Storage::updateByCurrId($tran->currency_id, (0 - $tran->quantity));
-        //   Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id, $tran->quantity);
-        // }
+        }
       }
     }catch(Exception $e){
       Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
     }
   }
+  $listRefId = [];
+  $refbills = $model->getRefBill();
+  foreach($refbills as $bill){
+    $listRefId[] = $bill->reference_bill;
+  }
+
+  $listRefBill = Bill::findAddBill($listRefId);
+  $data = $this->groupTrans($listRefBill);
 
   $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
   return $this->render('export', [
       'model' => $model,
-      'trans' => $trans
+      'trans' => $trans,
+      'listRefId' =>$listRefId,
+      'listRefBill' => $data
   ]);
 }
 

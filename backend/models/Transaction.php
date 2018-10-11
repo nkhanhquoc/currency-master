@@ -125,7 +125,7 @@ class Transaction extends TransactionBase{
       '9' => 'Trả Tiền',
       '10' => 'Nhận Tiền',
       '12' => 'Khách CK',
-      '13' => 'Lộc Vân CK',
+      '13' => 'Cửa hàng CK',
       '14' => 'Trả Feedback',
       '15' => 'Nhận Feedback',
     ];

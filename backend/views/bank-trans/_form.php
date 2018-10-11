@@ -68,7 +68,12 @@ use yii\widgets\ActiveForm;
                             <input name="trans[note][]" value="<?= $tran->note ?>" type="text" class="form-control"/>
                           </td>
                           <td>
-                            <?= $form->field($tran, 'type')->dropDownList(['13'=>'Cửa hàng CK'],['name'=>'trans[type][]'])->label(false)?>
+                            <?= $form->field($tran, 'type')->dropDownList([
+                              '13'=>'Cửa hàng CK',
+                              '16'=>'Rút tiền',
+                              '17'=>'Nạp tiền'
+                            ],
+                            ['name'=>'trans[type][]'])->label(false)?>
                           </td>
                           <td>
                             <?= $form->field($tran, 'currency_id')->dropDownList(
@@ -138,6 +143,8 @@ trr+= '</td>';
 trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="13">Cửa hàng CK</option>';
+trr+=     '<option value="16">Rút tiền</option>';
+trr+=     '<option value="17">Nạp tiền</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';

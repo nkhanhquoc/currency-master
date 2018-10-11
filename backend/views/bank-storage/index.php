@@ -38,7 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         ['class' => 'yii\grid\SerialColumn'],
 
                         'name',
-                        'quantity',
+                        [
+                            'attribute' => 'quantity',
+                            'format' => 'raw', //raw, html
+                            'content' => function($dataProvider) {
+                              return number_format($dataProvider['quantity']);
+                            }
+                        ],
                         'date',
                         ['class' => 'yii\grid\ActionColumn','template' => '{update}'],
                         ],

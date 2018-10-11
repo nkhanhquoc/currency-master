@@ -43,7 +43,8 @@ class Bill extends BillBase{
           'note'=> 'Ghi chú',
           'receiver' => 'Người nhận',
           'created_date' => 'Thời gian lập',
-          'is_export' => 'Trạng thái'
+          'is_export' => 'Trạng thái',
+          'ValueFormat' => 'Giá trị',
       ];
   }
 
@@ -59,6 +60,17 @@ class Bill extends BillBase{
   }
 
   public function getAllCurrency(){
+    $query = Currency::find()->all();
+    $list = [];
+    if ($query) {
+        foreach ($query as $type) {
+            $list[$type->id] = $type->code;
+        }
+    }
+    return $list;
+  }
+
+  public function getStorageCurrency(){
     $query = Currency::find()->where(['type'=>0])->all();
     $list = [];
     if ($query) {
@@ -68,6 +80,7 @@ class Bill extends BillBase{
     }
     return $list;
   }
+
   public function getBankAccount(){
     $query = Currency::find()->where(['type'=>1])->all();
     $list = [];
@@ -155,6 +168,10 @@ class Bill extends BillBase{
       $ref->reference_bill = $id;
       $ref->save();
     }
+  }
+
+  public function getValueFormat(){
+    return number_format($this->value);
   }
 
 }

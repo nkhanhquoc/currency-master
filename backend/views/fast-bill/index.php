@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                   return $m->name;
                 }
             ],
-            'value',
+            'ValueFormat',
             // 'customer_type',
             'note',
             // 'receiver',
@@ -75,7 +75,18 @@ $this->params['breadcrumbs'][] = $this->title;
               }
             ],
 
-                        ['class' => 'yii\grid\ActionColumn'],
+            [
+              'class' => 'yii\grid\ActionColumn',
+              'template' => '{update} {export}',
+              'buttons' => [
+                'update' => function($url, $model){
+                  return $model->is_export === 0 ? Html::a('<span class="glyphicon glyphicon-pencil"></span>',$url) :'';
+                },
+                'export' => function($url,$model){
+                  return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/fast-bill/export?id='.$model->id) :'';
+                }
+              ]
+            ],
                         ],
                         ]); ?>
 

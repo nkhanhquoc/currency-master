@@ -171,7 +171,8 @@ use yii\widgets\ActiveForm;
               <?php endif;?>
 
                 <?php if(!$model->isNewRecord):?>
-                <a href="/formed-bill/export?id=<?= $model->id ?>" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
+                    <a href="javascript:exportBill('/fast-bill/export?id=<?= $model->id ?>')" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
+
                 <span onclick="window.print();return false;" class="btn btn-outline btn-circle btn-sm btn-success">Xem bản in</span>
               <?php endif;?>
                 <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
@@ -183,6 +184,9 @@ use yii\widgets\ActiveForm;
     </div>
 
 <?php ActiveForm::end(); ?>
+<form id="bill-export" method="post" action="/fast-bill/export?id=<?= $model->id ?>">
+<input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>"/>
+</form>
 <script type="text/javascript">
 var billcode = '<?php echo $model->code ?>';
 billcode = billcode.split('-');
@@ -204,7 +208,7 @@ trr+=     '<option value="2">Bán</option>';
 trr+=     '<option value="9">Nhận tiền</option>';
 trr+=     '<option value="10">Trả tiền</option>';
 trr+=     '<option value="12">Khách CK</option>';
-trr+=     '<option value="13">Lộc Vân CK</option>';
+trr+=     '<option value="13">Cửa hàng CK</option>';
 trr+=     '<option value="14">Trả Feedback</option>';
 trr+=     '<option value="15">Nhận Feedback</option>';
 trr+=   '</select>';

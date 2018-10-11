@@ -88,7 +88,7 @@ use yii\widgets\ActiveForm;
                     </td>
                     <td>
                       <?= $form->field($tran, 'currency_id')->dropDownList(
-                        $model->getAllCurrency(),
+                        $model->getStorageCurrency(),
                         ['name'=>'trans[currency_id][]']
                         )->label(false)?>
                     </td>
@@ -157,7 +157,7 @@ var billcode = '<?php echo $model->code ?>';
 billcode = billcode.split('-');
 var index =0;
 var optionCurrency = "";
-<?php foreach($model->getAllCurrency() as $k => $currency):?>
+<?php foreach($model->getStorageCurrency() as $k => $currency):?>
   optionCurrency += '<option value="<?php echo $k?>"><?php echo $currency?></option>';
 <?php endforeach;?>
 var trr = '<tr class="form-group">';

@@ -8,10 +8,10 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Bill */
 
-$this->title = "Hóa đơn chuyển tiền";
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Bills'), 'url' => ['index']];
+$this->title = "Hóa đơn Giao ngay";
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Hóa Đơn Giao ngay'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
+$this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->code;
 
 ?>
 <div class="row bill-update">
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                 <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
                 <table class="table" style="margin-bottom:0px">
                   <tr class="no-border">
-                    <td style="width:50%">
+                    <td style="width:33%">
                       <div class="row">
                         <div class="col-md-12">
                           <div class="input-group" >
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                         </div>
                       </div>
                     </td>
-                    <td>
+                    <td style="width:33%">
                       <div class="row">
                         <div class="col-md-12">
                           <div class="input-group" >
@@ -61,8 +61,6 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                         </div>
                       </div>
                     </td>
-                  </tr>
-                  <tr class="no-border">
                     <td>
                       <div class="row">
                         <div class="col-md-12">
@@ -74,14 +72,6 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                       </div>
                     </td>
                     <td>
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="input-group">
-                            <span class="input-group-addon">Người nhận:</span>
-                            <input value="<?= $model->receiver ?>" disabled="disabled" type="text" class="form-control">
-                          </div>
-                        </div>
-                      </div>
                     </td>
                   </tr>
 
@@ -102,25 +92,20 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                 </table>
 
                 <div class="row">
-                  <h3 style="text-align:center">HÓA ĐƠN CHUYỂN TIỀN</h3>
+                  <h3 style="text-align:center">HÓA ĐƠN GIAO NGAY</h3>
                 </div>
               <table class="table table-striped table-condensed">
                 <tr>
-                  <th class="text-center">      TT    </th>
-                  <th class="text-center" style="display:none">    </th>
-                  <th class="text-center">      Ghi chú    </th>
-                  <th class="text-center">      Giao dịch    </th>
-                  <th class="text-center">      Loại    </th>
-                  <th class="text-center">      Số Lượng    </th>
-                  <th class="text-center">      Tỉ lệ giảm(%)    </th>
-                  <th class="text-center">      Số Lượng Thực Tế    </th>
-                  <th class="text-center"></th>
+                  <th class="text-center">TT</th>
+                  <th class="text-center">Ghi chú</th>
+                  <th class="text-center">Giao dịch</th>
+                  <th class="text-center">Loại</th>
+                  <th class="text-center">Số Lượng</th>
+                  <th class="text-center">Tỉ giá</th>
+                  <th class="text-center">Thành tiền</th>
                 </tr>
                 <?php foreach($trans as $k => $tran):?>
                   <tr class="form-group">
-                    <td style="display:none">
-                      <input type="hidden" name="trans[id][]" value="<?=$tran->id ?>" />
-                    </td>
                     <td name="trr-index">
                       <?= $k+1 ?>
                     </td>
@@ -129,13 +114,13 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                     </td>
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTransferType(),
+                        $tran->getAllFastTradeType(),
                         ['name'=>'trans[type][]','disabled'=>'disabled']
                         )->label(false)?>
                     </td>
                     <td>
                       <?= $form->field($tran, 'currency_id')->dropDownList(
-                        $model->getStorageCurrency(),
+                        $model->getAllCurrency(),
                         ['name'=>'trans[currency_id][]',
                          'disabled'=>'disabled']
                         )->label(false)?>
@@ -144,23 +129,29 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                       <input name="trans[quantity][]" disabled="disabled" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[fee][]" disabled="disabled" value="<?= $tran->fee ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[exchange_rate][]" disabled="disabled" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[real_value][]" disabled="disabled" value="<?= $tran->real_value ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value,2) ?>" class="form-control"/>
                     </td>
                   </tr>
                 <?php endforeach;?>
-                <tr id="tr-sum" style="display:none">
-                  <td colspan="5" style="font-weight:bold">
+                <tr id="tr-sum" style="">
+                  <td colspan="5">
+
+                  </td>
+                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
                     Tổng
                   </td>
                   <td id="sum-value">
-
+                    <input disabled="disabled" value="<?= number_format($model->value,2) ?>" class="form-control"/>
+                  </td>
+                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
+                    VND
                   </td>
                 </tr>
                 <tr>
-                  <td class="text-center" colspan="3">
+                  <td class="text-center" colspan="4">
                     <span class="font-weight-bold"><b>Người chi</b></span>
                   </td>
                   <td class="text-center" colspan="3">
@@ -168,7 +159,41 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                   </td>
                 </tr>
               </table>
+            </br>
+            </br>
+            </br>
+            </br>
               </div>
+
+              <table class="table table-bordered">
+                <tr id="list-ref-th">
+                  <th>Khách hàng </th>
+                  <th>Loại GD </th>
+                  <th>Loại Tiền  </th>
+                  <th>Số Lượng</th>
+                  <th>Thành tiền</th>
+                  <th>Phí</th>
+                </tr>
+                <tbody id="list-ref-content">
+                  <?php foreach($listRefBill as $ref):?>
+                    <tr class="list-group-item-info">
+                      <td colspan="6">
+                        <?= $ref['code'] ?>
+                      </td>
+                    </tr>
+                    <?php foreach($ref['trans'] as $refTran):?>
+                      <tr>
+                        <td><?= $refTran['customer']?></td>
+                        <td><?= $refTran['type']?></td>
+                        <td><?= $refTran['currency_name']?></td>
+                        <td><?= $refTran['quantity']?></td>
+                        <td><?= $refTran['fee']?></td>
+                        <td><?= $refTran['value']?></td>
+                      </tr>
+                    <?php endforeach;?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
 
           </div>
           <div class="actions">
