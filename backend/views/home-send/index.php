@@ -27,41 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     Pjax::begin(['formSelector' => 'form', 'enablePushState' => false, 'id' => 'mainGridPjax']);
                     ?>
 
-                    <table class="table">
-                      <tr class="list-group-item-success">
-                        <th>
-                          Loại Tiền
-                        </th>
-                        <th>
-                          Số Lượng
-                        </th>
-                        <th>
-                          Ngày
-                        </th>
-                      </tr>
-                      <?php $dateArr = [];?>
-                      <?php foreach($dataProvider->getModels() as $data):?>
-                        <?php if(!in_array($data->created_time,$dateArr)):?>
-                          <?php $dateArr[] = $data->created_time;?>
-                          <tr class="list-group-item-info" style="font-weight:bold">
-                            <td colspan="3">
-                              <?= $data->created_time ?>
-                            </td>
-                          </tr>
-                        <?php endif;?>
-                        <tr>
-                          <td>
-                            <?= $data->getCurrencyName() ?>
-                          </td>
-                          <td>
-                            <?= number_format($data->quantity,2) ?>
-                          </td>
-                          <td>
-                            <?= $data->created_time ?>
-                          </td>
-                        </tr>
-                      <?php endforeach;?>
-                    </table>
+                    <?= AwsGridView::widget([
+                      'dataProvider' => $dataProvider,
+                      // 'filterModel' => $searchModel,
+                      'columns' => [
+                      ['class' => 'yii\grid\SerialColumn'],
+
+                      'CurrencyName',
+                      'FormatQuantity',
+                      'created_time',
+                      'note',
+
+                      ['class' => 'yii\grid\ActionColumn','template'=>'{update}'],
+                      ],
+                      ]); ?>
 
                     <?php
                     Pjax::end();

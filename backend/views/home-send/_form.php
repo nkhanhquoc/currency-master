@@ -30,9 +30,11 @@ use awesome\backend\form\AwsActiveForm;
         <div class="portlet-body">
             <div class="form-body">
               <?= $form->field($model, 'type')->hiddenInput()->label(false) ?>
+              <?= $form->field($model, 'created_time')->textInput(['readonly'=>'readonly']) ?>
     <?= $form->field($model, 'currency_id')->dropDownList($model->getCurrencyId()) ?>
 
     <?= $form->field($model, 'quantity')->textInput() ?>
+    <?= $form->field($model, 'note')->textArea() ?>
 
             </div>
         </div>

@@ -12,16 +12,16 @@ use backend\models\HomeStorageTransaction;
  */
 class HomeSendSearch extends HomeStorageTransaction
 {
+  var $fromTime;
+  var $toTime;
     /**
      * @inheritdoc
      */
-     var $fromTime;
-     var $toTime;
     public function rules()
     {
         return [
-            [['id', 'currency_id', 'quantity'], 'integer'],
-            [['created_time','fromTime','toTime'], 'safe'],
+            [['id', 'currency_id', 'quantity', 'type'], 'integer'],
+            [['created_time', 'note'], 'safe'],
         ];
     }
 
@@ -43,30 +43,14 @@ class HomeSendSearch extends HomeStorageTransaction
      */
     public function search($params)
     {
-        $query ="select currency_id,sum(quantity) as quantity, DATE_FORMAT(created_time,'%Y-%m-%d') as created_time
-        from home_storage_transaction  where type = 2 ";
-        // ->bindValue(":value",$value)
-        // ->bindValue(":currency",$currId)
-        $this->fromTime = $params['HomeStorageTransSearch']['created_time_from'];
-        $this->toTime = $params['HomeStorageTransSearch']['created_time_to'];
-        if ($this->fromTime != null) {
-            $query .= ' and CREATED_TIME >= "'.date('Y-m-d', strtotime($this->fromTime)).'"';
-        }
-        if ($this->toTime != null) {
-            $query .= ' and CREATED_TIME <= "'.date('Y-m-d 23:59:59', strtotime($this->toTime)).'"';
-        }
-
-        if($this->currency_id){
-          $query .= ' and currency_id = '.$this->currency_id;
-        }
-        $query .= " group by currency_id,DATE_FORMAT(created_time,'%Y-%m-%d') order by created_time desc,currency_id";
-        $query  =  HomeStorageTransaction::findBySql($query);
+        $query = HomeStorageTransaction::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['created_time' => SORT_DESC]]
+            'sort' => ['defaultOrder' => ['id' => SORT_DESC]]
         ]);
 
+        $this->load($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to any records when validation fails
@@ -74,6 +58,22 @@ class HomeSendSearch extends HomeStorageTransaction
             return $dataProvider;
         }
 
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'currency_id' => $this->currency_id,
+            'quantity' => $this->quantity,
+            'type' => 2,
+        ]);
+
+        $query->andFilterWhere(['like', 'note', $this->note]);
+        $this->fromTime = $params['HomeStorageTransSearch']['created_time_from'];
+        $this->toTime = $params['HomeStorageTransSearch']['created_time_to'];
+        if ($this->fromTime != null) {
+            $query->andFilterWhere(['>=', 'created_time', date('Y-m-d', strtotime($this->fromTime))]);
+        }
+        if ($this->toTime != null) {
+            $query->andFilterWhere(['<=', 'created_time', date('Y-m-d 23:59:59', strtotime($this->toTime))]);
+        }
 
         return $dataProvider;
     }

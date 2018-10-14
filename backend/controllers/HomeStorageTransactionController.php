@@ -35,12 +35,12 @@ class HomeStorageTransactionController extends Controller
     {
         $searchModel = new HomeStorageTransSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $homeStorages = HomeStorage::find()->all();
+        // $homeStorages = HomeStorage::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'homeStorages' => $homeStorages
+            // 'homeStorages' => $homeStorages
         ]);
     }
 
@@ -96,7 +96,9 @@ class HomeStorageTransactionController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+          return $this->render('update', [
+              'model' => $model,
+          ]);
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -61,6 +61,7 @@ class HomeSendController extends Controller
     public function actionCreate()
     {
         $model = new HomeStorageTransaction();
+        $model->created_time = date("Y-m-d h:i:s");
         $model->type = 2;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

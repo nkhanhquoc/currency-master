@@ -23,7 +23,9 @@ class HomeStorageTransaction extends HomeStorageTransactionBase{
   public function rules()
   {
       return [
-          [['currency_id', 'quantity'], 'integer']
+          [['currency_id', 'quantity'], 'integer'],
+          [['created_time'], 'safe'],
+          [['note'], 'string', 'max' => 500]
       ];
   }
 
@@ -44,12 +46,19 @@ class HomeStorageTransaction extends HomeStorageTransactionBase{
     return $curr->name;
   }
 
+  public function getFormatQuantity(){
+    return number_format($this->quantity);
+  }
+
   public function attributeLabels() {
       return [
           'type' => 'Loại Tiền',
           'quantity' => 'Giá trị',
           'currency_id' => 'Loại Tiền',
-          'note' => 'Ghi chú'
+          'note' => 'Ghi chú',
+          'created_time' => 'Thời gian',
+          'CurrencyName' => 'Loại Tiền',
+          'FormatQuantity' => 'Giá Trị'
       ];
   }
 
