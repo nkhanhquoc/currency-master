@@ -148,7 +148,6 @@ class LongtimeBillController extends Controller
         $model->is_export = 1;
         try{
           $model->save(false);
-          Storage::updateByCurrId(VND_CURRENCY_ID,$model->deposit);
         }catch(Exception $e){
           Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
         }

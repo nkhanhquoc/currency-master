@@ -3,9 +3,6 @@
 use awesome\backend\widgets\AwsBaseHtml;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\Bill */
-
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Hóa đơn chuyển tiền'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

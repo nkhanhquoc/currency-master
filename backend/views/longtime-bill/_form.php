@@ -113,19 +113,7 @@ use yii\widgets\ActiveForm;
                   <?php endif;?>
                   </tr>
                 <?php endforeach;?>
-                <tr id="tr-sum">
-                  <td colspan="5">
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    Cọc
-                  </td>
-                  <td>
-                    <?= $form->field($model, 'deposit')->textInput(['onblur'=>'updateBillValue()'])->label(false) ?>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-                <tr  style="">
+                <tr id="tr-sum" style="">
                   <td colspan="5">
 
                   </td>
@@ -191,6 +179,7 @@ trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="1">Mua</option>';
 trr+=     '<option value="2">Bán</option>';
+trr+=     '<option value="11">Đặt cọc</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';
