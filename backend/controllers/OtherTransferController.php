@@ -48,6 +48,7 @@ class OtherTransferController extends Controller
   public function actionCreate()
   {
       $model = new Bill();
+      $model->created_date = date('Y-m-d h:i:s');
       $model->type = 6;
       $count = Bill::countTypeBillInDay(6);
       $model->code = "TCK-".date("Ymd")."-xxx-".($count+1);
@@ -120,7 +121,7 @@ class OtherTransferController extends Controller
     if($model->is_export != 1){
       $model->is_export = 1;
       try{
-        $model->save();      
+        $model->save();
       }catch(Exception $e){
         Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
       }

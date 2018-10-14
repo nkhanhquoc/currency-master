@@ -63,6 +63,7 @@ class HomeTradingController extends Controller
     public function actionCreate()
     {
       $model = new Bill();
+      $model->created_date = date('Y-m-d h:i:s');
       $model->type =8;
       $model->customer_id =0;
       $count = Bill::countTypeBillInDay(8);

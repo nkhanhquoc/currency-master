@@ -34,17 +34,7 @@ use yii\widgets\ActiveForm;
                     <?= $form->field($model, 'customer_id')->hiddenInput()->label(false) ?>
                     <div class="row">
                       <div class="col-md-6">
-                        <?= $form->field($model, 'created_date')->widget(DateTimePicker::classname(), [
-                            'language' => 'vi',
-                            'readonly' => true,
-                            'options'=>[
-                            ],
-                            'pluginOptions' => [
-                                'autoclose'=>true,
-                            ]
-
-                        ])
-                        ?>
+                        <?= $form->field($model, 'created_date')->textInput(['readonly'=>'readony']) ?>
                       </div>
 
 
@@ -100,10 +90,10 @@ use yii\widgets\ActiveForm;
                               )->label(false)?>
                           </td>
                           <td>
-                            <input name="trans[quantity][]" value="<?= $tran->quantity ?>" type="number" class="form-control"/>
+                            <input name="trans[quantity][]" value="<?= $tran->quantity ?>" class="form-control"/>
                           </td>
                           <td>
-                            <input name="trans[fee][]" value="<?= $tran->fee ?>" type="number" class="form-control"/>
+                            <input name="trans[fee][]" value="<?= $tran->fee ?>" class="form-control"/>
                           </td>
 
                           <?php if(!$model->is_export):?>
@@ -172,10 +162,10 @@ trr+= '<td>';
 trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency+'</select>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[quantity][]" type="number" class="form-control"/>';
+trr+= '<input name="trans[quantity][]" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[fee][]" type="number" class="form-control"/>';
+trr+= '<input name="trans[fee][]" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';

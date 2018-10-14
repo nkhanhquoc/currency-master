@@ -53,7 +53,7 @@ class Bill extends BillBase{
     $list = [];
     if ($query) {
         foreach ($query as $type) {
-            $list[$type->id] = $type->name;
+            $list[$type->id] = $type->code;
         }
     }
     return $list;

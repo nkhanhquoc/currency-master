@@ -63,6 +63,7 @@ class LongtimeBillController extends Controller
     public function actionCreate()
     {
         $model = new Bill();
+        $model->created_date = date('Y-m-d h:i:s');
         $model->type = 3;
         $count = Bill::countTypeBillInDay($model->type);
         $model->code = "HDH-".date("Ymd")."-xxx-".($count+1);

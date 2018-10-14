@@ -63,6 +63,7 @@ class TransferCurrencyController extends Controller
     public function actionCreate()
     {
         $model = new Bill();
+        $model->created_date = date('Y-m-d h:i:s');
         $model->type = 4;
         $count = Bill::countTypeBillInDay(4);
         $model->code = "TC-".date("Ymd")."-xxx-".($count+1);

@@ -82,7 +82,7 @@ use yii\widgets\ActiveForm;
                               )->label(false)?>
                           </td>
                           <td>
-                            <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
+                            <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" class="form-control"/>
                           </td>
                           <?php if(!$model->is_export):?>
                           <td name="hide-on-print">

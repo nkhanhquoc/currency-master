@@ -32,18 +32,7 @@ use yii\widgets\ActiveForm;
                     <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
                     <div class="row">
                       <div class="col-md-6">
-                        <?= $form->field($model, 'created_date')->widget(DateTimePicker::classname(), [
-                            'language' => 'vi',
-                            'readonly' => true,
-                            'options'=>[
-                              // 'value' => date("Y-m-d H:i:s"),
-                            ],
-                            'pluginOptions' => [
-                                'autoclose'=>true,
-                            ]
-
-                        ])
-                        ?>
+                        <?= $form->field($model, 'created_date')->textInput(['readonly'=>'readony']) ?>
                       </div>
 
                     </div>
@@ -103,10 +92,10 @@ use yii\widgets\ActiveForm;
                               )->label(false)?>
                           </td>
                           <td>
-                            <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
+                            <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" class="form-control"/>
                           </td>
                           <td>
-                            <input name="trans[deposit][]" value="<?= $tran->deposit ?>" type="number" class="form-control"/>
+                            <input name="trans[deposit][]" value="<?= $tran->deposit ?>" class="form-control"/>
                           </td>
                           <?php if(!$model->is_export):?>
                           <td name="hide-on-print">
@@ -174,10 +163,10 @@ trr+= '<td>';
 trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency+'</select>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[quantity][]" type="number" min="0" class="form-control"/>';
+trr+= '<input name="trans[quantity][]" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[deposit][]" type="number" min="0" class="form-control"/>';
+trr+= '<input name="trans[deposit][]" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';

@@ -231,7 +231,7 @@ function clearDataContent(){
 function exportBill(url){
 	console.log("url",url);
 	if(confirm("Bạn chắc chắc muốn xuất hóa đơn?")){
-		var f = document.getElementById("bill-export");		
+		var f = document.getElementById("bill-export");
 		f.submit();
 	}
 }

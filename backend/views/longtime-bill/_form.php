@@ -98,13 +98,13 @@ use yii\widgets\ActiveForm;
                         )->label(false)?>
                     </td>
                     <td>
-                      <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[exchange_rate][]" onblur="changeTransValue(this)" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[exchange_rate][]" onblur="changeTransValue(this)" value="<?= $tran->exchange_rate ?>" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[value][]" value="<?= $tran->value ?>" readonly type="number" class="form-control"/>
+                      <input name="trans[value][]" value="<?= $tran->value ?>" readonly class="form-control"/>
                     </td>
                     <?php if(!$model->is_export):?>
                     <td name="hide-on-print">

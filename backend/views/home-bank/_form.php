@@ -34,17 +34,7 @@ use yii\widgets\ActiveForm;
 
               <div class="row">
                 <div class="col-md-6">
-                  <?= $form->field($model, 'created_date')->widget(DateTimePicker::classname(), [
-                      'language' => 'vi',
-                      'readonly' => true,
-                      'options'=>[
-                      ],
-                      'pluginOptions' => [
-                          'autoclose'=>true,
-                      ]
-
-                  ])
-                  ?>
+                  <?= $form->field($model, 'created_date')->textInput(['readonly'=>'readony']) ?>
                 </div>
                 <div class="col-md-6">
                   <?= $form->field($model, 'code')->textInput(['readonly'=>'readonly'])?>
@@ -88,7 +78,7 @@ use yii\widgets\ActiveForm;
                       <input name="trans[note][]" value="<?= $tran->note ?>" type="text" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[value][]" value="<?= $tran->value ?>" type="number" class="form-control"/>
+                      <input name="trans[value][]" value="<?= $tran->value ?>" class="form-control"/>
                     </td>
                     <?php if(!$model->is_export):?>
                     <td name="hide-on-print">
@@ -152,7 +142,7 @@ trr+= '<td>';
 trr+= '<input name="trans[note][]" type="text" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[value][]" type="number" class="form-control"/>';
+trr+= '<input name="trans[value][]" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';

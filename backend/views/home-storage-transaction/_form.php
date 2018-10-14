@@ -32,7 +32,7 @@ use awesome\backend\form\AwsActiveForm;
 
     <?= $form->field($model, 'currency_id')->dropDownList($model->getCurrencyId()) ?>
 
-    <?= $form->field($model, 'quantity')->textInput(['type'=>'number','min'=>0]) ?>
+    <?= $form->field($model, 'quantity')->textInput() ?>
 
             </div>
         </div>

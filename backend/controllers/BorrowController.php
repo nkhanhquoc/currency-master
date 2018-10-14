@@ -65,6 +65,7 @@ class BorrowController extends Controller
     {
         $model = new Bill();
         $model->type = 5;
+        $model->created_date = date('Y-m-d h:i:s');
         $count = Bill::countTypeBillInDay(5);
         $model->code = "VM-".date("Ymd")."-xxx-".($count+1);
 

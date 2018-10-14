@@ -62,6 +62,7 @@ class FormedBillController extends Controller
     public function actionCreate()
     {
         $model = new Bill();
+        $model->created_date = date('Y-m-d h:i:s');
         $model->type = 2;
         $count = Bill::countTypeBillInDay(2);
         $model->code = "HDC-".date("Ymd")."-xxx-".($count+1);
