@@ -110,6 +110,12 @@ class Transaction extends TransactionBase{
     ];
   }
 
+  public function getAllCusStorageType(){
+    return [
+      '22' => 'Nhập kho',
+    ];
+  }
+
   public function getBill(){
     return Bill::findOne([$this->bill_id]);
   }

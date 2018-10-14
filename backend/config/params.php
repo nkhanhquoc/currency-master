@@ -82,6 +82,9 @@ return [
         '17' => 'Nạp tiền',
         '18' => 'Thu',
         '19' => 'Chi',
+        '20' => 'Nợ phí',
+        '21' => 'Cho nợ phí',
+        '22' => 'Nhập',
       ],
       'bill_type' => [
         '1'=>'Hóa đơn giao ngay',
@@ -94,6 +97,7 @@ return [
         '8'=>'Mua bán quê',
         '9'=>'Chuyển khoản quê',
         '10' => 'Giao dịch Ngân hàng',
-        '11' => 'Chi phí'
+        '11' => 'Chi phí',
+        '12' => 'Kho Khách hàng'
       ]
 ];

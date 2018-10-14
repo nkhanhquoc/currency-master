@@ -34,10 +34,10 @@ use yii\widgets\ActiveForm;
               <div class="row">
                 <div class="col-md-6">
                   <?= $form->field($model, 'created_date')->textInput(['readonly'=>'readonly']) ?>
-
+                </div>
               </div>
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <?= $form->field($model, 'customer_id')->dropDownList(
                     $model->getAllCustomer(),
                     ['prompt'=>'---Chọn Nhà Vàng----',
@@ -46,7 +46,7 @@ use yii\widgets\ActiveForm;
                     )?>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <?= $form->field($model, 'code')->textInput(['maxlength' => 255,'readonly'=>'readonly','id'=>'bill_code']) ?>
                 </div>
               </div>

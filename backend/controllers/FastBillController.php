@@ -68,7 +68,7 @@ class FastBillController extends Controller
         $model->type = 1;
         $model->created_date = date("Y-m-d h:i");
         $count = Bill::countTypeBillInDay(1);
-        $model->code = "GN-".date("Ymd")."-xxx-".($count+1);
+        $model->code = "MBGN-".date("Ymd")."-xxx-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           $params = Yii::$app->request->post();

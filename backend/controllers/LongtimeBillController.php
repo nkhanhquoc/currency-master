@@ -66,7 +66,7 @@ class LongtimeBillController extends Controller
         $model->created_date = date('Y-m-d h:i:s');
         $model->type = 3;
         $count = Bill::countTypeBillInDay($model->type);
-        $model->code = "DH-".date("Ymd")."-xxx-".($count+1);
+        $model->code = "MBDH-".date("Ymd")."-xxx-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $params = Yii::$app->request->post();
