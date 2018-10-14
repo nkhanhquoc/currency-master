@@ -72,6 +72,7 @@ use yii\widgets\ActiveForm;
                 <th class="text-center">      Giao dịch    </th>
                 <th class="text-center">      Loại    </th>
                 <th class="text-center">      Số Lượng    </th>
+                <th class="text-center">      Phí    </th>
                 <th class="text-center"></th>
               </tr>
               <?php foreach($trans as $k => $tran):?>

@@ -17,4 +17,16 @@ class Customer extends CustomerBase{
           'note'=>'Ghi chú'
       ];
   }
+
+  /**
+   * @inheritdoc
+   */
+  public function rules()
+  {
+      return [
+          [['name', 'code'], 'string', 'max' => 255],
+          [['note'], 'string', 'max' => 1000],
+          ['code','unique']
+      ];
+  }
 }
