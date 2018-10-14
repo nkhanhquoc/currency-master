@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 /* @var $model backend\models\Bill */
 
 $this->title = "Hóa đơn Trả chậm";
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Bills'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Hóa đơn Trả chậm'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
 

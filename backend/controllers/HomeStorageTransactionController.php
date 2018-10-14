@@ -64,6 +64,7 @@ class HomeStorageTransactionController extends Controller
     public function actionCreate()
     {
         $model = new HomeStorageTransaction();
+        $model->created_time = date("Y-m-d h:i:s");
         $model->type = 1;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

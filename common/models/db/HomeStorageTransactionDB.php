@@ -12,6 +12,7 @@ use Yii;
  * @property integer $quantity
  * @property string $created_time
  * @property integer $type
+ * @property string $note
  */
 class HomeStorageTransactionDB extends \yii\db\ActiveRecord
 {
@@ -30,7 +31,8 @@ class HomeStorageTransactionDB extends \yii\db\ActiveRecord
     {
         return [
             [['currency_id', 'quantity', 'type'], 'integer'],
-            [['created_time'], 'safe']
+            [['created_time'], 'safe'],
+            [['note'], 'string', 'max' => 500]
         ];
     }
 
@@ -45,6 +47,7 @@ class HomeStorageTransactionDB extends \yii\db\ActiveRecord
             'quantity' => Yii::t('backend', 'Quantity'),
             'created_time' => Yii::t('backend', 'Created Time'),
             'type' => Yii::t('backend', 'Type'),
+            'note' => Yii::t('backend', 'Note'),
         ];
     }
 }

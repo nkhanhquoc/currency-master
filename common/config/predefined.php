@@ -35,3 +35,5 @@ define('RUT_TIEN',16);
 define('NAP_TIEN',17);
 define('THU',18);
 define('CHI',19);
+define('NO_PHI',20);
+define('CHO_NO_PHI',21);

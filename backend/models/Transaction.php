@@ -72,6 +72,8 @@ class Transaction extends TransactionBase{
       '4' => 'Trả tiền chuyển',
       '9' => 'Trả',
       '10' => 'Nhận',
+      '20' => 'Nợ phí',
+      '21' => 'Cho nợ phí',
     ];
   }
 

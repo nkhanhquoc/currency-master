@@ -8,8 +8,8 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Bill */
 
-$this->title = "Mua bán Quê";
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Bills'), 'url' => ['index']];
+$this->title = "Chuyển khoản Quê";
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Chuyển khoản Quê'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->code;
 

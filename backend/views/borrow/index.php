@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\BillSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Bills');
+$this->title = Yii::t('backend', 'Hóa đơn Vay mượn');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row bill-index">
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="actions">
                     <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Bill',
+    'modelClass' => 'Hóa đơn Vay mượn',
 ]),
                         ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
                 </div>

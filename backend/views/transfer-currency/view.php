@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Bill */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Bills'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Hóa đơn chuyển tiền'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row bill-view">

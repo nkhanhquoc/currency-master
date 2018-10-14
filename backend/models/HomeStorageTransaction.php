@@ -29,7 +29,7 @@ class HomeStorageTransaction extends HomeStorageTransactionBase{
 
 
   public function getCurrencyId(){
-    $query = Currency::find()->all();
+    $query = Currency::find()->where(['type'=>0])->all();
     $list = [];
     if ($query) {
         foreach ($query as $type) {
@@ -48,7 +48,8 @@ class HomeStorageTransaction extends HomeStorageTransactionBase{
       return [
           'type' => 'Loại Tiền',
           'quantity' => 'Giá trị',
-          'currency_id' => 'Loại Tiền'
+          'currency_id' => 'Loại Tiền',
+          'note' => 'Ghi chú'
       ];
   }
 

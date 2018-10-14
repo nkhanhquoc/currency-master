@@ -65,7 +65,7 @@ class FormedBillController extends Controller
         $model->created_date = date('Y-m-d h:i:s');
         $model->type = 2;
         $count = Bill::countTypeBillInDay(2);
-        $model->code = "HDC-".date("Ymd")."-xxx-".($count+1);
+        $model->code = "CHĐ-".date("Ymd")."-xxx-".($count+1);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           $params = Yii::$app->request->post();

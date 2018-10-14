@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= $data->getCurrencyName() ?>
                           </td>
                           <td>
-                            <?= number_format($data->quantity,2) ?>
+                            <?= number_format($data->quantity) ?>
                           </td>
                           <td>
                             <?= $data->created_time ?>
