@@ -144,7 +144,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                     Tổng
                   </td>
                   <td id="sum-value">
-                    <input disabled="disabled" value="<?= number_format($model->value,2) ?>" class="form-control"/>
+                    <input disabled="disabled" value="<?= number_format($model->value) ?>" class="form-control"/>
                   </td>
                   <td style="font-weight:bold;text-align:right;vertical-align: middle">
                     VND

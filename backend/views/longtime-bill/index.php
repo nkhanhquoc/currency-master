@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
               'attribute'=>'value',
               'format'=>'raw',
               'content' => function($dataProvider){
-                return number_format($dataProvider['value'],2);
+                return number_format($dataProvider['value']);
               }
             ],
             // 'customer_type',

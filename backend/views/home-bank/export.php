@@ -108,7 +108,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                       <input name="trans[note][]" value="<?= $tran->note ?>" disabled="disabled" type="text" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value,2) ?>" class="form-control"/>
+                      <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value) ?>" class="form-control"/>
                     </td>
                   </tr>
                 <?php endforeach;?>

@@ -143,7 +143,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                       <input name="trans[exchange_rate][]" disabled="disabled" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value,2) ?>" class="form-control"/>
+                      <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value) ?>" class="form-control"/>
                     </td>
                   </tr>
                 <?php endforeach;?>
@@ -155,7 +155,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                     Tổng
                   </td>
                   <td id="sum-value">
-                    <input disabled="disabled" value="<?= number_format($model->value,2) ?>" class="form-control"/>
+                    <input disabled="disabled" value="<?= number_format($model->value) ?>" class="form-control"/>
                   </td>
                   <td style="font-weight:bold;text-align:right;vertical-align: middle">
                     VND
