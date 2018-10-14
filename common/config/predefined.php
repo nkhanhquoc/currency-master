@@ -33,3 +33,5 @@ define('TRA_FEEDBACK',14);
 define('NHAN_FEEDBACK',15);
 define('RUT_TIEN',16);
 define('NAP_TIEN',17);
+define('THU',18);
+define('CHI',19);

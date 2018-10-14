@@ -171,7 +171,7 @@ class Bill extends BillBase{
   }
 
   public function getValueFormat(){
-    return number_format($this->value);
+    return number_format($this->value,0);
   }
 
 }

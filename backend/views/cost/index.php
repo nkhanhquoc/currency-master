@@ -1,15 +1,16 @@
 <?php
+
+
 use awesome\backend\grid\AwsGridView;
 use awesome\backend\widgets\AwsBaseHtml;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
-use backend\models\Customer;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\FastBillSearch */
+/* @var $searchModel backend\models\CostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Mua Bán Giao Ngay');
+$this->title = Yii::t('backend', 'Chi Phí');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row bill-index">
@@ -24,8 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     </span>
                 </div>
                 <div class="actions">
-                    <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Hóa Đơn',
+                    <?= Html::a(Yii::t('backend', 'Thêm {modelClass}', [
+    'modelClass' => 'Chi Phí',
 ]),
                         ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
                 </div>
@@ -43,36 +44,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
+                                    // 'id',
+            // 'type',
             'code',
-            [
-                'attribute' => 'customer_id',
-                'format' => 'raw', //raw, html
-                'content' => function($dataProvider) {
-                  $m = Customer::findOne($dataProvider['customer_id']);
-                  return $m->name;
-                }
-            ],
-            'ValueFormat',
+            // 'customer_id',
+            'value',
             // 'customer_type',
             'note',
             // 'receiver',
             // 'deposit',
             // 'fee',
-            'created_date',
-            [
-              'attribute' => 'is_export',
-              'format' => 'raw', //raw, html
-              'content' => function($dataProvider) {
-                $text = "";
-                switch($dataProvider['is_export']){
-                  case 0: $text = "Chưa xuất";break;
-                  case 1: $text = "Đã xuất";break;
-                  default: break;
-                };
-                return $text;
-              }
-            ],
-
+            // 'created_date',
             [
               'class' => 'yii\grid\ActionColumn',
               'template' => '{update} {export}',
@@ -81,10 +63,12 @@ $this->params['breadcrumbs'][] = $this->title;
                   return $model->is_export === 0 ? Html::a('<span class="glyphicon glyphicon-pencil"></span>',$url) :'';
                 },
                 'export' => function($url,$model){
-                  return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/fast-bill/export?id='.$model->id) :'';
+                  return $model->is_export === 1 ? Html::a('<span class="glyphicon glyphicon-print"></span>','/cost/export?id='.$model->id) :'';
                 }
               ]
             ],
+
+                        ['class' => 'yii\grid\ActionColumn'],
                         ],
                         ]); ?>
 

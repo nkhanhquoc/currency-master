@@ -94,6 +94,13 @@ class Transaction extends TransactionBase{
     ];
   }
 
+  public function getAllCostType(){
+    return [
+      '18' => 'Thu',
+      '19' => 'Chi',
+    ];
+  }
+
   public function getAllBorrowType(){
     return [
       '5' => 'Vay',
