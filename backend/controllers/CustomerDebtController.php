@@ -35,7 +35,6 @@ class CustomerDebtController extends Controller
     {
         $searchModel = new CustomerDebtSearch();
         $params = Yii::$app->request->queryParams;
-        var_dump($params);
         // if(empty($params)){
         //   $params = ['ViewDebtSearch'=>['date'=>date("Y-m-d")]];
         // }
