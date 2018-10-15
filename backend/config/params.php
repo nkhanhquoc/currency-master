@@ -73,7 +73,7 @@ return [
         '8' => 'Lấy ngoại tệ',
         '9' => 'Trả Tiền',
         '10' => 'Nhận Tiền',
-        '11' => 'Đặt cọc',
+        '11' => 'Khách Đặt cọc',
         '12' => 'Khách CK',
         '13' => 'Cửa hàng CK',
         '14' => 'Trả Feedback',
@@ -84,7 +84,8 @@ return [
         '19' => 'Chi',
         '20' => 'Nợ phí',
         '21' => 'Cho nợ phí',
-        '22' => 'Nhập',
+        '22' => 'Nhập Kho KH',
+        '23' => 'Cửa hàng Đặt cọc',
       ],
       'bill_type' => [
         '1'=>'Hóa đơn giao ngay',

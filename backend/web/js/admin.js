@@ -87,7 +87,7 @@ function changeTransValue(object){
 	var price = $(selectTr).find("input[name^='trans[exchange_rate]']");
 	var ret = $(selectTr).find("input[name^='trans[value]']");
 	var typeTrans = $(selectTr).find("select[name^='trans[type]'] :selected").val();
-	if([1,9].includes(parseInt(typeTrans))){
+	if([1,9,23].includes(parseInt(typeTrans))){
 		ret.val(0 - price.val()*quan.val());
 	} else {
 		ret.val(price.val()*quan.val());

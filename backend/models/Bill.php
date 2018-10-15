@@ -29,7 +29,8 @@ class Bill extends BillBase{
           [['customer_id','created_date'],'required'],
           [['value'],'double'],
           [['code', 'note', 'receiver'], 'string', 'max' => 255],
-          [['deposit', 'fee'], 'string', 'max' => 10]
+          [['deposit', 'fee'], 'string', 'max' => 10],
+          ['code','unique']
       ];
   }
 

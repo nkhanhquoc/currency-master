@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\CustomerStorageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'kho Khách Hàng');
+$this->title = Yii::t('backend', 'Kho Khách Hàng');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row bill-index">
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </span>
                 </div>
                 <div class="actions">
-                    <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
+                    <?= Html::a(Yii::t('backend', 'Nhập {modelClass}', [
     'modelClass' => 'kho Khách Hàng',
 ]),
                         ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
@@ -43,18 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
-                                    'id',
-            'type',
             'code',
-            'customer_id',
-            'value',
-            // 'customer_type',
-            // 'note',
-            // 'receiver',
-            // 'deposit',
-            // 'fee',
-            // 'created_date',
-            // 'is_export',
+            'Customer',
+
 
                         ['class' => 'yii\grid\ActionColumn'],
                         ],

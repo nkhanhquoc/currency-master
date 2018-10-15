@@ -65,7 +65,6 @@ use yii\widgets\ActiveForm;
                         <th class="text-center">      Giao dịch    </th>
                         <th class="text-center">      Loại Tiền   </th>
                         <th class="text-center">      Số Lượng    </th>
-                        <th class="text-center">      Đặt cọc    </th>
                         <th class="text-center"></th>
                       </tr>
                       <?php foreach($trans as $k => $tran):?>
@@ -94,9 +93,7 @@ use yii\widgets\ActiveForm;
                           <td>
                             <input name="trans[quantity][]" onblur="changeTransValue(this)" value="<?= $tran->quantity ?>" class="form-control"/>
                           </td>
-                          <td>
-                            <input name="trans[deposit][]" value="<?= $tran->deposit ?>" class="form-control"/>
-                          </td>
+
                           <?php if(!$model->is_export):?>
                           <td name="hide-on-print">
                             <button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>
@@ -157,6 +154,8 @@ trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="5">Vay</option>';
 trr+=     '<option value="6">Cho vay</option>';
+trr+=     '<option value="11">Khách Đặt cọc</option>';
+trr+=     '<option value="23">Cửa hàng Đặt cọc</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';
@@ -164,9 +163,6 @@ trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<input name="trans[quantity][]" class="form-control"/>';
-trr+= '</td>';
-trr+= '<td>';
-trr+= '<input name="trans[deposit][]" class="form-control"/>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<button class="btn btn-danger" onclick="removeTrans(this);return false;"><i class="glyphicon glyphicon-remove"></i></button>';

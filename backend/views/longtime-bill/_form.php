@@ -87,7 +87,7 @@ use yii\widgets\ActiveForm;
                     </td>
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTradeType(),
+                        $tran->getAllLongTradeType(),
                         ['name'=>'trans[type][]']
                         )->label(false)?>
                     </td>
@@ -179,7 +179,8 @@ trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="1">Mua</option>';
 trr+=     '<option value="2">Bán</option>';
-trr+=     '<option value="11">Đặt cọc</option>';
+trr+=     '<option value="11">Khách Đặt cọc</option>';
+trr+=     '<option value="23">Cửa hàng Đặt cọc</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';

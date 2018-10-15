@@ -70,8 +70,8 @@ class Transaction extends TransactionBase{
     return [
       '3' => 'Nhận tiền chuyển',
       '4' => 'Trả tiền chuyển',
-      '9' => 'Trả',
-      '10' => 'Nhận',
+      // '9' => 'Trả',
+      // '10' => 'Nhận',
       '20' => 'Nợ phí',
       '21' => 'Cho nợ phí',
     ];
@@ -90,9 +90,10 @@ class Transaction extends TransactionBase{
     return [
       '1' => 'Mua',
       '2' => 'Bán',
-      '9' => 'Trả',
-      '10' => 'Nhận',
-      '11' => 'Đặt cọc'
+      // '9' => 'Trả',
+      // '10' => 'Nhận',
+      '11' => 'Khách Đặt cọc',
+      '23' => 'Cửa hàng Đặt cọc'
     ];
   }
 
@@ -107,6 +108,8 @@ class Transaction extends TransactionBase{
     return [
       '5' => 'Vay',
       '6' => 'Cho vay',
+      '11' => 'Khách Đặt cọc',
+      '23' => 'Cửa hàng Đặt cọc'
     ];
   }
 
