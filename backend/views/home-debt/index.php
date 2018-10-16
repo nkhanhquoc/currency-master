@@ -9,7 +9,7 @@ use backend\models\Currency;
 /* @var $searchModel backend\models\ViewDebtSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Báo cáo Công nợ');
+$this->title = Yii::t('backend', 'Báo cáo Công nợ Quê');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row debt-index">

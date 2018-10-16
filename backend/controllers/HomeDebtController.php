@@ -3,17 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\ViewDebt;
 use backend\models\Currency;
-use backend\models\CustomerDebtSearch;
+use backend\models\Bill;
+use backend\models\HomeDebtSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CustomerDebtController implements the CRUD actions for Bill model.
+ * HomeDebtController implements the CRUD actions for Bill model.
  */
-class CustomerDebtController extends Controller
+class HomeDebtController extends Controller
 {
     public function behaviors()
     {
@@ -33,7 +33,7 @@ class CustomerDebtController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new CustomerDebtSearch();
+        $searchModel = new HomeDebtSearch();
         $params = Yii::$app->request->queryParams;
 
         $selectDate = $params['CustomerDebtSearch']['date'];
@@ -60,15 +60,14 @@ class CustomerDebtController extends Controller
           $totalOldDebt += $d['ovalue']*$exrate[$d['currency_id']];
         }
 
-
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-            'selectDate'=>$selectDate,
-            'beforeDate'=>$beforeDate,
-            'currentDebt' =>$currentDebt,
-            'totalDebt'=>$totalDebt,
-            'totalOldDebt' =>$totalOldDebt
+          'searchModel' => $searchModel,
+          'dataProvider' => $dataProvider,
+          'selectDate'=>$selectDate,
+          'beforeDate'=>$beforeDate,
+          'currentDebt' =>$currentDebt,
+          'totalDebt'=>$totalDebt,
+          'totalOldDebt' =>$totalOldDebt
         ]);
     }
 
@@ -143,7 +142,7 @@ class CustomerDebtController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = ViewDebt::findOne($id)) !== null) {
+        if (($model = Bill::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -7,13 +7,13 @@ use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\DailyReportSearch */
+/* @var $searchModel backend\models\CustomerDailySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Báo cáo hàng ngày Cửa hàng');
+$this->title = Yii::t('backend', 'Báo cáo hàng ngày Nhà vàng');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="row transaction-index">
+<div class="row bill-index">
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php
                     Pjax::begin(['formSelector' => 'form', 'enablePushState' => false, 'id' => 'mainGridPjax']);
                     ?>
-
                     <table class="table table-bordered">
                       <tr class="list-group-item-success">
                         <th>Khách hàng </th>
@@ -44,43 +43,46 @@ $this->params['breadcrumbs'][] = $this->title;
                         <th>Phí</th>
                         <th>Ngày</th>
                       </tr>
-                      <?php $billArr = []; ?>
+                      <?php $billArr = []; if(is_object($dataProvider)):?>
                       <?php foreach($dataProvider->getModels() as $data):?>
-                        <?php if(!in_array($data->bill_id,$billArr)):?>
-                          <?php $billArr[] = $data->bill_id; $bill = $data->getBill();?>
+                        <?php if(!in_array($data->id,$billArr)):?>
+                          <?php $billArr[] = $data->id; $trans = $data->getAllTrans();?>
                           <tr class="list-group-item-info" style="font-weight:bold">
                             <td colspan="8">
-                              <?= $bill->code ?>
+                              <?= $data->code ?>
                             </td>
                           </tr>
                         <?php endif;?>
-                        <tr>
-                          <td>
-                            <?= $bill->getCustomer() ?>
-                          </td>
-                          <td>
-                            <?= $data->getTypeName() ?>
-                          </td>
-                          <td>
-                            <?= $data->getCurrencyName() ?>
-                          </td>
-                          <td>
-                            <?= number_format($data->quantity) ?>
-                          </td>
-                          <td>
-                            <?= $data->exchange_rate ?>
-                          </td>
-                          <td>
-                            <?= number_format($data->value) ?>
-                          </td>
-                          <td>
-                            <?= number_format($data->fee) ?>
-                          </td>
-                          <td>
-                            <?= $data->created_time ?>
-                          </td>
-                        </tr>
+                        <?php foreach($trans as $tran):?>
+                          <tr>
+                            <td>
+                              <?= $data->getCustomer() ?>
+                            </td>
+                            <td>
+                              <?= $tran->getTypeName() ?>
+                            </td>
+                            <td>
+                              <?= $tran->getCurrencyName() ?>
+                            </td>
+                            <td>
+                              <?= number_format($tran->quantity) ?>
+                            </td>
+                            <td>
+                              <?= $tran->exchange_rate ?>
+                            </td>
+                            <td>
+                              <?= number_format($tran->value) ?>
+                            </td>
+                            <td>
+                              <?= number_format($tran->fee) ?>
+                            </td>
+                            <td>
+                              <?= $tran->created_time ?>
+                            </td>
+                          </tr>
+                        <?php endforeach;?>
                       <?php endforeach;?>
+                    <?php endif;?>
                     </table>
 
                     <?php

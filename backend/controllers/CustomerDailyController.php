@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\ViewDebt;
-use backend\models\Currency;
-use backend\models\CustomerDebtSearch;
+use backend\models\Bill;
+use backend\models\CustomerDailySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CustomerDebtController implements the CRUD actions for Bill model.
+ * CustomerDailyController implements the CRUD actions for Bill model.
  */
-class CustomerDebtController extends Controller
+class CustomerDailyController extends Controller
 {
     public function behaviors()
     {
@@ -33,42 +32,16 @@ class CustomerDebtController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new CustomerDebtSearch();
+        $searchModel = new CustomerDailySearch();
         $params = Yii::$app->request->queryParams;
-
-        $selectDate = $params['CustomerDebtSearch']['date'];
-        $selectCus = $params['CustomerDebtSearch']['customer_id'];
-
-        $currentDebt = $searchModel->searchDebt($selectDate,$selectCus);
-        $beforeDate = date('Y-m-d', strtotime('-1 day', strtotime($selectDate)));
-        $oldDebt = $searchModel->searchDebt($beforeDate,$selectCus);
-
-        foreach($oldDebt as $k=> $odebt){
-          foreach($currentDebt as $j => $cdebt){
-            if($cdebt['currency_id'] == $odebt['currency_id']){
-              $currentDebt[$j]['ovalue'] = $odebt['value'];
-              break;
-            }
-          }
-        }
-
-        $exrate = Currency::getAllExRate();
-        $totalDebt = 0;
-
-        foreach($currentDebt as $d){
-          $totalDebt += $d['value']*$exrate[$d['currency_id']];
-          $totalOldDebt += $d['ovalue']*$exrate[$d['currency_id']];
-        }
+        if(count($params) >0 )
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        else $dataProvider = [];
 
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'selectDate'=>$selectDate,
-            'beforeDate'=>$beforeDate,
-            'currentDebt' =>$currentDebt,
-            'totalDebt'=>$totalDebt,
-            'totalOldDebt' =>$totalOldDebt
         ]);
     }
 
@@ -143,7 +116,7 @@ class CustomerDebtController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = ViewDebt::findOne($id)) !== null) {
+        if (($model = Bill::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
