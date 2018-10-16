@@ -140,11 +140,11 @@ class BorrowController extends Controller
           $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
           foreach($trans as $tran){
             if($tran->type == VAY){
-              Storage::updateByCurrId(VND_CURRENCY_ID, (0 - $tran->deposit));
+              // Storage::updateByCurrId(VND_CURRENCY_ID, (0 - $tran->deposit));
               Storage::updateByCurrId($tran->currency_id, $tran->quantity);
               Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0 - $tran->quantity));
             } else {
-              Storage::updateByCurrId(VND_CURRENCY_ID, $tran->deposit);
+              // Storage::updateByCurrId(VND_CURRENCY_ID, $tran->deposit);
               Storage::updateByCurrId($tran->currency_id, (0 - $tran->quantity));
               Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id, $tran->quantity);
             }

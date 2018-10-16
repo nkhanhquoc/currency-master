@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Currency;
 use backend\models\Debt;
+use backend\models\OriginalStorage;
 use backend\models\Storage;
 use backend\models\Customer;
 use backend\models\CurrencySearch;
@@ -79,6 +80,12 @@ class CurrencyController extends Controller
           $st->quantity = 0;
           $st->name = $model->code;
           $st->save();
+
+          $ost = new OriginalStorage();
+          $ost->currency_id = $model->id;
+          $ost->quantity = 0;
+          $ost->name = $model->code;
+          $ost->save();
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [

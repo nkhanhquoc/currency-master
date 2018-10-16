@@ -5,12 +5,11 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Storage;
 
 /**
  * StorageSearch represents the model behind the search form about `backend\models\Storage`.
  */
-class StorageSearch extends Storage
+class StorageSearch extends OriginalStorage
 {
     /**
      * @inheritdoc
@@ -41,7 +40,7 @@ class StorageSearch extends Storage
      */
     public function search($params)
     {
-        $query = Storage::find();
+        $query = OriginalStorage::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -61,6 +60,7 @@ class StorageSearch extends Storage
             'type' => 0,
             'quantity' => $this->quantity,
             'currency_id' => $this->currency_id,
+            'type' => $this->type
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);

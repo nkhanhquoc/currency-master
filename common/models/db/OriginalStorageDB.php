@@ -9,7 +9,10 @@ use Yii;
  *
  * @property string $id
  * @property string $currency_id
- * @property double $value
+ * @property double $quantity
+ * @property integer $type
+ * @property string $name
+ * @property integer $is_updated
  */
 class OriginalStorageDB extends \yii\db\ActiveRecord
 {
@@ -27,8 +30,9 @@ class OriginalStorageDB extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['currency_id'], 'integer'],
-            [['value'], 'number']
+            [['currency_id', 'type', 'is_updated'], 'integer'],
+            [['quantity'], 'number'],
+            [['name'], 'string', 'max' => 255]
         ];
     }
 
@@ -40,7 +44,10 @@ class OriginalStorageDB extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('backend', 'ID'),
             'currency_id' => Yii::t('backend', 'Currency ID'),
-            'value' => Yii::t('backend', 'Value'),
+            'quantity' => Yii::t('backend', 'Quantity'),
+            'type' => Yii::t('backend', 'Type'),
+            'name' => Yii::t('backend', 'Name'),
+            'is_updated' => Yii::t('backend', 'Is Updated'),
         ];
     }
 }

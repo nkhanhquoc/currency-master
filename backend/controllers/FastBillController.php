@@ -304,17 +304,17 @@ public function actionExport($id){
               Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
               break;
           case KHACH_CK:
-              Storage::updateByCurrId($tran->currency_id, $tran->quantity);
-              Storage::updateByCurrId(VND_CURRENCY_ID, (0-$tran->quantity));
-              break;
-          case CUAHANG_CK:
+              // Storage::updateByCurrId($tran->currency_id, $tran->quantity);
               Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
               break;
+          case CUAHANG_CK:
+              Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+              break;
           case TRA_FEEDBACK:
-              Storage::updateByCurrId(VND_CURRENCY_ID, (0-$tran->quantity));
+              Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
               break;
           case NHAN_FEEDBACK:
-              Storage::updateByCurrId(VND_CURRENCY_ID, $tran->quantity);
+              Storage::updateByCurrId($tran->currency_id, $tran->quantity);
               break;
           default:break;
 

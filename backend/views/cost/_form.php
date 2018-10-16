@@ -133,7 +133,9 @@ var billcode = '<?php echo $model->code ?>';
 billcode = billcode.split('-');
 var index =0;
 var optionCurrency = "";
-  optionCurrency += '<option value="<?php echo VND_CURRENCY_ID ?>"><?php echo 'VND'?></option>';
+<?php foreach($model->getStorageCurrency() as $k => $currency):?>
+  optionCurrency += '<option value="<?php echo $k?>"><?php echo $currency?></option>';
+<?php endforeach;?>
 var trr = '<tr class="form-group"><td name="trr-index"></td>';
 trr+= '<td>';
 trr+= '<input name="trans[note][]" class="form-control"/>';

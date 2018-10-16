@@ -135,20 +135,20 @@ class BankTransController extends Controller
           foreach($trans as $tran){
             switch($tran->type){
               case CUAHANG_CK:
-                Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+                // Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
                 break;
               case RUT_TIEN:
-                Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+                // Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
                 Storage::updateByCurrId(VND_CURRENCY_ID, $tran->quantity);
                 break;
               case NAP_TIEN:
-                Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+                // Storage::updateByCurrId($tran->currency_id, $tran->quantity);
                 Storage::updateByCurrId(VND_CURRENCY_ID, (0-$tran->quantity));
                 break;
               default:
                 break;
             }
-              Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+              // Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
           }
         }catch(Exception $e){
           Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());

@@ -15,13 +15,7 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'name') ?>
-
-    <?= $form->field($model, 'quantity') ?>
-
-    <?= $form->field($model, 'currency_id') ?>
+    <?= $form->field($model, 'currency_id')->dropDownList($model->getAllCurrency(),['prompt'=>'--Chọn--']); ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>

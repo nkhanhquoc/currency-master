@@ -116,7 +116,8 @@ use yii\widgets\ActiveForm;
                     Tổng
                   </td>
                   <td id="sum-value">
-                    <?= $form->field($model, 'value')->textInput(['readonly'=>'readonly','id'=>'bill-value'])->label(false) ?>
+                      <?= $form->field($model, 'value')->hiddenInput(['readonly'=>'readonly'])->label(false) ?>
+                    <input id="bill-value-view" class="form-control" value="<?= $model->value ?>" type="text"/>
                   </td>
                   <td style="font-weight:bold;text-align:right;vertical-align: middle">
                     VND
@@ -153,6 +154,7 @@ use yii\widgets\ActiveForm;
 
 <?php ActiveForm::end(); ?>
 <script type="text/javascript">
+document.getElementById('bill-value-view').value = parseInt(document.getElementById('bill-value-view').value).toLocaleString();
 var billcode = '<?php echo $model->code ?>';
 billcode = billcode.split('-');
 var index =0;

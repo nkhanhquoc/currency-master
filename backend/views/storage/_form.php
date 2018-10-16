@@ -29,18 +29,15 @@ use awesome\backend\form\AwsActiveForm;
         </div>
         <div class="portlet-body">
             <div class="form-body">
-              <?php if($model->isNewRecord):?>
-                <?= $form->field($model, 'currency_id')->dropDownList(
-                    $model->getCurrencyId()
-                  ) ?>
-              <?php else: ?>
-                <?= $form->field($model, 'currency_id')->dropDownList(
-                    $model->getCurrencyId(),['disabled'=>'disabled']
-                  ) ?>
-              <?php endif;?>
-              <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'quantity')->textInput() ?>
+              <?= $form->field($model, 'currency_id')->dropDownList(
+                  $model->getAllCurrency(),['disabled'=>'disabled']
+                ) ?>
+
+              <?= $form->field($model, 'name')->textInput(['maxlength' => 255,'disabled'=>'disabled']) ?>
+
+              <?= $form->field($model, 'quantity')->textInput() ?>
+              <?= $form->field($model, 'is_updated')->hiddenInput()->label(false) ?>
 
             </div>
         </div>

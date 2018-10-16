@@ -52,6 +52,7 @@ use yii\widgets\ActiveForm;
               <table class="table table-striped table-condensed">
                 <tr>
                   <th class="text-center">      TT    </th>
+                  <th class="text-center">      Ghi chú    </th>
                   <th class="text-center">      Giao dịch    </th>
                   <th class="text-center">      Tài khoản NH    </th>
                   <th class="text-center">      Số tiền    </th>
@@ -65,6 +66,9 @@ use yii\widgets\ActiveForm;
                     <td name="trr-index">
                       <?= $k+1 ?>
                     </td>
+                    <td>
+                      <input name="trans[note][]" value="<?= $tran->note ?>" type="text" class="form-control"/>
+                    </td>
 
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
@@ -72,11 +76,13 @@ use yii\widgets\ActiveForm;
                         ['name'=>'trans[type][]']
                         )->label(false)?>
                     </td>
-
-
                     <td>
-                      <input name="trans[note][]" value="<?= $tran->note ?>" type="text" class="form-control"/>
+                      <?= $form->field($tran, 'currency_id')->dropDownList(
+                        $model->getBankAccount(),
+                        ['name'=>'trans[currency_id][]']
+                        )->label(false)?>
                     </td>
+
                     <td>
                       <input name="trans[value][]" value="<?= $tran->value ?>" class="form-control"/>
                     </td>
@@ -124,7 +130,7 @@ var billcode = '<?php echo $model->code ?>';
 billcode = billcode.split('-');
 var index =0;
 var optionCurrency = "";
-<?php foreach($model->getAllCurrency() as $k => $currency):?>
+<?php foreach($model->getBankAccount() as $k => $currency):?>
   optionCurrency += '<option value="<?php echo $k?>"><?php echo $currency?></option>';
 <?php endforeach;?>
 var trr = '<tr class="form-group">';
@@ -132,14 +138,16 @@ trr+= '<td style="display:none"><input type="hidden" name="trans[id][]"/></td>';
 trr+= '<td name="trr-index"></td>';
 
 trr+= '<td>';
+trr+= '<input name="trans[note][]" type="text" class="form-control"/>';
+trr+= '</td>';
+trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="9">Trả Tiền</option>';
 trr+=     '<option value="10">Nhận Tiền</option>';
 trr+=   '</select>';
 trr+=   '</td>';
-
 trr+= '<td>';
-trr+= '<input name="trans[note][]" type="text" class="form-control"/>';
+trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency+'</select>';
 trr+= '</td>';
 trr+= '<td>';
 trr+= '<input name="trans[value][]" class="form-control"/>';

@@ -88,10 +88,11 @@ function changeTransValue(object){
 	var ret = $(selectTr).find("input[name^='trans[value]']");
 	var typeTrans = $(selectTr).find("select[name^='trans[type]'] :selected").val();
 	if([1,9,23].includes(parseInt(typeTrans))){
-		ret.val(0 - price.val()*quan.val());
+		ret.val(Math.round(0 - price.val()*quan.val()));
 	} else {
-		ret.val(price.val()*quan.val());
+		ret.val(Math.round(price.val()*quan.val()));
 	}
+	quan.val(quan.val().toLocaleString());
 	updateBillValue();
 }
 
@@ -99,14 +100,14 @@ function updateBillValue(){
 	var currVal = 0;
 	$.each($('input[name^="trans[value]"]'),function(index,object){
 		 currVal += parseFloat($(object).val());
-		 $('#bill-value').val(currVal);
+		 $('#bill-value').val(Math.round(currVal));
 	});
 	// var deposit = $("#bill-deposit").val();
 	// if(deposit !== undefined && deposit !== "" && deposit !== null){
 	// 		currVal+=parseFloat(deposit);
 	// 		$('#bill-value').val(currVal);
 	// }
-	$("#bill-value-view").val(currVal.toLocaleString());//hien thi de xem
+	$("#bill-value-view").val(Math.round(currVal).toLocaleString());//hien thi de xem
 }
 
 function otherTransferValue(object){

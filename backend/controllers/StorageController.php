@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Storage;
+use backend\models\OriginalStorage;
 use backend\models\StorageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -60,7 +60,7 @@ class StorageController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Storage();
+        $model = new OriginalStorage();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['update', 'id' => $model->id]);
@@ -80,9 +80,11 @@ class StorageController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $model->is_updated = 1;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+          return $this->render('update', [
+              'model' => $model,
+          ]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -112,7 +114,7 @@ class StorageController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Storage::findOne($id)) !== null) {
+        if (($model = OriginalStorage::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

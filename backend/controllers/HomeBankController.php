@@ -129,13 +129,24 @@ class HomeBankController extends Controller
 
     public function actionExport($id){
       $model = $this->findModel($id);
-      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
       if($model->is_export != 1){
         $model->is_export = 1;
         try{
           $model->save();
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
           foreach($trans as $tran){
-            Storage::updateByCurrId(VND_CURRENCY_ID,$tran->value);
+            switch($tran->type){
+              case TRA_TIEN:
+                Storage::updateByCurrId($tran->currency_id,(0-$tran->value));
+                Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->value));
+                break;
+              case NHAN_TIEN:
+                Storage::updateByCurrId($tran->currency_id,$tran->value);
+                Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->value);
+                break;
+              default: break;
+            }
           }
         }catch(Exception $e){
           Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());

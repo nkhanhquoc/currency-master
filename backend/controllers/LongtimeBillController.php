@@ -148,6 +148,18 @@ class LongtimeBillController extends Controller
         $model->is_export = 1;
         try{
           $model->save(false);
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+            foreach($trans as $tran){
+              switch($tran->type){
+                case KHACH_DAT_COC:
+                  Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+                  break;
+                case CH_DAT_COC:
+                  Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+                  break;
+                default:break;
+              }
+            }
         }catch(Exception $e){
           Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
         }

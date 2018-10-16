@@ -128,14 +128,37 @@ class HomeTransferController extends Controller
 
     public function actionExport($id){
       $model = $this->findModel($id);
-      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
       if($model->is_export != 1){
         $model->is_export = 1;
         try{
           $model->save();
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
           foreach($trans as $tran){
-            Storage::updateByCurrId($tran->currency_id,$tran->quantity);
-            Storage::updateByCurrId(VND_CURRENCY_ID,$tran->fee);
+            switch($tran->type){
+              case NHAN_TIEN_CHUYEN:
+                Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
+                Storage::updateByCurrId($tran->currency_id,$tran->quantity);
+                Storage::updateByCurrId(VND_CURRENCY_ID,$tran->fee);
+                break;
+              case TRA_TIEN_CHUYEN:
+                Storage::updateByCurrId($tran->currency_id,(0-$tran->quantity));
+                Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->quantity);
+                if($tran->currency_id == VND_CURRENCY_ID){
+                  Storage::updateByCurrId(VND_CURRENCY_ID,(0-$tran->fee));
+                } else {
+                  Storage::updateByCurrId(VND_CURRENCY_ID,$tran->fee);
+                }
+                break;
+              case NO_PHI:
+                Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
+                break;
+              case CHO_NO_PHI:
+                Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->quantity);
+                break;
+              default: break;
+            }
+
           }
         }catch(Exception $e){
           Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());

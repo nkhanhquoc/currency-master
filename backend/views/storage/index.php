@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
-                                        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                                        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
                                 <div class="caption">
                     <i class="icon-layers font-green"></i>
                     <span class="caption-subject font-green sbold uppercase">
@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                             <?= AwsGridView::widget([
                         'dataProvider' => $dataProvider,
-                        'filterModel' => $searchModel,
+                        // 'filterModel' => $searchModel,
         'columns' => [
                         ['class' => 'yii\grid\SerialColumn'],
 
@@ -54,8 +54,15 @@ $this->params['breadcrumbs'][] = $this->title;
                               return number_format($dataProvider->quantity,2);
                             }
                         ],
-                        'date',
-                        ['class' => 'yii\grid\ActionColumn'],
+                        [
+                          'class' => 'yii\grid\ActionColumn',
+                          'template' => '{update}',
+                          'buttons' => [
+                            'update' => function($url, $model){
+                              return $model->is_updated === 0 ? Html::a('<span class="glyphicon glyphicon-pencil"></span>',$url) :'';
+                            }
+                          ]
+                        ],
                         ],
                         ]); ?>
 
