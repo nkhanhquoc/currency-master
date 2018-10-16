@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-10-16 00:01:09
+Date: 2018-10-16 23:09:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -167,6 +167,7 @@ INSERT INTO `auth_item` VALUES ('/currency/delete', '2', null, null, null, '1535
 INSERT INTO `auth_item` VALUES ('/currency/index', '2', null, null, null, '1535882766', '1535882766');
 INSERT INTO `auth_item` VALUES ('/currency/update', '2', null, null, null, '1535882766', '1535882766');
 INSERT INTO `auth_item` VALUES ('/currency/view', '2', null, null, null, '1535882766', '1535882766');
+INSERT INTO `auth_item` VALUES ('/customer-daily/index', '2', null, null, null, '1539702076', '1539702076');
 INSERT INTO `auth_item` VALUES ('/customer-debt/*', '2', null, null, null, '1539619439', '1539619439');
 INSERT INTO `auth_item` VALUES ('/customer-debt/create', '2', null, null, null, '1539619439', '1539619439');
 INSERT INTO `auth_item` VALUES ('/customer-debt/delete', '2', null, null, null, '1539619439', '1539619439');
@@ -225,6 +226,8 @@ INSERT INTO `auth_item` VALUES ('/home-bank/export', '2', null, null, null, '153
 INSERT INTO `auth_item` VALUES ('/home-bank/index', '2', null, null, null, '1537973092', '1537973092');
 INSERT INTO `auth_item` VALUES ('/home-bank/update', '2', null, null, null, '1537973092', '1537973092');
 INSERT INTO `auth_item` VALUES ('/home-bank/view', '2', null, null, null, '1537973092', '1537973092');
+INSERT INTO `auth_item` VALUES ('/home-daily/index', '2', null, null, null, '1539704846', '1539704846');
+INSERT INTO `auth_item` VALUES ('/home-debt/index', '2', null, null, null, '1539704839', '1539704839');
 INSERT INTO `auth_item` VALUES ('/home-send/*', '2', null, null, null, '1537949578', '1537949578');
 INSERT INTO `auth_item` VALUES ('/home-send/create', '2', null, null, null, '1537949578', '1537949578');
 INSERT INTO `auth_item` VALUES ('/home-send/delete', '2', null, null, null, '1537949578', '1537949578');
@@ -850,7 +853,7 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`),
   KEY `parent` (`parent`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `menu` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of menu
@@ -888,7 +891,11 @@ INSERT INTO `menu` VALUES ('51', 'Quản lý Tài Khoản Ngân hàng', null, nu
 INSERT INTO `menu` VALUES ('52', 'Giao dịch Ngân Hàng', '51', '/bank-trans/index', null, null, '', null);
 INSERT INTO `menu` VALUES ('53', 'Chi Phí', '20', '/cost/index', null, null, '', null);
 INSERT INTO `menu` VALUES ('54', 'Nhập Kho Khách Hàng', '35', '/customer-storage/index', null, null, '', null);
-INSERT INTO `menu` VALUES ('55', 'Báo cáo Công nợ', '45', '/customer-debt/index', null, null, '', null);
+INSERT INTO `menu` VALUES ('55', 'Báo cáo Công nợ Nhà vàng', '56', '/customer-debt/index', null, null, '', null);
+INSERT INTO `menu` VALUES ('56', 'Báo cáo Bạn hàng', null, null, null, null, '', null);
+INSERT INTO `menu` VALUES ('57', 'Báo cáo hàng ngày Nhà vàng', '56', '/customer-daily/index', null, null, '', null);
+INSERT INTO `menu` VALUES ('58', 'Báo cáo công nợ Quê', '56', '/home-debt/index', null, null, '', null);
+INSERT INTO `menu` VALUES ('59', 'Báo cáo hàng ngày Quê', '56', '/home-daily/index', null, null, '', null);
 
 -- ----------------------------
 -- Table structure for original_storage
@@ -948,11 +955,7 @@ INSERT INTO `storage` VALUES ('5', 'USD', '100', '2', '2018-09-28 17:51:03', '0'
 INSERT INTO `storage` VALUES ('6', 'VND', '100000', '1', '2018-09-28 17:51:28', '0');
 INSERT INTO `storage` VALUES ('7', 'SNG', '0', '6', '2018-09-30 18:06:55', '0');
 INSERT INTO `storage` VALUES ('8', 'TPB', '1000000', '10', '2018-10-10 23:51:31', '1');
-INSERT INTO `storage` VALUES ('9', null, '115940326', '1', '2018-10-11 00:22:26', '0');
-INSERT INTO `storage` VALUES ('10', null, '985000', '10', '2018-10-11 00:22:27', '0');
-INSERT INTO `storage` VALUES ('11', null, '993900', '2', '2018-10-11 23:19:18', '0');
-INSERT INTO `storage` VALUES ('12', null, '994900', '2', '2018-10-12 00:25:04', '0');
-INSERT INTO `storage` VALUES ('13', null, '115865326', '1', '2018-10-14 10:46:47', '0');
+
 
 -- ----------------------------
 -- Table structure for transaction
@@ -977,49 +980,6 @@ CREATE TABLE `transaction` (
   KEY `transaction_bill` (`bill_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
--- ----------------------------
--- Records of transaction
--- ----------------------------
-INSERT INTO `transaction` VALUES ('9', '15', '3', '3', '10000', null, '2018-09-12 14:59:14', null, '200.00', null, null, '123', null);
-INSERT INTO `transaction` VALUES ('10', '0', '3', '3', '1', null, '2018-09-12 15:26:25', null, '20.00', null, null, '123', null);
-INSERT INTO `transaction` VALUES ('11', '0', '3', '3', '1', null, '2018-09-12 15:28:27', null, '20.00', null, null, '0', null);
-INSERT INTO `transaction` VALUES ('12', '0', '3', '3', '1', null, '2018-09-12 15:28:44', null, '20.00', null, null, '123', null);
-INSERT INTO `transaction` VALUES ('13', '14', '4', '2', '100', null, '2018-09-17 16:14:47', null, null, null, null, 'thêm test', null);
-INSERT INTO `transaction` VALUES ('14', '14', '3', '1', '1000000', null, '2018-09-17 20:41:03', null, null, null, null, 'them test 2', null);
-INSERT INTO `transaction` VALUES ('15', '11', '1', '1', '100', '-2350000.00', '2018-09-20 20:45:15', null, '0.00', null, '23500.00', 'abc', null);
-INSERT INTO `transaction` VALUES ('16', '11', '2', '3', '600', '12000600.00', '2018-09-20 20:45:15', null, '0.00', null, '20001.00', 'them test 2', null);
-INSERT INTO `transaction` VALUES ('17', '14', '9', '1', '100000', null, '2018-09-20 22:00:00', null, null, null, null, 'them test 2', null);
-INSERT INTO `transaction` VALUES ('18', '16', '4', '3', '100', null, '2018-09-20 22:05:47', null, null, null, null, 'them test 2', null);
-INSERT INTO `transaction` VALUES ('19', '13', '4', '2', '-1250', null, '2018-09-20 22:35:09', null, null, null, null, '', null);
-INSERT INTO `transaction` VALUES ('20', '13', '9', '1', '-1320000', null, '2018-09-20 22:35:09', null, null, null, null, '', null);
-INSERT INTO `transaction` VALUES ('21', '17', '1', '2', '1000', '-25000000.00', '2018-09-22 14:21:16', null, '0.00', null, '25000.00', 'them test 2', null);
-INSERT INTO `transaction` VALUES ('22', '17', '2', '3', '2000', '30000000.00', '2018-09-22 14:49:53', null, '0.00', null, '15000.00', 'n', null);
-INSERT INTO `transaction` VALUES ('23', '18', '2', '2', '1000', '25000000.00', '2018-09-22 15:36:33', null, '0.00', null, '25000.00', '', null);
-INSERT INTO `transaction` VALUES ('24', '7', '6', '2', '1000', null, '2018-09-23 15:07:34', null, '0.00', '500000.00', null, '123', null);
-INSERT INTO `transaction` VALUES ('25', '7', '5', '1', '2000', null, '2018-09-23 15:13:25', null, '0.00', '1000000.00', null, '456', null);
-INSERT INTO `transaction` VALUES ('26', '19', '3', '1', '100', null, '2018-09-25 21:52:56', null, '25.00', null, null, 'a', '75.00');
-INSERT INTO `transaction` VALUES ('27', '21', '4', '2', '1000', null, '2018-09-26 16:45:26', null, '100.00', null, null, 'a', null);
-INSERT INTO `transaction` VALUES ('28', '21', '3', '3', '1500', null, '2018-09-26 16:45:26', null, '100.00', null, null, 'b', null);
-INSERT INTO `transaction` VALUES ('29', '23', '2', '2', '1000', '23500000.00', '2018-09-26 21:23:18', null, '0.00', null, '23500.00', 'abcabc', null);
-INSERT INTO `transaction` VALUES ('30', '23', '1', '3', '100', '-1500000.00', '2018-09-26 21:23:18', null, '0.00', null, '15000.00', 'b', null);
-INSERT INTO `transaction` VALUES ('31', '24', '9', null, null, '15000001.00', '2018-09-26 22:48:17', null, '0.00', null, null, 'VP Bank', null);
-INSERT INTO `transaction` VALUES ('32', '24', '9', null, null, '100000.00', '2018-09-26 22:48:17', null, '0.00', null, null, 'MB', null);
-INSERT INTO `transaction` VALUES ('33', '0', '2', '2', '1000', '25000000.00', '2018-10-07 17:28:10', null, '0.00', null, '25000.00', '12', null);
-INSERT INTO `transaction` VALUES ('34', '0', '2', '2', '1000', '25000000.00', '2018-10-07 17:28:27', null, '0.00', null, '25000.00', '12', null);
-INSERT INTO `transaction` VALUES ('35', '27', '10', '2', '1000', '25000000.00', '2018-10-07 18:30:27', null, '0.00', null, '25000.00', 'Tra no', null);
-INSERT INTO `transaction` VALUES ('36', '28', '10', '2', '1000', '25000000.00', '2018-10-07 18:36:25', null, '0.00', null, '25000.00', 'tra no', null);
-INSERT INTO `transaction` VALUES ('37', null, null, '7', null, '-1000000.00', '2018-10-10 00:17:34', null, '0.00', null, null, 'rut tien', null);
-INSERT INTO `transaction` VALUES ('38', '0', '13', '7', null, '150000.00', '2018-10-10 00:22:44', null, '0.00', null, null, 'rut tien', null);
-INSERT INTO `transaction` VALUES ('39', '30', '13', '10', '15000', null, '2018-10-11 00:05:20', null, '0.00', null, null, 'snv', null);
-INSERT INTO `transaction` VALUES ('40', '31', '13', '7', '2000', null, '2018-10-11 00:41:56', null, '0.00', null, null, null, null);
-INSERT INTO `transaction` VALUES ('41', '33', '13', '7', '2000', null, '2018-10-11 00:45:29', null, '0.00', null, null, null, null);
-INSERT INTO `transaction` VALUES ('42', '34', '13', '10', '2000', null, '2018-10-11 00:47:11', null, '0.00', null, null, null, null);
-INSERT INTO `transaction` VALUES ('43', '35', '13', '7', '123456', null, '2018-10-11 00:49:37', null, '0.00', null, null, null, null);
-INSERT INTO `transaction` VALUES ('44', '44', '5', '1', '155000', '155000.00', '2018-10-14 10:35:02', null, '0.00', null, '1.00', 'sssss', null);
-INSERT INTO `transaction` VALUES ('45', '43', '18', '1', '75000', '75000.00', '2018-10-14 10:46:44', null, '0.00', null, '1.00', 'ádsads', null);
-INSERT INTO `transaction` VALUES ('46', '42', '19', '1', '150000', '150000.00', '2018-10-14 10:47:59', null, '0.00', null, '1.00', 'ssss', null);
-INSERT INTO `transaction` VALUES ('47', '47', '22', '1', '1000', null, '2018-10-14 15:00:31', null, '0.00', null, null, '', null);
-INSERT INTO `transaction` VALUES ('48', '47', '22', '1', '15000', null, '2018-10-14 15:25:08', null, '0.00', null, null, 'dsfd', null);
 
 -- ----------------------------
 -- Table structure for user
@@ -1111,3 +1071,48 @@ BEGIN
 END
 ;;
 DELIMITER ;
+
+
+-- ----------------------------
+-- Records of transaction
+-- ----------------------------
+INSERT INTO `transaction` VALUES ('9', '15', '3', '3', '10000', null, '2018-09-12 14:59:14', null, '200.00', null, null, '123', null);
+INSERT INTO `transaction` VALUES ('10', '0', '3', '3', '1', null, '2018-09-12 15:26:25', null, '20.00', null, null, '123', null);
+INSERT INTO `transaction` VALUES ('11', '0', '3', '3', '1', null, '2018-09-12 15:28:27', null, '20.00', null, null, '0', null);
+INSERT INTO `transaction` VALUES ('12', '0', '3', '3', '1', null, '2018-09-12 15:28:44', null, '20.00', null, null, '123', null);
+INSERT INTO `transaction` VALUES ('13', '14', '4', '2', '100', null, '2018-09-17 16:14:47', null, null, null, null, 'thêm test', null);
+INSERT INTO `transaction` VALUES ('14', '14', '3', '1', '1000000', null, '2018-09-17 20:41:03', null, null, null, null, 'them test 2', null);
+INSERT INTO `transaction` VALUES ('15', '11', '1', '1', '100', '-2350000.00', '2018-09-20 20:45:15', null, '0.00', null, '23500.00', 'abc', null);
+INSERT INTO `transaction` VALUES ('16', '11', '2', '3', '600', '12000600.00', '2018-09-20 20:45:15', null, '0.00', null, '20001.00', 'them test 2', null);
+INSERT INTO `transaction` VALUES ('17', '14', '9', '1', '100000', null, '2018-09-20 22:00:00', null, null, null, null, 'them test 2', null);
+INSERT INTO `transaction` VALUES ('18', '16', '4', '3', '100', null, '2018-09-20 22:05:47', null, null, null, null, 'them test 2', null);
+INSERT INTO `transaction` VALUES ('19', '13', '4', '2', '-1250', null, '2018-09-20 22:35:09', null, null, null, null, '', null);
+INSERT INTO `transaction` VALUES ('20', '13', '9', '1', '-1320000', null, '2018-09-20 22:35:09', null, null, null, null, '', null);
+INSERT INTO `transaction` VALUES ('21', '17', '1', '2', '1000', '-25000000.00', '2018-09-22 14:21:16', null, '0.00', null, '25000.00', 'them test 2', null);
+INSERT INTO `transaction` VALUES ('22', '17', '2', '3', '2000', '30000000.00', '2018-09-22 14:49:53', null, '0.00', null, '15000.00', 'n', null);
+INSERT INTO `transaction` VALUES ('23', '18', '2', '2', '1000', '25000000.00', '2018-09-22 15:36:33', null, '0.00', null, '25000.00', '', null);
+INSERT INTO `transaction` VALUES ('24', '7', '6', '2', '1000', null, '2018-09-23 15:07:34', null, '0.00', '500000.00', null, '123', null);
+INSERT INTO `transaction` VALUES ('25', '7', '5', '1', '2000', null, '2018-09-23 15:13:25', null, '0.00', '1000000.00', null, '456', null);
+INSERT INTO `transaction` VALUES ('26', '19', '3', '1', '100', null, '2018-09-25 21:52:56', null, '25.00', null, null, 'a', '75.00');
+INSERT INTO `transaction` VALUES ('27', '21', '4', '2', '1000', null, '2018-09-26 16:45:26', null, '100.00', null, null, 'a', null);
+INSERT INTO `transaction` VALUES ('28', '21', '3', '3', '1500', null, '2018-09-26 16:45:26', null, '100.00', null, null, 'b', null);
+INSERT INTO `transaction` VALUES ('29', '23', '2', '2', '1000', '23500000.00', '2018-09-26 21:23:18', null, '0.00', null, '23500.00', 'abcabc', null);
+INSERT INTO `transaction` VALUES ('30', '23', '1', '3', '100', '-1500000.00', '2018-09-26 21:23:18', null, '0.00', null, '15000.00', 'b', null);
+INSERT INTO `transaction` VALUES ('31', '24', '9', null, null, '15000001.00', '2018-09-26 22:48:17', null, '0.00', null, null, 'VP Bank', null);
+INSERT INTO `transaction` VALUES ('32', '24', '9', null, null, '100000.00', '2018-09-26 22:48:17', null, '0.00', null, null, 'MB', null);
+INSERT INTO `transaction` VALUES ('33', '0', '2', '2', '1000', '25000000.00', '2018-10-07 17:28:10', null, '0.00', null, '25000.00', '12', null);
+INSERT INTO `transaction` VALUES ('34', '0', '2', '2', '1000', '25000000.00', '2018-10-07 17:28:27', null, '0.00', null, '25000.00', '12', null);
+INSERT INTO `transaction` VALUES ('35', '27', '10', '2', '1000', '25000000.00', '2018-10-07 18:30:27', null, '0.00', null, '25000.00', 'Tra no', null);
+INSERT INTO `transaction` VALUES ('36', '28', '10', '2', '1000', '25000000.00', '2018-10-07 18:36:25', null, '0.00', null, '25000.00', 'tra no', null);
+INSERT INTO `transaction` VALUES ('37', null, null, '7', null, '-1000000.00', '2018-10-10 00:17:34', null, '0.00', null, null, 'rut tien', null);
+INSERT INTO `transaction` VALUES ('38', '0', '13', '7', null, '150000.00', '2018-10-10 00:22:44', null, '0.00', null, null, 'rut tien', null);
+INSERT INTO `transaction` VALUES ('39', '30', '13', '10', '15000', null, '2018-10-11 00:05:20', null, '0.00', null, null, 'snv', null);
+INSERT INTO `transaction` VALUES ('40', '31', '13', '7', '2000', null, '2018-10-11 00:41:56', null, '0.00', null, null, null, null);
+INSERT INTO `transaction` VALUES ('41', '33', '13', '7', '2000', null, '2018-10-11 00:45:29', null, '0.00', null, null, null, null);
+INSERT INTO `transaction` VALUES ('42', '34', '13', '10', '2000', null, '2018-10-11 00:47:11', null, '0.00', null, null, null, null);
+INSERT INTO `transaction` VALUES ('43', '35', '13', '7', '123456', null, '2018-10-11 00:49:37', null, '0.00', null, null, null, null);
+INSERT INTO `transaction` VALUES ('44', '44', '5', '1', '155000', '155000.00', '2018-10-14 10:35:02', null, '0.00', null, '1.00', 'sssss', null);
+INSERT INTO `transaction` VALUES ('45', '43', '18', '1', '75000', '75000.00', '2018-10-14 10:46:44', null, '0.00', null, '1.00', 'ádsads', null);
+INSERT INTO `transaction` VALUES ('46', '42', '19', '1', '150000', '150000.00', '2018-10-14 10:47:59', null, '0.00', null, '1.00', 'ssss', null);
+INSERT INTO `transaction` VALUES ('47', '47', '22', '1', '1000', null, '2018-10-14 15:00:31', null, '0.00', null, null, '', null);
+INSERT INTO `transaction` VALUES ('48', '47', '22', '1', '15000', null, '2018-10-14 15:25:08', null, '0.00', null, null, 'dsfd', null);

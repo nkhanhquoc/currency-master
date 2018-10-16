@@ -76,7 +76,7 @@ use yii\widgets\ActiveForm;
                           </td>
                           <td>
                             <?= $form->field($tran, 'currency_id')->dropDownList(
-                              [VND_CURRENCY_ID => 'VND'],
+                                $model->getStorageCurrency(),
                               ['name'=>'trans[currency_id][]']
                               )->label(false)?>
                           </td>

@@ -77,10 +77,9 @@ class CostController extends Controller
             $trans = new Transaction();
             $trans->bill_id = $model->id;
             $trans->type = $params["trans"]['type'][$i];
-            $trans->currency_id = VND_CURRENCY_ID;
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity = $params["trans"]['value'][$i];
             $trans->exchange_rate = 1;
-            $trans->value =  $params["trans"]['value'][$i];
             // $model->fee +=
             $trans->save(false);
           }
@@ -119,10 +118,9 @@ class CostController extends Controller
             $trans->bill_id = $model->id;
             $trans->note = $params["trans"]['note'][$i];
             $trans->type = $params["trans"]['type'][$i];
-            $trans->currency_id = VND_CURRENCY_ID;
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity =  $params["trans"]['value'][$i];
             $trans->exchange_rate =  1;
-            $trans->value =  $params["trans"]['value'][$i];
             // $model->fee +=
             $trans->save(false);
           }
