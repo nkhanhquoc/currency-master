@@ -280,11 +280,12 @@ public function groupTrans($bills){
 public function actionExport($id){
   $request = Yii::$app->request;
   $model = $this->findModel($id);
+  $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
   if($model->is_export != 1 && $request->isPost){
     $model->is_export = 1;
     try{
       $model->save();
-      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
       foreach($trans as $tran){
         switch($tran->type){
           case MUA:

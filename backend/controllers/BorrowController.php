@@ -80,7 +80,7 @@ class BorrowController extends Controller
             // $model->fee +=
             $trans->save();
           }
-            return $this->redirect(['updated', 'id' => $model->id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -133,11 +133,12 @@ class BorrowController extends Controller
 
     public function actionExport($id){
       $model = $this->findModel($id);
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       if($model->is_export != 1){
         $model->is_export = 1;
         try{
           $model->save();
-          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
           foreach($trans as $tran){
             if($tran->type == VAY){
               // Storage::updateByCurrId(VND_CURRENCY_ID, (0 - $tran->deposit));

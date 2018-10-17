@@ -103,7 +103,7 @@ class OtherTransferController extends Controller
             $transaction->currency_id = $params["trans"]['currency_id'][$i];
             $transaction->quantity =  $params["trans"]['quantity'][$i];
             $transaction->fee =  $params["trans"]['fee'][$i];
-            $trans->real_value =  $params["trans"]['real_value'][$i];
+            $transaction->real_value =  $params["trans"]['real_value'][$i];
             // $model->fee +=
             $transaction->save(false);
           }
@@ -117,19 +117,19 @@ class OtherTransferController extends Controller
 
   public function actionExport($id){
     $model = $this->findModel($id);
-
+    $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
     if($model->is_export != 1){
       $model->is_export = 1;
       try{
         $model->save();
-        $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
         foreach($trans as $tran){
           switch($tran->type){
             case NHAN_TIEN_CHUYEN:
-              Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
+              Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->real_value));
               break;
             case TRA_TIEN_CHUYEN:
-              Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->quantity);
+              Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->real_value);
               break;
             default: break;
           }

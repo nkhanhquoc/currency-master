@@ -135,12 +135,12 @@ class TransferCurrencyController extends Controller
 
     public function actionExport($id){
       $model = $this->findModel($id);
-
+        $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       if($model->is_export != 1){
         $model->is_export = 1;
         try{
           $model->save();
-          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
           foreach($trans as $tran){
             switch($tran->type){
               case NHAN_TIEN_CHUYEN:

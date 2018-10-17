@@ -74,7 +74,7 @@ class BankTransController extends Controller
           for($i = 0;$i< count($params["trans"]['type']); $i++){
             $trans = new Transaction();
             $trans->bill_id = $model->id;
-            $trans->type = 13;
+            $trans->type = $params["trans"]['type'][$i];;
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity =  $params["trans"]['quantity'][$i];
             $trans->save();
@@ -109,7 +109,7 @@ class BankTransController extends Controller
 
             $trans->bill_id = $model->id;
             $trans->note = $params["trans"]['note'][$i];
-            $trans->type = 13;
+            $trans->type = $params["trans"]['type'][$i];
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity =  $params["trans"]['quantity'][$i];
             // $model->fee +=
@@ -127,15 +127,16 @@ class BankTransController extends Controller
 
     public function actionExport($id){
       $model = $this->findModel($id);
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       if($model->is_export != 1){
         $model->is_export = 1;
         try{
           $model->save();
-          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
           foreach($trans as $tran){
             switch($tran->type){
               case CUAHANG_CK:
-                // Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+                Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
                 break;
               case RUT_TIEN:
                 // Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));

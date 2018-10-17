@@ -144,21 +144,30 @@ class HomeTradingController extends Controller
 
     public function actionExport($id){
       $model = $this->findModel($id);
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       if($model->is_export != 1){
         $model->is_export = 1;
         try{
           $model->save();
-          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
           foreach($trans as $tran){
             switch($tran->type){
               case MUA:
                 Storage::updateByCurrId($tran->currency_id,$tran->quantity);
-                Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,(0-$tran->value));
+                Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,$tran->value);
                 break;
               case BAN:
                 Storage::updateByCurrId($tran->currency_id,(0-$tran->quantity));
                 Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,$tran->value);
                 break;
+              case TRA_TIEN:
+                  Storage::updateByCurrId($tran->currency_id,(0-$tran->quantity));
+                  Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->quantity);
+                  break;
+              case NHAN_TIEN:
+                  Storage::updateByCurrId($tran->currency_id,$tran->quantity);
+                  Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
+                  break;
               default: break;
             }
           }

@@ -81,7 +81,7 @@ use yii\widgets\ActiveForm;
                               )->label(false)?>
                           </td>
                           <td>
-                            <input name="trans[value][]" value="<?= $tran->value ?>" class="form-control"/>
+                            <input name="trans[quantity][]" value="<?= $tran->quantity ?>" class="form-control"/>
                           </td>
 
                           <?php if(!$model->is_export):?>
@@ -150,7 +150,7 @@ trr+= '<td>';
 trr+= '<select name="trans[currency_id][]" class="form-control">'+optionCurrency+'</select>';
 trr+= '</td>';
 trr+= '<td>';
-trr+= '<input name="trans[value][]" type="text" class="form-control"/>';
+trr+= '<input name="trans[quantity][]" type="text" class="form-control"/>';
 trr+= '</td>';
 
 trr+= '<td>';

@@ -78,7 +78,7 @@ class CostController extends Controller
             $trans->bill_id = $model->id;
             $trans->type = $params["trans"]['type'][$i];
             $trans->currency_id = $params["trans"]['currency_id'][$i];
-            $trans->quantity = $params["trans"]['value'][$i];
+            $trans->quantity = $params["trans"]['quantity'][$i];
             $trans->exchange_rate = 1;
             // $model->fee +=
             $trans->save(false);
@@ -119,7 +119,7 @@ class CostController extends Controller
             $trans->note = $params["trans"]['note'][$i];
             $trans->type = $params["trans"]['type'][$i];
             $trans->currency_id = $params["trans"]['currency_id'][$i];
-            $trans->quantity =  $params["trans"]['value'][$i];
+            $trans->quantity =  $params["trans"]['quantity'][$i];
             $trans->exchange_rate =  1;
             // $model->fee +=
             $trans->save(false);
@@ -147,19 +147,20 @@ class CostController extends Controller
 
     public function actionExport($id){
       $model = $this->findModel($id);
+      $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       if($model->is_export != 1){
         $costVal = 0;
         $model->is_export = 1;
         try{
           // $model->save();
-          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+
           foreach($trans as $tran){
             if($tran->type == THU){
-              Storage::updateByCurrId(VND_CURRENCY_ID, $tran->value);
-              $costVal += $tran->value;
+              Storage::updateByCurrId(VND_CURRENCY_ID, $tran->quantity);
+              $costVal += $tran->quantity;
             } else if($tran->type == CHI) {
-              Storage::updateByCurrId(VND_CURRENCY_ID, (0-$tran->value));
-              $costVal += (0-$tran->value);
+              Storage::updateByCurrId(VND_CURRENCY_ID, (0-$tran->quantity));
+              $costVal += (0-$tran->quantity);
             }
           }
           $model->value = $costVal;

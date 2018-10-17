@@ -99,6 +99,8 @@ return [
         '9'=>'Chuyển khoản quê',
         '10' => 'Giao dịch Ngân hàng',
         '11' => 'Chi phí',
-        '12' => 'Kho Khách hàng'
+        '12' => 'Kho Khách hàng',
+        '13' => 'Tiền chuyển khác Quê'
+
       ]
 ];
