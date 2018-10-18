@@ -96,10 +96,8 @@ use yii\widgets\ActiveForm;
                           Tổng
                         </td>
                         <td id="sum-value">
-
                         </td>
                       </tr>
-
                     </table>
                     <table class="table">
                       <tr>

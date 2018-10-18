@@ -114,7 +114,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                         )->label(false)?>
                     </td>
                     <td>
-                      <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value) ?>" class="form-control"/>
+                      <input name="trans[quantity][]" disabled="disabled" value="<?= number_format($tran->quantity) ?>" class="form-control"/>
                     </td>
                   </tr>
                 <?php endforeach;?>
