@@ -114,20 +114,7 @@ use yii\widgets\ActiveForm;
                   </tr>
                 <?php endforeach;?>
                 <tr id="tr-sum" style="">
-                  <td colspan="5">
-
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    Tổng
-                  </td>
-                  <td id="sum-value">
-
-                    <?= $form->field($model, 'value')->hiddenInput(['readonly'=>'readonly'])->label(false) ?>
-                    <input id="bill-value-view" class="form-control" value="<?= $model->value ?>" type="text"/>
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    VND
-                  </td>
+                  
                 </tr>
 
               </table>
@@ -160,7 +147,7 @@ use yii\widgets\ActiveForm;
 <?php ActiveForm::end(); ?>
 
 <script type="text/javascript">
-document.getElementById('bill-value-view').value = parseInt(document.getElementById('bill-value-view').value).toLocaleString();
+//document.getElementById('bill-value-view').value = parseInt(document.getElementById('bill-value-view').value).toLocaleString();
 
 var billcode = '<?php echo $model->code ?>';
 billcode = billcode.split('-');

@@ -81,8 +81,15 @@ class Transaction extends TransactionBase{
     return [
       '1' => 'Mua',
       '2' => 'Bán',
-      '9' => 'Trả',
-      '10' => 'Nhận',
+      '9' => 'Trả tiền',
+      '10' => 'Nhận tiền',
+    ];
+  }
+
+  public function getHomeBankType(){
+    return [
+      '9' => 'Trả tiền',
+      '10' => 'Nhận tiền',
     ];
   }
 

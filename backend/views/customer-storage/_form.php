@@ -117,6 +117,7 @@ use awesome\backend\form\AwsActiveForm;
             </div>
             <div class="actions">
               <?php if(!$model->is_export):?>
+                <a href="/customer-storage/export?id=<?= $model->id ?>" class="btn btn-outline btn-circle btn-sm btn-primary">Xuất hóa đơn</a>
                 <?=  AwsBaseHtml::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
               <?php endif;?>
                 <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"

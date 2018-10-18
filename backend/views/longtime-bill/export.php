@@ -125,7 +125,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                     </td>
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTradeType(),
+                        $tran->getAllLongTradeType(),
                         ['name'=>'trans[type][]','disabled'=>'disabled']
                         )->label(false)?>
                     </td>
@@ -146,32 +146,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                       <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value) ?>" class="form-control"/>
                     </td>
                   </tr>
-                <?php endforeach;?>
-                <tr>
-                  <td colspan="5">
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    Cọc
-                  </td>
-                  <td>
-                    <input class="form-control" value="<?= $model->deposit ?>" readonly/>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="5">
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    Tổng
-                  </td>
-                  <td id="sum-value">
-                    <input disabled="disabled" value="<?= number_format($model->value) ?>" class="form-control"/>
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    VND
-                  </td>
-                </tr>
+                <?php endforeach;?>                
                 <tr>
                   <td class="text-center" colspan="4">
                     <span class="font-weight-bold"><b>Người chi</b></span>

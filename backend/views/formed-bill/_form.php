@@ -142,7 +142,7 @@ use yii\widgets\ActiveForm;
 
 <?php ActiveForm::end(); ?>
 <script type="text/javascript">
-document.getElementById('bill-value-view').value = parseInt(document.getElementById('bill-value-view').value).toLocaleString();
+//document.getElementById('bill-value-view').value = parseInt(document.getElementById('bill-value-view').value).toLocaleString();
 var billcode = '<?php echo $model->code ?>';
 billcode = billcode.split('-');
 var index =0;

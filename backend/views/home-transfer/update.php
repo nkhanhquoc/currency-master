@@ -7,10 +7,10 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('backend', 'Update {modelClass}: ', [
     'modelClass' => 'Tiền chuyển Quê',
-]) . ' ' . $model->id;
+]) . ' ' . $model->code;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Tiền chuyển Quê'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
+$this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->code;
 ?>
 <div class="row bill-update">
     <div class="col-md-12">

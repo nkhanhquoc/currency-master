@@ -55,9 +55,9 @@ $this->params['breadcrumbs'][] = $this->title;
                   return $m->name;
                 }
             ],
-            'value',
+            // 'value',
             // 'customer_type',
-            // 'note',
+            'note',
             // 'receiver',
             // 'deposit',
             // 'fee',

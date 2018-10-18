@@ -54,7 +54,7 @@ use yii\widgets\ActiveForm;
                   <th class="text-center">      TT    </th>
                   <th class="text-center">      Ghi chú    </th>
                   <th class="text-center">      Giao dịch    </th>
-                  <th class="text-center">      Tài khoản NH    </th>
+                  <th class="text-center">      Loại tiền    </th>
                   <th class="text-center">      Số tiền    </th>
                   <th class="text-center"></th>
                 </tr>
@@ -69,16 +69,15 @@ use yii\widgets\ActiveForm;
                     <td>
                       <input name="trans[note][]" value="<?= $tran->note ?>" type="text" class="form-control"/>
                     </td>
-
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTradeType(),
+                        $tran->getHomeBankType(),
                         ['name'=>'trans[type][]']
                         )->label(false)?>
                     </td>
                     <td>
                       <?= $form->field($tran, 'currency_id')->dropDownList(
-                        $model->getBankAccount(),
+                        [VND_CURRENCY_ID => 'VND'],
                         ['name'=>'trans[currency_id][]']
                         )->label(false)?>
                     </td>
@@ -130,9 +129,7 @@ var billcode = '<?php echo $model->code ?>';
 billcode = billcode.split('-');
 var index =0;
 var optionCurrency = "";
-<?php foreach($model->getBankAccount() as $k => $currency):?>
-  optionCurrency += '<option value="<?php echo $k?>"><?php echo $currency?></option>';
-<?php endforeach;?>
+  optionCurrency += '<option value="<?php echo VND_CURRENCY_ID ?>"><?php echo 'VND'?></option>';
 var trr = '<tr class="form-group">';
 trr+= '<td style="display:none"><input type="hidden" name="trans[id][]"/></td>';
 trr+= '<td name="trr-index"></td>';

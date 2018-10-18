@@ -129,6 +129,24 @@ class CustomerStorageController extends Controller
             ]);
     }
 
+    public function actionExport($id){
+          $model = $this->findModel($id);
+          if($model->is_export != 1){
+            $model->is_export = 1;
+            try{
+              $model->save();
+            }catch(Exception $e){
+              Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
+            }
+          }
+
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+          return $this->render('export', [
+              'model' => $model,
+              'trans' => $trans
+          ]);
+        }
+
     /**
      * Deletes an existing Bill model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

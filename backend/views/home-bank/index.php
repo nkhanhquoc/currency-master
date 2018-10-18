@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\HomeBankSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Bills');
+$this->title = Yii::t('backend', 'Chuyển khoản Quê');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row bill-index">

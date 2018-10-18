@@ -8,10 +8,10 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Bill */
 
-$this->title = "Chuyển khoản Quê";
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Chuyển khoản Quê'), 'url' => ['index']];
+$this->title = "Nhập Kho KH";
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Nhập Kho KH'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->code;
+$this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
 
 ?>
 <div class="row bill-update">
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                 <?= $form->field($model, 'type')->hiddenInput(['value'=>$model->type])->label(false) ?>
                 <table class="table" style="margin-bottom:0px">
                   <tr class="no-border">
-                    <td style="width:50%">
+                    <td style="width:35%">
                       <div class="row">
                         <div class="col-md-12">
                           <div class="input-group" >
@@ -57,6 +57,16 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                           <div class="input-group" >
                             <span class="input-group-addon">Mã hóa đơn:</span>
                             <input value="<?= $model->code ?>" disabled="disabled" type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group">
+                            <span class="input-group-addon">Khách hàng:</span>
+                            <input value="<?= $model->getCustomer() ?>" disabled="disabled" type="text" class="form-control">
                           </div>
                         </div>
                       </div>
@@ -80,16 +90,15 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                 </table>
 
                 <div class="row">
-                  <h3 style="text-align:center">CHUYỂN KHOẢN QUÊ</h3>
+                  <h3 style="text-align:center">NHẬP KHO KHÁCH HÀNG</h3>
                 </div>
               <table class="table table-striped table-condensed">
                 <tr>
-                  <th class="text-center">      TT    </th>
-                  <th class="text-center">      Ghi chú    </th>
-                  <th class="text-center">      Giao dịch    </th>
-                  <th class="text-center">      Tài khoản NH    </th>
-                  <th class="text-center">      Số tiền    </th>
-                  <th class="text-center"></th>
+                        <th class="text-center">      TT    </th>
+                        <th class="text-center">      Ghi chú    </th>
+                        <th class="text-center">      Giao dịch    </th>
+                        <th class="text-center">      Loại    </th>
+                        <th class="text-center">      Số Lượng    </th>
                 </tr>
                 <?php foreach($trans as $k => $tran):?>
                   <tr class="form-group">
@@ -102,25 +111,27 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                     </td>
                     <td>
                       <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTradeType(),
+                        $tran->getAllCusStorageType(),
                         ['name'=>'trans[type][]','disabled'=>'disabled']
                         )->label(false)?>
                     </td>
-
                     <td>
                       <?= $form->field($tran, 'currency_id')->dropDownList(
-                        [VND_CURRENCY_ID => 'VND'],
-                        ['name'=>'trans[currency_id][]','disabled'=>'disabled']
+                        $model->getStorageCurrency(),
+                        ['name'=>'trans[currency_id][]',
+                         'disabled'=>'disabled']
                         )->label(false)?>
                     </td>
                     <td>
-                      <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value) ?>" class="form-control"/>
+                      <input name="trans[quantity][]" disabled="disabled" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
                     </td>
                   </tr>
                 <?php endforeach;?>
+                <tr id="tr-sum" style="">
 
+                </tr>
                 <tr>
-                  <td class="text-center" colspan="2">
+                  <td class="text-center" colspan="3">
                     <span class="font-weight-bold"><b>Người chi</b></span>
                   </td>
                   <td class="text-center" colspan="2">

@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Debt;
 use backend\models\Bill;
 use backend\models\Transaction;
 use backend\models\Storage;

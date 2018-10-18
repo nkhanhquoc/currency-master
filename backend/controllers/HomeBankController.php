@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Bill;
+use backend\models\Debt;
 use backend\models\Transaction;
 use backend\models\Storage;
 use backend\models\HomeBankSearch;
@@ -138,12 +139,12 @@ class HomeBankController extends Controller
           foreach($trans as $tran){
             switch($tran->type){
               case TRA_TIEN:
-                Storage::updateByCurrId($tran->currency_id,(0-$tran->value));
-                Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->value));
+                Storage::updateByCurrId(VND_CURRENCY_ID,(0-$tran->value));
+                Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,(0-$tran->value));
                 break;
               case NHAN_TIEN:
-                Storage::updateByCurrId($tran->currency_id,$tran->value);
-                Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->value);
+                Storage::updateByCurrId(VND_CURRENCY_ID,$tran->value);
+                Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,$tran->value);
                 break;
               default: break;
             }
