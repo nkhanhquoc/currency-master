@@ -1,8 +1,8 @@
 <?php
 /**
- * @link      http://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
- * @license   http://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 namespace yii\gii\console;
@@ -23,7 +23,7 @@ use yii\console\Controller;
  *
  * @author Tobias Munk <schmunk@usrbin.de>
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @since  2.0
+ * @since 2.0
  */
 class GenerateController extends Controller
 {
@@ -32,7 +32,7 @@ class GenerateController extends Controller
      */
     public $module;
     /**
-     * @var boolean whether to overwrite all existing code files when in non-interactive mode.
+     * @var bool whether to overwrite all existing code files when in non-interactive mode.
      * Defaults to false, meaning none of the existing code files will be overwritten.
      * This option is used only when `--interactive=0`.
      */
@@ -49,7 +49,7 @@ class GenerateController extends Controller
 
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function __get($name)
     {
@@ -57,7 +57,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function __set($name, $value)
     {
@@ -65,7 +65,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {
@@ -76,7 +76,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function createAction($id)
     {
@@ -89,7 +89,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function actions()
     {
@@ -109,7 +109,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getUniqueID()
     {
@@ -117,7 +117,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function options($id)
     {
@@ -137,7 +137,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getActionHelpSummary($action)
     {
@@ -150,7 +150,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getActionHelp($action)
     {
@@ -164,7 +164,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getActionArgsHelp($action)
     {
@@ -172,7 +172,7 @@ class GenerateController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getActionOptionsHelp($action)
     {

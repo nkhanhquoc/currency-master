@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use brussens\bootstrap\select\Widget as Select;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\BillSearch */
@@ -17,18 +18,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer(),['prompt'=>'---Chọn khách hàng---']) ?>
 
-
-    <?php // echo $form->field($model, 'customer_type') ?>
-
-    <?php // echo $form->field($model, 'note') ?>
-
-    <?php // echo $form->field($model, 'receiver') ?>
-
-    <?php // echo $form->field($model, 'deposit') ?>
-
-    <?php // echo $form->field($model, 'created_date') ?>
+<?= $form->field($model, 'customer_id')->widget(Select::className(), [
+                            'options' => ['data-live-search' => 'true','title'=>'Chọn Khách hàng'],
+                            'items' => $model->getAllCustomer()
+                        ]);
+                        ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>

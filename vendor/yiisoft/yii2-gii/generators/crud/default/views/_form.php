@@ -16,44 +16,27 @@ if (empty($safeAttributes)) {
 echo "<?php\n";
 ?>
 
-use awesome\backend\widgets\AwsBaseHtml;
-use awesome\backend\form\AwsActiveForm;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
-/* @var $title string */
-/* @var $form AwsActiveForm */
+/* @var $form yii\widgets\ActiveForm */
 ?>
 
-<?= "<?php " ?> $form = AwsActiveForm::begin(); ?>
+<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form">
 
-    <div class="portlet light portlet-fit portlet-form bordered <?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form">
-        <div class="portlet-title">
-            <div class="caption">
-                <i class="icon-paper-plane font-green"></i>
-                <span class="caption-subject font-green sbold uppercase">
-                <?= "<?= " ?> $title ?>
-                </span>
-            </div>
-            <div class="actions">
-                <?= "<?= " ?> AwsBaseHtml::submitButton($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Update') ?>, ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
-                <button type="button" name="back" class="btn btn-transparent black btn-outline btn-circle btn-sm"
-                        onclick="history.back(-1)">
-                    <i class="fa fa-angle-left"></i> Back
-                </button>
-            </div>
-        </div>
-        <div class="portlet-body">
-            <div class="form-body">
-                <?php
-                foreach ($generator->getColumnNames() as $attribute) {
-                    if (in_array($attribute, $safeAttributes)) {
-                        echo "    <?= " . $generator->generateActiveField($attribute) . " ?>\n\n";
-                    }
-                }
-                ?>
-            </div>
-        </div>
+    <?= "<?php " ?>$form = ActiveForm::begin(); ?>
+
+<?php foreach ($generator->getColumnNames() as $attribute) {
+    if (in_array($attribute, $safeAttributes)) {
+        echo "    <?= " . $generator->generateActiveField($attribute) . " ?>\n\n";
+    }
+} ?>
+    <div class="form-group">
+        <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Save') ?>, ['class' => 'btn btn-success']) ?>
     </div>
 
-<?= "<?php " ?>AwsActiveForm::end(); ?>
+    <?= "<?php " ?>ActiveForm::end(); ?>
+
+</div>

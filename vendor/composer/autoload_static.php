@@ -64,6 +64,7 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
             'kartik\\grid\\' => 12,
             'kartik\\form\\' => 12,
             'kartik\\file\\' => 12,
+            'kartik\\dialog\\' => 14,
             'kartik\\depdrop\\' => 15,
             'kartik\\datetime\\' => 16,
             'kartik\\daterange\\' => 17,
@@ -81,6 +82,10 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         array (
             'cebe\\markdown\\' => 14,
         ),
+        'b' => 
+        array (
+            'brussens\\bootstrap\\select\\' => 26,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -88,6 +93,11 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         'S' => 
         array (
             'Symfony\\Component\\EventDispatcher\\' => 34,
+        ),
+        'P' => 
+        array (
+            'Psr\\SimpleCache\\' => 16,
+            'PhpOffice\\PhpSpreadsheet\\' => 25,
         ),
         'F' => 
         array (
@@ -236,6 +246,10 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-fileinput',
         ),
+        'kartik\\dialog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-dialog',
+        ),
         'kartik\\depdrop\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-depdrop',
@@ -276,6 +290,10 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
         ),
+        'brussens\\bootstrap\\select\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/brussens/yii2-bootstrap-select',
+        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
@@ -283,6 +301,14 @@ class ComposerStaticInita94a1b4119759a106b84483cd77579e1
         'Symfony\\Component\\EventDispatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'PhpOffice\\PhpSpreadsheet\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
         ),
         'Faker\\' => 
         array (

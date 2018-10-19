@@ -1,6 +1,22 @@
 Yii2 ManyToMany Behavior
 ========================
+
+This behavior soon will be **DEPRECATED**.  
+See the new version [**Yii2 Linker Behavior**](https://github.com/voskobovich/yii2-linker-behavior).
+
+## About
+
 This behavior makes it easy to maintain many-to-many and one-to-many relations in your ActiveRecord models.
+
+[![License](https://poser.pugx.org/voskobovich/yii2-many-many-behavior/license.svg)](https://packagist.org/packages/voskobovich/yii2-many-many-behavior)
+[![Latest Stable Version](https://poser.pugx.org/voskobovich/yii2-many-many-behavior/v/stable.svg)](https://packagist.org/packages/voskobovich/yii2-many-many-behavior)
+[![Latest Unstable Version](https://poser.pugx.org/voskobovich/yii2-many-many-behavior/v/unstable.svg)](https://packagist.org/packages/voskobovich/yii2-many-many-behavior)
+[![Total Downloads](https://poser.pugx.org/voskobovich/yii2-many-many-behavior/downloads.svg)](https://packagist.org/packages/voskobovich/yii2-many-many-behavior)
+[![Build Status](https://travis-ci.org/voskobovich/yii2-many-to-many-behavior.svg?branch=master)](https://travis-ci.org/voskobovich/yii2-many-to-many-behavior)
+
+Support
+---
+[GutHub issues](https://github.com/voskobovich/yii2-many-to-many-behavior/issues).
 
 Usage
 -----
@@ -268,13 +284,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist voskobovich/yii2-many-many-behavior "~3.0"
+php composer.phar require --prefer-dist voskobovich/yii2-many-many-behavior "^3.0"
 ```
 
 or add
 
 ```
-"voskobovich/yii2-many-many-behavior": "~3.0"
+"voskobovich/yii2-many-many-behavior": "^3.0"
 ```
 
 to the require section of your `composer.json` file.

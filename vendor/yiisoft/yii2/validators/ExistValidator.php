@@ -75,7 +75,7 @@ class ExistValidator extends Validator
 
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {
@@ -86,13 +86,13 @@ class ExistValidator extends Validator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function validateAttribute($model, $attribute)
     {
         $targetAttribute = $this->targetAttribute === null ? $attribute : $this->targetAttribute;
         $params = $this->prepareConditions($targetAttribute, $model, $attribute);
-        $conditions[] = $this->targetAttributeJunction == 'or' ? 'or' : 'and';
+        $conditions = [$this->targetAttributeJunction == 'or' ? 'or' : 'and'];
 
         if (!$this->allowArray) {
             foreach ($params as $key => $value) {
@@ -148,11 +148,13 @@ class ExistValidator extends Validator
             $conditions = [$targetAttribute => $model->$attribute];
         }
 
-        if (!$model instanceof ActiveRecord) {
+        $targetModelClass = $this->getTargetClass($model);
+        if (!is_subclass_of($targetModelClass, 'yii\db\ActiveRecord')) {
             return $conditions;
         }
 
-        return $this->prefixConditions($model, $conditions);
+        /** @var ActiveRecord $targetModelClass */
+        return $this->applyTableAlias($targetModelClass::find(), $conditions);
     }
 
     /**
@@ -165,7 +167,7 @@ class ExistValidator extends Validator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function validateValue($value)
     {
@@ -182,10 +184,11 @@ class ExistValidator extends Validator
             if (!$this->allowArray) {
                 return [$this->message, []];
             }
+
             return $query->count("DISTINCT [[$this->targetAttribute]]") == count($value) ? null : [$this->message, []];
-        } else {
-            return $query->exists() ? null : [$this->message, []];
         }
+
+        return $query->exists() ? null : [$this->message, []];
     }
 
     /**
@@ -208,7 +211,7 @@ class ExistValidator extends Validator
     }
 
     /**
-     * Returns conditions with alias
+     * Returns conditions with alias.
      * @param ActiveQuery $query
      * @param array $conditions array of condition, keys to be modified
      * @param null|string $alias set empty string for no apply alias. Set null for apply primary table alias
@@ -221,27 +224,19 @@ class ExistValidator extends Validator
         }
         $prefixedConditions = [];
         foreach ($conditions as $columnName => $columnValue) {
-            $prefixedColumn = "{$alias}.[[" . preg_replace(
+            if (strpos($columnName, '(') === false) {
+                $prefixedColumn = "{$alias}.[[" . preg_replace(
                     '/^' . preg_quote($alias) . '\.(.*)$/',
-                    "$1",
-                    $columnName) . "]]";
+                    '$1',
+                    $columnName) . ']]';
+            } else {
+                // there is an expression, can't prefix it reliably
+                $prefixedColumn = $columnName;
+            }
+
             $prefixedConditions[$prefixedColumn] = $columnValue;
         }
+
         return $prefixedConditions;
-    }
-
-    /**
-     * Prefix conditions with aliases
-     *
-     * @param ActiveRecord $model
-     * @param array $conditions
-     * @return array
-     */
-    private function prefixConditions($model, $conditions)
-    {
-        $targetModelClass = $this->getTargetClass($model);
-
-        /** @var ActiveRecord $targetModelClass */
-        return $this->applyTableAlias($targetModelClass::find(), $conditions);
     }
 }

@@ -1,7 +1,4 @@
 <?php
-/* @var $panel yii\debug\panels\TimelinePanel */
-/* @var $searchModel \yii\debug\models\timeline\Search */
-/* @var $dataProvider \yii\debug\models\timeline\DataProvider */
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -9,8 +6,11 @@ use yii\widgets\Pjax;
 use yii\debug\TimelineAsset;
 use yii\helpers\StringHelper;
 
-TimelineAsset::register($this);
+/* @var $panel yii\debug\panels\TimelinePanel */
+/* @var $searchModel \yii\debug\models\timeline\Search */
+/* @var $dataProvider \yii\debug\models\timeline\DataProvider */
 
+TimelineAsset::register($this);
 ?>
 <h1 class="debug-timeline-panel__title">Timeline - <?= number_format($panel->getDuration()); ?> ms</h1>
 
@@ -61,7 +61,7 @@ TimelineAsset::register($this);
         <?php Pjax::begin(['formSelector' => '#debug-timeline-search', 'linkSelector' => false, 'options' => ['id' => 'debug-timeline-panel__pjax']]); ?>
         <?php if (($models = $dataProvider->models) === []): ?>
             <div class="debug-timeline-panel__item empty">
-                <span><?= Yii::t('yii', 'No results found.'); ?></span>
+                <span>No results found.</span>
             </div>
         <?php else: ?>
             <?php foreach ($models as $key => $model): ?>

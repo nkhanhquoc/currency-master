@@ -16,7 +16,7 @@ use yii\helpers\StringHelper;
  * This generator will generate the skeleton code needed by a module.
  *
  * @property string $controllerNamespace The controller namespace of the module. This property is read-only.
- * @property boolean $modulePath The directory that contains the module class. This property is read-only.
+ * @property bool $modulePath The directory that contains the module class. This property is read-only.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
@@ -28,7 +28,7 @@ class Generator extends \yii\gii\Generator
 
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -36,7 +36,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getDescription()
     {
@@ -44,7 +44,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -58,7 +58,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -69,7 +69,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function hints()
     {
@@ -80,7 +80,7 @@ class Generator extends \yii\gii\Generator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function successMessage()
     {
@@ -109,7 +109,7 @@ EOD;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function requiredTemplates()
     {
@@ -117,7 +117,7 @@ EOD;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function generate()
     {
@@ -153,7 +153,7 @@ EOD;
     }
 
     /**
-     * @return boolean the directory that contains the module class
+     * @return bool the directory that contains the module class
      */
     public function getModulePath()
     {

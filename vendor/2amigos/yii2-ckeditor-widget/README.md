@@ -22,7 +22,7 @@ composer require 2amigos/yii2-ckeditor-widget
 or add
 
 ```json
-"2amigos/yii2-ckeditor-widget" : "2.0"
+"2amigos/yii2-ckeditor-widget" : "~2.1"
 ```
 
 to the require section of your application's `composer.json` file.
@@ -88,7 +88,7 @@ widget. No more talking, here is the code:
  
 use dosamigos\ckeditor\CKEditorInline;
 
-// First we need to tell CKEDITOR variable where is our external plufin 
+// First we need to tell CKEDITOR variable where is our external plugin 
 $this->registerJs("CKEDITOR.plugins.addExternal('pbckcode', '/pbckcode/plugin.js', '');");
 
 // ... 

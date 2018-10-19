@@ -10,8 +10,6 @@ use yii\helpers\StringHelper;
 /* @var $generator yii\gii\generators\crud\Generator */
 
 $modelClass = StringHelper::basename($generator->modelClass);
-$modelPath = $generator->modelClass;
-$pks = $modelPath::primaryKey();
 $searchModelClass = StringHelper::basename($generator->searchModelClass);
 if ($modelClass === $searchModelClass) {
     $modelAlias = $modelClass . 'Model';
@@ -32,13 +30,13 @@ use yii\data\ActiveDataProvider;
 use <?= ltrim($generator->modelClass, '\\') . (isset($modelAlias) ? " as $modelAlias" : "") ?>;
 
 /**
- * <?= $searchModelClass ?> represents the model behind the search form about `<?= $generator->modelClass ?>`.
+ * <?= $searchModelClass ?> represents the model behind the search form of `<?= $generator->modelClass ?>`.
  */
 class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $modelClass ?>
 
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -48,7 +46,7 @@ class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $m
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function scenarios()
     {
@@ -67,19 +65,21 @@ class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $m
     {
         $query = <?= isset($modelAlias) ? $modelAlias : $modelClass ?>::find();
 
+        // add conditions that should always apply here
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['<?php echo $pks[0];?>' => SORT_DESC]]
         ]);
 
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to any records when validation fails
+            // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
 
+        // grid filtering conditions
         <?= implode("\n        ", $searchConditions) ?>
 
         return $dataProvider;

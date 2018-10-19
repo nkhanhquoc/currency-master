@@ -52,6 +52,7 @@ class Bill extends BillBase{
   public function getAllCustomer(){
     $query = Customer::find()->all();
     $list = [];
+    // $list[0] = '--Chọn--';
     if ($query) {
         foreach ($query as $type) {
             $list[$type->id] = $type->code;
