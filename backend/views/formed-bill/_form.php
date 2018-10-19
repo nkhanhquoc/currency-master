@@ -2,7 +2,7 @@
 use kartik\datetime\DateTimePicker;
 use awesome\backend\widgets\AwsBaseHtml;
 use yii\widgets\ActiveForm;
-
+use brussens\bootstrap\select\Widget as Select;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Bill */
 /* @var $title string */
@@ -38,12 +38,11 @@ use yii\widgets\ActiveForm;
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <?= $form->field($model, 'customer_id')->dropDownList(
-                    $model->getAllCustomer(),
-                    ['prompt'=>'---Chọn Nhà Vàng----',
-                      'onchange'=> new \yii\web\JsExpression('changeBillCode()')
-                      ]
-                    )?>
+                  <?= $form->field($model, 'customer_id')->widget(Select::className(), [
+                      'options' => ['data-live-search' => 'true','title'=>'Chọn Khách hàng','onchange'=> new \yii\web\JsExpression('changeBillCode()')],
+                      'items' => $model->getAllCustomer()
+                  ]);
+                  ?>
                 </div>
 
                 <div class="col-md-6">

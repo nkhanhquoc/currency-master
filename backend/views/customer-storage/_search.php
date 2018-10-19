@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use brussens\bootstrap\select\Widget as Select;
 /* @var $this yii\web\View */
 /* @var $model backend\models\CustomerStorageSearch */
 /* @var $form yii\widgets\ActiveForm */
@@ -17,7 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'code') ?>
 
-    <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer(),['prompt'=>'--Chọn Khách hàng--']) ?>
+    <?= $form->field($model, 'customer_id')->widget(Select::className(), [
+                                'options' => ['data-live-search' => 'true','title'=>'Chọn Khách hàng'],
+                                'items' => $model->getAllCustomer()
+                            ]);
+                            ?>
 
     <?php // echo $form->field($model, 'customer_type') ?>
 
