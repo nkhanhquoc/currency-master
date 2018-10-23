@@ -57,7 +57,6 @@ class StorageSearch extends OriginalStorage
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'type' => 0,
             'quantity' => $this->quantity,
             'currency_id' => $this->currency_id,
             'type' => $this->type

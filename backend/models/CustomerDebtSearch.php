@@ -79,7 +79,7 @@ class CustomerDebtSearch extends Bill
       $query = Yii::$app->db
       ->createCommand("select sum(value) as value, currency_id,customer_id from (select * from view_debt
               where date <= :date
-              group by currency_id, customer_id) abc where customer_id = :cusid
+              ) abc where customer_id = :cusid
               group by currency_id")
               ->bindValue(":date",$date.' 23:59:59')
               ->bindValue(":cusid",$cusid)

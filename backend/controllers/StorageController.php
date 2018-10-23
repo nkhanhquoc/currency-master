@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Storage;
 use backend\models\OriginalStorage;
 use backend\models\StorageSearch;
 use yii\web\Controller;
@@ -80,8 +81,14 @@ class StorageController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if($model->is_updated == 1){
+          return $this->redirect('index');
+        }
         $model->is_updated = 1;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+          $st = Storage::find()->where(['currency_id'=>$model->currency_id])->one();
+          $st->quantity = $model->quantity;
+          $st->save(false);
           return $this->render('update', [
               'model' => $model,
           ]);
