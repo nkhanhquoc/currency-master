@@ -141,18 +141,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                   </tr>
                 <?php endforeach;?>
                 <tr id="tr-sum" style="">
-                  <td colspan="5">
 
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    Tổng
-                  </td>
-                  <td id="sum-value">
-                    <input disabled="disabled" value="<?= number_format($model->value) ?>" class="form-control"/>
-                  </td>
-                  <td style="font-weight:bold;text-align:right;vertical-align: middle">
-                    VND
-                  </td>
                 </tr>
                 <tr>
                   <td class="text-center" colspan="4">

@@ -69,9 +69,9 @@ class ViewDebtSearch extends ViewDebt
 
     public function searchDebt($date){
       $query = Yii::$app->db
-      ->createCommand("select sum(value) as value, currency_id from (select * from view_debt
-              where date <= :date
-              ) abc
+      ->createCommand("select sum(value) as value, currency_id from view_debt where id in (select max(id) from view_debt
+              where date <= :date group by customer_id, currency_id
+              )
               group by currency_id")
               ->bindValue(":date",$date.' 23:59:59')
               ->queryAll();

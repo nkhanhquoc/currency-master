@@ -101,12 +101,7 @@ use brussens\bootstrap\select\Widget as Select;
                         </tr>
                       <?php endforeach;?>
                       <tr id="tr-sum" style="display:none">
-                        <td colspan="5" style="font-weight:bold">
-                          Tổng
-                        </td>
-                        <td id="sum-value">
-
-                        </td>
+                        
                       </tr>
 
                     </table>
