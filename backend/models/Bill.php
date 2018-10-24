@@ -50,7 +50,7 @@ class Bill extends BillBase{
   }
 
   public function getAllCustomer(){
-    $query = Customer::find()->all();
+    $query = Customer::find()->orderBy('code')->all();
     $list = [];
     // $list[0] = '--Chọn--';
     if ($query) {
@@ -62,7 +62,7 @@ class Bill extends BillBase{
   }
 
   public function getAllCurrency(){
-    $query = Currency::find()->all();
+    $query = Currency::find()->orderBy('code')->all();
     $list = [];
     if ($query) {
         foreach ($query as $type) {
@@ -73,7 +73,7 @@ class Bill extends BillBase{
   }
 
   public function getStorageCurrency(){
-    $query = Currency::find()->where(['type'=>0])->all();
+    $query = Currency::find()->where(['type'=>0])->orderBy('code')->all();
     $list = [];
     if ($query) {
         foreach ($query as $type) {

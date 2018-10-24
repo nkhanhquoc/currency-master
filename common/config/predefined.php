@@ -15,7 +15,7 @@ define('banner_link', 'http://192.168.146.189:9997');
 define('img_banner', '/images/data/image_1.png');
 define('img_help', '/images/data/image_2.png');
 
-define('VND_CURRENCY_ID',1);
+define('VND_CURRENCY_ID',12);
 
 define('MUA',1);
 define('BAN',2);

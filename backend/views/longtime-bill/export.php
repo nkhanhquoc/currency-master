@@ -124,29 +124,22 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                       <input name="trans[note][]" value="<?= $tran->note ?>" disabled="disabled" type="text" class="form-control"/>
                     </td>
                     <td>
-                      <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllLongTradeType(),
-                        ['name'=>'trans[type][]','disabled'=>'disabled']
-                        )->label(false)?>
+                      <?= $form->field($tran, 'TypeName')->textInput(['disabled'=>'disabled'])->label(false)?>
                     </td>
                     <td>
-                      <?= $form->field($tran, 'currency_id')->dropDownList(
-                        $model->getStorageCurrency(),
-                        ['name'=>'trans[currency_id][]',
-                         'disabled'=>'disabled']
-                        )->label(false)?>
+                      <?= $form->field($tran, 'CurrencyName')->textInput(['disabled'=>'disabled'])->label(false)?>
                     </td>
                     <td>
-                      <input name="trans[quantity][]" disabled="disabled" value="<?= $tran->quantity ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[quantity][]" disabled="disabled" value="<?= number_format($tran->quantity) ?>" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[exchange_rate][]" disabled="disabled" value="<?= $tran->exchange_rate ?>" type="number" min="0" class="form-control"/>
+                      <input name="trans[exchange_rate][]" disabled="disabled" value="<?= number_format($tran->exchange_rate) ?>" class="form-control"/>
                     </td>
                     <td>
                       <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value) ?>" class="form-control"/>
                     </td>
                   </tr>
-                <?php endforeach;?>                
+                <?php endforeach;?>
                 <tr>
                   <td class="text-center" colspan="4">
                     <span class="font-weight-bold"><b>Người chi</b></span>

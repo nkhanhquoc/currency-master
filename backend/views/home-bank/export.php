@@ -101,17 +101,11 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                       <input name="trans[note][]" value="<?= $tran->note ?>" disabled="disabled" type="text" class="form-control"/>
                     </td>
                     <td>
-                      <?= $form->field($tran, 'type')->dropDownList(
-                        $tran->getAllTradeType(),
-                        ['name'=>'trans[type][]','disabled'=>'disabled']
-                        )->label(false)?>
+                      <?= $form->field($tran, 'TypeName')->textInput(['disabled'=>'disabled'])->label(false)?>
                     </td>
 
                     <td>
-                      <?= $form->field($tran, 'currency_id')->dropDownList(
-                        [VND_CURRENCY_ID => 'VND'],
-                        ['name'=>'trans[currency_id][]','disabled'=>'disabled']
-                        )->label(false)?>
+                      <?= $form->field($tran, 'CurrencyName')->textInput(['disabled'=>'disabled'])->label(false)?>
                     </td>
                     <td>
                       <input name="trans[value][]" disabled="disabled" value="<?= number_format($tran->value) ?>" class="form-control"/>

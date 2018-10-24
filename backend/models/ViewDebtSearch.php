@@ -80,9 +80,9 @@ class ViewDebtSearch extends ViewDebt
 
     public function searchTonkho($date){
       $query = Yii::$app->db
-      ->createCommand("select quantity, currency_id from (select * from view_tonkho
+      ->createCommand("select quantity, currency_id from view_tonkho where id in (select max(id) from view_tonkho
               where date <= :date
-              group by currency_id) abc")
+              group by currency_id)")
               ->bindValue(":date",$date.' 23:59:59')
               ->queryAll();
       return $query;
