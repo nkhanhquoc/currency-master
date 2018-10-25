@@ -9,7 +9,7 @@ use Yii;
  *
  * @property string $id
  * @property string $name
- * @property integer $quantity
+ * @property double $quantity
  * @property string $currency_id
  * @property string $date
  * @property integer $type
@@ -32,9 +32,9 @@ class StorageDB extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['quantity', 'currency_id', 'type'], 'integer'],
+            [['currency_id', 'type'], 'integer'],
             [['date'], 'safe'],
-            [['name'], 'string', 'max' => 255]
+            [['quantity', 'name'], 'string', 'max' => 255]
         ];
     }
 

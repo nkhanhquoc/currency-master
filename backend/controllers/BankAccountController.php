@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Storage;
+use backend\models\OriginalStorage;
 use backend\models\BankAccount;
 use backend\models\BankAccountSearch;
 use yii\web\Controller;
@@ -70,6 +71,13 @@ class BankAccountController extends Controller
           $st->name = $model->code;
           $st->type = 1;
           $st->save();
+
+          $ost = new OriginalStorage();
+          $ost->currency_id = $model->id;
+          $ost->quantity = 0;
+          $ost->name = $model->code;
+          $ost->type = 1;
+          $ost->save();
             return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [

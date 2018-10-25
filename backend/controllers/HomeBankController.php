@@ -140,11 +140,11 @@ class HomeBankController extends Controller
             switch($tran->type){
               case TRA_TIEN:
                 Storage::updateByCurrId(VND_CURRENCY_ID,(0-$tran->value));
-                Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,(0-$tran->value));
+                Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,$tran->value);
                 break;
               case NHAN_TIEN:
                 Storage::updateByCurrId(VND_CURRENCY_ID,$tran->value);
-                Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,$tran->value);
+                Debt::updateByCustomerNCurrency($model->customer_id,VND_CURRENCY_ID,(0-$tran->value));
                 break;
               default: break;
             }

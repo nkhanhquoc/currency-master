@@ -99,7 +99,12 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                       <input name="trans[note][]" value="<?= $tran->note ?>" disabled="disabled" type="text" class="form-control"/>
                     </td>
                     <td>
-                      <?= $form->field($tran, 'type')->dropDownList(['13'=>'Cửa hàng CK'],['name'=>'trans[type][]','readonly'=>'readonly'])->label(false)?>
+                      <?= $form->field($tran, 'type')->dropDownList([
+                        '13'=>'Cửa hàng CK',
+                        '12'=>'Khách CK',
+                        '16'=>'Rút tiền',
+                        '17'=>'Nạp tiền'
+                      ],['name'=>'trans[type][]','readonly'=>'readonly'])->label(false)?>
                     </td>
                     <td>
                       <?= $form->field($tran, 'currency_id')->dropDownList(

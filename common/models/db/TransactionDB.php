@@ -42,7 +42,7 @@ class TransactionDB extends \yii\db\ActiveRecord
             [['bill_id', 'type', 'currency_id'], 'integer'],
             [['created_time'], 'safe'],
             [['quantity', 'receiver', 'note'], 'string', 'max' => 255],
-            [['value', 'fee', 'deposit', 'exchange_rate','real_value'], 'string', 'max' => 10]
+            [['value', 'fee', 'deposit', 'exchange_rate','real_value'], 'string', 'max' => 20]
         ];
     }
 

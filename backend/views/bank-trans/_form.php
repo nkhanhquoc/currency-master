@@ -70,6 +70,7 @@ use yii\widgets\ActiveForm;
                           <td>
                             <?= $form->field($tran, 'type')->dropDownList([
                               '13'=>'Cửa hàng CK',
+                              '12'=>'Khách CK',
                               '16'=>'Rút tiền',
                               '17'=>'Nạp tiền'
                             ],
@@ -143,6 +144,7 @@ trr+= '</td>';
 trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="13">Cửa hàng CK</option>';
+trr+=     '<option value="12">Khách CK</option>';
 trr+=     '<option value="16">Rút tiền</option>';
 trr+=     '<option value="17">Nạp tiền</option>';
 trr+=   '</select>';

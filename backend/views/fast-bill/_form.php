@@ -137,8 +137,8 @@ use brussens\bootstrap\select\Widget as Select;
                         <th>Loại GD </th>
                         <th>Loại Tiền  </th>
                         <th>Số Lượng</th>
-                        <th>Thành tiền</th>
                         <th>Phí</th>
+                        <th>Thành tiền</th>                        
                         <th></th>
                       </tr>
                       <tbody id="list-ref-content">

@@ -269,8 +269,8 @@ public function groupTrans($bills){
         'type' => $tran->getTypeName(),
         'currency_name'=>$tran->getCurrencyName(),
         'quantity' => number_format($tran->quantity),
-        'fee' => number_format($data->fee),
-        'value' => number_format($data->value)
+        'fee' => number_format($tran->fee),
+        'value' => number_format($tran->value)
       ];
     }
   }
@@ -289,7 +289,7 @@ public function actionExport($id){
       foreach($trans as $tran){
         switch($tran->type){
           case MUA:
-            Storage::updateByCurrId(VND_CURRENCY_ID, (0 - $tran->value));
+            Storage::updateByCurrId(VND_CURRENCY_ID, $tran->value);
             Storage::updateByCurrId($tran->currency_id, $tran->quantity);
             break;
           case BAN:
@@ -306,10 +306,12 @@ public function actionExport($id){
               break;
           case KHACH_CK:
               // Storage::updateByCurrId($tran->currency_id, $tran->quantity);
-              Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+              Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+              Storage::updateByCurrId(VND_CURRENCY_ID, $tran->value);
               break;
           case CUAHANG_CK:
-              Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+              Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+              Storage::updateByCurrId(VND_CURRENCY_ID, $tran->value);
               break;
           case TRA_FEEDBACK:
               Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));

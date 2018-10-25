@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Debt;
 use backend\models\Bill;
 use backend\models\Transaction;
 use backend\models\Storage;
@@ -82,7 +83,12 @@ class LongtimeBillController extends Controller
               $trans->value = $params["trans"]['value'][$i];
               //$billVal += $trans->value;
               // $model->fee +=
-              $trans->save();
+              try{
+                $trans->save(false);
+              } catch(Exception $e){
+                var_dump($e->getMessage());die;
+              }
+
             }
             // $model->value = $billVal+$model->deposit;
             // $model->save();
@@ -154,9 +160,11 @@ class LongtimeBillController extends Controller
               switch($tran->type){
                 case KHACH_DAT_COC:
                   Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+                  Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
                   break;
                 case CH_DAT_COC:
                   Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+                  Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->quantity);
                   break;
                 default:break;
               }

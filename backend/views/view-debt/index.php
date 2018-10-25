@@ -48,10 +48,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= Currency::findOne($debt['currency_id'])->code?>
                           </td>
                           <td>
-                            <?= number_format($debt['ovalue'])?>
+                            <?= number_format($debt['ovalue'],2)?>
                           </td>
                           <td>
-                            <?= number_format($debt['value'])?>
+                            <?= number_format($debt['value'],2)?>
                           </td>
                         </tr>
                       <?php endforeach; ?>
@@ -72,10 +72,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= Currency::findOne($st['currency_id'])->code?>
                           </td>
                           <td>
-                            <?= number_format($st['oquantity'],1)?>
+                            <?= number_format($st['oquantity'],2)?>
                           </td>
                           <td>
-                            <?= number_format($st['quantity'],1)?>
+                            <?= number_format($st['quantity'],2)?>
                           </td>
                         </tr>
                       <?php endforeach; ?>

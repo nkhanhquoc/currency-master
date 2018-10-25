@@ -114,7 +114,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->cod
                       <?= $form->field($tran, 'CurrencyName')->textInput(['disabled'=>'disabled'])->label(false)?>
                     </td>
                     <td>
-                      <input name="trans[quantity][]" disabled="disabled" value="<?= number_format($tran->quantity) ?>" class="form-control"/>
+                      <input name="trans[quantity][]" disabled="disabled" value="<?= number_format($tran->quantity,2) ?>" class="form-control"/>
                     </td>
                     <td>
                       <input name="trans[fee][]" disabled="disabled" value="<?= number_format($tran->fee) ?>" class="form-control"/>

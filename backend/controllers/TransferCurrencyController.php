@@ -150,7 +150,7 @@ class TransferCurrencyController extends Controller
                 Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
                 break;
               case TRA_TIEN_CHUYEN:
-                Storage::updateByCurrId(VND_CURRENCY_ID,(0-$tran->fee));
+                Storage::updateByCurrId(VND_CURRENCY_ID,$tran->fee);
                 Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
                 Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->quantity);
                 break;

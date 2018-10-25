@@ -149,22 +149,16 @@ class CostController extends Controller
       $model = $this->findModel($id);
       $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
       if($model->is_export != 1){
-        $costVal = 0;
         $model->is_export = 1;
         try{
-          // $model->save();
-
+          $model->save();
           foreach($trans as $tran){
             if($tran->type == THU){
-              Storage::updateByCurrId(VND_CURRENCY_ID, $tran->quantity);
-              $costVal += $tran->quantity;
+              Storage::updateByCurrId($tran->currency_id, $tran->quantity);
             } else if($tran->type == CHI) {
-              Storage::updateByCurrId(VND_CURRENCY_ID, (0-$tran->quantity));
-              $costVal += (0-$tran->quantity);
+              Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
             }
           }
-          $model->value = $costVal;
-          $model->save();
         }catch(Exception $e){
           Yii::$app->session->setFlash("error","Xuất hóa đơn không thành công: ".$e->getMessage());
         }
