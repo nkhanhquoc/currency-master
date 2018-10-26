@@ -64,6 +64,9 @@ class Storage extends StorageBase{
   // }
 
   public static function updateByCurrId($currency,$value){
+    if($value == null || $value == 0 || $value == ''){
+      return;
+    }
     $currentSt = Storage::find()
     ->where(['currency_id'=>$currency])
     ->andWhere(['>=','date',date("Y-m-d")])

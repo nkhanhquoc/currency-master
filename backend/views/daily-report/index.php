@@ -44,13 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         <th>Phí</th>
                         <th>Ngày</th>
                       </tr>
-                      <?php $billArr = []; ?>
+                      <?php $billArr = []; var_dump($dataProvider->getModels());die;?>
                       <?php foreach($dataProvider->getModels() as $data):?>
                         <?php if(!in_array($data->bill_id,$billArr)):?>
                           <?php $billArr[] = $data->bill_id; $bill = $data->getBill();?>
                           <tr class="list-group-item-info" style="font-weight:bold">
                             <td colspan="8">
-                              <?= $bill->code ?>
+                              <?= count($billArr).'.'.$bill->code ?>
                             </td>
                           </tr>
                         <?php endif;?>

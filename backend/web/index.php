@@ -5,7 +5,6 @@ define('_APP_PATH_', dirname(__FILE__));
 date_default_timezone_set('Asia/Saigon');
 ini_set('session.cookie_httponly', 1);
 error_reporting(1);
-
 require(__DIR__ . '/../../vendor/autoload.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/../../common/config/bootstrap.php');
@@ -18,6 +17,8 @@ $config = yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../config/main.php'),
     require(__DIR__ . '/../config/main-local.php')
 );
+//die("abc");
+
 $application = new yii\web\Application($config);
 $application->run();
 //khanhnq16

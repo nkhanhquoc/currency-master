@@ -46,7 +46,8 @@ class DailyReportSearch extends Transaction
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['id' => SORT_DESC]]
+            'sort' => ['defaultOrder' => ['id' => SORT_DESC]],
+            'pagination' => false
         ]);
 
         $this->load($params);

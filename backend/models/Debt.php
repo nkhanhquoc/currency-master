@@ -23,6 +23,9 @@ class Debt extends DebtBase{
   }
 
   public static function updateByCustomerNCurrency($customer,$currency,$value){
+    if($value == null || $value == 0 || $value == ''){
+      return;
+    }
     $currentDebt = Debt::find()
     ->where(['customer_id'=>$customer,'currency_id'=>$currency])
     ->andWhere(['>=','date',date("Y-m-d")])
