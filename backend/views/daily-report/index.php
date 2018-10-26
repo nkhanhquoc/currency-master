@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <th>Phí</th>
                         <th>Ngày</th>
                       </tr>
-                      <?php $billArr = []; var_dump($dataProvider->getModels());die;?>
+                      <?php $billArr = [];?>
                       <?php foreach($dataProvider->getModels() as $data):?>
                         <?php if(!in_array($data->bill_id,$billArr)):?>
                           <?php $billArr[] = $data->bill_id; $bill = $data->getBill();?>
