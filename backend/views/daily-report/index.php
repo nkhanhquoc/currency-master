@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= $bill->getCustomer() ?>
                           </td>
                           <td>
-                            <?= $tran->note ?>
+                            <?= $data->note ?>
                           </td>
                           <td>
                             <?= $data->getTypeName() ?>
