@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <table class="table table-bordered">
                       <tr class="list-group-item-success">
                         <th>Khách hàng </th>
+                        <th>Ghi Chú </th>
                         <th>Loại GD </th>
                         <th>Loại Tiền  </th>
                         <th>Số Lượng</th>
@@ -48,8 +49,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php if(!in_array($data->id,$billArr)):?>
                           <?php $billArr[] = $data->id; $trans = $data->getAllTrans();?>
                           <tr class="list-group-item-info" style="font-weight:bold">
-                            <td colspan="8">
+                            <td colspan="2">
                               <?= $data->code ?>
+                            </td>
+                            <td colspan="7">
                             </td>
                           </tr>
                         <?php endif;?>
@@ -59,19 +62,22 @@ $this->params['breadcrumbs'][] = $this->title;
                               <?= $data->getCustomer() ?>
                             </td>
                             <td>
+                              <?= $tran->note ?>
+                            </td>
+                            <td>
                               <?= $tran->getTypeName() ?>
                             </td>
                             <td>
                               <?= $tran->getCurrencyName() ?>
                             </td>
                             <td>
-                              <?= number_format($tran->quantity) ?>
+                              <?= number_format($tran->quantity,2) ?>
                             </td>
                             <td>
                               <?= $tran->exchange_rate ?>
                             </td>
                             <td>
-                              <?= number_format($tran->value) ?>
+                              <?= number_format($tran->value,2) ?>
                             </td>
                             <td>
                               <?= number_format($tran->fee) ?>

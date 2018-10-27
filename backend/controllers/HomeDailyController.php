@@ -34,11 +34,11 @@ class HomeDailyController extends Controller
     {
         $searchModel = new HomeDailySearch();
         $params = Yii::$app->request->queryParams;
-        if(empty($params))
-        $params = ['HomeDailySearch'=>['created_date'=>date("Y-m-d")]];
-
+        if(empty($params)){
+          $params = ['HomeDailySearch'=>['created_date'=>date("Y-m-d")]];
+          $searchModel['created_date'] = $selectDate;
+        }
         $dataProvider = $searchModel->search($params);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

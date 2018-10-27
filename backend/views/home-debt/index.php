@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
-                                        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
-                                <div class="caption">
+                    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+                        <div class="caption">
                     <i class="icon-layers font-green"></i>
                     <span class="caption-subject font-green sbold uppercase">
                         <?=  AwsBaseHtml::encode($this->title) ?>
@@ -47,10 +47,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= Currency::findOne($debt['currency_id'])->code?>
                           </td>
                           <td>
-                            <?= number_format($debt['ovalue'])?>
+                            <?= number_format($debt['ovalue'],2)?>
                           </td>
                           <td>
-                            <?= number_format($debt['value'])?>
+                            <?= number_format($debt['value'],2)?>
                           </td>
                         </tr>
                       <?php endforeach; ?>

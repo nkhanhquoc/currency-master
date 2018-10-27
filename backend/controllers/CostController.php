@@ -65,7 +65,7 @@ class CostController extends Controller
     {
         $model = new Bill();
         $model->type = 11;
-        $model->customer_id = -1;
+        $model->customer_id = -2;
         $model->created_date = date("Y-m-d h:i:s");
         $count = Bill::countTypeBillInDay(11);
         $model->code = "CP-".date("Ymd")."-LV-".($count+1);
