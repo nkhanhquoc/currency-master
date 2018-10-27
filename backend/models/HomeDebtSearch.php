@@ -78,10 +78,9 @@ class HomeDebtSearch extends Bill
 
     public function searchDebt($date){
       $query = Yii::$app->db
-      ->createCommand("select sum(value) as value, currency_id,customer_id from (select * from view_debt
-              where date <= :date
-              group by currency_id, customer_id) abc where customer_id = 0
-              group by currency_id")
+      ->createCommand("select sum(value) as value, currency_id from view_debt where id in (select max(id) from view_debt
+              where date <= :date group by customer_id, currency_id
+              ) and customer_id = 0")
               ->bindValue(":date",$date.' 23:59:59')
               ->queryAll();
       return $query;

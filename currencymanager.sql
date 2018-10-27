@@ -1,5 +1,5 @@
 /*
- Navicat Premium Data Transfer
+ Navicat MySQL Data Transfer
 
  Source Server         : localhost
  Source Server Type    : MySQL
@@ -11,7 +11,7 @@
  Target Server Version : 100136
  File Encoding         : 65001
 
- Date: 24/10/2018 02:40:02
+ Date: 22/10/2018 00:05:32
 */
 
 SET NAMES utf8mb4;
@@ -637,16 +637,7 @@ CREATE TABLE `bill`  (
   `created_date` datetime(0) NULL DEFAULT NULL,
   `is_export` int(1) NULL DEFAULT 0 COMMENT '1. da xuat hoa don, 0. chua xuat',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of bill
--- ----------------------------
-INSERT INTO `bill` VALUES (1, 5, 'VM-20181023-Kim Quý TC-1', 13, NULL, NULL, 'abc', NULL, NULL, NULL, '2018-10-23 23:20:09', 1);
-INSERT INTO `bill` VALUES (2, 5, 'VM-20181024-Tùng Bảo Minh-1', 11, NULL, NULL, '', NULL, NULL, NULL, '2018-10-24 00:16:37', 1);
-INSERT INTO `bill` VALUES (3, 5, 'VM-20181024-Kim Hóa-2', 12, NULL, NULL, '', NULL, NULL, NULL, '2018-10-24 00:17:14', 1);
-INSERT INTO `bill` VALUES (4, 5, 'VM-20181024-Định Công-3', 10, NULL, NULL, 'sdsds', NULL, NULL, NULL, '2018-10-24 00:24:05', 1);
-INSERT INTO `bill` VALUES (5, 5, 'VM-20181024-Kim Quý TC-4', 13, NULL, NULL, '', NULL, NULL, NULL, '2018-10-24 00:29:22', 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for contact
@@ -687,7 +678,7 @@ CREATE TABLE `currency`  (
 -- ----------------------------
 -- Records of currency
 -- ----------------------------
-INSERT INTO `currency` VALUES (12, 'VND', 'VND', 1.00, 1, 0);
+INSERT INTO `currency` VALUES (12, 'VND', 'VND', NULL, 1, 0);
 INSERT INTO `currency` VALUES (13, 'USD', 'USD', 2344.00, 1, 0);
 INSERT INTO `currency` VALUES (14, 'CAD', 'CAD', 1800.00, 1, 0);
 INSERT INTO `currency` VALUES (15, 'TK Vietcombank', 'TK VCB', NULL, 1, 1);
@@ -796,7 +787,7 @@ CREATE TABLE `debt`  (
   `value` float(10, 2) NULL DEFAULT NULL,
   `date` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1433 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1428 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of debt
@@ -896,7 +887,7 @@ INSERT INTO `debt` VALUES (127, 35, 9, 0.00, '2018-10-19 14:25:53');
 INSERT INTO `debt` VALUES (128, 35, 10, 0.00, '2018-10-19 14:25:53');
 INSERT INTO `debt` VALUES (129, 35, 11, 0.00, '2018-10-19 14:25:53');
 INSERT INTO `debt` VALUES (130, 35, 12, 0.00, '2018-10-19 14:25:53');
-INSERT INTO `debt` VALUES (131, 12, 13, 15000000.00, '2018-10-19 14:28:22');
+INSERT INTO `debt` VALUES (131, 12, 13, 0.00, '2018-10-19 14:28:22');
 INSERT INTO `debt` VALUES (132, 13, 13, 0.00, '2018-10-19 14:28:22');
 INSERT INTO `debt` VALUES (133, 14, 13, 0.00, '2018-10-19 14:28:22');
 INSERT INTO `debt` VALUES (134, 15, 13, 0.00, '2018-10-19 14:28:22');
@@ -2193,11 +2184,6 @@ INSERT INTO `debt` VALUES (1424, 39, 58, 0.00, '2018-10-22 00:04:39');
 INSERT INTO `debt` VALUES (1425, 40, 58, 0.00, '2018-10-22 00:04:39');
 INSERT INTO `debt` VALUES (1426, 41, 58, 0.00, '2018-10-22 00:04:39');
 INSERT INTO `debt` VALUES (1427, 42, 58, 0.00, '2018-10-22 00:04:39');
-INSERT INTO `debt` VALUES (1428, 12, 13, -35000000.00, '2018-10-23 23:20:15');
-INSERT INTO `debt` VALUES (1429, 12, 11, -2500000.00, '2018-10-24 00:16:44');
-INSERT INTO `debt` VALUES (1430, 12, 12, 75000000.00, '2018-10-24 00:17:19');
-INSERT INTO `debt` VALUES (1431, 12, 10, 15000000.00, '2018-10-24 00:24:10');
-INSERT INTO `debt` VALUES (1432, 12, 13, -5000000.00, '2018-10-24 00:29:29');
 
 -- ----------------------------
 -- Table structure for home_storage
@@ -2305,8 +2291,8 @@ CREATE TABLE `original_storage`  (
 -- ----------------------------
 -- Records of original_storage
 -- ----------------------------
-INSERT INTO `original_storage` VALUES (2, 12, 100000000.00, 0, 'VND', 1);
-INSERT INTO `original_storage` VALUES (3, 13, 1000.00, 0, 'USD', 0);
+INSERT INTO `original_storage` VALUES (2, 12, 0.00, 0, 'VND', 0);
+INSERT INTO `original_storage` VALUES (3, 13, 0.00, 0, 'USD', 0);
 INSERT INTO `original_storage` VALUES (4, 14, 0.00, 0, 'CAD', 0);
 INSERT INTO `original_storage` VALUES (5, 20, 0.00, 0, 'Tệ', 0);
 INSERT INTO `original_storage` VALUES (6, 21, 0.00, 0, 'Yên', 0);
@@ -2357,12 +2343,12 @@ CREATE TABLE `storage`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `storage_currency_idx`(`currency_id`) USING BTREE,
   CONSTRAINT `storage_currency_idx` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of storage
 -- ----------------------------
-INSERT INTO `storage` VALUES (18, 'VND', 100000000, 12, '2018-10-18 23:44:27', 0);
+INSERT INTO `storage` VALUES (18, 'VND', 0, 12, '2018-10-18 23:44:27', 0);
 INSERT INTO `storage` VALUES (19, 'USD', 0, 13, '2018-10-18 23:44:41', 0);
 INSERT INTO `storage` VALUES (20, 'CAD', 0, 14, '2018-10-18 23:44:54', 0);
 INSERT INTO `storage` VALUES (21, 'VCB', 0, 15, '2018-10-18 23:49:15', 1);
@@ -2393,8 +2379,6 @@ INSERT INTO `storage` VALUES (45, 'TK TPbank', 0, 39, '2018-10-21 23:50:37', 1);
 INSERT INTO `storage` VALUES (46, 'TK Seabank', 0, 40, '2018-10-21 23:51:01', 1);
 INSERT INTO `storage` VALUES (47, 'TK MBbank', 0, 41, '2018-10-21 23:51:42', 1);
 INSERT INTO `storage` VALUES (48, 'TK BiDV', 0, 42, '2018-10-21 23:51:58', 1);
-INSERT INTO `storage` VALUES (49, 'VND', 35000000, 12, '2018-10-23 23:20:15', 0);
-INSERT INTO `storage` VALUES (50, 'VND', -82500000, 12, '2018-10-24 00:16:44', 0);
 
 -- ----------------------------
 -- Table structure for transaction
@@ -2417,16 +2401,7 @@ CREATE TABLE `transaction`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `transaction_currency_idx`(`currency_id`) USING BTREE,
   INDEX `transaction_bill`(`bill_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of transaction
--- ----------------------------
-INSERT INTO `transaction` VALUES (1, 1, 5, 12, '35000000', NULL, '2018-10-23 23:20:09', NULL, 0.00, NULL, NULL, NULL, NULL);
-INSERT INTO `transaction` VALUES (2, 2, 5, 12, '2500000', NULL, '2018-10-24 00:16:38', NULL, 0.00, NULL, NULL, NULL, NULL);
-INSERT INTO `transaction` VALUES (3, 3, 6, 12, '75000000', NULL, '2018-10-24 00:17:14', NULL, 0.00, NULL, NULL, NULL, NULL);
-INSERT INTO `transaction` VALUES (4, 4, 6, 12, '15000000', NULL, '2018-10-24 00:24:05', NULL, 0.00, NULL, NULL, NULL, NULL);
-INSERT INTO `transaction` VALUES (5, 5, 6, 12, '30000000', NULL, '2018-10-24 00:29:22', NULL, 0.00, NULL, NULL, NULL, NULL);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for user
@@ -2483,9 +2458,9 @@ CREATE TABLE `user_login_failed`  (
 -- View structure for view_debt
 -- ----------------------------
 DROP VIEW IF EXISTS `view_debt`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_debt` AS select id,currency_id, customer_id, value, DATE_FORMAT(date,'%Y-%m-%d') as date
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_debt` AS select currency_id, customer_id, value, DATE_FORMAT(date,'%Y-%m-%d') as date
  from debt 
-order by date desc ;
+order by date desc ; ;
 
 -- ----------------------------
 -- View structure for view_tonkho
@@ -2494,5 +2469,21 @@ DROP VIEW IF EXISTS `view_tonkho`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_tonkho` AS select currency_id, quantity, DATE_FORMAT(date,'%Y-%m-%d') as date
  from storage 
 order by date desc ;
+
+-- ----------------------------
+-- Procedure structure for proc_debt
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `proc_debt`;
+delimiter ;;
+CREATE PROCEDURE `proc_debt`(IN `datetime` date)
+BEGIN
+		select currency_id, customer_id, value,DATE_FORMAT(date,'%Y-%m-%d') as date from (
+		select * from debt order by date desc
+		) abc 
+		where DATE_FORMAT(date,'%y-%m-%d') <= datetime
+		group by currency_id, customer_id;
+END
+;;
+delimiter ;
 
 SET FOREIGN_KEY_CHECKS = 1;
