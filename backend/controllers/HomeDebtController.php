@@ -35,13 +35,14 @@ class HomeDebtController extends Controller
     {
         $searchModel = new HomeDebtSearch();
         $params = Yii::$app->request->queryParams;
-
-        $selectDate = $params['CustomerDebtSearch']['date'];
-        $selectCus = $params['CustomerDebtSearch']['customer_id'];
-
-        $currentDebt = $searchModel->searchDebt($selectDate,$selectCus);
+        $selectDate = $params['HomeDebtSearch']['created_date'];
+        if($selectDate == null){
+          $selectDate = date("Y-m-d");
+          $searchModel['created_date'] = $selectDate;
+        }
+        $currentDebt = $searchModel->searchDebt($selectDate);
         $beforeDate = date('Y-m-d', strtotime('-1 day', strtotime($selectDate)));
-        $oldDebt = $searchModel->searchDebt($beforeDate,$selectCus);
+        $oldDebt = $searchModel->searchDebt($beforeDate);
 
         foreach($oldDebt as $k=> $odebt){
           foreach($currentDebt as $j => $cdebt){

@@ -113,9 +113,14 @@ class Bill extends BillBase{
   }
 
   public function getCustomer(){
-    $cus = Customer::findOne($this->customer_id);
-
-    return $cus != null ? $cus->name:'Quê';
+    $name = '';
+    switch($this->customer_id){
+      case 0: $name = 'Quê';break;
+      case -1: $name = 'GD Ngân hàng';break;
+      case -2: $name = 'Chi Phí';break;
+      default: $cus = Customer::findOne($this->customer_id); $name = $cus->name; break;
+    }
+    return $name;
   }
 
   public static function findRefBill($type,$cus){

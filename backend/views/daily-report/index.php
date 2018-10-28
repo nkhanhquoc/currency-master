@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <table class="table table-bordered">
                       <tr class="list-group-item-success">
                         <th>Khách hàng </th>
+                        <th>Ghi Chú </th>
                         <th>Loại GD </th>
                         <th>Loại Tiền  </th>
                         <th>Số Lượng</th>
@@ -49,14 +50,20 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php if(!in_array($data->bill_id,$billArr)):?>
                           <?php $billArr[] = $data->bill_id; $bill = $data->getBill();?>
                           <tr class="list-group-item-info" style="font-weight:bold">
-                            <td colspan="8">
+                            <td colspan="2">
                               <?= count($billArr).'.'.$bill->code ?>
+                            </td>
+                            <td colspan="7">
+
                             </td>
                           </tr>
                         <?php endif;?>
                         <tr>
                           <td>
                             <?= $bill->getCustomer() ?>
+                          </td>
+                          <td>
+                            <?= $data->note ?>
                           </td>
                           <td>
                             <?= $data->getTypeName() ?>
