@@ -145,11 +145,11 @@ class HomeTransferController extends Controller
               case TRA_TIEN_CHUYEN:
                 Storage::updateByCurrId($tran->currency_id,(0-$tran->quantity));
                 Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,$tran->quantity);
-                if($tran->currency_id == VND_CURRENCY_ID){
-                  Storage::updateByCurrId(VND_CURRENCY_ID,(0-$tran->fee));
-                } else {
-                  Storage::updateByCurrId(VND_CURRENCY_ID,$tran->fee);
-                }
+                // if($tran->currency_id == VND_CURRENCY_ID){
+                //   Storage::updateByCurrId(VND_CURRENCY_ID,(0-$tran->fee));
+                // } else {
+                Storage::updateByCurrId(VND_CURRENCY_ID,$tran->fee);
+                // }
                 break;
               case NO_PHI:
                 Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
