@@ -7,6 +7,7 @@ use backend\models\Debt;
 use backend\models\Storage;
 use backend\models\Transaction;
 use backend\models\Bill;
+use backend\models\ReferenceBill;
 use backend\models\FastBillSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -221,12 +222,13 @@ class FastBillController extends Controller
       try{
         $bills = Bill::findRefBill($type,$cus);
         foreach($bills as $b){
+          $count = ReferenceBill::find()->where(['reference_bill'=>$b->id])->count();
           $data[] = [
             'id'=>$b->id,
             'code'=>$b->code,
             'type'=>Yii::$app->params['bill_type'][$b->type],
             'url'=>$expUrl.$b->id,
-            'is_export' => $b->is_export == 1 ? 'Đã xuất':'Chưa xuất'
+            'is_export' => $count > 0 ? 'Đã sử dụng':'Chưa sử dụng'
           ];
         }
         $ret['errorCode'] = 0;
