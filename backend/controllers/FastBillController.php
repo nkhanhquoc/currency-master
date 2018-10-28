@@ -225,7 +225,8 @@ class FastBillController extends Controller
             'id'=>$b->id,
             'code'=>$b->code,
             'type'=>Yii::$app->params['bill_type'][$b->type],
-            'url'=>$expUrl.$b->id
+            'url'=>$expUrl.$b->id,
+            'is_export' => $b->is_export == 1 ? 'Đã xuất':'Chưa xuất'
           ];
         }
         $ret['errorCode'] = 0;

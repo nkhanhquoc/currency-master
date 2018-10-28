@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </span>
                 </div>
                 <div class="actions">
-                    <?= Html::a(Yii::t('backend', 'Tạo {modelClass}', [
+                    <?= Html::a(Yii::t('backend', 'Lập {modelClass}', [
     'modelClass' => 'Khách hàng',
 ]),
                         ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>

@@ -142,6 +142,7 @@ function findBill(){
 					rstr +='<td><input type="checkbox"'+(checkInRef(bill.id) ? 'checked="checked"':'') +'" onclick="checkDetail(this)" id="check_'+bill.id+'" value="'+bill.id+'"/></td>';
 					rstr +='<td class="form-group"><a target="_blank" href="'+bill.url+'">'+bill.code+'</a></td>';
 					rstr +='<td class="form-group">'+bill.type+'</td>';
+					rstr +='<td class="form-group">'+bill.is_export+'</td>';
 					$('#result-content').append(rstr);
 				});
 			} else {

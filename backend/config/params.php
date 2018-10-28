@@ -86,6 +86,7 @@ return [
         '21' => 'Cho nợ phí',
         '22' => 'Nhập Kho KH',
         '23' => 'Cửa hàng Đặt cọc',
+        '24' => 'Quê đặt cọc',
       ],
       'bill_type' => [
         '1'=>'Hóa đơn giao ngay',
@@ -100,7 +101,7 @@ return [
         '10' => 'Giao dịch Ngân hàng',
         '11' => 'Chi phí',
         '12' => 'Kho Khách hàng',
-        '13' => 'Tiền chuyển khác Quê'
-
+        '13' => 'Tiền chuyển khác Quê',
+        '14' => 'Vay mượn Quê'
       ]
 ];

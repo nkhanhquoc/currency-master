@@ -40,3 +40,4 @@ define('CHO_NO_PHI',21);
 define('NHAP_KHO_KH',22);
 define('KHACH_DAT_COC',11);
 define('CH_DAT_COC',23);
+define('QUE_DAT_COC',24);

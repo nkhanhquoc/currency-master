@@ -40,6 +40,7 @@ use yii\widgets\ActiveForm;
             <th><input type="checkbox" id="add-bill-checkall" onclick="checkAll()"/></th>
             <th>Mã Hóa Đơn</td>
             <th>Loại Hóa Đơn</td>
+            <th>Trạng thái</td>
           </tr>
           <tbody id="result-content">
           </tbody>
