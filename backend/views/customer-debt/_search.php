@@ -2,7 +2,7 @@
 use kartik\date\DatePicker;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use brussens\bootstrap\select\Widget as Select;
 /* @var $this yii\web\View */
 /* @var $model backend\models\ViewDebtSearch */
 /* @var $form yii\widgets\ActiveForm */
@@ -28,7 +28,11 @@ use yii\widgets\ActiveForm;
     ])
     ?>
 
-    <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer()) ?>
+    <?= $form->field($model, 'customer_id')->widget(Select::className(), [
+        'options' => ['data-live-search' => 'true','title'=>'Chọn Khách hàng'],
+        'items' => $model->getAllCustomer()
+    ]);
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
