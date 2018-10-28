@@ -86,7 +86,7 @@ class StorageController extends Controller
         }
         $model->is_updated = 1;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-          $st = Storage::find()->where(['currency_id'=>$model->currency_id])->orderBy(['date'=>'desc'])->one();
+          $st = Storage::find()->where(['currency_id'=>$model->currency_id])->orderBy(['id'=>SORT_DESC])->one();
           if($st){
             $st->quantity = $model->quantity;
             $st->save(false);
