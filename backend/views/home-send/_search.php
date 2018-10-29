@@ -58,9 +58,7 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
 
-        <?= Html::a(Yii::t('backend', 'Thêm {modelClass}', [
-'modelClass' => 'Tiền',
-]),
+        <?= Html::a(Yii::t('backend', 'Thêm Giao dịch'),
             ['create'], ['class' => 'btn btn-transparent green btn-outline']) ?>
     </div>
 

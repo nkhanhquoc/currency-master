@@ -162,6 +162,8 @@ trr+=     '<option value="1">Mua</option>';
 trr+=     '<option value="2">Bán</option>';
 trr+=     '<option value="9">Trả Tiền</option>';
 trr+=     '<option value="10">Nhận tiền</option>';
+trr+=     '<option value="14">Trả Feedback</option>';
+trr+=     '<option value="15">Nhận Feedback</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';

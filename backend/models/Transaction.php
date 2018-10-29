@@ -124,8 +124,6 @@ class Transaction extends TransactionBase{
     return [
       '5' => 'Vay',
       '6' => 'Cho vay',
-      '24' => 'Quê Đặt cọc',
-      '23' => 'Cửa hàng Đặt cọc'
     ];
   }
 

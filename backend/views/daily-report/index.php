@@ -72,16 +72,16 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= $data->getCurrencyName() ?>
                           </td>
                           <td>
-                            <?= number_format($data->quantity) ?>
+                            <?= number_format($data->quantity,2) ?>
                           </td>
                           <td>
                             <?= $data->exchange_rate ?>
                           </td>
                           <td>
-                            <?= number_format($data->value) ?>
+                            <?= number_format($data->value,2) ?>
                           </td>
                           <td>
-                            <?= number_format($data->fee) ?>
+                            <?= number_format($data->fee,2) ?>
                           </td>
                           <td>
                             <?= $data->created_time ?>

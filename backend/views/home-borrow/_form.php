@@ -139,8 +139,6 @@ trr+= '<td>';
 trr+=   '<select name="trans[type][]" class="form-control"> ';
 trr+=     '<option value="5">Vay</option>';
 trr+=     '<option value="6">Cho vay</option>';
-trr+=     '<option value="24">Quê Đặt cọc</option>';
-trr+=     '<option value="23">Cửa hàng Đặt cọc</option>';
 trr+=   '</select>';
 trr+=   '</td>';
 trr+= '<td>';

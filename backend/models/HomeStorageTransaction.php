@@ -23,9 +23,9 @@ class HomeStorageTransaction extends HomeStorageTransactionBase{
   public function rules()
   {
       return [
-          [['currency_id', 'quantity'], 'integer'],
+          [['currency_id'], 'integer'],
           [['created_time'], 'safe'],
-          [['note'], 'string', 'max' => 500]
+          [['note', 'quantity'], 'string', 'max' => 500]
       ];
   }
 
@@ -46,8 +46,9 @@ class HomeStorageTransaction extends HomeStorageTransactionBase{
     return $curr->name;
   }
 
+
   public function getFormatQuantity(){
-    return number_format($this->quantity);
+    return number_format($this->quantity,2);
   }
 
   public function attributeLabels() {

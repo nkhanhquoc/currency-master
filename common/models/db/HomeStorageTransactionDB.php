@@ -9,7 +9,7 @@ use Yii;
  *
  * @property string $id
  * @property string $currency_id
- * @property integer $quantity
+ * @property double $quantity
  * @property string $created_time
  * @property integer $type
  * @property string $note
@@ -30,9 +30,9 @@ class HomeStorageTransactionDB extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['currency_id', 'quantity', 'type'], 'integer'],
+            [['currency_id', 'type'], 'integer'],
             [['created_time'], 'safe'],
-            [['note'], 'string', 'max' => 500]
+            [['note', 'quantity'], 'string', 'max' => 500]
         ];
     }
 

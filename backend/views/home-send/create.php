@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = Yii::t('backend', '{modelClass}', [
     'modelClass' => 'Gửi Quê',
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Home Storage Transactions'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Gửi Quê'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row home-storage-transaction-create">

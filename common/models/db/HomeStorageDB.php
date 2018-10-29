@@ -10,7 +10,7 @@ use Yii;
  * @property string $id
  * @property string $currency_id
  * @property string $name
- * @property string $quantity
+ * @property double $quantity
  *
  * @property CurrencyDB $currency
  */
@@ -31,8 +31,8 @@ class HomeStorageDB extends \yii\db\ActiveRecord
     {
         return [
             [['currency_id'], 'required'],
-            [['currency_id', 'quantity'], 'integer'],
-            [['name'], 'string', 'max' => 255]
+            [['currency_id'], 'integer'],
+            [['name', 'quantity'], 'string', 'max' => 255]
         ];
     }
 

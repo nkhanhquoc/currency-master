@@ -61,10 +61,19 @@ class HomeSendController extends Controller
     public function actionCreate()
     {
         $model = new HomeStorageTransaction();
-        $model->created_time = date("Y-m-d h:i:s");
         $model->type = 2;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $params = Yii::$app->request->post();
+        if ($params) {
+          for($i = 0;$i< count($params["trans"]['currency_id']); $i++){
+            $trans = new HomeStorageTransaction();
+            $trans->type = 2;
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
+            $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->note = $params["trans"]['note'][$i];
+            // $model->fee +=
+            $trans->save();
+          }
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
@@ -84,7 +93,9 @@ class HomeSendController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->render('update', [
+                'model' => $model,
+            ]);
         } else {
             return $this->render('update', [
                 'model' => $model,

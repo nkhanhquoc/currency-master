@@ -29,11 +29,12 @@ use awesome\backend\form\AwsActiveForm;
         </div>
         <div class="portlet-body">
             <div class="form-body">
-                    <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
+              <?= $form->field($model, 'exchange_rate')->hiddenInput()->label(false); ?>
+              <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'code')->textInput(['maxlength' => 255]) ?>
+              <?= $form->field($model, 'code')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'type')->hiddenInput(['value'=>1])->label(false) ?>
+              <?= $form->field($model, 'type')->hiddenInput(['value'=>1])->label(false) ?>
 
             </div>
         </div>

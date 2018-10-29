@@ -63,6 +63,7 @@ class BankAccountController extends Controller
     public function actionCreate()
     {
         $model = new BankAccount();
+        $model->exchange_rate = 1;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
           $st = new Storage();
