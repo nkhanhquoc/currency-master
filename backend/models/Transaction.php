@@ -66,6 +66,8 @@ class Transaction extends TransactionBase{
 
   }
 
+  public function getCustomer
+
   public function getAllTransferType(){
     return [
       '3' => 'Nhận tiền chuyển',

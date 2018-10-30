@@ -59,7 +59,7 @@ class CostSearch extends Bill
         $query->andFilterWhere([
             'id' => $this->id,
             'type' => 11,
-            'customer_id' => -1,
+            'customer_id' => -2,
             'customer_type' => $this->customer_type,
             'created_date' => $this->created_date,
             'is_export' => $this->is_export,

@@ -169,6 +169,12 @@ class HomeTradingController extends Controller
                   Storage::updateByCurrId($tran->currency_id,$tran->quantity);
                   Debt::updateByCustomerNCurrency($model->customer_id,$tran->currency_id,(0-$tran->quantity));
                   break;
+                  case TRA_FEEDBACK:
+                      Storage::updateByCurrId($tran->currency_id, (0-$tran->quantity));
+                      break;
+                  case NHAN_FEEDBACK:
+                      Storage::updateByCurrId($tran->currency_id, $tran->quantity);
+                      break;
               default: break;
             }
           }
