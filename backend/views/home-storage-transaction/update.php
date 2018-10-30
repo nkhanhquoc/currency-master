@@ -6,9 +6,9 @@ use yii\helpers\Html;
 /* @var $model backend\models\HomeStorageTransaction */
 
 $this->title = Yii::t('backend', 'Update {modelClass}: ', [
-    'modelClass' => 'Home Storage Transaction',
+    'modelClass' => 'Kho Quê',
 ]) . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Home Storage Transactions'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Kho Quê'), 'url' => ['index']];
 //$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
 ?>

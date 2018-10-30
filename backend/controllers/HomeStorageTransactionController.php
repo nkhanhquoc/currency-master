@@ -64,19 +64,18 @@ class HomeStorageTransactionController extends Controller
     public function actionCreate()
     {
         $model = new HomeStorageTransaction();
-        $model->created_time = date("Y-m-d h:i:s");
-        $model->type = 1;
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $storage = HomeStorage::find()->where(['currency_id'=>$model->currency_id])->one();
-            if($storage){
-              $storage->quantity += $model->quantity;
-            } else {
-              $storage = new HomeStorage();
-              $storage->currency_id = $model->currency_id;
-              $storage->quantity = $model->quantity;
-            }
-            $storage->save();
+        $params = Yii::$app->request->post();
+        if ($params) {
+          //var_dump($params);die;
+          for($i = 0;$i< count($params["trans"]['currency_id']); $i++){
+            $trans = new HomeStorageTransaction();
+            $trans->type = 1;
+            $trans->currency_id = $params["trans"]['currency_id'][$i];
+            $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->note = $params["trans"]['note'][$i];
+            // $model->fee +=
+            $trans->save();
+          }
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
