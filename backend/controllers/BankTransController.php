@@ -77,6 +77,7 @@ class BankTransController extends Controller
             $trans->type = $params["trans"]['type'][$i];;
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->note =  $params["trans"]['note'][$i];
             $trans->save();
           }
             return $this->redirect(['update', 'id' => $model->id]);
@@ -112,6 +113,7 @@ class BankTransController extends Controller
             $trans->type = $params["trans"]['type'][$i];
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->note =  $params["trans"]['note'][$i];
             // $model->fee +=
             $trans->save(false);
         }

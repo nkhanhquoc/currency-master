@@ -12,12 +12,12 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
-        'method' => 'get',
+        'method' => 'post',
     ]); ?>
 
     <?= $form->field($model, 'customer_id')->dropDownList($model->getAllCustomer()) ?>
-
-    <?= $form->field($model, 'created_date')->widget(DatePicker::classname(), [
+<div class="col-md-6">
+    <?= $form->field($model, 'created_from')->widget(DatePicker::classname(), [
         'language' => 'vi',
         'readonly' => true,
         'options'=>[
@@ -30,7 +30,22 @@ use yii\widgets\ActiveForm;
 
     ])
     ?>
+</div>
+<div class="col-md-6">
+    <?= $form->field($model, 'created_to')->widget(DatePicker::classname(), [
+        'language' => 'vi',
+        'readonly' => true,
+        'options'=>[
+          'value' => date("Y-m-d"),
+        ],
+        'pluginOptions' => [
+            'autoclose'=>true,
+            'format' => 'yyyy-mm-dd'
+        ]
 
+    ])
+    ?>
+</div>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>

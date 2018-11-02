@@ -64,9 +64,7 @@ class Transaction extends TransactionBase{
       }
     }
 
-  }
-
-  public function getCustomer
+  } 
 
   public function getAllTransferType(){
     return [

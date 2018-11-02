@@ -15,11 +15,20 @@ class CustomerDailySearch extends Bill
     /**
      * @inheritdoc
      */
+     public $created_from;
+     public $created_to;
     public function rules()
     {
         return [
             [['id', 'type', 'customer_id', 'customer_type', 'is_export'], 'integer'],
             [['code', 'value', 'note', 'receiver', 'deposit', 'fee', 'created_date'], 'safe'],
+        ];
+    }
+
+    public function attributeLabels() {
+        return [
+            'created_from' => 'Thời gian lập từ',
+            'created_to' => 'Thời gian lập đến',
         ];
     }
 
@@ -56,8 +65,12 @@ class CustomerDailySearch extends Bill
             return $dataProvider;
         }
           // $query->where([]);
-        if($this->created_date)
-        $query->andWhere(['between','created_date',$this->created_date,$this->created_date.' 23:59:59']);
+        if($params['CustomerDailySearch']['created_from'])
+        $query->andWhere(['>=','created_date',$params['CustomerDailySearch']['created_from']]);
+
+        if($params['CustomerDailySearch']['created_to'])
+        $query->andWhere(['<=','created_date',$params['CustomerDailySearch']['created_to']]);
+
         if($this->customer_id)
         $query->andWhere(['customer_id'=>$this->customer_id]);
         // $query->andFilterWhere([

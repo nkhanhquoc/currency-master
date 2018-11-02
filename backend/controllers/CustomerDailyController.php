@@ -8,6 +8,8 @@ use backend\models\CustomerDailySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 /**
  * CustomerDailyController implements the CRUD actions for Bill model.
@@ -33,9 +35,9 @@ class CustomerDailyController extends Controller
     public function actionIndex()
     {
         $searchModel = new CustomerDailySearch();
-        $params = Yii::$app->request->queryParams;
+        $params = Yii::$app->request->post();
         if(count($params) >0 )
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($params);
         else $dataProvider = [];
 
 
@@ -105,6 +107,17 @@ class CustomerDailyController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionExcel(){
+      $searchModel = new CustomerDailySearch();
+      $params = Yii::$app->request->queryParams;
+      if(count($params) >0 )
+      $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+      $models = $dataProvider->getModels();
+      foreach($models as $model){
+
+      }
     }
 
     /**
