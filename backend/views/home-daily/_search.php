@@ -12,7 +12,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
-        'method' => 'get',
+        'method' => 'post',
+        'id'=>'home_daily_search_form'
     ]); ?>
 
     <?php echo $form->field($model, 'created_date')->widget(DatePicker::classname(), [
@@ -28,10 +29,11 @@ use yii\widgets\ActiveForm;
 
     ])
     ?>
+    <input type="hidden" name="excel" id="excel" value="<?= $isExcel ?>"/>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <button class="btn btn-success">Tìm</button>
+        <span class="btn btn-success" onclick="exportExcel()">Excel</span>
     </div>
 
     <?php ActiveForm::end(); ?>

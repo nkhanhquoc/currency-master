@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Transaction;
 use backend\models\Bill;
 use backend\models\HomeDailySearch;
 use yii\web\Controller;
@@ -33,14 +34,20 @@ class HomeDailyController extends Controller
     public function actionIndex()
     {
         $searchModel = new HomeDailySearch();
-        $params = Yii::$app->request->queryParams;
+        $params = Yii::$app->request->post();
         if(empty($params)){
           $params = ['HomeDailySearch'=>['created_date'=>date("Y-m-d")]];
           $searchModel['created_date'] = $selectDate;
         }
         $dataProvider = $searchModel->search($params);
+        $isExcel = 0;
+        if($params['excel'] == 1){
+          //$this->redirect('excel',$dataProvider->getModels());
+            return $this->actionExcel($dataProvider->getModels());
+        }
         return $this->render('index', [
             'searchModel' => $searchModel,
+            'isExcel'=>$isExcel,
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -121,5 +128,56 @@ class HomeDailyController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionExcel($models) {
+      // die("vao day");
+        // $sensors = Sensor::getReport($from,$to,$moduleId);
+        ob_end_clean();
+        $fp = fopen('php://output', 'w');
+        fputs($fp, "\xEF\xBB\xBF"); // UTF-8 BOM !!!!!
+        $delimiter = ',';
+        fputcsv($fp, array("\t", "Ngày: ", $moduleId, "From: ", $from, "To:", $to));
+        fputcsv($fp, array(), $delimiter);
+        fputcsv($fp, array("#", "Hóa Đơn", "Ghi Chú", "Loại GD", "Loại Tiền", "Số lượng", "Tỉ giá", "Thành tiền","Phí","Ngày"), $delimiter);
+
+        $j = 1;
+        foreach ($models as $model) {
+          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
+          foreach($trans as $tran){
+            $put = array(
+                $j,
+                $model->code,
+                $tran->note,
+                $tran->getTypeName(),
+                $tran->getCurrencyName(),
+                $tran->quantity,
+                $tran->exchange_rate,
+                $tran->value,
+                $tran->fee,
+                $tran->created_time,
+            );
+            fputcsv($fp, $put, $delimiter);
+            $j++;
+          }
+        }
+        // fclose($fp);
+        ini_set('max_execution_time', 3600);
+        ini_set('memory_limit', '-1');
+        $fileName = 'Bao_cao_Que_' . date('Ymd_His') . '.csv';
+
+        ob_start();
+
+        header("Pragma: public");
+        header('Content-Encoding: UTF-8');
+        header("Content-type: application/vnd.ms-excel; charset=UTF-8");
+        // header("Content-Type: application/csv; charset=utf-8");
+        header("Cache-Control: public, must-revalidate, max-age=0");
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Content-Disposition: attachment; filename="' . $fileName.'"');
+        //  echo "\xEF\xBB\xBF"; //cau echo nay de hien thi duoc tieng viet trong file csv khi mo bang excel
+        exit();
+
     }
 }

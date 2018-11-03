@@ -237,3 +237,8 @@ function exportBill(url){
 		f.submit();
 	}
 }
+
+function exportExcel(){
+	$('#excel').val(1);
+	$('#home_daily_search_form').submit();
+}

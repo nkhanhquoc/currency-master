@@ -1,6 +1,6 @@
 <?php
-
-
+use kartik\export\ExportMenu;
+use kartik\grid\GridView;
 use awesome\backend\grid\AwsGridView;
 use awesome\backend\widgets\AwsBaseHtml;
 use yii\helpers\Html;
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-12">
         <div class="portlet light portlet-fit portlet-datatable bordered">
             <div class="portlet-title">
-                                        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+                                        <?php echo $this->render('_search', ['model' => $searchModel,'isExcel'=>$isExcel]); ?>
                                 <div class="caption">
                     <i class="icon-layers font-green"></i>
                     <span class="caption-subject font-green sbold uppercase">
@@ -25,10 +25,24 @@ $this->params['breadcrumbs'][] = $this->title;
                     </span>
                 </div>
                 <div class="actions">
-                    <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Bill',
-]),
-                        ['create'], ['class' => 'btn btn-transparent green btn-outline btn-circle btn-sm']) ?>
+
+          <?php
+
+
+           echo ExportMenu::widget([
+                      'dataProvider' => $dataProvider,
+                      'target'=>ExportMenu::TARGET_BLANK,
+                      'dropdownOptions' => [
+                          'label' => 'Export All',
+                          'class' => 'btn btn-secondary'
+                      ]
+                  ]);
+                  //  . "<hr>\n".
+                  // GridView::widget([
+                  //     'dataProvider' => $dataProvider
+                  // ]);
+?>
+
                 </div>
             </div>
 

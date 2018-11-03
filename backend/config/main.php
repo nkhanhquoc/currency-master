@@ -97,7 +97,10 @@ return [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@backend/messages',
                 ],
-
+                'kvexport' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@vendor/kartik-v/yii2-grid/src/messages',
+                ],
             ],
         ],
     ],
