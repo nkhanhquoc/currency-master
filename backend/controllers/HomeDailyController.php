@@ -41,10 +41,7 @@ class HomeDailyController extends Controller
         }
         $dataProvider = $searchModel->search($params);
         $isExcel = 0;
-        if($params['excel'] == 1){
-          //$this->redirect('excel',$dataProvider->getModels());
-            $this->exportExcel($dataProvider->getModels());
-        }
+      
         return $this->render('index', [
             'searchModel' => $searchModel,
             'isExcel'=>$isExcel,
