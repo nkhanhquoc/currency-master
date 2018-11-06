@@ -34,7 +34,7 @@ class DailyReportController extends Controller
     {
         $searchModel = new DailyReportSearch();
         $params = Yii::$app->request->queryParams;
-        
+
         if(empty($params)){
           $params = ['DailyReportSearch'=>['created_time'=>date("Y-m-d")]];
         }

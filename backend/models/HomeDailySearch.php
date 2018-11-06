@@ -55,7 +55,7 @@ class HomeDailySearch extends Bill
             // $query->where('0=1');
             return $dataProvider;
         }
-        $query->where(['customer_id'=>0]);
+        $query->where(['customer_id'=>0,'is_export'=>1]);
         if($this->created_date)
         $query->andWhere(['between','created_date',$this->created_date,$this->created_date.' 23:59:59']);
 

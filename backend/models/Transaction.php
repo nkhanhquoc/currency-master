@@ -21,6 +21,11 @@ class Transaction extends TransactionBase{
       ];
   }
 
+  public function getBills()
+    {
+        return $this->hasOne(Bill::className(), ['id' => 'bill_id']);
+    }
+
   public function attributeLabels()
   {
       return [
@@ -64,7 +69,7 @@ class Transaction extends TransactionBase{
       }
     }
 
-  } 
+  }
 
   public function getAllTransferType(){
     return [

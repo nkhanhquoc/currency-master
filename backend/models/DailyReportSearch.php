@@ -41,7 +41,9 @@ class DailyReportSearch extends Transaction
      */
     public function search($params)
     {
-        $query = Transaction::find();
+        $query = Transaction::find()
+        ->innerJoinWith('bills')
+        ->where(['bill.is_export'=>1]);
 
 
         $dataProvider = new ActiveDataProvider([
@@ -57,7 +59,7 @@ class DailyReportSearch extends Transaction
             // $query->where('0=1');
             return $dataProvider;
         }
-        $query->where([' is not ','bill_id',null])
+        $query->andWhere([' is not ','bill_id',null])
         ->andWhere(['<>','bill_id',0]);
         if($this->created_time)
         $query->andWhere(['between','created_time',$this->created_time,$this->created_time.' 23:59:59']);

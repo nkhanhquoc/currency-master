@@ -73,6 +73,8 @@ class CustomerDailySearch extends Bill
 
         if($this->customer_id)
         $query->andWhere(['customer_id'=>$this->customer_id]);
+        $query->andWhere(['is_export'=>1]);
+
         // $query->andFilterWhere([
         //     'id' => $this->id,
         //     'type' => $this->type,
