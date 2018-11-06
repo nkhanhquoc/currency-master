@@ -34,7 +34,7 @@ class HomeDailyController extends Controller
     public function actionIndex()
     {
         $searchModel = new HomeDailySearch();
-        $params = Yii::$app->request->post();
+        $params = Yii::$app->request->queryParams;
         if(empty($params)){
           $params = ['HomeDailySearch'=>['created_date'=>date("Y-m-d")]];
           $searchModel['created_date'] = $selectDate;
@@ -43,7 +43,7 @@ class HomeDailyController extends Controller
         $isExcel = 0;
         if($params['excel'] == 1){
           //$this->redirect('excel',$dataProvider->getModels());
-            return $this->actionExcel($dataProvider->getModels());
+            $this->exportExcel($dataProvider->getModels());
         }
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -130,14 +130,25 @@ class HomeDailyController extends Controller
         }
     }
 
-    public function actionExcel($models) {
-      // die("vao day");
-        // $sensors = Sensor::getReport($from,$to,$moduleId);
+    public function exportExcel($models) {
+        $fileName = 'Bao_cao_Que_' . date('Ymd_His') . '.csv';
+        // var_dump(Yii::getAlias('@webroot'));die;
+        ob_start();
+
+        header("Pragma: public");
+        header('Content-Encoding: UTF-8');
+
+        header("Content-Type: application/csv; charset=utf-8");
+        header("Cache-Control: public, must-revalidate, max-age=0");
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Content-Disposition: attachment; filename='.$fileName);
         ob_end_clean();
+        // $file = Yii::getAlias('@webroot').'/tmp/'.$fileName;
         $fp = fopen('php://output', 'w');
         fputs($fp, "\xEF\xBB\xBF"); // UTF-8 BOM !!!!!
         $delimiter = ',';
-        fputcsv($fp, array("\t", "Ngày: ", $moduleId, "From: ", $from, "To:", $to));
+        // fputcsv($fp, array("\t", "Ngày: ", $moduleId, "From: ", $from, "To:", $to));
         fputcsv($fp, array(), $delimiter);
         fputcsv($fp, array("#", "Hóa Đơn", "Ghi Chú", "Loại GD", "Loại Tiền", "Số lượng", "Tỉ giá", "Thành tiền","Phí","Ngày"), $delimiter);
 
@@ -161,23 +172,11 @@ class HomeDailyController extends Controller
             $j++;
           }
         }
-        // fclose($fp);
-        ini_set('max_execution_time', 3600);
-        ini_set('memory_limit', '-1');
-        $fileName = 'Bao_cao_Que_' . date('Ymd_His') . '.csv';
-
-        ob_start();
-
-        header("Pragma: public");
-        header('Content-Encoding: UTF-8');
-        header("Content-type: application/vnd.ms-excel; charset=UTF-8");
-        // header("Content-Type: application/csv; charset=utf-8");
-        header("Cache-Control: public, must-revalidate, max-age=0");
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Content-Disposition: attachment; filename="' . $fileName.'"');
+        fclose($fp);
+        // if(file_exists($file)){
+        //   return Yii::$app->response->SendFile($file);
+        // }
         //  echo "\xEF\xBB\xBF"; //cau echo nay de hien thi duoc tieng viet trong file csv khi mo bang excel
         exit();
-
     }
 }

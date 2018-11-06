@@ -27,20 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="actions">
 
           <?php
-
-
            echo ExportMenu::widget([
                       'dataProvider' => $dataProvider,
                       'target'=>ExportMenu::TARGET_BLANK,
+                      'showConfirmAlert'=>false,
                       'dropdownOptions' => [
                           'label' => 'Export All',
                           'class' => 'btn btn-secondary'
                       ]
                   ]);
-                  //  . "<hr>\n".
-                  // GridView::widget([
-                  //     'dataProvider' => $dataProvider
-                  // ]);
+
 ?>
 
                 </div>
@@ -48,9 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="portlet-body">
                 <div class="table-container">
-                    <?php
-                    Pjax::begin(['formSelector' => 'form', 'enablePushState' => false, 'id' => 'mainGridPjax']);
-                    ?>
+
                     <table class="table table-bordered">
                       <tr class="list-group-item-success">
                         <th>Khách hàng </th>
@@ -109,9 +103,7 @@ $this->params['breadcrumbs'][] = $this->title;
                       <?php endforeach;?>
                     <?php endif;?>
                     </table>
-                    <?php
-                    Pjax::end();
-                    ?>
+
                 </div>
             </div>
         </div>
