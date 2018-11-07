@@ -41,7 +41,12 @@ class HomeDailyController extends Controller
         }
         $dataProvider = $searchModel->search($params);
         $isExcel = 0;
-      
+        $listTrans = [];
+        // foreach($dataProvider->getModels() as $bill){
+        //   foreach($bill->getAllTrans() as $tran){
+        //     $listTrans[] = $tran;
+        //   }
+        // }
         return $this->render('index', [
             'searchModel' => $searchModel,
             'isExcel'=>$isExcel,

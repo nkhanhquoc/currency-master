@@ -41,7 +41,9 @@ class HomeDailySearch extends Bill
      */
     public function search($params)
     {
-        $query = Bill::find();
+      $query = Transaction::find()
+      ->innerJoinWith('bills')
+      ->where(['bill.is_export'=>1,'bill.customer_id' => 0]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -55,9 +57,10 @@ class HomeDailySearch extends Bill
             // $query->where('0=1');
             return $dataProvider;
         }
-        $query->where(['customer_id'=>0,'is_export'=>1]);
+        $query->andWhere([' is not ','bill_id',null])
+        ->andWhere(['<>','bill_id',0]);
         if($this->created_date)
-        $query->andWhere(['between','created_date',$this->created_date,$this->created_date.' 23:59:59']);
+        $query->andWhere(['between','created_time',$this->created_date,$this->created_date.' 23:59:59']);
 
 
         // $query->andFilterWhere([

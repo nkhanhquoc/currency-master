@@ -57,51 +57,49 @@ $this->params['breadcrumbs'][] = $this->title;
                         <th>Phí</th>
                         <th>Ngày</th>
                       </tr>
-                      <?php $billArr = []; if(is_object($dataProvider)):?>
+                      <?php $billArr = [];?>
                       <?php foreach($dataProvider->getModels() as $data):?>
-                        <?php if(!in_array($data->id,$billArr)):?>
-                          <?php $billArr[] = $data->id; $trans = $data->getAllTrans();?>
+                        <?php if(!in_array($data->bill_id,$billArr)):?>
+                          <?php $billArr[] = $data->bill_id; $bill = $data->getBill();?>
                           <tr class="list-group-item-info" style="font-weight:bold">
                             <td colspan="2">
-                              <?= $data->code ?>
+                              <?= count($billArr).'.'.$bill->code ?>
                             </td>
                             <td colspan="7">
+
                             </td>
                           </tr>
                         <?php endif;?>
-                        <?php foreach($trans as $tran):?>
-                          <tr>
-                            <td>
-                              <?= $data->getCustomer() ?>
-                            </td>
-                            <td>
-                              <?= $tran->note ?>
-                            </td>
-                            <td>
-                              <?= $tran->getTypeName() ?>
-                            </td>
-                            <td>
-                              <?= $tran->getCurrencyName() ?>
-                            </td>
-                            <td>
-                              <?= number_format($tran->quantity,2) ?>
-                            </td>
-                            <td>
-                              <?= $tran->exchange_rate ?>
-                            </td>
-                            <td>
-                              <?= number_format($tran->value,2) ?>
-                            </td>
-                            <td>
-                              <?= number_format($tran->fee) ?>
-                            </td>
-                            <td>
-                              <?= $tran->created_time ?>
-                            </td>
-                          </tr>
-                        <?php endforeach;?>
+                        <tr>
+                          <td>
+                            <?= $bill->getCustomer() ?>
+                          </td>
+                          <td>
+                            <?= $data->note ?>
+                          </td>
+                          <td>
+                            <?= $data->getTypeName() ?>
+                          </td>
+                          <td>
+                            <?= $data->getCurrencyName() ?>
+                          </td>
+                          <td>
+                            <?= number_format($data->quantity,2) ?>
+                          </td>
+                          <td>
+                            <?= $data->exchange_rate ?>
+                          </td>
+                          <td>
+                            <?= number_format($data->value,2) ?>
+                          </td>
+                          <td>
+                            <?= number_format($data->fee,2) ?>
+                          </td>
+                          <td>
+                            <?= $data->created_time ?>
+                          </td>
+                        </tr>
                       <?php endforeach;?>
-                    <?php endif;?>
                     </table>
 
                 </div>
