@@ -34,6 +34,7 @@ use yii\widgets\Pjax;
 
     <div class="form-group">
         <button class="btn btn-success">Tìm</button>
+        <span class="btn btn-success" onclick="exportExcel()">Excel</span>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -47,6 +47,9 @@ class HomeDailyController extends Controller
         //     $listTrans[] = $tran;
         //   }
         // }
+        if($params['excel'] == 1){
+          $this->exportExcel($dataProvider->getModels());
+        }
         return $this->render('index', [
             'searchModel' => $searchModel,
             'isExcel'=>$isExcel,
