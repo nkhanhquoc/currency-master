@@ -158,12 +158,10 @@ class HomeDailyController extends Controller
         fputcsv($fp, array("#", "Hóa Đơn", "Ghi Chú", "Loại GD", "Loại Tiền", "Số lượng", "Tỉ giá", "Thành tiền","Phí","Ngày"), $delimiter);
 
         $j = 1;
-        foreach ($models as $model) {
-          $trans = Transaction::find()->where(['bill_id'=>$model->id])->all();
-          foreach($trans as $tran){
+        foreach ($models as $tran) {
             $put = array(
                 $j,
-                $model->code,
+                $tran->getBill()->code,
                 $tran->note,
                 $tran->getTypeName(),
                 $tran->getCurrencyName(),
@@ -175,7 +173,6 @@ class HomeDailyController extends Controller
             );
             fputcsv($fp, $put, $delimiter);
             $j++;
-          }
         }
         fclose($fp);
         // if(file_exists($file)){
