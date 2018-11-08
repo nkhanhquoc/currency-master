@@ -26,18 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="actions">
 
-          <?php
-           echo ExportMenu::widget([
-                      'dataProvider' => $dataProvider,
-                      'target'=>ExportMenu::TARGET_BLANK,
-                      'showConfirmAlert'=>false,
-                      'dropdownOptions' => [
-                          'label' => 'Export All',
-                          'class' => 'btn btn-secondary'
-                      ]
-                  ]);
-
-?>
 
                 </div>
             </div>
