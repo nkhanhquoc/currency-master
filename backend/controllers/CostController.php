@@ -80,6 +80,7 @@ class CostController extends Controller
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity = $params["trans"]['quantity'][$i];
             $trans->exchange_rate = 1;
+            $trans->note = $params["trans"]['note'][$i];
             // $model->fee +=
             $trans->save(false);
           }
@@ -121,6 +122,7 @@ class CostController extends Controller
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity =  $params["trans"]['quantity'][$i];
             $trans->exchange_rate =  1;
+            $trans->note = $params["trans"]['note'][$i];
             // $model->fee +=
             $trans->save(false);
           }
