@@ -168,6 +168,17 @@ class Transaction extends TransactionBase{
     ];
   }
 
+  public function getAllHomeTrading(){
+    return [
+      '1' => 'Mua',
+      '2' => 'Bán',
+      '9' => 'Trả Tiền',
+      '10' => 'Nhận Tiền',
+      '14' => 'Trả Feedback',
+      '15' => 'Nhận Feedback',
+    ];
+  }
+
   public function getBankAccount(){
     $query = Currency::find()->where(['type'=>1])->all();
     $list = [];
