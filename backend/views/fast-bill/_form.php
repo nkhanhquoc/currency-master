@@ -61,7 +61,7 @@ use brussens\bootstrap\select\Widget as Select;
                       <tr>
                         <th class="text-center">      TT    </th>
                         <th class="text-center">      Ghi chú    </th>
-                        <th class="text-center">      Giao dịch    </th>
+                        <th class="text-center"  style="width:20%">      Giao dịch    </th>
                         <th class="text-center">      Loại    </th>
                         <th class="text-center">      Số Lượng    </th>
                         <th class="text-center">      Tỉ giá    </th>
@@ -138,7 +138,7 @@ use brussens\bootstrap\select\Widget as Select;
                         <th>Loại Tiền  </th>
                         <th>Số Lượng</th>
                         <th>Phí</th>
-                        <th>Thành tiền</th>                        
+                        <th>Thành tiền</th>
                         <th></th>
                       </tr>
                       <tbody id="list-ref-content">
