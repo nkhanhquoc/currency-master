@@ -101,7 +101,7 @@ use brussens\bootstrap\select\Widget as Select;
                         </tr>
                       <?php endforeach;?>
                       <tr id="tr-sum" style="display:none">
-                        
+
                       </tr>
 
                     </table>

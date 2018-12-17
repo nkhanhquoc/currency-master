@@ -137,10 +137,10 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->id;
                       <input name="trans[quantity][]" disabled="disabled" value="<?= number_format($tran->quantity,2) ?>" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[fee][]" disabled="disabled" value="<?= number_format($tran->fee) ?>" class="form-control"/>
+                      <input name="trans[fee][]" disabled="disabled" value="<?= number_format($tran->fee,2) ?>" class="form-control"/>
                     </td>
                     <td>
-                      <input name="trans[real_value][]" disabled="disabled" value="<?= number_format($tran->real_value,2) ?>" class="form-control"/>
+                      <input name="trans[real_value][]" disabled="disabled" value="<?= number_format($tran->real_value,3) ?>" class="form-control"/>
                     </td>
                   </tr>
                 <?php endforeach;?>

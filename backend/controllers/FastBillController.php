@@ -271,9 +271,9 @@ public function groupTrans($bills){
         'customer'=>$b->getCustomer(),
         'type' => $tran->getTypeName(),
         'currency_name'=>$tran->getCurrencyName(),
-        'quantity' => number_format($tran->quantity),
-        'fee' => number_format($tran->fee),
-        'value' => number_format($tran->value)
+        'quantity' => number_format($tran->quantity,2),
+        'fee' => number_format($tran->fee,2),
+        'value' => in_array($b->type,[6,13]) ? number_format($tran->real_value,3) :  number_format($tran->value,2)
       ];
     }
   }
