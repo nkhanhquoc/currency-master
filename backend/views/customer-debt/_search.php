@@ -34,6 +34,12 @@ use brussens\bootstrap\select\Widget as Select;
     ]);
     ?>
 
+    <?= $form->field($model, 'is_debt')->widget(Select::className(), [
+        'options' => ['data-live-search' => 'true','title'=>'Tình trạng '],
+        'items' => [0=>"Không nợ",1=>"Có nợ"]
+    ]);
+    ?>
+
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>

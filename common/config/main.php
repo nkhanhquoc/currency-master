@@ -19,7 +19,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=127.0.0.1;dbname=currencymanager',
             'username' => 'root',
-            'password' => '',
+            'password' => 'Welcome1',
             'charset' => 'utf8',
             'enableSchemaCache' => false,
             // Duration of schema cache.

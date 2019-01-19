@@ -12,6 +12,7 @@ use backend\models\Bill;
  */
 class CustomerDebtSearch extends Bill
 {
+    public $is_debt;
     /**
      * @inheritdoc
      */
@@ -20,6 +21,15 @@ class CustomerDebtSearch extends Bill
         return [
             [['id', 'type', 'customer_id', 'customer_type', 'is_export'], 'integer'],
             [['code', 'value', 'note', 'receiver', 'deposit', 'fee', 'created_date'], 'safe'],
+        ];
+    }
+
+    public function attributeLabels() {
+
+        return [
+            'is_debt'=>'Tình trạng nợ',
+            'customer_id'=>'Khách hàng',
+            'date'=>'Ngày'
         ];
     }
 
@@ -76,15 +86,43 @@ class CustomerDebtSearch extends Bill
         return $dataProvider;
     }
 
-    public function searchDebt($date,$cusid){
-      $query = Yii::$app->db
-      ->createCommand("select sum(value) as value, currency_id from view_debt where id in (select max(id) from view_debt
+//    public function searchDebt($date,$cusid,$is_debt=0){
+//        if($cusid != null){
+//
+//        }
+//      $query = Yii::$app->db
+//      ->createCommand("select sum(value) as value, currency_id from view_debt where id in (select max(id) from view_debt
+//              where date <= :date group by customer_id, currency_id
+//              ) and customer_id = :cusid
+//              group by currency_id")
+//              ->bindValue(":date",$date.' 23:59:59')
+//              ->bindValue(":cusid",$cusid)
+//              ->queryAll();
+//      return $query;
+//    }
+    public function searchDebt($date,$cusid,$is_debt=0){
+        $query = "select sum(value) as value, currency_id from view_debt where id in (select max(id) from view_debt
               where date <= :date group by customer_id, currency_id
-              ) and customer_id = :cusid
-              group by currency_id")
-              ->bindValue(":date",$date.' 23:59:59')
-              ->bindValue(":cusid",$cusid)
-              ->queryAll();
-      return $query;
+              )";
+//        var_dump($query);
+        if($is_debt > 0){
+            $query.=" and value > 0";
+        }
+//        var_dump($query);
+        if($cusid != null){
+            $query.=" and customer_id = :cusid";
+        }
+        $query.=" group by currency_id";
+//        die("abc".$query);
+
+        $query = Yii::$app->db
+            ->createCommand($query)
+            ->bindValue(":date",$date.' 23:59:59');
+        if($cusid != null){
+            $query->bindValue(":cusid",$cusid);
+        }
+
+         $ret =$query->queryAll();
+        return $ret;
     }
 }
