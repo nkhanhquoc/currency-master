@@ -78,7 +78,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= $data->exchange_rate ?>
                           </td>
                           <td>
-                            <?= number_format($data->value,2) ?>
+                              <?php if($bill->type == 6):?>
+                            <?= number_format($data->real_value,2) ?>
+                              <?php else: ?>
+                                  <?= number_format($data->value,2) ?>
+                              <?php endif;?>
                           </td>
                           <td>
                             <?= number_format($data->fee,2) ?>
