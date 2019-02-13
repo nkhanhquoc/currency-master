@@ -77,6 +77,7 @@ class BorrowController extends Controller
             $trans->type = $params["trans"]['type'][$i];
             $trans->currency_id = $params["trans"]['currency_id'][$i];
             $trans->quantity =  $params["trans"]['quantity'][$i];
+            $trans->note =  $params["trans"]['note'][$i];
             // $model->fee +=
             $trans->save();
           }
