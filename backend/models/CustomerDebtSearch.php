@@ -100,15 +100,11 @@ class CustomerDebtSearch extends Bill
 //              ->queryAll();
 //      return $query;
 //    }
-    public function searchDebt($date,$cusid,$is_debt=0){
+    public function searchDebt($date,$cusid){
         $query = "select sum(value) as value, currency_id from view_debt where id in (select max(id) from view_debt
               where date <= :date group by customer_id, currency_id
               )";
-        if($is_debt > 0 || $is_debt == ""){
-            $query.=" and value > 0";
-        } else {
-          $query.=" and value <= 0";
-        }
+
 
         if($cusid != null){
             $query.=" and customer_id = :cusid";
@@ -126,15 +122,11 @@ class CustomerDebtSearch extends Bill
         return $ret;
     }
 
-    public function searchDebtByCus($date,$cusid,$is_debt=0){
+    public function searchDebtByCus($date,$cusid){
         $query = "select sum(value) as value, currency_id, customer_id from view_debt where id in (select max(id) from view_debt
               where date <= :date group by customer_id, currency_id
               )";
-        if($is_debt > 0 || $is_debt == ""){
-            $query.=" and value > 0";
-        } else {
-          $query.=" and value <= 0";
-        }
+
 
         if($cusid != null){
             $query.=" and customer_id = :cusid";
