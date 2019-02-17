@@ -125,4 +125,30 @@ class CustomerDebtSearch extends Bill
          $ret =$query->queryAll();
         return $ret;
     }
+
+    public function searchDebtByCus($date,$cusid,$is_debt=0){
+        $query = "select sum(value) as value, currency_id, customer_id from view_debt where id in (select max(id) from view_debt
+              where date <= :date group by customer_id, currency_id
+              )";
+        if($is_debt > 0 || $is_debt == ""){
+            $query.=" and value > 0";
+        } else {
+          $query.=" and value <= 0";
+        }
+
+        if($cusid != null){
+            $query.=" and customer_id = :cusid";
+        }
+        $query.=" group by currency_id, customer_id order by customer_id, currency_id";
+        $date.= " 23:59:59";
+        $query = Yii::$app->db
+            ->createCommand($query)
+            ->bindValue(":date",$date);
+        if($cusid != null){
+            $query->bindValue(":cusid",$cusid);
+        }
+
+         $ret =$query->queryAll();
+        return $ret;
+    }
 }

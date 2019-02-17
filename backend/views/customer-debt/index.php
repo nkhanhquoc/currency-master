@@ -4,6 +4,7 @@ use awesome\backend\widgets\AwsBaseHtml;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use backend\models\Currency;
+use backend\models\Customer;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ViewDebtSearch */
@@ -68,6 +69,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     </table>
                   <?php endif;?>
                     <div class="clearfix">
+
+                      <h2>Chi tiết</h2>
+                      <table class="table">
+                        <tr>
+                          <th>Khách hàng</th>
+                          <th>Loại tiền </th>
+                          <th>Số lượng </th>
+                        </tr>
+                        <?php foreach($currentDebtByCus as $k=> $debtCus):?>
+                          <tr>
+                            <td><?= Customer::findOne($debtCus['customer_id'])->name ?></td>
+                            <td><?= Currency::findOne($debtCus['currency_id'])->code ?></td>
+                            <td><?= $debtCus['value'] ?></td>
+                          </tr>
+                        <?php endforeach;?>
+                      </table>
+
 
                     </div>
                     <?php

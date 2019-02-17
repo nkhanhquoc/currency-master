@@ -39,8 +39,9 @@ class CustomerDebtController extends Controller
         $selectDate = $params['CustomerDebtSearch']['date'];
         $selectCus = $params['CustomerDebtSearch']['customer_id'];
         $isDebt = $params['CustomerDebtSearch']['is_debt'];
-
         $currentDebt = $searchModel->searchDebt($selectDate,$selectCus,$isDebt);
+        $currentDebtByCus = $searchModel->searchDebtByCus($selectDate,$selectCus,$isDebt);
+        // var_dump($currentDebtByCus);die;
         $beforeDate = date('Y-m-d', strtotime('-1 day', strtotime($selectDate)));
         $oldDebt = $searchModel->searchDebt($beforeDate,$selectCus);
 
@@ -68,6 +69,7 @@ class CustomerDebtController extends Controller
             'selectDate'=>$selectDate,
             'beforeDate'=>$beforeDate,
             'currentDebt' =>$currentDebt,
+            'currentDebtByCus' =>$currentDebtByCus,
             'totalDebt'=>$totalDebt,
             'totalOldDebt' =>$totalOldDebt
         ]);
