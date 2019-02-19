@@ -103,7 +103,7 @@ class CustomerDebtSearch extends Bill
     public function searchDebt($date,$cusid){
         $query = "select sum(value) as value, currency_id from view_debt where id in (select max(id) from view_debt
               where date <= :date group by customer_id, currency_id
-              ) and value > 0";
+              ) and value <> 0";
 
 
         if($cusid != null){
@@ -125,7 +125,7 @@ class CustomerDebtSearch extends Bill
     public function searchDebtByCus($date,$cusid){
         $query = "select sum(value) as value, currency_id, customer_id from view_debt where id in (select max(id) from view_debt
               where date <= :date group by customer_id, currency_id
-              ) and value > 0";
+              ) and value <> 0";
 
 
         if($cusid != null){

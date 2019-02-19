@@ -81,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                           <tr>
                             <td><?= Customer::findOne($debtCus['customer_id'])->name ?></td>
                             <td><?= Currency::findOne($debtCus['currency_id'])->code ?></td>
-                            <td><?= $debtCus['value'] ?></td>
+                            <td><?= number_format($debtCus['value'],3) ?></td>
                           </tr>
                         <?php endforeach;?>
                       </table>
